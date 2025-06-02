@@ -1,0 +1,199 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "es_image_banner_RjY6ic": {
+      "type": "es-image-banner",
+      "blocks": {
+        "heading_rRbi8j": {
+          "type": "heading",
+          "settings": {
+            "subheading": "",
+            "heading": "Shop Richardson Hats",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_rRbi8j"
+      ],
+      "settings": {
+        "show_space": false,
+        "image": "shopify:\/\/shop_images\/Mask_group_1_f921e045-73ef-4400-b9f9-04b557a965b1.png",
+        "image_mobile": "shopify:\/\/shop_images\/Mask_group_2.png",
+        "image_overlay_opacity": 0,
+        "opacity_type": "normal",
+        "opacity_color": "primary",
+        "opacity_weight_on_desktop": "light",
+        "opacity_direction": "vertical",
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": false,
+        "mobile_content_position": "middle",
+        "mobile_content_alignment": "left",
+        "opacity_direct_on_mobile": "horizontal",
+        "opacity_height_on_mobile": "small",
+        "image_height_on_mobile": "adapt",
+        "show_text_below": false
+      }
+    },
+    "es_gallery_with_link_CGamDr": {
+      "type": "es-gallery-with-link",
+      "blocks": {
+        "item_qXenJt": {
+          "type": "item",
+          "settings": {
+            "item_width": 6,
+            "image": "shopify:\/\/shop_images\/bg.png",
+            "title": "112 Hats: Best Sellers",
+            "url": "shopify:\/\/collections\/112-hats-best-sellers",
+            "title_2": "Hat Style 2",
+            "url_2": ""
+          }
+        },
+        "item_7rAx4D": {
+          "type": "item",
+          "settings": {
+            "item_width": 4,
+            "image": "shopify:\/\/shop_images\/bg_1.png",
+            "title": "5 Panel Baseball Hats",
+            "url": "shopify:\/\/collections\/5-panel-baseball-hats",
+            "image_2": "shopify:\/\/shop_images\/img_1.png",
+            "title_2": "6 Panel Baseball Hats",
+            "url_2": "shopify:\/\/collections\/6-panel-baseball-caps"
+          }
+        },
+        "item_ayUTCT": {
+          "type": "item",
+          "settings": {
+            "item_width": 4,
+            "image": "shopify:\/\/shop_images\/Mask_group_1.png",
+            "title": "7 Panels",
+            "url": "shopify:\/\/collections\/7-panel-hats",
+            "image_2": "shopify:\/\/shop_images\/Mask_group.png",
+            "title_2": "Beanies",
+            "url_2": "shopify:\/\/collections\/beanies"
+          }
+        },
+        "item_t9qBbg": {
+          "type": "item",
+          "settings": {
+            "item_width": 6,
+            "image": "shopify:\/\/shop_images\/bg_3.png",
+            "title": "Bucket Hats",
+            "url": "shopify:\/\/collections\/bucket-straw-hats",
+            "title_2": "Hat Style 2",
+            "url_2": ""
+          }
+        },
+        "item_8iXADG": {
+          "type": "item",
+          "settings": {
+            "item_width": 6,
+            "image": "shopify:\/\/shop_images\/bg.png",
+            "title": "Camo",
+            "url": "shopify:\/\/collections\/richardson-camo",
+            "title_2": "Hat Style 2",
+            "url_2": ""
+          }
+        },
+        "item_iMUfVt": {
+          "type": "item",
+          "settings": {
+            "item_width": 4,
+            "image": "shopify:\/\/shop_images\/bg_1.png",
+            "title": "Flat Billed",
+            "url": "shopify:\/\/collections\/flat-billed",
+            "image_2": "shopify:\/\/shop_images\/img_1.png",
+            "title_2": "Relaxed Dad Hats",
+            "url_2": "shopify:\/\/collections\/richardson-relaxed-dad-hats"
+          }
+        },
+        "item_JdB3Gf": {
+          "type": "item",
+          "settings": {
+            "item_width": 4,
+            "image": "shopify:\/\/shop_images\/Mask_group_1.png",
+            "title": "R-Flex & Sized",
+            "url": "shopify:\/\/collections\/r-flex-sized",
+            "image_2": "shopify:\/\/shop_images\/Mask_group.png",
+            "title_2": "Snapback",
+            "url_2": "shopify:\/\/collections\/snapback"
+          }
+        },
+        "item_RGEwRy": {
+          "type": "item",
+          "settings": {
+            "item_width": 6,
+            "image": "shopify:\/\/shop_images\/bg_3.png",
+            "title": "Sport Performance",
+            "url": "shopify:\/\/collections\/richardson-sport-performance",
+            "title_2": "Hat Style 2",
+            "url_2": ""
+          }
+        },
+        "item_dxiBGx": {
+          "type": "item",
+          "settings": {
+            "item_width": 6,
+            "image": "shopify:\/\/shop_images\/bg.png",
+            "title": "Sun Visors",
+            "url": "shopify:\/\/collections\/richardson-sun-visors",
+            "title_2": "Hat Style 2",
+            "url_2": ""
+          }
+        },
+        "item_GJQ6Bc": {
+          "type": "item",
+          "settings": {
+            "item_width": 4,
+            "image": "shopify:\/\/shop_images\/bg_1.png",
+            "title": "Trucker Mesh",
+            "url": "shopify:\/\/collections\/trucker-mesh",
+            "image_2": "shopify:\/\/shop_images\/img_1.png",
+            "title_2": "Umpire\/Official Hats",
+            "url_2": "shopify:\/\/collections\/umpire-official-hats"
+          }
+        }
+      },
+      "block_order": [
+        "item_qXenJt",
+        "item_7rAx4D",
+        "item_ayUTCT",
+        "item_t9qBbg",
+        "item_8iXADG",
+        "item_iMUfVt",
+        "item_JdB3Gf",
+        "item_RGEwRy",
+        "item_dxiBGx",
+        "item_GJQ6Bc"
+      ],
+      "settings": {
+        "scrollable": false,
+        "title": "",
+        "hide_title_on_mobile": true,
+        "padding_top": 40,
+        "padding_bottom": 80,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 40,
+        "item_count_row": 2,
+        "show_gradient": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "es_image_banner_RjY6ic",
+    "es_gallery_with_link_CGamDr"
+  ]
+}

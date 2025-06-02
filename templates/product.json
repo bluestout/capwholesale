@@ -1,0 +1,216 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "loox_reviews_loox_rating_cNEJze": {
+          "type": "shopify:\/\/apps\/loox-reviews\/blocks\/loox-rating\/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "contentSize": 16,
+            "pattern": "[rating] ([count])",
+            "hideText": false,
+            "alignment": "",
+            "layout": "",
+            "textColor": "",
+            "starColor": "",
+            "showAllReviews": true,
+            "looxOpenFloatingWidget": false,
+            "emptyRatingWidget": true
+          }
+        },
+        "text_Pb8kXM": {
+          "type": "text",
+          "settings": {
+            "text": "As low as <strong>$<\/strong><strong>{{ product.metafields.custom.as_low_as_price.value }}<\/strong><strong> USD<\/strong>",
+            "text_style": "body"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "square"
+          }
+        },
+        "live_product_options_app_block_mWfNhx": {
+          "type": "shopify:\/\/apps\/live-product-options\/blocks\/app-block\/88bfdf40-5e27-4962-a966-70c8d1e87757",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "disabled": true,
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true
+          }
+        },
+        "wishlist_hero_custom_product_button_Aacrr3": {
+          "type": "shopify:\/\/apps\/wishlist-hero\/blocks\/custom-product-button\/a9a5079b-59e8-47cb-b659-ecf1c60b9b72",
+          "settings": {
+            "displayButtonMode": "~",
+            "contentAlignment": "center",
+            "buttonAlignment": "center",
+            "buttonFullwidth": true,
+            "removeBoxShadowAndBorder": true,
+            "horizontalPadding": 20,
+            "iconTopOffset": 0,
+            "addedCssClassNames": "es-wishlist-cta",
+            "addedContainerStyles": ""
+          }
+        },
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {}
+        },
+        "collapsible_tab_eM4Wkc": {
+          "type": "collapsible_tab",
+          "name": "Description",
+          "settings": {
+            "default_open": true,
+            "heading": "Description",
+            "icon": "description",
+            "content": "{{ product.description }}",
+            "page": ""
+          }
+        },
+        "popup_cKwkVJ": {
+          "type": "popup",
+          "settings": {
+            "text": "Size",
+            "image": "shopify:\/\/shop_images\/ico_6.svg",
+            "page": ""
+          }
+        },
+        "popup_wP4nXf": {
+          "type": "popup",
+          "settings": {
+            "text": "What happens now?",
+            "image": "shopify:\/\/shop_images\/icon_2.svg",
+            "page": ""
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+            "share_label": "Share"
+          }
+        },
+        "wishlist_hero_custom_product_button_mPe8zB": {
+          "type": "shopify:\/\/apps\/wishlist-hero\/blocks\/custom-product-button\/a9a5079b-59e8-47cb-b659-ecf1c60b9b72",
+          "settings": {
+            "displayButtonMode": "~",
+            "contentAlignment": "center",
+            "buttonAlignment": "center",
+            "buttonFullwidth": true,
+            "removeBoxShadowAndBorder": false,
+            "horizontalPadding": 20,
+            "iconTopOffset": 0,
+            "addedCssClassNames": "",
+            "addedContainerStyles": ""
+          }
+        },
+        "additional_text_FwRYVp": {
+          "type": "additional-text",
+          "settings": {
+            "title_1": "Your logo",
+            "text_1": "<p>Submit \"YOUR LOGO\" now or skip and finish checkout. Please email <\/p><p>to <a href=\"mailto:logos@customizedwear.com\" target=\"_blank\" title=\"mailto:logos@customizedwear.com\">logos@customizedwear.com<\/a><\/p><p><\/p><p><strong>NOTE:<\/strong> Orders should be one decoration type with the same logo design. If you have multiple logos, please place your orders separately.<\/p>",
+            "title_2": "After checkout",
+            "text_2": "<p>Your order will be assigned to one of our decoration specialists. They will be handling your order personally throughout the whole process, from start to finish.<\/p><p><\/p><p><strong>Want to order a blank sample first? Find this item on <\/strong><a href=\"https:\/\/capswholesalers.com\" target=\"_blank\" title=\"https:\/\/www.capwholesalers.com\"><strong>Capswholesalers.com<\/strong><\/a><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "loox_reviews_loox_rating_cNEJze",
+        "text_Pb8kXM",
+        "variant_picker",
+        "live_product_options_app_block_mWfNhx",
+        "quantity_selector",
+        "price",
+        "buy_buttons",
+        "wishlist_hero_custom_product_button_Aacrr3",
+        "description",
+        "collapsible_tab_eM4Wkc",
+        "popup_cKwkVJ",
+        "popup_wP4nXf",
+        "share",
+        "wishlist_hero_custom_product_button_mPe8zB",
+        "additional_text_FwRYVp"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-2",
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "cover",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "hover",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "174869335437931505": {
+      "type": "apps",
+      "blocks": {
+        "fera_product_reviews_9zYAAA": {
+          "type": "shopify:\/\/apps\/fera\/blocks\/product_reviews\/2fbfcfa7-8a04-479f-89a8-0621fa099c51",
+          "settings": {
+            "heading": "Customer Reviews",
+            "layout": "list",
+            "star_color": "#990000",
+            "when_no_reviews": "show"
+          }
+        }
+      },
+      "block_order": [
+        "fera_product_reviews_9zYAAA"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "main",
+    "174869335437931505",
+    "related-products"
+  ]
+}

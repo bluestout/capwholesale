@@ -1,0 +1,335 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "es_image_banner_AXNKXn": {
+      "type": "es-image-banner",
+      "blocks": {
+        "heading_Jxq4Qf": {
+          "type": "heading",
+          "settings": {
+            "subheading": "",
+            "heading": "How it works: Patches",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Jxq4Qf"
+      ],
+      "settings": {
+        "show_space": false,
+        "image": "shopify:\/\/shop_images\/Image.jpg",
+        "image_mobile": "shopify:\/\/shop_images\/Image_20.png",
+        "image_overlay_opacity": 100,
+        "opacity_type": "gradient",
+        "opacity_color": "primary",
+        "opacity_weight_on_desktop": "light",
+        "opacity_direction": "horizontal",
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": false,
+        "mobile_content_position": "bottom",
+        "mobile_content_alignment": "center",
+        "opacity_direct_on_mobile": "vertical",
+        "opacity_height_on_mobile": "large",
+        "image_height_on_mobile": "adapt",
+        "show_text_below": false
+      }
+    },
+    "es_tab_buttons_6H7Fdx": {
+      "type": "es-tab-buttons",
+      "blocks": {
+        "button_38DRWc": {
+          "type": "button",
+          "settings": {
+            "text": "Embroidery Q&A",
+            "target": "#embroideryQA"
+          }
+        },
+        "button_iVYQw8": {
+          "type": "button",
+          "settings": {
+            "text": "Types of Patches",
+            "target": "#Patches"
+          }
+        }
+      },
+      "block_order": [
+        "button_38DRWc",
+        "button_iVYQw8"
+      ],
+      "settings": {
+        "padding_top": 32,
+        "padding_bottom": 0,
+        "sm_padding_top": 20,
+        "sm_padding_bottom": 20,
+        "sm_select_show": true
+      }
+    },
+    "collapsible_content_grGaaG": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_CqVCww": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I order a blank caps sample before I order my custom patch order?",
+            "icon": "none",
+            "row_content": "<p>Yes, please visit our blank cap store at https:\/\/www.CapWholesalers.com<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_n4dPix": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you have a minimum order?",
+            "icon": "none",
+            "row_content": "<p>We can fulfill smaller orders at a minimum of 24 hats.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_TBAhxE": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Will I get to see my design sample before production?",
+            "icon": "none",
+            "row_content": "<p>Yes, with new design orders with leather and faux leather patches we always do a virtual art proof sample showing the dimensions so you can see exactly what it will look like before approving it. All other patch types; we will create the patch with your logo heat sealed applied to the item you selected and take a photo for you to approve. This way you will see exactly what it will look like before it’s released for production. We have a very talented team of artists and experienced customer service staff that can suggest some fresh approaches to bring your logo to life to show off your brand.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_6eqxz9": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you do RUSH orders?",
+            "icon": "none",
+            "row_content": "<p>We will always do our best to meet our customers’ event dates. You will be given a sample and shipment date from your design specialist.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_hFM7if": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you charge set up fees?",
+            "icon": "none",
+            "row_content": "<p>No, we do not, our prices include the item, set-up and sample fees.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_cQDbaU": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Are there extra costs or fees?",
+            "icon": "none",
+            "row_content": "<p>We only charge fees if after you order you decide to change logos, patch types or cap styles. In some cases, we cannot make the changes after the sample is approved.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_rQtNKz": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long should it take to get my order?",
+            "icon": "none",
+            "row_content": "<p>It generally takes approximately 14 business days plus the ship time. If any edits are requested, that will add more time.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_4QRrkg": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Where are you located?",
+            "icon": "none",
+            "row_content": "<p>We are in sunny south Florida. Hatco International 12530 Wiles Rd, Coral Springs, FL 33076<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_6p4m9m": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Customer Satisfaction & Return Policy for Custom Hat Orders",
+            "icon": "none",
+            "row_content": "<p>At CustomizedWear.com, we’re committed to doing everything we can to ensure our customers are happy with their custom-patched hat orders. If there’s ever an issue, we’ll work with you to make it right. However, because each order is customized to your specifications, decorated merchandise cannot be returned if the product matches the approved order details. This includes all custom patches for hats, and heat-sealed applications. Once an order with a custom logo is placed and later canceled, it may still be subject to digitizing fees, set-up charges, and freight costs incurred during processing. If your order has already entered production or has been decorated, it is no longer eligible for cancellation or return.<br\/>We appreciate your understanding and are always here to support you through the customization process.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_46mHGj": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How are the patches applied to the hats?",
+            "icon": "none",
+            "row_content": "<p>We use a pressured heat sealer.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_DrtUtT": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can you make the patch into my logo shape?",
+            "icon": "none",
+            "row_content": "<p>Yes! Please send the artwork for us to review and let us know what type of patch you’d like. Please send to logos@customizedwear.com<\/p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_CqVCww",
+        "collapsible_row_n4dPix",
+        "collapsible_row_TBAhxE",
+        "collapsible_row_6eqxz9",
+        "collapsible_row_hFM7if",
+        "collapsible_row_cQDbaU",
+        "collapsible_row_rQtNKz",
+        "collapsible_row_4QRrkg",
+        "collapsible_row_6p4m9m",
+        "collapsible_row_46mHGj",
+        "collapsible_row_DrtUtT"
+      ],
+      "settings": {
+        "tab_section": true,
+        "hide_section": false,
+        "custom_id": "embroideryQA",
+        "caption": "",
+        "heading": "Patches Q&A",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "scheme-2",
+        "color_scheme": "scheme-2",
+        "open_first_collapsible_row": true,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 52,
+        "padding_bottom": 80
+      }
+    },
+    "es_patches_dXUgxp": {
+      "type": "es-patches",
+      "blocks": {
+        "card_M6m7bf": {
+          "type": "card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_6.png",
+            "title": "Embroidered Patches",
+            "text": "<p>High-End Embroidered Patches for Hats offer a classic, textured look with slightly raised stitching that adds dimension to your design. Choose from a variety of standard shapes or create a custom embroidered patch cut to the exact shape of your logo for a perfect fit on any style of hat. These premium custom hat patches deliver a polished, professional finish that elevates your brand.<\/p>"
+          }
+        },
+        "card_gff6Di": {
+          "type": "card",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_6.png",
+            "title": "3D Embroidered Patches",
+            "text": "<p>3D Embroidered Patches for Hats are perfect for adding custom dimensional designs and premium branding to any hat style. These high-quality Custom hat patches use raised embroidery to create bold, eye-catching logos with depth and texture. With a wide range of thread and background colors available, it’s easy to design a standout custom patch that fits your brand. All patches are heat sealed applied for a durable, professional finish. <\/p>"
+          }
+        },
+        "card_kXpR4p": {
+          "type": "card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_6.png",
+            "title": "Print Stitch Patches",
+            "text": "<p>Print Stitch Patches for Hats combine two of the most popular decoration methods—embroidery and sublimation—into one eye-catching custom patch. These high-quality patches deliver vibrant, full-color detail with the textured look and feel of classic stitching. It’s the best of both worlds: photo-realistic clarity and dimensional embroidery, all in one design. Perfect for adding serious style and value to custom hats, Print Stitch Patches are applied using a heat seal process for a clean, lasting finish. If you're looking to make your hats stand out, this patch style is a go-to favorite.<\/p>"
+          }
+        },
+        "card_tHUVnm": {
+          "type": "card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_6.png",
+            "title": "Leather Patches",
+            "text": "<p>Elevate custom hats with genuine leather patches featuring precision laser-etched logos. These premium leather hat patches offer sharp detail and a rugged, refined look that adds instant brand value. Available in a variety of colors and finishes, they’re perfect for creating distinctive, high-end custom hat designs that help your customers stand out. Heat Sealed Applied.<\/p>"
+          }
+        },
+        "card_EJzV6f": {
+          "type": "card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_6.png",
+            "title": "Faux Leather Patch",
+            "text": "<p>Add a rustic, upscale touch to custom hats with faux leather patches, featuring finely detailed laser-etched logos. Made from high-quality, animal-free material, these animal free leather hat patches offer a consistent finish and premium look in four color options. Heat sealed applied for easy, durable application, they’re safe for washing and perfect for bulk custom hat branding that stands out.<\/p>"
+          }
+        },
+        "card_zqUnnX": {
+          "type": "card",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_6.png",
+            "title": "FLEX Premium 3D Embellishment",
+            "text": ""
+          }
+        },
+        "card_8jhEak": {
+          "type": "card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_6.png",
+            "title": "FLEX Beveled (Beveled edges for a sharp, refined look)",
+            "text": ""
+          }
+        },
+        "card_TUxNME": {
+          "type": "card",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_6.png",
+            "title": "FLEX Flat (Shiny 3D finish with a flatter appearance)",
+            "text": ""
+          }
+        },
+        "card_i8wGnH": {
+          "type": "card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_6.png",
+            "title": "FLEX Textured (Detailed color and textures)",
+            "text": ""
+          }
+        },
+        "card_NChGGj": {
+          "type": "card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_6.png",
+            "title": "FLEX Dome (Shiny finish with 3D bubble effect)",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_M6m7bf",
+        "card_gff6Di",
+        "card_kXpR4p",
+        "card_tHUVnm",
+        "card_EJzV6f",
+        "card_zqUnnX",
+        "card_8jhEak",
+        "card_TUxNME",
+        "card_i8wGnH",
+        "card_NChGGj"
+      ],
+      "settings": {
+        "tab_section": true,
+        "hide_section": true,
+        "custom_id": "Patches",
+        "heading": "Type of Patches",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "row",
+        "container_color_scheme": "",
+        "color_scheme": "scheme-2",
+        "padding_top": 52,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "main",
+    "es_image_banner_AXNKXn",
+    "es_tab_buttons_6H7Fdx",
+    "collapsible_content_grGaaG",
+    "es_patches_dXUgxp"
+  ]
+}

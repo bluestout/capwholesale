@@ -1,0 +1,494 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "es_image_banner_AXNKXn": {
+      "type": "es-image-banner",
+      "blocks": {
+        "heading_Jxq4Qf": {
+          "type": "heading",
+          "settings": {
+            "subheading": "",
+            "heading": "How it works: Embroidery",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Jxq4Qf"
+      ],
+      "settings": {
+        "show_space": false,
+        "image": "shopify:\/\/shop_images\/Image_adf9f057-f284-4858-85e1-512190c02935.png",
+        "image_mobile": "shopify:\/\/shop_images\/Image_1_bd7e40f7-17be-4e16-84b8-671339bcd7fe.png",
+        "image_overlay_opacity": 100,
+        "opacity_type": "gradient",
+        "opacity_color": "primary",
+        "opacity_weight_on_desktop": "light",
+        "opacity_direction": "horizontal",
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": false,
+        "mobile_content_position": "bottom",
+        "mobile_content_alignment": "center",
+        "opacity_direct_on_mobile": "vertical",
+        "opacity_height_on_mobile": "large",
+        "image_height_on_mobile": "adapt",
+        "show_text_below": false
+      }
+    },
+    "es_tab_buttons_6H7Fdx": {
+      "type": "es-tab-buttons",
+      "blocks": {
+        "button_38DRWc": {
+          "type": "button",
+          "settings": {
+            "text": "Embroidery Q&A",
+            "target": "#embroideryQA"
+          }
+        },
+        "button_FkBWzQ": {
+          "type": "button",
+          "settings": {
+            "text": "Thread colors",
+            "target": "#threadColors"
+          }
+        },
+        "button_iVYQw8": {
+          "type": "button",
+          "settings": {
+            "text": "Embroidery Typefaces",
+            "target": "#embroideryTypefaces"
+          }
+        }
+      },
+      "block_order": [
+        "button_38DRWc",
+        "button_FkBWzQ",
+        "button_iVYQw8"
+      ],
+      "settings": {
+        "padding_top": 32,
+        "padding_bottom": 0,
+        "sm_padding_top": 20,
+        "sm_padding_bottom": 20,
+        "sm_select_show": true
+      }
+    },
+    "collapsible_content_grGaaG": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_CqVCww": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I order a blank sample before customizing my hats?",
+            "icon": "none",
+            "row_content": "<p>Absolutely! We recommend ordering blank hats before placing a custom embroidery order. This lets you make sure you love the style, fit, and color before adding your logo.<br\/>→ Order blank hats here: <a href=\"https:\/\/www.capwholesalers.com\" target=\"_blank\" title=\"https:\/\/www.capwholesalers.com\">www.capwholesalers.com<\/a><\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_n4dPix": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can you create 3D Puff Embroidery on hats?",
+            "icon": "none",
+            "row_content": "<p>Yes! We offer 3D puff embroidery with a 48-piece minimum. Not all logos or hat styles are suited for raised embroidery, so please email your logo to: logos@customizedwear.com with \"3D Logo\" in the subject line.<br\/>Tip: Check out our 3D patch options too!<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_TBAhxE": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can you embroider sports team logos?",
+            "icon": "none",
+            "row_content": "<p>We cannot embroider licensed logos unless you hold the official license.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_6eqxz9": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What if I don’t have a logo?",
+            "icon": "none",
+            "row_content": "<p>No logo? No problem! Choose from our stock embroidery designs or send us your design idea.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_hFM7if": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What’s the difference between a logo and lettering?",
+            "icon": "none",
+            "row_content": "<p>Logo = A graphic image or design<br\/>Lettering = Text using one of our embroidery font styles<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_cQDbaU": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you offer rush service?",
+            "icon": "none",
+            "row_content": "<p>We may be able to accommodate rush orders depending on your deadline. Please call us  877-984-2277.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_rQtNKz": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you have a \"RUSH\"  service available for promotional caps?",
+            "icon": "none",
+            "row_content": "<p>We may be able to accommodate rush orders depending on your deadline. Please call us  877-984-2277.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_4QRrkg": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I send my logo for embroidery?",
+            "icon": "none",
+            "row_content": "<p>Upload your logo directly on the product page when ordering or skip upload and email it to: logos@customizedwear.com\u2028We accept: JPG, PNG, PDF, GIF, or TIFF files.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_6p4m9m": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long does a custom embroidery order take?",
+            "icon": "none",
+            "row_content": "<p>Most custom embroidered hat orders ship within 10-15 business days after your order is placed and your sample is approved. Larger orders may take additional time.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_46mHGj": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What’s included in the price for custom embroidered hats?",
+            "icon": "none",
+            "row_content": "<p>Free logo digitizing (up to 8000 stitches)<br\/>Quantity discounts — the more you order, the more you save<br\/>Additional fees apply for extra locations or logos over 8000 stitches ($0.54 per extra 1000 stitches — approval required)<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_DrtUtT": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Will I get to approve my logo before embroidery?",
+            "icon": "none",
+            "row_content": "<p>Yes! We’ll email you a digital sample of your embroidered logo for approval before production begins.<br\/>The first sample is free<br\/>Additional style samples (like beanies or caps) are $18 each<br\/>Physical sample mailed = $20 shipping<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_hmfpQV": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I mix styles, colors, and sizes in my order?",
+            "icon": "none",
+            "row_content": "<p>Yes — with minimums:<br\/>Hats: 12 pieces per style, color, and size<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_kRRjc8": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is your minimum order for custom embroidery?",
+            "icon": "none",
+            "row_content": "<p>12 pieces per logo\/design.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_qkMbJj": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What size can my logo or lettering be?",
+            "icon": "none",
+            "row_content": "<p>Front logo max height: 2.25”<br\/>Back\/side logos: Around 1” tall<br\/>Width depends on design — typically 4” wide on front<br\/>We’ll guide you on the best size for your logo and hat style.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_PFitQ7": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I choose where my logo goes on the hat?",
+            "icon": "none",
+            "row_content": "<p>Most logos are placed in the front center, but we can also embroider on the front and place the logo off center on wearers left or right side. We also embroider on the sides or back (depending on hat style). Just let us know what you have in mind!<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Y4zCQL": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I use multiple thread colors?",
+            "icon": "none",
+            "row_content": "<p>Yes! Up to 6 thread colors are included. Additional colors are $0.10 per piece.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_zLeUp7": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is your return policy for custom embroidery?",
+            "icon": "none",
+            "row_content": "<p>Custom decorated items are non-returnable once produced. We provide a sample for approval before production begins.<br\/>Blank samples are available for purchase.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_76Ky44": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I cancel or change my custom embroidery order?",
+            "icon": "none",
+            "row_content": "<p>Changes may be possible if your order hasn’t gone into production. Once embroidery has begun, changes cannot be made, and fees may apply.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_aMR8bz": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Will you ship my order to any address?",
+            "icon": "none",
+            "row_content": "<p>For security, we may require shipping to the billing address associated with your payment method.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_qNPG4j": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Still Have Questions?",
+            "icon": "none",
+            "row_content": "<p>We’re here to help! Contact us anytime.<br\/>Call: 877-984-2277<br\/>Email: logos@customizedwear.com<\/p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_CqVCww",
+        "collapsible_row_n4dPix",
+        "collapsible_row_TBAhxE",
+        "collapsible_row_6eqxz9",
+        "collapsible_row_hFM7if",
+        "collapsible_row_cQDbaU",
+        "collapsible_row_rQtNKz",
+        "collapsible_row_4QRrkg",
+        "collapsible_row_6p4m9m",
+        "collapsible_row_46mHGj",
+        "collapsible_row_DrtUtT",
+        "collapsible_row_hmfpQV",
+        "collapsible_row_kRRjc8",
+        "collapsible_row_qkMbJj",
+        "collapsible_row_PFitQ7",
+        "collapsible_row_Y4zCQL",
+        "collapsible_row_zLeUp7",
+        "collapsible_row_76Ky44",
+        "collapsible_row_aMR8bz",
+        "collapsible_row_qNPG4j"
+      ],
+      "settings": {
+        "tab_section": true,
+        "hide_section": false,
+        "custom_id": "embroideryQA",
+        "caption": "",
+        "heading": "Embroidery Q&A",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "scheme-2",
+        "color_scheme": "scheme-2",
+        "open_first_collapsible_row": true,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 52,
+        "padding_bottom": 80
+      }
+    },
+    "es_color_list_CA6xez": {
+      "type": "es-color-list",
+      "blocks": {
+        "color_gV7qRi": {
+          "type": "color",
+          "settings": {
+            "color": "#37a328",
+            "text": "Lt. Green"
+          }
+        },
+        "color_Mkegc3": {
+          "type": "color",
+          "settings": {
+            "color": "#195816",
+            "text": "Spruce"
+          }
+        },
+        "color_W6AhLL": {
+          "type": "color",
+          "settings": {
+            "color": "#209c91",
+            "text": "Teal"
+          }
+        },
+        "color_wp8MCA": {
+          "type": "color",
+          "settings": {
+            "color": "#0d7bbc",
+            "text": "Lt. Blue"
+          }
+        },
+        "color_tDea6M": {
+          "type": "color",
+          "settings": {
+            "color": "#001eb2",
+            "text": "Royal"
+          }
+        },
+        "color_JJk6Gm": {
+          "type": "color",
+          "settings": {
+            "color": "#041157",
+            "text": "Navy"
+          }
+        },
+        "color_rLzyE6": {
+          "type": "color",
+          "settings": {
+            "color": "#760977",
+            "text": "Purple"
+          }
+        },
+        "color_iQUKQj": {
+          "type": "color",
+          "settings": {
+            "color": "#8f121a",
+            "text": "Maroon"
+          }
+        },
+        "color_aidFDQ": {
+          "type": "color",
+          "settings": {
+            "color": "#bc0c1c",
+            "text": "Red"
+          }
+        },
+        "color_hYha7D": {
+          "type": "color",
+          "settings": {
+            "color": "#fc656a",
+            "text": "Pink"
+          }
+        },
+        "color_9W3EJT": {
+          "type": "color",
+          "settings": {
+            "color": "#fc531c",
+            "text": "Orange"
+          }
+        },
+        "color_PatGFt": {
+          "type": "color",
+          "settings": {
+            "color": "#ffbc24",
+            "text": "Yellow"
+          }
+        },
+        "color_xDWpkx": {
+          "type": "color",
+          "settings": {
+            "color": "#d9b373",
+            "text": "Tan"
+          }
+        },
+        "color_jrTrja": {
+          "type": "color",
+          "settings": {
+            "color": "#4f0006",
+            "text": "Brown"
+          }
+        },
+        "color_yLfMji": {
+          "type": "color",
+          "settings": {
+            "color": "#898989",
+            "text": "Gray"
+          }
+        },
+        "color_BkJWAJ": {
+          "type": "color",
+          "settings": {
+            "color": "#000000",
+            "text": "Black"
+          }
+        },
+        "color_VCmx6E": {
+          "type": "color",
+          "settings": {
+            "color": "#ffffff",
+            "text": "White"
+          }
+        }
+      },
+      "block_order": [
+        "color_gV7qRi",
+        "color_Mkegc3",
+        "color_W6AhLL",
+        "color_wp8MCA",
+        "color_tDea6M",
+        "color_JJk6Gm",
+        "color_rLzyE6",
+        "color_iQUKQj",
+        "color_aidFDQ",
+        "color_hYha7D",
+        "color_9W3EJT",
+        "color_PatGFt",
+        "color_xDWpkx",
+        "color_jrTrja",
+        "color_yLfMji",
+        "color_BkJWAJ",
+        "color_VCmx6E"
+      ],
+      "settings": {
+        "tab_section": true,
+        "hide_section": true,
+        "custom_id": "threadColors",
+        "heading": "Thread Colors",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "row",
+        "container_color_scheme": "",
+        "color_scheme": "scheme-2",
+        "padding_top": 52,
+        "padding_bottom": 80
+      }
+    },
+    "es_typefaces_aPPrxr": {
+      "type": "es-typefaces",
+      "settings": {
+        "tab_section": true,
+        "hide_section": true,
+        "custom_id": "embroideryTypefaces",
+        "heading": "Embroidery Typefaces",
+        "typefaces_group": "embroidery",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "section",
+        "container_color_scheme": "",
+        "color_scheme": "scheme-2",
+        "padding_top": 52,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "main",
+    "es_image_banner_AXNKXn",
+    "es_tab_buttons_6H7Fdx",
+    "collapsible_content_grGaaG",
+    "es_color_list_CA6xez",
+    "es_typefaces_aPPrxr"
+  ]
+}

@@ -1,0 +1,123 @@
+{% comment %}
+  Renders a megamenu for the header.
+
+  Usage:
+  {% render 'header-mega-menu' %}
+{% endcomment %}
+
+<nav class="header__inline-menu">
+  <ul class="list-menu list-menu--inline" role="list">
+    {%- for link in section.settings.menu.links limit: separate_menu_limit offset: separate_menu_offset -%}
+      {%- assign custom_class_0 = '' -%}
+      {%- for specific_link in sepcific_links -%}
+        {%- if specific_link.settings.link_text contains link.title -%}
+          {%- capture custom_class_0 -%}custom-link {{ specific_link.settings.custom_class }}{%- endcapture -%}
+          {%- break -%}
+        {%- endif -%}
+      {%- endfor -%}
+      <li>
+        {%- if link.links != blank -%}
+          <header-menu>
+            <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu {{ custom_class_0 }}">
+              <summary
+                id="HeaderMenu-{{ link.handle }}"
+                class="header__menu-item list-menu__item link focus-inset"
+              >
+                <span
+                  {%- if link.child_active %}
+                    class="header__active-menu-item"
+                  {% endif %}
+                >
+                  {{- link.title | escape -}}
+                </span>
+                {{- 'icon-caret.svg' | inline_asset_content -}}
+              </summary>
+              <div
+                id="MegaMenu-Content-{{ forloop.index }}"
+                class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
+                tabindex="-1"
+              >
+                <ul
+                  class="mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
+                  role="list"
+                >
+                  {%- for childlink in link.links -%}
+                    <li>
+                      {%- assign custom_class = '' -%}
+                      {%- assign custom_style = '' -%}
+                      {%- for specific_link in sepcific_links -%}
+                        {%- if specific_link.settings.link_text contains childlink.title -%}
+                          {%- capture custom_class -%}custom-link {{ specific_link.settings.custom_class }}{%- endcapture -%}
+                          {%- capture custom_style -%}--color: {{ specific_link.settings.link_color }}; --font-weight: {{ specific_link.settings.font_weight }};{%- endcapture -%}
+                          {%- break -%}
+                        {%- endif -%}
+                      {%- endfor -%}
+                      <a
+                        id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                        href="{{ childlink.url }}"
+                        class="mega-menu__link mega-menu__link--level-2 {{ custom_class }} link{% if childlink.current %} mega-menu__link--active{% endif %}"
+                        {% if childlink.current %}
+                          aria-current="page"
+                        {% endif %}
+                        style="{{ custom_style }}"
+                      >
+                        {{ childlink.title | escape }}
+                      </a>
+                      {%- if childlink.links != blank -%}
+                        <ul class="list-unstyled" role="list">
+                          {%- for grandchildlink in childlink.links -%}
+                            {%- assign custom_class_2 = '' -%}
+                            {%- assign custom_style_2 = '' -%}
+                            {%- for specific_link in sepcific_links -%}
+                              {%- assign downcased_link_text = specific_link.settings.link_text | downcase %}
+                              {%- assign downcased_grandchild_title = grandchildlink.title | downcase %}
+                              {%- if downcased_link_text contains downcased_grandchild_title -%}
+                                {%- capture custom_class_2 -%}custom-link {{ specific_link.settings.custom_class }}{%- endcapture -%}
+                                {%- capture custom_style_2 -%}--color: {{ specific_link.settings.link_color }}; --font-weight: {{ specific_link.settings.font_weight }};{%- endcapture -%}
+                                {%- break -%}
+                              {%- endif -%}
+                            {%- endfor -%}
+                            <li>
+                              <a
+                                id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                                href="{{ grandchildlink.url }}"
+                                class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %} {{ custom_class_2 }}"
+                                {% if grandchildlink.current %}
+                                  aria-current="page"
+                                {% endif %}
+                                style="{{ custom_style_2 }}"
+                              >
+                                {{ grandchildlink.title | escape }}
+                              </a>
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                      {%- endif -%}
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+            </details>
+          </header-menu>
+        {%- else -%}
+          <a
+            id="HeaderMenu-{{ link.handle }}"
+            href="{{ link.url }}"
+            class="header__menu-item list-menu__item link link--text focus-inset"
+            {% if link.current %}
+              aria-current="page"
+            {% endif %}
+          >
+            <span
+              {%- if link.current %}
+                class="header__active-menu-item"
+              {% endif %}
+            >
+              {{- link.title | escape -}}
+            </span>
+          </a>
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ul>
+</nav>

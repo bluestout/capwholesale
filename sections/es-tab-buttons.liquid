@@ -1,0 +1,136 @@
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    padding: {{ section.settings.sm_padding_top }}px 0 {{ section.settings.sm_padding_bottom }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  @media (max-width: 750px) {
+    #shopify-section-{{ section.id }} .row {
+      padding: 0 10px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="container">
+  <div class="row{% if section.settings.sm_select_show %} small-hide{% else %} hidden-select{% endif %}">
+    {%- for block in section.blocks %}
+      {% comment %} <a href="javascript:void(0);" class="button{% if forloop.first %} active{% endif %}" data-target="{{ block.settings.target }}">{{ block.settings.text }}</a> {% endcomment %}
+      <label for="tab-radio-{{ block.id }}">
+        <input type="radio" id="tab-radio-{{ block.id }}" name="tab-radio" value="{{ block.settings.target }}"{% if forloop.first %} checked{% endif %}>
+        <span>{{ block.settings.text }}</span>
+      </label>
+    {%- endfor -%}
+  </div>
+  <div class="row{% if section.settings.sm_select_show %} medium-hide large-up-hide{% else %} hidden{% endif %}">
+    <select name="tab-radio">
+      {%- for block in section.blocks -%}
+        <option value="{{ block.settings.target }}"{% if forloop.first %} selected{% endif %}>{{ block.settings.text }}</option>
+      {%- endfor -%}
+    </select>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll(".es-tab-buttons [name='tab-radio']");
+    const sections = document.querySelectorAll(".tab-section");
+
+    buttons.forEach(button => {
+      button.addEventListener("change", function () {
+        sections.forEach(section => {
+          section.classList.add('hidden');
+        });
+
+        document.querySelector(`${this.value}`)?.classList.remove("hidden");
+      })  
+    })
+  })
+</script>
+
+{% schema %}
+{
+  "name": "ES Tab Buttons",
+  "tag": "section",
+  "class": "section es-tab-buttons",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "sm_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile Padding Top",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "sm_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile Padding Bottom",
+      "default": 20
+    },
+    {
+      "type": "checkbox",
+      "id": "sm_select_show",
+      "label": "Select on Mobile",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "button",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "target",
+          "label": "Target"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ES Tab Buttons"
+    }
+  ]
+}
+{% endschema %}

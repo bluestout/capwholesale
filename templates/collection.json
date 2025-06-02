@@ -1,0 +1,74 @@
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": true,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "es_image_banner_YXJHhW": {
+      "type": "es-image-banner",
+      "blocks": {
+        "heading_Ui89kH": {
+          "type": "heading",
+          "settings": {
+            "subheading": "",
+            "heading": "{{ collection.title }}",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Ui89kH"
+      ],
+      "settings": {
+        "show_space": false,
+        "image": "shopify:\/\/shop_images\/Rectangle.jpg",
+        "image_mobile": "shopify:\/\/shop_images\/img_78135cd6-fabc-4c68-bd52-8981602b2e7e.png",
+        "image_overlay_opacity": 100,
+        "opacity_type": "gradient",
+        "opacity_direction": "horizontal",
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": false,
+        "mobile_content_position": "bottom",
+        "mobile_content_alignment": "center",
+        "opacity_direct_on_mobile": "vertical",
+        "image_height_on_mobile": "adapt",
+        "show_text_below": false
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 16,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "enable_filtering": true,
+        "filter_type": "horizontal",
+        "enable_sorting": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "es_image_banner_YXJHhW",
+    "product-grid"
+  ]
+}
