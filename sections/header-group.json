@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.header.name",
   "type": "header",
@@ -8,7 +17,7 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "New laws require us to charge sales tax for orders shipping to the following states: AZ, CO, FL, GA, NC, OK, TX.",
+            "text": "FREE GROUND SHIPPING ON 'RICHARDSON BRAND ONLY' ORDERS OVER $250. LIMITED TIME OFFER.",
             "link": ""
           }
         }
@@ -50,7 +59,7 @@
         "mobile_menu_aLMmPP": {
           "type": "mobile_menu",
           "settings": {
-            "menu": "mobile-menu"
+            "menu": ""
           }
         }
       },
@@ -63,12 +72,12 @@
         "@media (min-width: 768px) {.shop-all {margin-bottom: 30px; }}"
       ],
       "settings": {
-        "logo_position": "middle-center",
+        "logo_position": "middle-left",
         "mobile_logo_position": "center",
         "menu": "main-menu",
         "separate_menu": true,
         "separate_menu_count": 4,
-        "menu_type_desktop": "mega",
+        "menu_type_desktop": "dropdown",
         "sticky_header_type": "on-scroll-up",
         "show_line_separator": false,
         "color_scheme": "scheme-1",

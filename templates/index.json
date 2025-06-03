@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "es_image_banner_Qc9Nmz": {
@@ -6,24 +15,16 @@
         "heading_bkYrfC": {
           "type": "heading",
           "settings": {
-            "subheading": "customize",
-            "heading": "Any Product",
-            "heading_size": "h0"
-          }
-        },
-        "text_E6czfE": {
-          "type": "text",
-          "settings": {
-            "max_width": 460,
-            "text": "Design your perfect hat – customize colors, fonts for a unique look!",
-            "text_style": "body"
+            "subheading": "Richardson",
+            "heading": "AUTHORIZED DEALER",
+            "heading_size": "h2"
           }
         },
         "buttons_Ck37kr": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Customize",
-            "button_link_1": "shopify:\/\/products\/5-panel-brushed-wflag-sandwiched-bill",
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://products/5-panel-brushed-wflag-sandwiched-bill",
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
@@ -33,13 +34,12 @@
       },
       "block_order": [
         "heading_bkYrfC",
-        "text_E6czfE",
         "buttons_Ck37kr"
       ],
       "settings": {
         "show_space": false,
-        "image": "shopify:\/\/shop_images\/Rectangle_94.jpg",
-        "image_mobile": "shopify:\/\/shop_images\/Rectangle_94.png",
+        "image": "shopify://shop_images/Image.jpg",
+        "image_mobile": "shopify://shop_images/Image_1_d7f1f0b0-521d-418a-b595-0c356b156748.png",
         "image_overlay_opacity": 0,
         "opacity_type": "normal",
         "opacity_color": "primary",
@@ -47,7 +47,7 @@
         "opacity_direction": "vertical",
         "image_height": "adapt",
         "image_behavior": "none",
-        "desktop_content_position": "middle-left",
+        "desktop_content_position": "middle-right",
         "desktop_content_alignment": "left",
         "show_text_box": false,
         "color_scheme": "",
@@ -56,155 +56,27 @@
         "mobile_content_alignment": "left",
         "opacity_direct_on_mobile": "vertical",
         "opacity_height_on_mobile": "small",
-        "image_height_on_mobile": "square",
+        "image_height_on_mobile": "large",
         "show_text_below": false
       }
     },
-    "es_featured_blocks_zzkdqw": {
-      "type": "es-featured-blocks",
-      "blocks": {
-        "collection_rthtNn": {
-          "type": "collection",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/255_berry_5_Panel_1__520_x_376px_1.jpg",
-            "title": "Premium 5 Panel Golf",
-            "url": "shopify:\/\/collections\/5-panel-golf-hats"
-          }
-        },
-        "collection_3tFD4j": {
-          "type": "collection",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/112_Tri-White-Aluminum-Black-520_x_376px.jpg",
-            "title": "Trucker Mesh Hats",
-            "url": "shopify:\/\/collections\/trucker-mesh-hats"
-          }
-        },
-        "collection_J89ex6": {
-          "type": "collection",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Sport_Perform_Dk_Green_3__520_x_376px.jpg",
-            "title": "Sport Performance Hats",
-            "url": "shopify:\/\/collections\/richardson-sport-performance"
-          }
-        },
-        "collection_EmE39w": {
-          "type": "collection",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Flexfit_4__520_x_376px.jpg",
-            "title": "Flexfit Hats",
-            "url": "shopify:\/\/collections\/flexfit-hats"
-          }
-        },
-        "collection_fraWam": {
-          "type": "collection",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/213_Snapback_5__520_x_376px_2.jpg",
-            "title": "Snapback Hats",
-            "url": "shopify:\/\/collections\/snapback-caps"
-          }
-        },
-        "collection_TGYUpq": {
-          "type": "collection",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/6006_Char_5_Panel_Golf_1-__520_x_376px.jpg",
-            "title": "Flat Billed Hats",
-            "url": "shopify:\/\/collections\/flat-bill-hats"
-          }
-        },
-        "collection_nfmcKf": {
-          "type": "collection",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/decky_6032_rope_hat_Hat_Style_7-__520_x_376px.jpg",
-            "title": "Rope Hats",
-            "url": "shopify:\/\/collections\/roped-hats"
-          }
-        },
-        "collection_epykX9": {
-          "type": "collection",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/840_Realtree_Camo_8__520_x_376px.jpg",
-            "title": "Camo Hats",
-            "url": "shopify:\/\/collections\/camo-hats"
-          }
-        },
-        "collection_LgkCT4": {
-          "type": "collection",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/938_LegionBlue_Dads_Relax_9__520_x_376px.jpg",
-            "title": "Dad Relaxed Hats",
-            "url": "shopify:\/\/collections\/relaxed-dad-hats"
-          }
-        },
-        "collection_tzd3HU": {
-          "type": "collection",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/514_Gry_Blk_6_Panel_Baseball_10-520_x_376px.jpg",
-            "title": "6 Panel Baseball",
-            "url": "shopify:\/\/collections\/6-panel-baseball-caps"
-          }
-        },
-        "collection_bJiTmG": {
-          "type": "collection",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/1168_grey_blk_7_Panel_11-520px_x_372px.jpg",
-            "title": "7 Panel Hats",
-            "url": "shopify:\/\/collections\/7-panel-hats"
-          }
-        },
-        "collection_tJzK7C": {
-          "type": "collection",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/R75_Red_Budget_12-520px_x_372px.jpg",
-            "title": "Budget Hats",
-            "url": "shopify:\/\/collections\/budget-hats"
-          }
-        },
-        "collection_dzDCb6": {
-          "type": "collection",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/810_Royal_Bucket_Hat_13-520px_x_372px.jpg",
-            "title": "Bucket & Sun Hats",
-            "url": "shopify:\/\/collections\/bucket-sun-hats"
-          }
-        },
-        "collection_V4CjNL": {
-          "type": "collection",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/160_Navy_Sun_Visor_14__520_x_376px.jpg",
-            "title": "Visors",
-            "url": "shopify:\/\/collections\/sun-visors"
-          }
-        },
-        "collection_4wKRNX": {
-          "type": "collection",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/220_White_Ladies_15__520_x_376px.jpg",
-            "title": "Ladies Hats",
-            "url": "shopify:\/\/collections\/ladies-hats"
-          }
-        }
-      },
-      "block_order": [
-        "collection_rthtNn",
-        "collection_3tFD4j",
-        "collection_J89ex6",
-        "collection_EmE39w",
-        "collection_fraWam",
-        "collection_TGYUpq",
-        "collection_nfmcKf",
-        "collection_epykX9",
-        "collection_LgkCT4",
-        "collection_tzd3HU",
-        "collection_bJiTmG",
-        "collection_tJzK7C",
-        "collection_dzDCb6",
-        "collection_V4CjNL",
-        "collection_4wKRNX"
-      ],
+    "es_featured_collection_RGkMJh": {
+      "type": "es-featured-collection",
+      "custom_css": [],
       "settings": {
-        "title": "Shop By Hat Style",
-        "padding_top": 32,
-        "padding_bottom": 32
+        "border_top": false,
+        "title": "Best Sellers By Brand",
+        "collection": "frontpage",
+        "products_to_show": 15,
+        "image_ratio": "rectangle",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "border_bottom": true,
+        "padding_top": 56,
+        "padding_bottom": 80
       }
     },
     "es_image_with_text_QiEqMH": {
@@ -213,32 +85,47 @@
         "heading_ptCCnT": {
           "type": "heading",
           "settings": {
-            "heading": "<p>Custom Embroidery<\/p>",
+            "heading": "<p>Cap Wholesalers:</p>",
             "heading_size": "h1"
+          }
+        },
+        "caption_cNwrkM": {
+          "type": "caption",
+          "settings": {
+            "caption": "Your Destination for Wholesale Hats",
+            "text_style": "subtitle",
+            "text_size": "medium"
+          }
+        },
+        "separator_wtfPNN": {
+          "type": "separator",
+          "settings": {
+            "color": "#990000"
           }
         },
         "text_XxeLzC": {
           "type": "text",
           "settings": {
-            "text": "<p>On Richardson hats, including the popular <\/p><p><strong>112 models<\/strong>—<\/p><p>crafted with quality and precision just for you!<\/p>",
-            "text_style": "subtitle"
+            "text": "<p>Since 1991, Cap Wholesalers has been the go-to source for a diverse selection of blank hats in bulk. We offer popular styles, including Richardson 112, FlexFit, Otto, and Outdoor Caps, as well as customizable trucker mesh hats in various colors. With a low minimum order of just 12 hats, you can enjoy competitive prices while minimizing excess inventory. Shop with us for the best wholesale hat options!</p>",
+            "text_style": "body"
           }
         }
       },
       "block_order": [
         "heading_ptCCnT",
+        "caption_cNwrkM",
+        "separator_wtfPNN",
         "text_XxeLzC"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/need_editing_112_-_Edited.png",
-        "image_2": "shopify:\/\/shop_images\/needs_edit_112_golf_-_Edited.png",
+        "image": "shopify://shop_images/bonefishtrucker_1_1_1.png",
         "height": "adapt",
         "hide_media_on_mobile": false,
-        "desktop_image_width": "large",
+        "desktop_image_width": "medium",
         "layout": "text_first",
         "image_behavior": "none",
         "content_layout": "no-overlap",
-        "desktop_content_position": "middle",
+        "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "center",
         "section_color_scheme": "",
@@ -256,9 +143,9 @@
           "type": "item",
           "settings": {
             "item_width": 6,
-            "image": "shopify:\/\/shop_images\/America_s_Favorite_cap.png",
+            "image": "shopify://shop_images/bg_3.jpg",
             "title": "Ladies Caps",
-            "url": "shopify:\/\/products\/sn20w-kati-sportcap-specialty-licensed-camo-unstru",
+            "url": "shopify://products/sn20w-kati-sportcap-specialty-licensed-camo-unstru",
             "title_2": "Hat Style 2",
             "url_2": ""
           }
@@ -267,33 +154,33 @@
           "type": "item",
           "settings": {
             "item_width": 4,
-            "image": "shopify:\/\/shop_images\/bg_1.png",
+            "image": "shopify://shop_images/bg.jpg",
             "title": "Flexfit",
-            "url": "shopify:\/\/collections\/flexfit-hats",
-            "image_2": "shopify:\/\/shop_images\/OC-main-herov2.jpg",
-            "title_2": "Outdoor Cap",
-            "url_2": "shopify:\/\/products\/12-inch-safety-color-beanie-w-reflective-threads"
+            "url": "shopify://collections/flexfit-hats",
+            "image_2": "shopify://shop_images/img_1.jpg",
+            "title_2": "Wholesale Apparel",
+            "url_2": "shopify://products/12-inch-safety-color-beanie-w-reflective-threads"
           }
         },
         "item_ayUTCT": {
           "type": "item",
           "settings": {
             "item_width": 4,
-            "image": "shopify:\/\/shop_images\/6089m.png",
-            "title": "YP Classic",
-            "url": "shopify:\/\/products\/5-panel-high-profile-structured-acrylicpolyester-t",
-            "image_2": "shopify:\/\/shop_images\/Adobe_Express_-_file_1.png",
-            "title_2": "Decky Hats",
-            "url_2": "shopify:\/\/products\/5-panel-mid-profile-structured-cotton-poly-blend-cap"
+            "image": "shopify://shop_images/bg_1.jpg",
+            "title": "Performance",
+            "url": "shopify://products/5-panel-high-profile-structured-acrylicpolyester-t",
+            "image_2": "shopify://shop_images/img_2.jpg",
+            "title_2": "FlatBilled",
+            "url_2": "shopify://products/5-panel-mid-profile-structured-cotton-poly-blend-cap"
           }
         },
         "item_t9qBbg": {
           "type": "item",
           "settings": {
             "item_width": 6,
-            "image": "shopify:\/\/shop_images\/decky_test.png",
-            "title": "Pacific Hats",
-            "url": "shopify:\/\/products\/6-panel-unstructured-pigment-dyed-heavy-cotton-twi",
+            "image": "shopify://shop_images/bg_5.jpg",
+            "title": "Trucker Mash Back",
+            "url": "shopify://products/6-panel-unstructured-pigment-dyed-heavy-cotton-twi",
             "title_2": "Hat Style 2",
             "url_2": ""
           }
@@ -317,6 +204,100 @@
         "show_gradient": true
       }
     },
+    "es_featured_blocks_zzkdqw": {
+      "type": "es-featured-blocks",
+      "blocks": {
+        "collection_rthtNn": {
+          "type": "collection",
+          "settings": {
+            "image": "shopify://shop_images/image_1.png",
+            "title": "Imperial",
+            "url": "shopify://collections/5-panel-golf-hats"
+          }
+        },
+        "collection_3tFD4j": {
+          "type": "collection",
+          "settings": {
+            "image": "shopify://shop_images/image_2.png",
+            "title": "Premium 5-Panel Golf",
+            "url": "shopify://collections/trucker-mesh-hats"
+          }
+        },
+        "collection_J89ex6": {
+          "type": "collection",
+          "settings": {
+            "image": "shopify://shop_images/image_3.png",
+            "title": "Sport",
+            "url": "shopify://collections/richardson-sport-performance"
+          }
+        },
+        "collection_XMDHge": {
+          "type": "collection",
+          "settings": {
+            "image": "shopify://shop_images/image_4.png",
+            "title": "Flexfit",
+            "url": ""
+          }
+        },
+        "collection_EmE39w": {
+          "type": "collection",
+          "settings": {
+            "image": "shopify://shop_images/image_5.png",
+            "title": "Trucker Mesh",
+            "url": "shopify://collections/flexfit-hats"
+          }
+        },
+        "collection_fraWam": {
+          "type": "collection",
+          "settings": {
+            "image": "shopify://shop_images/image_9.png",
+            "title": "Snapback Hats",
+            "url": "shopify://collections/snapback-caps"
+          }
+        },
+        "collection_TGYUpq": {
+          "type": "collection",
+          "settings": {
+            "image": "shopify://shop_images/image_10.png",
+            "title": "Flat Billed Hats",
+            "url": "shopify://collections/flat-bill-hats"
+          }
+        },
+        "collection_nfmcKf": {
+          "type": "collection",
+          "settings": {
+            "image": "shopify://shop_images/image_11.png",
+            "title": "Rope Hats",
+            "url": "shopify://collections/roped-hats"
+          }
+        },
+        "collection_epykX9": {
+          "type": "collection",
+          "settings": {
+            "image": "shopify://shop_images/image_12.png",
+            "title": "Camo Hats",
+            "url": "shopify://collections/camo-hats"
+          }
+        }
+      },
+      "block_order": [
+        "collection_rthtNn",
+        "collection_3tFD4j",
+        "collection_J89ex6",
+        "collection_XMDHge",
+        "collection_EmE39w",
+        "collection_fraWam",
+        "collection_TGYUpq",
+        "collection_nfmcKf",
+        "collection_epykX9"
+      ],
+      "custom_css": [],
+      "settings": {
+        "title": "Shop By Hat Style",
+        "padding_top": 32,
+        "padding_bottom": 32
+      }
+    },
     "es_testimonial_xNiLtf": {
       "type": "es-testimonial",
       "blocks": {
@@ -324,8 +305,7 @@
           "type": "review",
           "settings": {
             "title": "Amazing Hats!",
-            "image": "shopify:\/\/shop_images\/Stars.svg",
-            "text": "<p>We designed some hats to give away to patients and promote the business.  The patients have loved them!  Thanks to Lisette in customer service who has made the process easy! Great Company and excellent service!<\/p>",
+            "text": "<p>We designed some hats to give away to patients and promote the business.  The patients have loved them!  Thanks to Lisette in customer service who has made the process easy! Great Company and excellent service!</p>",
             "created_at": "Tue, Sep 01 2020",
             "name": "Julie"
           }
@@ -334,8 +314,7 @@
           "type": "review",
           "settings": {
             "title": "Perfect Hats!",
-            "image": "shopify:\/\/shop_images\/Stars.svg",
-            "text": "<p>Our hats are awesome! Customers and employees alike are always asking for new ones!<\/p>",
+            "text": "<p>Our hats are awesome! Customers and employees alike are always asking for new ones!</p>",
             "created_at": "Mon, Aug 31 2020",
             "name": "Sarah M Dymond"
           }
@@ -343,9 +322,8 @@
         "review_h8GNw6": {
           "type": "review",
           "settings": {
-            "title": "Thanks Robin! Great Caps\/Great Service",
-            "image": "shopify:\/\/shop_images\/Stars.svg",
-            "text": "<p>Pleased as always with my recent order! Seamless and quality work. Thanks for all of your help Robin!<\/p>",
+            "title": "Thanks Robin! Great Caps/Great Service",
+            "text": "<p>Pleased as always with my recent order! Seamless and quality work. Thanks for all of your help Robin!</p>",
             "created_at": "Tue, Oct 15 2024",
             "name": "empowermentoutfitters@gmail.com"
           }
@@ -354,8 +332,7 @@
           "type": "review",
           "settings": {
             "title": "Amazing Hats!",
-            "image": "shopify:\/\/shop_images\/Stars.svg",
-            "text": "<p>We designed some hats to give away to patients and promote the business.  The patients have loved them!  Thanks to Lisette in customer service who has made the process easy! Great Company and excellent service!<\/p>",
+            "text": "<p>We designed some hats to give away to patients and promote the business.  The patients have loved them!  Thanks to Lisette in customer service who has made the process easy! Great Company and excellent service!</p>",
             "created_at": "Tue, Sep 01 2020",
             "name": "Julie"
           }
@@ -364,8 +341,7 @@
           "type": "review",
           "settings": {
             "title": "Perfect Hats!",
-            "image": "shopify:\/\/shop_images\/Stars.svg",
-            "text": "<p>Our hats are awesome! Customers and employees alike are always asking for new ones!<\/p>",
+            "text": "<p>Our hats are awesome! Customers and employees alike are always asking for new ones!</p>",
             "created_at": "Mon, Aug 31 2020",
             "name": "Sarah M Dymond"
           }
@@ -373,9 +349,8 @@
         "review_LGegcN": {
           "type": "review",
           "settings": {
-            "title": "Thanks Robin! Great Caps\/Great Service",
-            "image": "shopify:\/\/shop_images\/Stars.svg",
-            "text": "<p>Pleased as always with my recent order! Seamless and quality work. Thanks for all of your help Robin!<\/p>",
+            "title": "Thanks Robin! Great Caps/Great Service",
+            "text": "<p>Pleased as always with my recent order! Seamless and quality work. Thanks for all of your help Robin!</p>",
             "created_at": "Tue, Oct 15 2024",
             "name": "empowermentoutfitters@gmail.com"
           }
@@ -394,159 +369,26 @@
         "padding_bottom": 40
       }
     },
-    "es_featured_collection_RGkMJh": {
-      "type": "es-featured-collection",
-      "settings": {
-        "border_top": false,
-        "title": "Best Sellers By Brand",
-        "collection": "frontpage",
-        "products_to_show": 15,
-        "image_ratio": "rectangle",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "border_bottom": true,
-        "padding_top": 56,
-        "padding_bottom": 80
-      }
-    },
-    "es_featured_videos_zwxmNW": {
-      "type": "es-featured-videos",
-      "blocks": {
-        "video_nQgbYm": {
-          "type": "video",
-          "settings": {
-            "video_url": "https:\/\/youtu.be\/Nl9YJBWvrco",
-            "featured_image": "shopify:\/\/shop_images\/image_8.png",
-            "enable_video_looping": false,
-            "full_width": false,
-            "description": ""
-          }
-        },
-        "video_pyYEmP": {
-          "type": "video",
-          "settings": {
-            "video_url": "https:\/\/youtu.be\/ViyWxaebVmA",
-            "featured_image": "shopify:\/\/shop_images\/image_7.png",
-            "enable_video_looping": false,
-            "full_width": false,
-            "description": ""
-          }
-        },
-        "video_azGMUG": {
-          "type": "video",
-          "disabled": true,
-          "settings": {
-            "video_url": "https:\/\/youtu.be\/axfsK2KEtuk",
-            "featured_image": "shopify:\/\/shop_images\/Screen_Shot_2025-05-04_at_22.05.28.png",
-            "enable_video_looping": false,
-            "full_width": false,
-            "description": ""
-          }
-        },
-        "video_rXCkzw": {
-          "type": "video",
-          "settings": {
-            "video_url": "https:\/\/youtu.be\/D0r6cdG9QDQ",
-            "featured_image": "shopify:\/\/shop_images\/Screen_Shot_2025-05-04_at_22.08.28.png",
-            "enable_video_looping": false,
-            "full_width": false,
-            "description": ""
-          }
-        }
-      },
-      "block_order": [
-        "video_nQgbYm",
-        "video_pyYEmP",
-        "video_azGMUG",
-        "video_rXCkzw"
-      ],
-      "settings": {
-        "scrollable": true,
-        "title": "Customized Wear Techniques 101",
-        "description": "<p>Discover the best techniques for embroidering hats, washing caps & measuring your head for the perfect fit with ease!<\/p>",
-        "padding_top": 80,
-        "padding_bottom": 40
-      }
-    },
-    "es_gallery_with_link_XdFTjW": {
-      "type": "es-gallery-with-link",
-      "blocks": {
-        "item_EP8aGf": {
-          "type": "item",
-          "settings": {
-            "item_width": 4,
-            "image": "shopify:\/\/shop_images\/Image_4d04158b-f2eb-40c3-86a4-2affdd8ee371.png",
-            "title": "",
-            "url": "",
-            "title_2": "Hat Style 2",
-            "url_2": ""
-          }
-        },
-        "item_Fp6UFz": {
-          "type": "item",
-          "settings": {
-            "item_width": 4,
-            "image": "shopify:\/\/shop_images\/pexels-duc-anh-nguyen-63701176-8289795_1.png",
-            "title": "",
-            "url": "",
-            "title_2": "Hat Style 2",
-            "url_2": ""
-          }
-        },
-        "item_aJtUkE": {
-          "type": "item",
-          "settings": {
-            "item_width": 2,
-            "image": "shopify:\/\/shop_images\/Dress_up_Flexfit_1.png",
-            "title": "",
-            "url": "",
-            "image_2": "shopify:\/\/shop_images\/6006t_YP_1.png",
-            "title_2": "",
-            "url_2": ""
-          }
-        }
-      },
-      "block_order": [
-        "item_EP8aGf",
-        "item_Fp6UFz",
-        "item_aJtUkE"
-      ],
-      "settings": {
-        "scrollable": true,
-        "title": "Featured work",
-        "hide_title_on_mobile": false,
-        "padding_top": 40,
-        "padding_bottom": 80,
-        "padding_top_mobile": 20,
-        "padding_bottom_mobile": 20,
-        "item_count_row": 3,
-        "show_gradient": false
-      }
-    },
     "es_image_with_text_kFT4Pw": {
       "type": "es-image-with-text",
       "blocks": {
         "heading_NGVgUX": {
           "type": "heading",
           "settings": {
-            "heading": "<p>Capwholesalers.com: Your trusted source for quality baseball caps<\/p>",
+            "heading": "<p>CapWholesalers.com: </p>",
             "heading_size": "h1"
           }
         },
         "separator_KFgDcp": {
           "type": "separator",
           "settings": {
-            "color": "#990000",
-            "width": 100
+            "color": "#990000"
           }
         },
         "text_EXnEAX": {
           "type": "text",
           "settings": {
-            "text": "<p>With over 33 years of experience, CustomizedWear.com is your trusted source for top-quality custom hats, embroidered caps, and branded headwear that stand out. We’ve spent decades perfecting the art of customization — from leather patch hats and 3D puff embroidery to screen printed and faux leather caps, all from the most trusted hat brands. Whether you're outfitting your team, promoting your business, or launching your own merch line, we make it easy, fast, and fun. When it comes to custom headwear, nobody wears it better than us! 🧢<\/p>",
+            "text": "<p>When it comes to top-notch, wholesale baseball caps, CapWholesalers.com is your go-to destination. With over 25 years of industry expertise, we’ve mastered the art of supplying high-quality headwear to businesses of all sizes.</p>",
             "text_style": "body"
           }
         },
@@ -554,7 +396,7 @@
           "type": "button",
           "settings": {
             "button_label": "Learn More",
-            "button_link": "shopify:\/\/collections\/frontpage",
+            "button_link": "shopify://collections/frontpage",
             "button_style_secondary": false
           }
         }
@@ -566,7 +408,7 @@
         "button_BKEWTb"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/Image_1.png",
+        "image": "shopify://shop_images/p.72458.1-happy_couple_with_girl_on_guys_back_hoding_a_footb_1.png",
         "height": "adapt",
         "hide_media_on_mobile": true,
         "desktop_image_width": "medium",
@@ -587,13 +429,11 @@
   },
   "order": [
     "es_image_banner_Qc9Nmz",
-    "es_featured_blocks_zzkdqw",
+    "es_featured_collection_RGkMJh",
     "es_image_with_text_QiEqMH",
     "es_gallery_with_link_CGamDr",
+    "es_featured_blocks_zzkdqw",
     "es_testimonial_xNiLtf",
-    "es_featured_collection_RGkMJh",
-    "es_featured_videos_zwxmNW",
-    "es_gallery_with_link_XdFTjW",
     "es_image_with_text_kFT4Pw"
   ]
 }
