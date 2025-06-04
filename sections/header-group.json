@@ -38,24 +38,6 @@
     "header": {
       "type": "header",
       "blocks": {
-        "specific_link_98RPUj": {
-          "type": "specific_link",
-          "settings": {
-            "link_text": "Shop All",
-            "custom_class": "shop-all",
-            "link_color": "#000000",
-            "font_weight": 600
-          }
-        },
-        "specific_link_9rhKQx": {
-          "type": "specific_link",
-          "settings": {
-            "link_text": "Customization",
-            "custom_class": "use-dropdown",
-            "link_color": "rgba(0,0,0,0)",
-            "font_weight": 600
-          }
-        },
         "mobile_menu_aLMmPP": {
           "type": "mobile_menu",
           "settings": {
@@ -64,8 +46,6 @@
         }
       },
       "block_order": [
-        "specific_link_98RPUj",
-        "specific_link_9rhKQx",
         "mobile_menu_aLMmPP"
       ],
       "custom_css": [
@@ -77,7 +57,7 @@
         "menu": "main-menu",
         "separate_menu": true,
         "separate_menu_count": 4,
-        "menu_type_desktop": "dropdown",
+        "menu_type_desktop": "mega",
         "sticky_header_type": "on-scroll-up",
         "show_line_separator": false,
         "color_scheme": "scheme-1",
