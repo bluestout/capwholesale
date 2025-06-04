@@ -581,17 +581,40 @@
     .image-with-text__grid {
       display: flex;
       flex-direction: row;
+
       @media (max-width: 1330px) {
         flex-direction: column;
         align-items: center;
       }
+
       .image-with-text__media-item {
         display: flex;
         gap: 10px;
         align-self: center;
+
+        @media (min-width: 1331px) {
+          &.es-white-bar-on-image {
+            position: relative;
+  
+            &::after {
+              content: '';
+              width: 20px;
+              height: calc(100% - 40px);
+              display: block;
+              background-color: white;
+              position: absolute;
+              top: 20px;
+              right: 0;
+              left: auto;
+              z-index: 2;
+            }
+          }
+        }
+
         @media (max-width: 1330px) {
           width: 100%;
         }
+
         & > div {
           flex: 1;
         }
@@ -1375,7 +1398,7 @@
     .footer-block--newsletter {
       margin: 0;
       padding-bottom: 24px;
-      border-bottom: 1px solid #fff;
+      // border-bottom: 1px solid #fff; // ES-0604 11:16
       margin-bottom: 24px;
     }
   }
