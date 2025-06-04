@@ -602,7 +602,8 @@
       }
 
       .image-with-text__text-item {
-        padding: 30px 0px 45px 30px !important;
+        padding: 30px 0px 30px 30px !important;
+
         @media (max-width: 1330px) {
           width: 100%;
           padding: 0px !important;
@@ -673,7 +674,7 @@
               font-weight: 400;
               line-height: 25.5px;
               margin-top: 20px;
-              margin-bottom: 20px;
+              // margin-bottom: 20px; // ES-0604 11:00
 
               @media screen and (max-width: 768px) {
                 margin-top: 10px;
