@@ -488,6 +488,10 @@
       align-items: center;
       margin-bottom: 40px;
 
+      @media (max-width: 769px) {
+        margin-top: 50px;
+      }
+
       h2.es-font-h2 {
         margin: 0;
         width: 100%;
@@ -495,10 +499,16 @@
         margin-left: 66px;
       }
 
+      @media (max-width: 769px) {
+        margin-left: 0px;
+      }
+
       .es-featured-blocks__navigation {
         display: flex;
         gap: 6px;
-
+        @media (max-width: 769px) {
+          display: none;
+        }
         .swiper-button-prev {
           transform: rotate(180deg);
         }
@@ -984,7 +994,7 @@
       transform: translate(-50%, -50%);
       width: calc(100% / 2.5);
       height: calc(100% - 30px);
-      border: 4px solid #000;
+      border: 1px solid #ccc;
 
       @media screen and (max-width: 1023px) {
         width: calc(100% / 1.5);
@@ -1025,6 +1035,22 @@
           @media screen and (max-width: 768px) {
             bottom: -13px;
             right: -9px;
+          }
+        }
+        .es-bottom-question-end {
+          position: absolute;
+          bottom: 20px;
+          right: 20px;
+          @media (max-width: 769px) {
+            display: none;
+          }
+        }
+        .es-bottom-question-start {
+          position: absolute;
+          top: 20px;
+          left: 20px;
+          @media (max-width: 769px) {
+            display: none;
           }
         }
       }
@@ -4198,6 +4224,17 @@ cart-items {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.es-image-with-text .image-with-text .image-with-text__grid .image-with-text__media-item>div{
+  flex: 1 !important;
+}
+
+@media screen and (max-width: 768px) {
+    .es-font-h2 {
+        font-size: 20px;
+        line-height: 31px;
+    }
 }
 
 // This is my second style

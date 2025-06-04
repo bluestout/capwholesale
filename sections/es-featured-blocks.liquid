@@ -14,7 +14,7 @@
 
 <div class="container">
   <div class="swiper">
-    <div class="page-width es-featured-blocks__title-wrapper small-hide">
+    <div class="page-width es-featured-blocks__title-wrapper">
       <h2 class="es-font-h2">{{ section.settings.title }}</h2>
       <div class="es-featured-blocks__navigation">
         <div class="swiper-button-prev">
@@ -41,7 +41,7 @@
                 </a>
               </div>
               <div class="es-featured-blocks__item-title">
-                <a class="es-button link" href="{{ block.settings.url }}">{{ block.settings.title }}</a>
+                <a class="es-button link" href="{{ block.settings.url }}">{{ block.settings.title }}{% render 'es-shop-by-hat-right' %}</a>
               </div>
             </div>
           </div>
