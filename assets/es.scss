@@ -497,10 +497,9 @@
         width: 100%;
         text-align: center;
         margin-left: 66px;
-      }
-
-      @media (max-width: 769px) {
-        margin-left: 0px;
+        @media (max-width: 768px) {
+          margin-left: 0px;
+        }
       }
 
       .es-featured-blocks__navigation {
@@ -4226,15 +4225,19 @@ cart-items {
   align-items: center;
 }
 
-.es-image-with-text .image-with-text .image-with-text__grid .image-with-text__media-item>div{
+.es-image-with-text
+  .image-with-text
+  .image-with-text__grid
+  .image-with-text__media-item
+  > div {
   flex: 1 !important;
 }
 
 @media screen and (max-width: 768px) {
-    .es-font-h2 {
-        font-size: 20px;
-        line-height: 31px;
-    }
+  .es-font-h2 {
+    font-size: 20px;
+    line-height: 31px;
+  }
 }
 
 // This is my second style
