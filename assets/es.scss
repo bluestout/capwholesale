@@ -4256,3 +4256,19 @@ cart-items {
 }
 
 // This is my second style
+
+#main-cart-footer {
+  .cart__footer {
+    .cart__footer-additional-info {
+      a {
+        color: black;
+        font-size: 15px;
+        font-family: "Inter", sans-serif;
+        font-weight: 700;
+        line-height: 25.50px;
+        letter-spacing: 4.50px;
+        text-transform: uppercase;
+      }
+    }
+  }
+}

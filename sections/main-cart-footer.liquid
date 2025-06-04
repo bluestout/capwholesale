@@ -24,18 +24,28 @@
 >
   <div class="page-width">
     <div class="cart__footer isolate section-{{ section.id }}-padding">
-      {%- if settings.show_cart_note -%}
-        <cart-note class="cart__note field">
-          <label for="Cart-note">{{ 'sections.cart.note' | t }}</label>
-          <textarea
-            class="text-area field__input"
-            name="note"
-            form="cart"
-            id="Cart-note"
-            placeholder="{{ 'sections.cart.note' | t }}"
-          >{{ cart.note }}</textarea>
-        </cart-note>
-      {%- endif -%}
+      <div class="cart__footer-inner">
+        {%- if settings.show_cart_note -%}
+          <cart-note class="cart__note field">
+            <label for="Cart-note">{{ 'sections.cart.note' | t }}</label>
+            <textarea
+              class="text-area field__input"
+              name="note"
+              form="cart"
+              id="Cart-note"
+              placeholder="{{ 'sections.cart.note' | t }}"
+            >{{ cart.note }}</textarea>
+          </cart-note>
+        {%- endif -%}
+
+        {%- if settings.additional_info_url -%}
+          <div class="cart__footer-additional-info">
+            <a href="{{ settings.additional_info_url }}" class="es-button">
+              {{ settings.additional_info_text }}
+            </a>
+          </div>
+        {%- endif -%}
+      </div>
 
       <div class="cart__blocks">
         {% for block in section.blocks %}
