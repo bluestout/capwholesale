@@ -119,13 +119,14 @@
       ],
       "settings": {
         "image": "shopify://shop_images/bonefishtrucker_1_1_1.png",
+        "white_bar_on_image": true,
         "height": "adapt",
         "hide_media_on_mobile": false,
         "desktop_image_width": "medium",
         "layout": "text_first",
         "image_behavior": "none",
         "content_layout": "no-overlap",
-        "desktop_content_position": "top",
+        "desktop_content_position": "middle",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "center",
         "section_color_scheme": "",
@@ -409,6 +410,7 @@
       ],
       "settings": {
         "image": "shopify://shop_images/p.72458.1-happy_couple_with_girl_on_guys_back_hoding_a_footb_1.png",
+        "white_bar_on_image": false,
         "height": "adapt",
         "hide_media_on_mobile": true,
         "desktop_image_width": "medium",
