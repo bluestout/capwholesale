@@ -59,7 +59,7 @@
           {%- if section.settings.newsletter_enable -%}
             <div class="footer-block__newsletter">
               {%- if section.settings.newsletter_heading != blank -%}
-                <h2 class="footer-block__heading inline-richtext">{{ section.settings.newsletter_heading }}</h2>
+                <h2 class="footer-block__heading inline-richtext custom-rich-text-contain">{{ section.settings.newsletter_heading }}</h2>
               {%- endif -%}
               {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
                 <input type="hidden" name="contact[tags]" value="newsletter">
@@ -157,7 +157,7 @@
                 {% endif %}
               >
                 {%- if block.settings.heading != blank -%}
-                  <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
+                  <h2 class="footer-block__heading inline-richtext custom-rich-text-contain">{{- block.settings.heading -}}</h2>
                 {%- endif -%}
 
                 {%- case block.type -%}
@@ -186,6 +186,7 @@
                     {%- if section.settings.show_social and has_social_icons -%}
                       <div class="medium-hide large-up-hide">
                         <div class="footer__list-social-title">Follow us</div>
+                        <span class="custom-line-block"></span>
                         {%- render 'social-icons', class: 'footer__list-social' -%}
                       </div>
                     {%- endif -%}
@@ -361,6 +362,7 @@
         {%- if section.settings.show_social and has_social_icons -%}
           <div class="small-hide">
             <div class="footer__list-social-title">Follow us</div>
+            <span class="custom-line-block"></span>
             {%- render 'social-icons', class: 'footer__list-social' -%}
           </div>
         {%- endif -%}
