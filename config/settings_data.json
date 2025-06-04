@@ -9,9 +9,9 @@
  */
 {
   "current": {
-    "logo": "shopify://shop_images/logo.svg",
-    "logo_width": 170,
-    "logo_mobile": "shopify://shop_images/Logo_1.png",
+    "logo": "shopify://shop_images/Logo.svg",
+    "logo_width": 250,
+    "logo_mobile": "shopify://shop_images/Logo_1.svg",
     "favicon": "shopify://shop_images/capwholesalers-favicon.png",
     "type_header_font": "assistant_n4",
     "heading_scale": 100,
@@ -133,6 +133,65 @@
     "additional_info_image": "shopify://shop_images/icon_a4268948-8d2b-48d8-970c-27fce3b8dbb2.svg",
     "additional_info_text": "What happens now?",
     "additional_info_url": "#",
+    "sections": {
+      "main-password-header": {
+        "type": "main-password-header",
+        "settings": {
+          "color_scheme": "scheme-1"
+        }
+      },
+      "main-password-footer": {
+        "type": "main-password-footer",
+        "settings": {
+          "color_scheme": "scheme-1"
+        }
+      }
+    },
+    "content_for_index": [],
+    "blocks": {
+      "14462631207257075589": {
+        "type": "shopify://apps/accesseaze/blocks/access_ease/bdf09e02-5b1c-43b5-b338-8f668ddea3a7",
+        "disabled": false,
+        "settings": {
+          "widget_title": "",
+          "custom_liquid": ""
+        }
+      },
+      "855628211100114053": {
+        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {}
+      },
+      "1366455014531238847": {
+        "type": "shopify://apps/wishlist-hero/blocks/customize-style-block/a9a5079b-59e8-47cb-b659-ecf1c60b9b72",
+        "disabled": false,
+        "settings": {
+          "Btn_color": "",
+          "WishlistButtonTextColor": "",
+          "Ico_color": "",
+          "HeaderFontSize": 30,
+          "ProductNameFontSize": 18,
+          "PriceFontSize": 16,
+          "PriceColor": ""
+        }
+      },
+      "7870687481494312845": {
+        "type": "shopify://apps/wishlist-hero/blocks/app-embed/a9a5079b-59e8-47cb-b659-ecf1c60b9b72",
+        "disabled": false,
+        "settings": {
+          "customThemeName": "~",
+          "additionalWLButtonCssClasses": "",
+          "additionalWLCartBubbleCssClasses": "",
+          "extraHTMLToAppend": "",
+          "disableAutomaticButtonAddition": false
+        }
+      },
+      "11212335281082087862": {
+        "type": "shopify://apps/sk-form-builder/blocks/app/f3e35b58-5874-4ef2-8e03-c92cda6e49eb",
+        "disabled": false,
+        "settings": {}
+      }
+    },
     "color_schemes": {
       "scheme-1": {
         "settings": {
@@ -199,65 +258,6 @@
           "secondary_button_label": "#121212",
           "shadow": "#121212"
         }
-      }
-    },
-    "sections": {
-      "main-password-header": {
-        "type": "main-password-header",
-        "settings": {
-          "color_scheme": "scheme-1"
-        }
-      },
-      "main-password-footer": {
-        "type": "main-password-footer",
-        "settings": {
-          "color_scheme": "scheme-1"
-        }
-      }
-    },
-    "content_for_index": [],
-    "blocks": {
-      "14462631207257075589": {
-        "type": "shopify://apps/accesseaze/blocks/access_ease/bdf09e02-5b1c-43b5-b338-8f668ddea3a7",
-        "disabled": false,
-        "settings": {
-          "widget_title": "",
-          "custom_liquid": ""
-        }
-      },
-      "855628211100114053": {
-        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
-        "disabled": false,
-        "settings": {}
-      },
-      "1366455014531238847": {
-        "type": "shopify://apps/wishlist-hero/blocks/customize-style-block/a9a5079b-59e8-47cb-b659-ecf1c60b9b72",
-        "disabled": false,
-        "settings": {
-          "Btn_color": "",
-          "WishlistButtonTextColor": "",
-          "Ico_color": "",
-          "HeaderFontSize": 30,
-          "ProductNameFontSize": 18,
-          "PriceFontSize": 16,
-          "PriceColor": ""
-        }
-      },
-      "7870687481494312845": {
-        "type": "shopify://apps/wishlist-hero/blocks/app-embed/a9a5079b-59e8-47cb-b659-ecf1c60b9b72",
-        "disabled": false,
-        "settings": {
-          "customThemeName": "~",
-          "additionalWLButtonCssClasses": "",
-          "additionalWLCartBubbleCssClasses": "",
-          "extraHTMLToAppend": "",
-          "disableAutomaticButtonAddition": false
-        }
-      },
-      "11212335281082087862": {
-        "type": "shopify://apps/sk-form-builder/blocks/app/f3e35b58-5874-4ef2-8e03-c92cda6e49eb",
-        "disabled": false,
-        "settings": {}
       }
     }
   },

@@ -14,12 +14,20 @@
 
 <div class="container{% if section.settings.scrollable %} es-gallery-with-link--scrollable{% endif %}">
   <div class="page-width">
-    <h2 class="es-gallery-with-link__title es-font-h2 center{% if section.settings.hide_title_on_mobile %} small-hide{% endif %}">{{ section.settings.title }}</h2>
+    <h2 class="es-gallery-with-link__title es-font-h2 center{% if section.settings.hide_title_on_mobile %} small-hide{% endif %}">
+      {{ section.settings.title }}
+    </h2>
     <div class="es-gallery-with-link__items">
       {%- for block in section.blocks -%}
         {%- assign gap_count = section.settings.item_count_row | minus: 1 -%}
-        <div class="es-gallery-with-link__item{% if block.settings.image_2 != blank and block.settings.image != blank %} es-gallery-with-link__item--two-images{% endif %}" style="--width: {{ block.settings.item_width | times: 10 }}%; --gap: {{ 10.0 | times: gap_count | divided_by: section.settings.item_count_row }}px;">
-          <div class="es-gallery-with-link__item-item{% if section.settings.show_gradient %} show-gradient{% endif %}" onclick="window.location.href = '{{ block.settings.url }}'">
+        <div
+          class="es-gallery-with-link__item{% if block.settings.image_2 != blank and block.settings.image != blank %} es-gallery-with-link__item--two-images{% endif %}"
+          style="--width: {{ block.settings.item_width | times: 10 }}%; --gap: {{ 10.0 | times: gap_count | divided_by: section.settings.item_count_row }}px;"
+        >
+          <div
+            class="es-gallery-with-link__item-item{% if section.settings.show_gradient %} show-gradient{% endif %}"
+            onclick="window.location.href = '{{ block.settings.url }}'"
+          >
             <div class="es-gallery-with-link__item-item-image">
               <img
                 src="{{ block.settings.image | image_url: width: 1000 }}"
@@ -29,11 +37,14 @@
               >
             </div>
             <div class="es-gallery-with-link__item-item-title">
-              <a class="es-button link white" href="{{ block.settings.url }}">{{ block.settings.title }}</a>
+              <a class="es-button link white" href="{{ block.settings.url }}">{{ block.settings.title }}{% render 'es-image-button' %}</a>
             </div>
           </div>
           {%- if block.settings.image_2 != blank -%}
-            <div class="es-gallery-with-link__item-item{% if section.settings.show_gradient %} show-gradient{% endif %}" onclick="window.location.href = '{{ block.settings.url_2 }}'">
+            <div
+              class="es-gallery-with-link__item-item{% if section.settings.show_gradient %} show-gradient{% endif %}"
+              onclick="window.location.href = '{{ block.settings.url_2 }}'"
+            >
               <div class="es-gallery-with-link__item-item-image">
                 <img
                   src="{{ block.settings.image_2 | image_url: width: 1000 }}"
@@ -43,7 +54,7 @@
                 >
               </div>
               <div class="es-gallery-with-link__item-item-title">
-                <a class="es-button link white" href="{{ block.settings.url_2 }}">{{ block.settings.title_2 }}</a>
+                <a class="es-button link white" href="{{ block.settings.url_2 }}">{{ block.settings.title_2 }}{% render 'es-image-button' %}</a>
               </div>
             </div>
           {%- endif -%}

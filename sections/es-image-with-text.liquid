@@ -69,7 +69,9 @@
                 {% endif %}
               >
                 {%- if section.settings.image_2 != blank -%}
-                  {%- if section.settings.image_behavior == 'ambient' or section.settings.image_behavior == 'zoom-in' -%}
+                  {%- if section.settings.image_behavior == 'ambient'
+                    or section.settings.image_behavior == 'zoom-in'
+                  -%}
                     {%- assign widths_2 = '198, 432, 642, 900, 1284, 1800' -%}
                     {%- capture sizes_2 -%}
                       (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 1.6667 }}px,
@@ -120,7 +122,9 @@
                     {{ block.settings.text }}
                   </div>
                 {%- when 'separator' -%}
-                  <hr class="es-separator" style="background-color: {{ block.settings.color }}; width: {{ block.settings.width }}px;">
+                  <div
+                    class="es-separator"
+                  > </div>
                 {%- when 'button' -%}
                   {%- if block.settings.button_label != blank -%}
                     <a
@@ -251,7 +255,7 @@
     {
       "type": "header",
       "content": "t:sections.image-with-text.settings.header.content"
-    }, 
+    },
     {
       "type": "select",
       "id": "content_layout",
@@ -267,7 +271,7 @@
       ],
       "default": "no-overlap",
       "label": "t:sections.image-with-text.settings.content_layout.label"
-    },       
+    },
     {
       "type": "select",
       "id": "desktop_content_position",
@@ -331,7 +335,7 @@
     {
       "type": "header",
       "content": "t:sections.image-with-text.settings.header_colors.content"
-    },        
+    },
     {
       "type": "color_scheme",
       "id": "section_color_scheme",
@@ -439,18 +443,8 @@
           "type": "color",
           "id": "color",
           "label": "Color",
-          "default": "#990000"
+          "default": "#EE0000"
         },
-        {
-          "type": "range",
-          "id": "width",
-          "label": "Width",
-          "min": 0,
-          "max": 1000,
-          "step": 10,
-          "unit": "px",
-          "default": 100
-        }
       ]
     },
     {
