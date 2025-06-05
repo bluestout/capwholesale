@@ -1271,7 +1271,6 @@
     background-color: #333;
     padding: 22px 0;
     position: relative;
-    
 
     // &::before {
     //   content: "";
@@ -1300,7 +1299,7 @@
       .footer__copyright {
         flex: 1;
         // color: #999999;
-        color: var(--ffffff, #FFF);
+        color: var(--ffffff, #fff);
         font-size: 13px;
         font-family: "Inter", sans-serif;
         font-weight: 400;
@@ -4393,6 +4392,31 @@ cart-items {
   right: -16px;
   content: url(https://cdn.shopify.com/s/files/1/0915/0893/2895/files/Union.svg?v=1749042191);
   rotate: 270deg;
+}
+
+.footer__content-top {
+  .small-hide {
+    display: flex;
+    align-items: center;
+    margin-top: 45px;
+    margin-bottom: 10px;
+    column-gap: 20px;
+    // .footer__list-social-title {
+    // }
+    .custom-line-block {
+      display: block;
+      width: 50px;
+      height: 1px;
+      background-color: #e00;
+      margin-bottom: 12px;
+    }
+    .footer__list-social {
+      margin-bottom: 15px;
+      @media (max-width: 768px) {
+        margin-bottom: 15px;
+      }
+    }
+  }
 }
 
 // This is my second style
