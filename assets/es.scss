@@ -220,6 +220,7 @@
     }
 
     .banner__content {
+      background: rgba(0, 0, 0, 0.3);
       .banner__subheading {
         color: #fff;
         font-size: 100px;
@@ -443,16 +444,18 @@
               .card__heading {
                 .full-unstyled-link {
                   color: black;
-                  font-size: 13px;
+                  font-size: 15px;
                   font-family: Inter;
                   font-weight: 400;
                   line-height: 19.5px;
+                  font-style: normal;
+                  line-height: 170%;
                 }
               }
 
               .price {
                 color: black;
-                font-size: 16px;
+                font-size: 15px;
                 font-family: Inter;
                 font-weight: 600;
                 line-height: 20.8px;
@@ -4409,6 +4412,7 @@ cart-items {
   font-weight: 700;
   text-transform: uppercase;
   position: relative;
+  letter-spacing: 4.5px;
 }
 
 .custom-bottom-color-black::after {
