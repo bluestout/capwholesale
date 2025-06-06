@@ -596,7 +596,7 @@
         gap: 10px;
         align-self: center;
 
-        @media (min-width: 1331px) {
+        @media (min-width: 1201px) {
           &.es-white-bar-on-image {
             position: relative;
 
@@ -615,7 +615,7 @@
           }
         }
 
-        @media (max-width: 1330px) {
+        @media (max-width: 1200px) {
           width: 100%;
         }
 
@@ -631,7 +631,7 @@
       .image-with-text__text-item {
         padding: 30px 0px 30px 50px !important;
 
-        @media (max-width: 1330px) {
+        @media (max-width: 1200px) {
           width: 100%;
           padding: 0px !important;
         }
