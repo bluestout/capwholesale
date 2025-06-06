@@ -1,13 +1,15 @@
 {%- style -%}
   .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    /* padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px; 6:5 7:36 */
+    padding-top:0px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
     max-width: 100%;
   }
 
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
+      /* padding-top: {{ section.settings.padding_top }}px; 6:5 7:36*/
+      padding-top:0px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
@@ -60,7 +62,7 @@
                   <a href="{{ block.settings.button_link }}" class="es-button">{{ block.settings.button_text }}</a>
                 {%- endif -%}
               </div>
-              <div class="ui-slideshow_content_gradient">comment</div>
+              <div class="ui-slideshow_content_gradient"><span></span></div>
             </div>
           {%- endfor -%}
         </div>
@@ -140,7 +142,7 @@
       "step": 4,
       "unit": "px",
       "label": "t:sections.all.padding.padding_top",
-      "default": 36
+      "default": 0
     },
     {
       "type": "range",
@@ -192,7 +194,7 @@
           "type": "checkbox",
           "id": "ui_height",
           "label": "button white height",
-          "default": true,
+          "default": true
         }
       ]
     }
