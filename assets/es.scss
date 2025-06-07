@@ -172,10 +172,10 @@
   &::after {
     content: "";
     display: block;
-    width: 6px;
-    height: 10px;
-    background: url("https://cdn.shopify.com/s/files/1/0728/5784/6001/files/Union_61538aff-f613-4aba-a6c6-73aad9428699.svg?v=1747305965")
-      no-repeat center center;
+    // width: 6px;
+    // height: 10px;
+    // background: url("https://cdn.shopify.com/s/files/1/0728/5784/6001/files/Union_61538aff-f613-4aba-a6c6-73aad9428699.svg?v=1747305965")
+    //   no-repeat center center;
     background-size: contain;
     border: 0;
     box-shadow: unset;
@@ -348,7 +348,7 @@
 .es-featured-collection {
   padding-top: var(--padding-top);
   padding-bottom: var(--padding-bottom);
-
+  background-color: #f3f3f3;
   .container {
     .page-width {
       @media (max-width: 768px) {
@@ -4708,6 +4708,7 @@ cart-items {
         line-height: 130%;
         @media (max-width: 1000px) {
           padding: 0px;
+          width: 100%;
         }
       }
       .ui-beeline-red {
@@ -4736,8 +4737,7 @@ cart-items {
           margin-right: 13px;
 
           &::after {
-            content: url(https://cdn.shopify.com/s/files/1/0915/0893/2895/files/Union.svg?v=1749042191);
-            rotate: 270deg;
+            content: url(https://cdn.shopify.com/s/files/1/0915/0893/2895/files/Union_11ff503b-4aae-4cec-aaca-6723bfbeec5c.svg?v=1749219365);
             position: absolute;
             right: -13px;
           }
@@ -4753,21 +4753,208 @@ cart-items {
         }
       }
     }
+    .cart__contents {
+      .cart__items {
+        .js-contents {
+          .cart-items {
+            thead {
+              @media (max-width: 500px) {
+                display: none;
+              }
+            }
+            tbody {
+              .cart-item {
+                @media (max-width: 500px) {
+                  grid-template: repeat(2, auto) / repeat(3, 1fr);
+                  gap: 0px;
+                }
+                .cart-item__totals {
+                  @media (max-width: 500px) {
+                    grid-column-start: 2;
+                    grid-row-start: 3;
+                    justify-content: flex-start;
+                  }
+                }
+                .cart-item__quantity {
+                  .cart-item__quantity-wrapper {
+                    align-items: center;
+                    @media (max-width: 425px) {
+                      flex-direction: column;
+                    }
+                    cart-remove-button {
+                      @media (max-width: 425px) {
+                        margin-left: -12px;
+                      }
+                    }
+                  }
+                }
+                .cart-item__details {
+                  .ui-price-fix {
+                    color: #000;
+                    font-family: Inter;
+                    font-size: 15px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 170%;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 
 .cart__footer {
+  align-items: center;
   .cart__footer-inner {
+    @media (max-width: 749px) {
+      display: none;
+    }
     .cart__footer-additional-info {
       .ui-after-red {
         margin: 0;
         padding: 0;
         position: relative;
-        &::after{
-          content: url(https://cdn.shopify.com/s/files/1/0915/0893/2895/files/Union.svg?v=1749042191);
+        &::after {
+          content: url(https://cdn.shopify.com/s/files/1/0915/0893/2895/files/Union_11ff503b-4aae-4cec-aaca-6723bfbeec5c.svg?v=1749219365);
           position: absolute;
           right: -13px;
-          rotate: 270deg;
+        }
+      }
+    }
+  }
+  .cart__blocks {
+    width: 289px;
+    @media (max-width: 749px) {
+      width: 100%;
+      margin-top: 0px;
+    }
+    .js-contents {
+      .totals {
+        @media (max-width: 749px) {
+          max-width: 355px;
+          justify-content: space-between;
+          margin: auto;
+        }
+      }
+    }
+    .cart__ctas {
+      button {
+        width: 289px;
+        height: 45px;
+        flex-shrink: 0;
+        background-color: #e00;
+        color: #fff;
+        text-align: center;
+        font-family: Inter;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 130%; /* 19.5px */
+        letter-spacing: 4.5px;
+        text-transform: uppercase;
+        border: none;
+        border-radius: 0px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        @media (max-width: 749px) {
+          width: 100%;
+          margin: auto;
+          margin-top: 20px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+    .tax-note {
+      color: #000;
+      font-family: Inter;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%;
+      text-align: left;
+      @media (max-width: 749px) {
+        text-align: center;
+      }
+    }
+  }
+}
+
+.product-card-wrapper {
+  .card--standard {
+    .card__inner {
+      position: relative;
+      width: 100%;
+      padding-top: 76%;
+      display: block;
+      .card__media {
+        .media--transparent {
+          img {
+            object-fit: cover;
+            background-color: #f3f3f3 !important;
+          }
+        }
+      }
+    }
+  }
+}
+.ui-content-red-line {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  .ui-content-red-underline {
+    display: block;
+    width: 60px;
+    height: 1px;
+    background-color: #e00;
+  }
+  .ui-content-red-undertext {
+    display: block;
+    color: #000;
+    text-align: right;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 170%; /* 25.5px */
+    letter-spacing: 4.5px;
+    position: relative;
+    text-decoration: none;
+    &::after {
+      content: url(https://cdn.shopify.com/s/files/1/0915/0893/2895/files/Union_11ff503b-4aae-4cec-aaca-6723bfbeec5c.svg?v=1749219365);
+      position: absolute;
+      right: -13px;
+      @media (max-width:400px) {
+        right: -9px;
+      }
+    }
+  }
+}
+.ui-custom-slide-bottom {
+  height: auto;
+  padding-bottom: 20px;
+  .swiper-slide {
+    height: auto;
+    padding-bottom: 35px;
+    .ui-content-red-line {
+      .ui-content-red-underline {
+        margin-bottom: 10px;
+      }
+      position: absolute;
+      bottom: 0;
+      .ui-content-red-undertext {
+        @media (max-width: 525px) {
+          color: #000;
+          text-align: right;
+          font-family: Inter;
+          font-size: 13px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 170%; /* 22.1px */
+          letter-spacing: 2.6px;
         }
       }
     }
