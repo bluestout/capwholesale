@@ -4690,3 +4690,86 @@ cart-items {
     // margin-top: -20px !important;
   }
 }
+.gradient {
+  .page-width {
+    .title-wrapper-with-link {
+      @media (max-width: 1000px) {
+        flex-direction: column;
+        align-items: center;
+      }
+      .title--primary {
+        width: calc(100% - 345px);
+        text-align: center;
+        padding-left: 345px;
+        text-transform: capitalize;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 130%;
+        @media (max-width: 1000px) {
+          padding: 0px;
+        }
+      }
+      .ui-beeline-red {
+        display: flex;
+        align-items: center;
+        column-gap: 20px;
+        justify-content: flex-end;
+        @media (max-width: 1000px) {
+          flex-direction: column;
+          row-gap: 20px;
+          align-items: center;
+        }
+        .ui-continue-button {
+          color: #000 !important ;
+          text-align: right;
+          font-family: Inter;
+          font-size: 15px;
+          font-style: normal;
+          text-transform: uppercase;
+          font-weight: 700;
+          line-height: 170%; /* 25.5px */
+          letter-spacing: 4.5px;
+          position: relative;
+          margin: 0;
+          padding: 0;
+          margin-right: 13px;
+
+          &::after {
+            content: url(https://cdn.shopify.com/s/files/1/0915/0893/2895/files/Union.svg?v=1749042191);
+            rotate: 270deg;
+            position: absolute;
+            right: -13px;
+          }
+        }
+        .ui-beline-red__underline {
+          width: 60px;
+          display: block;
+          height: 1px;
+          background-color: #e00;
+          @media (max-width: 1000px) {
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.cart__footer {
+  .cart__footer-inner {
+    .cart__footer-additional-info {
+      .ui-after-red {
+        margin: 0;
+        padding: 0;
+        position: relative;
+        &::after{
+          content: url(https://cdn.shopify.com/s/files/1/0915/0893/2895/files/Union.svg?v=1749042191);
+          position: absolute;
+          right: -13px;
+          rotate: 270deg;
+        }
+      }
+    }
+  }
+}
