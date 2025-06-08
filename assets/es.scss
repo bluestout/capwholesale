@@ -4927,7 +4927,7 @@ cart-items {
       content: url(https://cdn.shopify.com/s/files/1/0915/0893/2895/files/Union_11ff503b-4aae-4cec-aaca-6723bfbeec5c.svg?v=1749219365);
       position: absolute;
       right: -13px;
-      @media (max-width:400px) {
+      @media (max-width: 400px) {
         right: -9px;
       }
     }
@@ -4961,21 +4961,28 @@ cart-items {
   }
 }
 
-.content-for-layout{
-  .shopify-section{
-    cart-items{
-      .page-width{
+.content-for-layout {
+  .shopify-section {
+    cart-items {
+      .page-width {
         @media (max-width: 749px) {
           padding-left: 1rem;
           padding-right: 1rem;
         }
       }
     }
-    .page-width{
-      .cart__footer{
+    .page-width {
+      .cart__footer {
         padding-left: 1rem;
         padding-right: 1rem;
       }
     }
+  }
+}
+
+.ui-custom-must {
+  padding-top: calc(76% - 28.5px) !important;
+  .card__badge {
+    grid-row-start: 2;
   }
 }
