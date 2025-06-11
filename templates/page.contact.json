@@ -35,6 +35,7 @@
       ],
       "settings": {
         "show_space": false,
+        "image": "shopify:\/\/shop_images\/allenburt_94637_create_a_real_photo_with_people_wearing_corpo_2e5fd7b5-a835-45c1-9453-06ef636c270e_0_1_1.png",
         "image_overlay_opacity": 60,
         "opacity_type": "gradient",
         "opacity_color": "primary",
@@ -82,7 +83,7 @@
         "icon_with_text_BUGg48": {
           "type": "icon_with_text",
           "settings": {
-            "text": "<p><a href=\"mailto:info@customizedwear.com\" title=\"mailto:info@customizedwear.com\">info@customizedwear.com</a></p>"
+            "text": "<p><a href=\"mailto:info@customizedwear.com\" title=\"mailto:info@customizedwear.com\">info@customizedwear.com<\/a><\/p>"
           }
         },
         "icon_with_text_Xn86nc": {
@@ -94,19 +95,19 @@
         "icon_with_text_BbVPB9": {
           "type": "icon_with_text",
           "settings": {
-            "text": "<p>Monday - Friday</p><p>9:00 AM - 5:00 PM (EST)</p>"
+            "text": "<p>Monday - Friday<\/p><p>9:00 AM - 5:00 PM (EST)<\/p>"
           }
         },
         "icon_with_text_7MJUwE": {
           "type": "icon_with_text",
           "settings": {
-            "text": "<p><a href=\"https://CapWholesalers.com\" title=\"https://CapWholesalers.com\">CapWholesalers.com</a> & <a href=\"https://CustomizedWear.com\" title=\"https://CustomizedWear.com\">CustomizedWear.com</a></p><p>12530 Wiles Rd, Coral Springs, FL 33076</p>"
+            "text": "<p><a href=\"https:\/\/CapWholesalers.com\" title=\"https:\/\/CapWholesalers.com\">CapWholesalers.com<\/a> & <a href=\"https:\/\/CustomizedWear.com\" title=\"https:\/\/CustomizedWear.com\">CustomizedWear.com<\/a><\/p><p>12530 Wiles Rd, Coral Springs, FL 33076<\/p>"
           }
         },
         "icon_with_text_9AHdyH": {
           "type": "icon_with_text",
           "settings": {
-            "text": "<p>For <strong>Order Status</strong>, <strong>Returns</strong> or <strong>Exchanges</strong>, you can reach us</p><p>toll-fee at: <a href=\"tel:+18779842277\" title=\"tel:+18779842277\">877-984-2277 (CAPS)</a></p>"
+            "text": "<p>For <strong>Order Status<\/strong>, <strong>Returns<\/strong> or <strong>Exchanges<\/strong>, you can reach us<\/p><p>toll-fee at: <a href=\"tel:+18779842277\" title=\"tel:+18779842277\">877-984-2277 (CAPS)<\/a><\/p>"
           }
         }
       },
@@ -126,11 +127,194 @@
         "padding_top": 36,
         "padding_bottom": 80
       }
+    },
+    "ui_contact_us_j99VPf": {
+      "type": "ui-contact-us",
+      "blocks": {
+        "ui_left_block_JLgGXW": {
+          "type": "ui-left-block",
+          "settings": {
+            "ui_left_block_header": "Custom Hat Decoration Inquiries",
+            "ui_left_second_text": true,
+            "ui_left_block_rich": "<p>Interested in custom logo embroidery, screen printing, or patch designs for your hats? We offer low minimums and fast turnaround for:<\/p>"
+          }
+        },
+        "ui_ul_text_mRbpV7": {
+          "type": "ui-ul-text",
+          "settings": {
+            "ui-ul-text_li": "Embroidered caps"
+          }
+        },
+        "ui_ul_text_6hyfLN": {
+          "type": "ui-ul-text",
+          "settings": {
+            "ui-ul-text_li": "Leather patch hats"
+          }
+        },
+        "ui_ul_text_4mFQbB": {
+          "type": "ui-ul-text",
+          "settings": {
+            "ui-ul-text_li": "Faux leather patches"
+          }
+        },
+        "ui_ul_text_EUtgTD": {
+          "type": "ui-ul-text",
+          "settings": {
+            "ui-ul-text_li": "3D puff embroidery"
+          }
+        },
+        "ui_ul_text_UaQwM6": {
+          "type": "ui-ul-text",
+          "settings": {
+            "ui-ul-text_li": "Flex-style and print stitch patches"
+          }
+        },
+        "ui_ul_text_left_redtext_MMyRhG": {
+          "type": "ui-ul-text_left_redtext",
+          "settings": {
+            "ui-ul-text_left_redtext": "<p>Connect with our decoration experts:<\/p>"
+          }
+        },
+        "ui_ul_text_left_redtext_Hc7rXT": {
+          "type": "ui-ul-text_left_redtext",
+          "settings": {
+            "ui-ul-text_left_redtext": "<p>logos@customizedwear.com<\/p>"
+          }
+        },
+        "ui_ul_text_left_redtext_VxWfRW": {
+          "type": "ui-ul-text_left_redtext",
+          "settings": {
+            "ui-ul-text_left_redtext": "<p>https:\/\/www.CustomizedWEAR.com<\/p>"
+          }
+        },
+        "ui_ul_text_left_redtext_9LVQ3d": {
+          "type": "ui-ul-text_left_redtext",
+          "settings": {
+            "ui-ul-text_left_redtext": "<p>877-984-2277<\/p>"
+          }
+        },
+        "ui_left_headertext_fUPcQb": {
+          "type": "ui-left_headertext",
+          "settings": {
+            "ui-ul-text_left_headertext": "We customize the top wholesale hat brands including Richardson, Yupoong, Flexfit, and more."
+          }
+        },
+        "ui_right_block_fT39pa": {
+          "type": "ui-right-block",
+          "settings": {
+            "ui_right_block_header": "Shipping, Tracking & Order Support",
+            "ui_right_second_text": true,
+            "ui-right-block-rich": "<p>We’re here to help with tracking, split shipments, returns, or delivery estimates.<\/p>"
+          }
+        },
+        "ui_ul_text_right_wqfLAk": {
+          "type": "ui-ul-text_right",
+          "settings": {
+            "ui-ul-text_li_right": "Most orders ship within 1–2 business days"
+          }
+        },
+        "ui_ul_text_right_zVUfyH": {
+          "type": "ui-ul-text_right",
+          "settings": {
+            "ui-ul-text_li_right": "Delivery typically takes 3–7 business days via UPS or FedEx Ground"
+          }
+        },
+        "ui_ul_text_right_ffHc7K": {
+          "type": "ui-ul-text_right",
+          "settings": {
+            "ui-ul-text_li_right": "Tracking numbers available by request"
+          }
+        },
+        "ui_right_headertext_rkFmLf": {
+          "type": "ui-right_headertext",
+          "settings": {
+            "ui-ul-text_right_headertext": "Hatco International, Inc. CapWholesalers.com"
+          }
+        },
+        "ui_right_headertext_nk8VC4": {
+          "type": "ui-right_headertext",
+          "settings": {
+            "ui-ul-text_right_headertext": "12530 Wiles Rd, Coral Springs, FL 33076, United States"
+          }
+        }
+      },
+      "block_order": [
+        "ui_left_block_JLgGXW",
+        "ui_ul_text_mRbpV7",
+        "ui_ul_text_6hyfLN",
+        "ui_ul_text_4mFQbB",
+        "ui_ul_text_EUtgTD",
+        "ui_ul_text_UaQwM6",
+        "ui_ul_text_left_redtext_MMyRhG",
+        "ui_ul_text_left_redtext_Hc7rXT",
+        "ui_ul_text_left_redtext_VxWfRW",
+        "ui_ul_text_left_redtext_9LVQ3d",
+        "ui_left_headertext_fUPcQb",
+        "ui_right_block_fT39pa",
+        "ui_ul_text_right_wqfLAk",
+        "ui_ul_text_right_zVUfyH",
+        "ui_ul_text_right_ffHc7K",
+        "ui_right_headertext_rkFmLf",
+        "ui_right_headertext_nk8VC4"
+      ],
+      "name": "ui contact second",
+      "settings": {
+        "ui-left-header-text": ""
+      }
+    },
+    "ui_content_bottom_E8Jhad": {
+      "type": "ui-content-bottom",
+      "blocks": {
+        "ui_bottom_contact_over1_8KFCVT": {
+          "type": "ui_bottom_contact_over1",
+          "settings": {
+            "ui_bottom_content_left": "Over 20 years of experience in wholesale cap distribution"
+          }
+        },
+        "ui_bottom_contact_over1_PYWFKT": {
+          "type": "ui_bottom_contact_over1",
+          "settings": {
+            "ui_bottom_content_left": "Thousands of satisfied customers across the U.S."
+          }
+        },
+        "ui_bottom_contact_over1_9HHnea": {
+          "type": "ui_bottom_contact_over1",
+          "settings": {
+            "ui_bottom_content_left": "Huge selection of blank hats, decorated hats, and customized promotional headwear"
+          }
+        },
+        "ui_bottom_contact_over2_8pFBK3": {
+          "type": "ui_bottom_contact_over2",
+          "settings": {
+            "ui_bottom_content_right": "Expert help with custom logos, patch styles, and embroidery"
+          }
+        },
+        "ui_bottom_contact_over2_h99Erj": {
+          "type": "ui_bottom_contact_over2",
+          "settings": {
+            "ui_bottom_content_right": "Whether you're placing your first bulk hat order or reordering custom Richardson caps, we’re committed to making the process simple, affordable, and reliable"
+          }
+        }
+      },
+      "block_order": [
+        "ui_bottom_contact_over1_8KFCVT",
+        "ui_bottom_contact_over1_PYWFKT",
+        "ui_bottom_contact_over1_9HHnea",
+        "ui_bottom_contact_over2_8pFBK3",
+        "ui_bottom_contact_over2_h99Erj"
+      ],
+      "name": "ui bottom contact",
+      "settings": {
+        "ui_bottom_text": "Why Contact CapWholesalers?",
+        "red_underline_state": true
+      }
     }
   },
   "order": [
     "es_image_banner_CJWMWf",
     "main",
-    "es_contact_us_7yegjM"
+    "es_contact_us_7yegjM",
+    "ui_contact_us_j99VPf",
+    "ui_content_bottom_E8Jhad"
   ]
 }
