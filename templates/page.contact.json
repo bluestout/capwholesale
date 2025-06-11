@@ -35,7 +35,7 @@
       ],
       "settings": {
         "show_space": false,
-        "image": "shopify:\/\/shop_images\/allenburt_94637_create_a_real_photo_with_people_wearing_corpo_2e5fd7b5-a835-45c1-9453-06ef636c270e_0_1_1.png",
+        "image": "shopify://shop_images/allenburt_94637_create_a_real_photo_with_people_wearing_corpo_2e5fd7b5-a835-45c1-9453-06ef636c270e_0_1_1.png",
         "image_overlay_opacity": 60,
         "opacity_type": "gradient",
         "opacity_color": "primary",
@@ -83,7 +83,7 @@
         "icon_with_text_BUGg48": {
           "type": "icon_with_text",
           "settings": {
-            "text": "<p><a href=\"mailto:info@customizedwear.com\" title=\"mailto:info@customizedwear.com\">info@customizedwear.com<\/a><\/p>"
+            "text": "<p><a href=\"mailto:info@customizedwear.com\" title=\"mailto:info@customizedwear.com\">info@customizedwear.com</a></p>"
           }
         },
         "icon_with_text_Xn86nc": {
@@ -95,19 +95,19 @@
         "icon_with_text_BbVPB9": {
           "type": "icon_with_text",
           "settings": {
-            "text": "<p>Monday - Friday<\/p><p>9:00 AM - 5:00 PM (EST)<\/p>"
+            "text": "<p>Monday - Friday</p><p>9:00 AM - 5:00 PM (EST)</p>"
           }
         },
         "icon_with_text_7MJUwE": {
           "type": "icon_with_text",
           "settings": {
-            "text": "<p><a href=\"https:\/\/CapWholesalers.com\" title=\"https:\/\/CapWholesalers.com\">CapWholesalers.com<\/a> & <a href=\"https:\/\/CustomizedWear.com\" title=\"https:\/\/CustomizedWear.com\">CustomizedWear.com<\/a><\/p><p>12530 Wiles Rd, Coral Springs, FL 33076<\/p>"
+            "text": "<p><a href=\"https://CapWholesalers.com\" title=\"https://CapWholesalers.com\">CapWholesalers.com</a> & <a href=\"https://CustomizedWear.com\" title=\"https://CustomizedWear.com\">CustomizedWear.com</a></p><p>12530 Wiles Rd, Coral Springs, FL 33076</p>"
           }
         },
         "icon_with_text_9AHdyH": {
           "type": "icon_with_text",
           "settings": {
-            "text": "<p>For <strong>Order Status<\/strong>, <strong>Returns<\/strong> or <strong>Exchanges<\/strong>, you can reach us<\/p><p>toll-fee at: <a href=\"tel:+18779842277\" title=\"tel:+18779842277\">877-984-2277 (CAPS)<\/a><\/p>"
+            "text": "<p>For <strong>Order Status</strong>, <strong>Returns</strong> or <strong>Exchanges</strong>, you can reach us</p><p>toll-fee at: <a href=\"tel:+18779842277\" title=\"tel:+18779842277\">877-984-2277 (CAPS)</a></p>"
           }
         }
       },
@@ -136,7 +136,7 @@
           "settings": {
             "ui_left_block_header": "Custom Hat Decoration Inquiries",
             "ui_left_second_text": true,
-            "ui_left_block_rich": "<p>Interested in custom logo embroidery, screen printing, or patch designs for your hats? We offer low minimums and fast turnaround for:<\/p>"
+            "ui_left_block_rich": "<p>Interested in custom logo embroidery, screen printing, or patch designs for your hats? We offer low minimums and fast turnaround for:</p>"
           }
         },
         "ui_ul_text_mRbpV7": {
@@ -172,25 +172,25 @@
         "ui_ul_text_left_redtext_MMyRhG": {
           "type": "ui-ul-text_left_redtext",
           "settings": {
-            "ui-ul-text_left_redtext": "<p>Connect with our decoration experts:<\/p>"
+            "ui-ul-text_left_redtext": "<p>Connect with our decoration experts:</p>"
           }
         },
         "ui_ul_text_left_redtext_Hc7rXT": {
           "type": "ui-ul-text_left_redtext",
           "settings": {
-            "ui-ul-text_left_redtext": "<p>logos@customizedwear.com<\/p>"
+            "ui-ul-text_left_redtext": "<p>logos@customizedwear.com</p>"
           }
         },
         "ui_ul_text_left_redtext_VxWfRW": {
           "type": "ui-ul-text_left_redtext",
           "settings": {
-            "ui-ul-text_left_redtext": "<p>https:\/\/www.CustomizedWEAR.com<\/p>"
+            "ui-ul-text_left_redtext": "<p>https://www.CustomizedWEAR.com</p>"
           }
         },
         "ui_ul_text_left_redtext_9LVQ3d": {
           "type": "ui-ul-text_left_redtext",
           "settings": {
-            "ui-ul-text_left_redtext": "<p>877-984-2277<\/p>"
+            "ui-ul-text_left_redtext": "<p>877-984-2277</p>"
           }
         },
         "ui_left_headertext_fUPcQb": {
@@ -202,9 +202,10 @@
         "ui_right_block_fT39pa": {
           "type": "ui-right-block",
           "settings": {
+            "ui_left_block__header_text": "Already placed an order for wholesale hats or custom headwear?",
             "ui_right_block_header": "Shipping, Tracking & Order Support",
             "ui_right_second_text": true,
-            "ui-right-block-rich": "<p>We’re here to help with tracking, split shipments, returns, or delivery estimates.<\/p>"
+            "ui-right-block-rich": "<p>We’re here to help with tracking, split shipments, returns, or delivery estimates.</p>"
           }
         },
         "ui_ul_text_right_wqfLAk": {
