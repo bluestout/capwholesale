@@ -4986,3 +4986,162 @@ cart-items {
     grid-row-start: 2;
   }
 }
+
+.ui-contact-container {
+  display: flex;
+  justify-content: center;
+  column-gap: 100px;
+  .ui-content-left {
+    max-width: 500px;
+    h1 {
+      color: #000;
+      font-family: Inter;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 130%; /* 26px */
+    }
+    .ui_underline_red_line {
+      width: 50px;
+      height: 1px;
+      background-color: #900;
+      display: block;
+    }
+    p {
+      color: #000;
+      font-family: Inter;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 170%;
+    }
+    div{
+      &:last-child{
+        p{
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  .ui-content-right {
+    max-width: 500px;
+    h1 {
+      color: #000;
+      font-family: Inter;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 130%;
+    }
+
+    .ui_underline_red_line {
+      width: 50px;
+      height: 1px;
+      background-color: #900;
+      display: block;
+    }
+    .ui_big_text {
+      p {
+        color: #000;
+        font-family: Inter;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 170%;
+      }
+    }
+  }
+}
+
+.ui-contact-container {
+  .ui-contact-row-left {
+    max-width: 500px;
+  }
+  .ui-contact-row-right {
+    max-width: 500px;
+  }
+}
+.ui-contact-container {
+  .ui-content-left {
+    .ui-content-left_first {
+      ul {
+        margin-left: -10px;
+        li {
+          color: #000;
+          font-family: Inter;
+          font-size: 15px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 170%;
+        }
+      }
+    }
+  }
+  .ui-content-right {
+    position: relative;
+    ul {
+      margin-left: -10px;
+      li {
+        color: #000;
+        font-family: Inter;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 170%;
+      }
+    }
+    .ui_bottom_shipping {
+      position: absolute;
+      bottom: 0;
+      p {
+        margin: 0;
+      }
+    }
+  }
+}
+.ui-contact-container {
+  .ui-content-left {
+    .ui-content-left_second {
+      .ui-content-left_third {
+        p {
+          margin: 0;
+          &:first-child {
+            color: #000;
+            font-family: Inter;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 170%;
+          }
+          color: #e00;
+          font-family: Inter;
+          font-size: 15px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 170%;
+        }
+      }
+    }
+  }
+}
+
+.ui-contact {
+  .ui-contact-container-h1 {
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%; /* 26px */
+  }
+  .ui-contact-redunderline {
+    width: 50px;
+    height: 1px;
+    background-color: #900;
+    display: block;
+  }
+  .ui-contact-row-left {
+  }
+  .ui-contact-row-right {
+  }
+}
