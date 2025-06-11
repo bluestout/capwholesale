@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.header.name",
   "type": "header",
@@ -34,10 +43,20 @@
           "settings": {
             "menu": ""
           }
+        },
+        "specific_link_UME8We": {
+          "type": "specific_link",
+          "settings": {
+            "link_text": "5-Panel Golf Hats",
+            "custom_class": "",
+            "link_color": "#990000",
+            "font_weight": 600
+          }
         }
       },
       "block_order": [
-        "mobile_menu_aLMmPP"
+        "mobile_menu_aLMmPP",
+        "specific_link_UME8We"
       ],
       "custom_css": [
         "@media (min-width: 768px) {.shop-all {margin-bottom: 30px; }}"
