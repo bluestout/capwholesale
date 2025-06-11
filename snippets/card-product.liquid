@@ -56,7 +56,7 @@
       style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
     >
       <div
-        class="card__inner {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }} gradient{% endif %}{% if card_product.featured_media or settings.card_style == 'standard' %} ratio{% endif %}"
+        class="card__inner {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }} gradient{% endif %}{% if card_product.featured_media or settings.card_style == 'standard' %} ratio{% endif %} {%- if card_product.available == false -%}ui-custom-must{% endif %}"
         style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
       >
         {%- if card_product.featured_media -%}
@@ -143,6 +143,16 @@
               </span>
             {%- endif -%}
           </div>
+          {% comment %}
+            <div class="ui-content-red-line">
+              {% if show_redunderline %}
+                <span class="ui-content-red-underline"></span>
+              {% endif %}
+              {% if show_undertext %}
+                <a href="#" class="ui-content-red-undertext">SEE PRODUCT</a>
+              {% endif %}
+            </div>
+          {% endcomment %}
         </div>
       </div>
       <div class="card__content">
@@ -206,7 +216,12 @@
               </p>
             {%- endif -%}
 
-            <div class="loox-rating" data-id="{{ card_product.id }}" data-rating="{{ card_product.metafields.loox.avg_rating }}" data-raters="{{ card_product.metafields.loox.num_reviews }}"></div>
+            <div
+              class="loox-rating"
+              data-id="{{ card_product.id }}"
+              data-rating="{{ card_product.metafields.loox.avg_rating }}"
+              data-raters="{{ card_product.metafields.loox.num_reviews }}"
+            ></div>
             {% comment %} {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %} {% endcomment %}
             {% render 'es-price', product: card_product %}
             {%- if card_product.quantity_price_breaks_configured? -%}
@@ -635,3 +650,11 @@
     </div>
   </div>
 {%- endif -%}
+<div class="ui-content-red-line">
+  {% if show_redunderline %}
+    <span class="ui-content-red-underline"></span>
+  {% endif %}
+  {% if show_undertext %}
+    <a href="#" class="ui-content-red-undertext">SEE PRODUCT</a>
+  {% endif %}
+</div>
