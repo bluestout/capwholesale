@@ -5014,10 +5014,12 @@ cart-items {
       font-style: normal;
       font-weight: 400;
       line-height: 170%;
+      margin-bottom: 0px;
+      margin-top: 30px;
     }
-    div{
-      &:last-child{
-        p{
+    div {
+      &:last-child {
+        p {
           margin-bottom: 0;
         }
       }
@@ -5048,6 +5050,8 @@ cart-items {
         font-style: normal;
         font-weight: 400;
         line-height: 170%;
+        margin-bottom: 0px;
+        margin-top: 30px;
       }
     }
   }
@@ -5056,9 +5060,16 @@ cart-items {
 .ui-contact-container {
   .ui-contact-row-left {
     max-width: 500px;
+    ul {
+      margin-left: -10px;
+    }
   }
   .ui-contact-row-right {
     max-width: 500px;
+    margin-top: auto;
+    ul {
+      margin-left: -10px;
+    }
   }
 }
 .ui-contact-container {
@@ -5066,6 +5077,7 @@ cart-items {
     .ui-content-left_first {
       ul {
         margin-left: -10px;
+        margin-top: 0px;
         li {
           color: #000;
           font-family: Inter;
@@ -5126,6 +5138,7 @@ cart-items {
 }
 
 .ui-contact {
+  margin-top: 100px;
   .ui-contact-container-h1 {
     color: #000;
     font-family: Inter;
