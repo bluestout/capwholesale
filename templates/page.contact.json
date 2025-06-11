@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "es_image_banner_CJWMWf": {
@@ -59,16 +68,16 @@
       "type": "es-contact-us",
       "blocks": {
         "sk_form_builder_form_nF4A66": {
-          "type": "shopify:\/\/apps\/sk-form-builder\/blocks\/form\/f3e35b58-5874-4ef2-8e03-c92cda6e49eb",
+          "type": "shopify://apps/sk-form-builder/blocks/form/f3e35b58-5874-4ef2-8e03-c92cda6e49eb",
           "settings": {
             "show_form": true,
-            "form_token": "414b6a5658774570"
+            "form_token": "6664386f58505846"
           }
         },
         "text_6W8Lhe": {
           "type": "text",
           "settings": {
-            "text": "<p>If you need a quote for customization and can't find a price on our website, please email us your questions at:<\/p>"
+            "text": "<p>If you need a quote for customization and can't find a price on our website, please email us your questions at:</p>"
           }
         },
         "icon_with_text_BUGg48": {
@@ -80,7 +89,7 @@
         "icon_with_text_Xn86nc": {
           "type": "icon_with_text",
           "settings": {
-            "text": "<p>Our Customer Service Department is open:<\/p>"
+            "text": "<p>Our Customer Service Department is open:</p>"
           }
         },
         "icon_with_text_BbVPB9": {
