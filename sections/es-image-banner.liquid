@@ -1,6 +1,5 @@
 {{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
 
-
 {%- if section.settings.image_height == 'adapt' and section.settings.image != blank -%}
   {%- style -%}
     @media screen and (max-width: 749px) {
@@ -166,7 +165,7 @@
               </p>
             {%- endif -%}
             <h2
-              class="banner__heading inline-richtext {{ block.settings.heading_size }}"
+              class="banner__heading inline-richtext {{ block.settings.heading_size }}{% if block.settings.border_bottom %} is-border-bottom{% endif %}"
               {{ block.shopify_attributes }}
             >
               {{ block.settings.heading }}
@@ -586,6 +585,12 @@
           "id": "heading",
           "default": "t:sections.image-banner.blocks.heading.settings.heading.default",
           "label": "t:sections.image-banner.blocks.heading.settings.heading.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "border_bottom",
+          "label": "Border Bottom",
+          "default": false
         },
         {
           "type": "select",

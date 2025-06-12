@@ -1,19 +1,19 @@
 {% comment %}
-  Renders an article card for a given blog with settings to either show the image or not.
+Renders an article card for a given blog with settings to either show the image or not.
 
-  Accepts:
-  - blog: {Object} Blog object
-  - article: {Object} Article object
-  - media_aspect_ratio: {String} The setting changes the aspect ratio of the article image, if shown
-  - media_height: {String} The setting changes the height of the article image. Overrides media_aspect_ratio.
-  - show_image: {String} The setting either show the article image or not. If it's not included it will show the image by default
-  - show_date: {String} The setting either show the article date or not. If it's not included it will not show the image by default
-  - show_author: {String} The setting either show the article author or not. If it's not included it will not show the author by default
-  - show_badge: {String} The setting either show the blog badge or not.
-  - lazy_load: {Boolean} Image should be lazy loaded. Default: true (optional)
+Accepts:
+- blog: {Object} Blog object
+- article: {Object} Article object
+- media_aspect_ratio: {String} The setting changes the aspect ratio of the article image, if shown
+- media_height: {String} The setting changes the height of the article image. Overrides media_aspect_ratio.
+- show_image: {String} The setting either show the article image or not. If it's not included it will show the image by default
+- show_date: {String} The setting either show the article date or not. If it's not included it will not show the image by default
+- show_author: {String} The setting either show the article author or not. If it's not included it will not show the author by default
+- show_badge: {String} The setting either show the blog badge or not.
+- lazy_load: {Boolean} Image should be lazy loaded. Default: true (optional)
 
-  Usage:
-  {% render 'article-card' blog: blog, article: article, show_image: section.settings.show_image %}
+Usage:
+{% render 'article-card' blog: blog, article: article, show_image: section.settings.show_image %}
 {% endcomment %}
 
 {%- if article and article != empty -%}
@@ -23,58 +23,48 @@
       assign ratio = media_aspect_ratio
     endif
   -%}
-  <div class="article-card-wrapper card-wrapper underline-links-hover">
+    <div class="article-card-wrapper card-wrapper underline-links-hover">
     {% comment %} <article aria-labelledby="Article-{{ article.id }}"> {% endcomment %}
-    <div
-      class="
-        card article-card
-        card--{{ settings.blog_card_style }}
-        {% if media_height and media_height != 'adapt' %} article-card__image--{{ media_height }}{% endif %}
-        {% if article.image and show_image %} card--media{% else %} card--text{% endif %}
-        {% if settings.blog_card_style == 'card' %} color-{{ settings.blog_card_color_scheme }} gradient{% endif %}
-        {% if settings.blog_card_style == 'card' and media_height == nil and article.image == empty or show_image == false %} ratio{% endif %}
-      "
-      style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
-    >
+    <div class="
+                    card article-card
+                    card--{{ settings.blog_card_style }}
+                    {% if media_height and media_height != 'adapt' %} article-card__image--{{ media_height }}{% endif %}
+                    {% if article.image and show_image %} card--media{% else %} card--text{% endif %}
+                    {% if settings.blog_card_style == 'card' %} color-{{ settings.blog_card_color_scheme }} gradient{% endif %}
+                    {% if settings.blog_card_style == 'card' and media_height == nil and article.image == empty or show_image == false %} ratio{% endif %}
+                  " style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;">
       <h3 class="card__heading{% if show_excerpt %} h2{% endif %}">
         <a href="{{ article.url }}" class="full-unstyled-link">
           {{ article.title | truncate: 50 | escape }}
         </a>
       </h3>
-      <div
-        class="card__inner {% if settings.blog_card_style == 'standard' %} color-{{ settings.blog_card_color_scheme }} gradient{% endif %}{% if article.image and show_image or settings.blog_card_style == 'standard' %} ratio{% endif %}"
-        style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
-      >
+      <div class="card__inner {% if settings.blog_card_style == 'standard' %} color-{{ settings.blog_card_color_scheme }} gradient{% endif %}{% if article.image and show_image or settings.blog_card_style == 'standard' %} ratio{% endif %}" style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;">
         {%- if show_image == true and article.image -%}
           <div class="article-card__image-wrapper card__media">
-            <div
-              class="article-card__image media media--hover-effect"
-              {% if section.settings.media_height == 'adapt' %}
-                style="padding-bottom: {{ 1 | divided_by: article.image.aspect_ratio | times: 100 }}%;"
-              {% endif %}
-            >
+            <div class="article-card__image media media--hover-effect" {% if section.settings.media_height == 'adapt' %}style="padding-bottom: {{ 1 | divided_by: article.image.aspect_ratio | times: 100 }}%;"{% endif %}>
               {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
               <img
-                srcset="
-                  {%- if article.image.src.width >= 165 -%}{{ article.image.src | image_url: width: 165 }} 165w,{%- endif -%}
-                  {%- if article.image.src.width >= 360 -%}{{ article.image.src | image_url: width: 360 }} 360w,{%- endif -%}
-                  {%- if article.image.src.width >= 533 -%}{{ article.image.src | image_url: width: 533 }} 533w,{%- endif -%}
-                  {%- if article.image.src.width >= 720 -%}{{ article.image.src | image_url: width: 720 }} 720w,{%- endif -%}
-                  {%- if article.image.src.width >= 1000 -%}{{ article.image.src | image_url: width: 1000 }} 1000w,{%- endif -%}
-                  {%- if article.image.src.width >= 1500 -%}{{ article.image.src | image_url: width: 1500 }} 1500w,{%- endif -%}
-                  {{ article.image.src | image_url }} {{ article.image.src.width }}w
-                "
-                src="{{ article.image.src | image_url: width: 533 }}"
-                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
-                alt="{{ article.image.src.alt | escape }}"
-                class="motion-reduce"
-                {% unless lazy_load == false %}
-                  loading="lazy"
-                {% endunless %}
-                width="{{ article.image.width }}"
-                height="{{ article.image.height }}"
-              >
-              {% comment %}theme-check-enable ImgLazyLoading{% endcomment %}
+              srcset="
+              {%- if article.image.src.width >= 165 -%}
+                {{ article.image.src | image_url: width: 165 }} 165w,{%- endif -%}
+              {%- if article.image.src.width >= 360 -%}
+                {{ article.image.src | image_url: width: 360 }} 360w,{%- endif -%}
+              {%- if article.image.src.width >= 533 -%}
+                {{ article.image.src | image_url: width: 533 }} 533w,{%- endif -%}
+              {%- if article.image.src.width >= 720 -%}
+                {{ article.image.src | image_url: width: 720 }} 720w,{%- endif -%}
+              {%- if article.image.src.width >= 1000 -%}
+                {{ article.image.src | image_url: width: 1000 }} 1000w,{%- endif -%}
+              {%- if article.image.src.width >= 1500 -%}
+                {{ article.image.src | image_url: width: 1500 }} 1500w,{%- endif -%}
+              {{ article.image.src | image_url }} {{ article.image.src.width }}w
+                                            "
+              src="{{ article.image.src | image_url: width: 533 }}"
+              sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+              alt="{{ article.image.src.alt | escape }}"
+              class="motion-reduce"
+              {% unless lazy_load == false %}loading="lazy"{% endunless %}width="{{ article.image.width }}"height="{{ article.image.height }}">
+            {% comment %}theme-check-enable ImgLazyLoading{% endcomment %}
             </div>
           </div>
         {%- endif -%}
@@ -115,9 +105,9 @@
       <div class="card__content">
         <div class="card__information">
           {% comment %} <h3 class="card__heading{% if show_excerpt %} h2{% endif %}">
-            <a href="{{ article.url }}" class="full-unstyled-link">
-              {{ article.title | truncate: 50 | escape }}
-            </a>
+          <a href="{{ article.url }}" class="full-unstyled-link">
+          {{ article.title | truncate: 50 | escape }}
+          </a>
           </h3> {% endcomment %}
           <div class="article-card__info caption-with-letter-spacing h5">
             {%- if show_date -%}
@@ -143,7 +133,21 @@
               {%- endif -%}
             </div>
           {%- endif -%}
-          <div class="read-more">Read More {%- render 'es-arrow-right-1' -%}</div> 
+          <div class="read-more">Learn More
+            {% comment %} {%- render 'es-arrow-right-1' -%} {% endcomment %}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="6"
+              height="10"
+              viewBox="0 0 6 10"
+              fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M1.28033 9.37652C0.987437 9.66941 0.512563 9.66941 0.21967 9.37652C-0.073223 9.08363 -0.073223 8.60875 0.21967 8.31586L3.53549 5.00004L0.21967 1.68421C-0.073223 1.39132 -0.0732229 0.916447 0.21967 0.623554C0.512564 0.330661 0.987437 0.330661 1.28033 0.623554L5.12648 4.46971C5.41938 4.7626 5.41938 5.23747 5.12648 5.53037L1.28033 9.37652Z"
+                fill="#EE0000" />
+            </svg>
+          </div>
         </div>
         {%- if show_badge -%}
           <div class="card__badge {{ settings.badge_position }}">
