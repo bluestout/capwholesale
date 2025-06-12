@@ -251,6 +251,21 @@
         margin: 0;
         color: #fff;
 
+        &.is-border-bottom {
+          position: relative;
+
+          &::after {
+            content: '';
+            height: 3px;
+            width: 70px;
+            background-color: #EE0000;
+            display: block;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+          }
+        }
+
         &.h0 {
           font-size: 48px;
 
@@ -261,7 +276,8 @@
 
         &.hxxl {
           font-size: 50px;
-          text-align: right;
+          max-width: max-content;
+
           @media (max-width: 750px) {
             font-size: 40px;
           }
@@ -4240,8 +4256,9 @@ cart-items {
 }
 
 .banner__box {
-  padding-bottom: 0px !important;
-  padding-top: 100px;
+  // padding-bottom: 0px !important;
+  // padding-top: 100px;
+
   @media (max-width: 749px) {
     height: 485px !important;
   }
@@ -5206,3 +5223,50 @@ sk-form {
     }
   }
 }
+
+// 404 page css
+.template-404 {
+  .title {
+    color: #999;
+  }
+  .button--group {
+    .es-button {
+      color: #000;
+      text-transform: uppercase;
+    }
+    a {
+      padding: 22px;
+      position: relative;
+      padding-right: 32px;
+      @media (max-height: 750px) {
+        padding-top: 30px;
+        padding-bottom: 30px;
+      }
+      &::after {
+        content: url(https://cdn.shopify.com/s/files/1/0915/0893/2895/files/Union_11ff503b-4aae-4cec-aaca-6723bfbeec5c.svg?v=1749219365);
+        position: absolute;
+        right: 17px;
+      }
+      &:last-child {
+        border-left: 1px solid #e00;
+        @media (max-width: 750px) {
+          border: none;
+          padding-top: 0px;
+          padding-bottom: 0px;
+        }
+      }
+      &:first-child {
+        padding-right: 42px;
+        &::after {
+          right: 25px;
+        }
+      }
+    }
+  }
+  .description {
+    @media (max-width: 750px) {
+      margin-bottom: 0px;
+    }
+  }
+}
+// 404 page
