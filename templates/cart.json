@@ -1,32 +1,14 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "es_image_banner_wJHgen": {
-      "type": "es-image-banner",
-      "name": "ES Image Banner",
-      "settings": {
-        "show_space": false,
-        "image": "shopify:\/\/shop_images\/top.png",
-        "image_mobile": "shopify:\/\/shop_images\/top_1.png",
-        "image_overlay_opacity": 0,
-        "opacity_type": "normal",
-        "opacity_color": "primary",
-        "opacity_weight_on_desktop": "light",
-        "opacity_direction": "vertical",
-        "image_height": "adapt",
-        "image_behavior": "none",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": true,
-        "color_scheme": "",
-        "stack_images_on_mobile": true,
-        "mobile_content_position": "middle",
-        "mobile_content_alignment": "center",
-        "opacity_direct_on_mobile": "vertical",
-        "opacity_height_on_mobile": "small",
-        "image_height_on_mobile": "square",
-        "show_text_below": true
-      }
-    },
     "cart-items": {
       "type": "main-cart-items",
       "settings": {
@@ -70,6 +52,8 @@
         "show_secondary_image": false,
         "show_vendor": false,
         "show_rating": false,
+        "show_redunderline": true,
+        "show_undertext": true,
         "quick_add": "none",
         "border_bottom": true,
         "padding_top": 52,
@@ -78,7 +62,6 @@
     }
   },
   "order": [
-    "es_image_banner_wJHgen",
     "cart-items",
     "cart-footer",
     "es_featured_collection_ytPkbT"

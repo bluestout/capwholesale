@@ -1,0 +1,196 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_eyApHT": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_WjYgHY": {
+          "type": "heading",
+          "settings": {
+            "heading": "FAQs",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_WjYgHY"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "border_bottom": true,
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "collapsible_content_Tm4Lrd": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_dMNUqp": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Vestibulum tempor lacus ut risus auctor tristique?",
+            "icon": "none",
+            "row_content": "<p>Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus. Nullam sed ipsum vel quam suscipit mattis at vitae augue. Phasellus non maximus dui, a ultricies libero. Duis eu mi augue. Maecenas ante nunc, semper nec justo ac, volutpat aliquet enim. Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_xxidQj": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Vestibulum tempor lacus ut risus auctor tristique?",
+            "icon": "none",
+            "row_content": "<p>Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus. Nullam sed ipsum vel quam suscipit mattis at vitae augue. Phasellus non maximus dui, a ultricies libero. Duis eu mi augue. Maecenas ante nunc, semper nec justo ac, volutpat aliquet enim. Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_kXzrYd": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Vestibulum tempor lacus ut risus auctor tristique?",
+            "icon": "none",
+            "row_content": "<p>Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus. Nullam sed ipsum vel quam suscipit mattis at vitae augue. Phasellus non maximus dui, a ultricies libero. Duis eu mi augue. Maecenas ante nunc, semper nec justo ac, volutpat aliquet enim. Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_bkjYWf": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Vestibulum tempor lacus ut risus auctor tristique?",
+            "icon": "none",
+            "row_content": "<p>Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus. Nullam sed ipsum vel quam suscipit mattis at vitae augue. Phasellus non maximus dui, a ultricies libero. Duis eu mi augue. Maecenas ante nunc, semper nec justo ac, volutpat aliquet enim. Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_yNczWP": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Vestibulum tempor lacus ut risus auctor tristique?",
+            "icon": "none",
+            "row_content": "<p>Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus. Nullam sed ipsum vel quam suscipit mattis at vitae augue. Phasellus non maximus dui, a ultricies libero. Duis eu mi augue. Maecenas ante nunc, semper nec justo ac, volutpat aliquet enim. Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_bHLYBw": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Vestibulum tempor lacus ut risus auctor tristique?",
+            "icon": "none",
+            "row_content": "<p>Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus. Nullam sed ipsum vel quam suscipit mattis at vitae augue. Phasellus non maximus dui, a ultricies libero. Duis eu mi augue. Maecenas ante nunc, semper nec justo ac, volutpat aliquet enim. Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_exqgpt": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Vestibulum tempor lacus ut risus auctor tristique?",
+            "icon": "none",
+            "row_content": "<p>Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus. Nullam sed ipsum vel quam suscipit mattis at vitae augue. Phasellus non maximus dui, a ultricies libero. Duis eu mi augue. Maecenas ante nunc, semper nec justo ac, volutpat aliquet enim. Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_qTK3NG": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Vestibulum tempor lacus ut risus auctor tristique?",
+            "icon": "none",
+            "row_content": "<p>Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus. Nullam sed ipsum vel quam suscipit mattis at vitae augue. Phasellus non maximus dui, a ultricies libero. Duis eu mi augue. Maecenas ante nunc, semper nec justo ac, volutpat aliquet enim. Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_F8ctpx": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Vestibulum tempor lacus ut risus auctor tristique?",
+            "icon": "none",
+            "row_content": "<p>Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus. Nullam sed ipsum vel quam suscipit mattis at vitae augue. Phasellus non maximus dui, a ultricies libero. Duis eu mi augue. Maecenas ante nunc, semper nec justo ac, volutpat aliquet enim. Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_HjNq44": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Vestibulum tempor lacus ut risus auctor tristique?",
+            "icon": "none",
+            "row_content": "<p>Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus. Nullam sed ipsum vel quam suscipit mattis at vitae augue. Phasellus non maximus dui, a ultricies libero. Duis eu mi augue. Maecenas ante nunc, semper nec justo ac, volutpat aliquet enim. Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Uwi7Hk": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Vestibulum tempor lacus ut risus auctor tristique?",
+            "icon": "none",
+            "row_content": "<p>Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus. Nullam sed ipsum vel quam suscipit mattis at vitae augue. Phasellus non maximus dui, a ultricies libero. Duis eu mi augue. Maecenas ante nunc, semper nec justo ac, volutpat aliquet enim. Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_JFgrg4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Vestibulum tempor lacus ut risus auctor tristique?",
+            "icon": "none",
+            "row_content": "<p>Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus. Nullam sed ipsum vel quam suscipit mattis at vitae augue. Phasellus non maximus dui, a ultricies libero. Duis eu mi augue. Maecenas ante nunc, semper nec justo ac, volutpat aliquet enim. Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_dMNUqp",
+        "collapsible_row_xxidQj",
+        "collapsible_row_kXzrYd",
+        "collapsible_row_bkjYWf",
+        "collapsible_row_yNczWP",
+        "collapsible_row_bHLYBw",
+        "collapsible_row_exqgpt",
+        "collapsible_row_qTK3NG",
+        "collapsible_row_F8ctpx",
+        "collapsible_row_HjNq44",
+        "collapsible_row_Uwi7Hk",
+        "collapsible_row_JFgrg4"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "tab_section": false,
+        "hide_section": false,
+        "custom_id": "embroideryQA",
+        "caption": "",
+        "heading": "",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_eyApHT",
+    "collapsible_content_Tm4Lrd"
+  ]
+}
