@@ -220,7 +220,7 @@
     }
 
     .banner__content {
-      background: rgba(0, 0, 0, 0.3);
+      // background: rgba(0, 0, 0, 0.3);
       .banner__subheading {
         color: #fff;
         font-size: 100px;
@@ -260,8 +260,8 @@
         }
 
         &.hxxl {
-          font-size: 100px;
-
+          font-size: 50px;
+          text-align: right;
           @media (max-width: 750px) {
             font-size: 40px;
           }
@@ -4029,10 +4029,11 @@ cart-items {
     .grid__item {
       @media (min-width: 751px) {
         &:nth-child(1) {
-          margin-top: -86px;
+          // margin-top: -86px;
 
           sk-form {
             position: relative;
+            z-index: 2;
           }
         }
 
@@ -4059,7 +4060,7 @@ cart-items {
     }
 
     a {
-      color: #990000;
+      color: #e00;
       font-weight: 600;
       text-decoration: unset;
     }
@@ -4217,12 +4218,13 @@ cart-items {
 }
 
 .banner__div__beeline {
-  height: 60px;
-  width: 1px;
-  background-color: white;
+  width: 70px;
+  height: 3px;
+  flex-shrink: 0;
+  background: #e00;
   border: none;
   display: block;
-  margin-left: 48px;
+  margin-left: auto;
 }
 
 .banner__box {
@@ -5053,18 +5055,32 @@ cart-items {
       font-style: normal;
       font-weight: 400;
       line-height: 130%; /* 26px */
+      margin-bottom: 20px;
     }
     .ui-middle-right-body {
     }
     .ui-contact-image {
       display: flex;
-      column-gap: 7px;
+      column-gap: 14px;
       align-items: center;
       position: absolute;
       bottom: 0;
+      div {
+        &:first-child {
+          @media (max-width: 450px) {
+            margin-top: 9px;
+          }
+        }
+        &:last-child {
+          margin-top: 50px;
+        }
+      }
 
       @media (max-width: 1070px) {
         position: initial;
+      }
+      @media (max-width: 450px) {
+        align-items: flex-start;
       }
       p {
         margin: 0;
@@ -5134,10 +5150,46 @@ cart-items {
     font-weight: 400;
     line-height: 130%;
   }
-  .ui-red-underline{
+  .ui-red-underline {
     width: 50px;
     height: 1px;
-    color: #900;
+    background-color: #900;
     display: block;
+  }
+}
+
+sk-form {
+  position: relative;
+  z-index: 2;
+  &::before {
+    content: "";
+    width: 97%;
+    height: 200px;
+    background: linear-gradient(
+      180deg,
+      rgba(153, 153, 153, 0.3) 0%,
+      rgba(255, 255, 255, 0.3) 100%
+    );
+    filter: blur(3.5px);
+    position: absolute;
+    z-index: -1;
+    padding: 0px 30px;
+    max-width: 600px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+}
+.ui-red-underline {
+  width: 50px;
+  height: 1px;
+  background-color: #900;
+  display: block;
+}
+
+.es-image-banner {
+  .banner {
+    @media (max-height: 750px) {
+      max-height: 420px;
+    }
   }
 }
