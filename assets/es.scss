@@ -275,9 +275,6 @@
         }
 
         &.hxxl {
-          font-size: 50px;
-          max-width: max-content;
-
           @media (max-width: 750px) {
             font-size: 40px;
           }
@@ -4245,25 +4242,6 @@ cart-items {
   }
 }
 
-.banner__div__beeline {
-  width: 70px;
-  height: 3px;
-  flex-shrink: 0;
-  background: #e00;
-  border: none;
-  display: block;
-  margin-left: auto;
-}
-
-.banner__box {
-  // padding-bottom: 0px !important;
-  // padding-top: 100px;
-
-  @media (max-width: 749px) {
-    height: 485px !important;
-  }
-}
-
 .banner__media {
   background: rgba(0, 0, 0, 0.3);
 }
@@ -5214,14 +5192,6 @@ sk-form {
   height: 1px;
   background-color: #900;
   display: block;
-}
-
-.es-image-banner {
-  .banner {
-    @media (max-height: 750px) {
-      max-height: 420px;
-    }
-  }
 }
 
 // 404 page css
