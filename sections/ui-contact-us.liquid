@@ -28,6 +28,14 @@
         </div>
       {% endif %}
     {% endfor %}
+    {%- for block in section.blocks -%}
+      {% if block.type == 'ui_image_text' %}
+        <div>
+          <div><img src="{{ block.settings.ui_text_image | img_url: "20px" }}" alt="" width="" height=""></div>
+        </div>
+        {{ block.settings.ui_image_text }}
+      {% endif %}
+    {%- endfor -%}
   </div>
 </div>
 
@@ -55,7 +63,7 @@
           "type": "richtext",
           "id": "ui_middle_left_body",
           "label": "ui_middle_left_body"
-        },
+        }
       ]
     },
     {
@@ -76,6 +84,22 @@
           "type": "richtext",
           "id": "ui_middle_right_body",
           "label": "ui_middle_right_body"
+        }
+      ]
+    },
+    {
+      "type": "ui_image_text",
+      "name": "ui_image_text",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "ui_text_image",
+          "label": "ui_text_image"
+        },
+        {
+          "type": "richtext",
+          "id": "ui_image_text",
+          "label": "ui_image_text"
         }
       ]
     }
