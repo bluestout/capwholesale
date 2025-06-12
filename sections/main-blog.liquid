@@ -4,107 +4,153 @@
 
 {%- style -%}
   .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    padding-top: {{ section.settings.padding_top }}px !important;
+    padding-bottom: {{ section.settings.padding_bottom }}px !important;
   }
 
-  @media screen and (min-width: 750px) {
+  @media(max-width : 768px) {
     .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+      padding-top: {{ section.settings.desktop_padding_top }}px !important;
+      padding-bottom: {{ section.settings.mobile_padding_bottom }}px !important;
     }
   }
 {%- endstyle -%}
+<style>
+  .main-blog .main-blog__header {
+    border-bottom: 1px solid #CCC;
+  }
 
+  .main-blog .article-card-wrapper .card .card__heading:after {
+    background-color: #EE0000;
+  }
+
+  .main-blog .card__heading.h2 a {
+    color: black;
+    font-size: 20px;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: 26px;
+    word-wrap: break-word;
+    white-space: unset !important;
+    width: 80%;
+  }
+
+  .main-blog .read-more {
+    font-size: 15px;
+    font-family: Inter;
+    font-weight: 700;
+    line-height: 25.50px;
+    letter-spacing: 4.50px;
+  }
+
+  @media(max-width : 768px) {
+    .main-blog__header .page-width {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .main-blog .main-blog__header {
+      margin-bottom: 36px;
+      margin-top: 50px;
+    }
+
+    .main-blog .main-blog__header .main-blog__count {
+      margin-bottom: 20px;
+    }
+
+    .main-blog .main-blog__header .title--primary {
+      margin-bottom: 20px;
+    }
+
+    .main-blog .card__heading.h2 a {
+      font-size: 16px;
+    }
+  }
+</style>
 {%- paginate blog.articles by 6 -%}
-  <div class="main-blog page-width section-{{ section.id }}-padding">
+  <div class="main-blog section-{{ section.id }}-padding">
     <div class="main-blog__header">
-      <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-        Recent posts
-      </h1>
-      <div class="main-blog__count">
-        {%- assign current_page_count = paginate.current_page | times: 6 -%}
-        {%- if current_page_count > blog.articles_count %}
-          {%- assign current_page_count = blog.articles_count -%}
-        {%- endif -%}
-        Showing {{ current_page_count }} of {{ blog.articles_count }} articles
+      <div class="page-width">
+        <div></div>
+        <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+          Blog
+        </h1>
+        <div class="main-blog__count">
+          {%- assign current_page_count = paginate.current_page | times: 6 -%}
+          {%- if current_page_count > blog.articles_count %}
+            {%- assign current_page_count = blog.articles_count -%}
+          {%- endif -%}
+          Showing {{ current_page_count }} of {{ blog.articles_count }} articles
+        </div>
       </div>
     </div>
 
-    <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}" data-next-url="{{ paginate.next.url }}">
+    <div class="blog-articles page-width {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}" data-next-url="{{ paginate.next.url }}">
       {%- for article in blog.articles -%}
-        <div
-          class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-          {% if settings.animations_reveal_on_scroll %}
-            data-cascade
-            style="--animation-order: {{ forloop.index }};"
-          {% endif %}
-        >
-          {%- render 'article-card',
-            article: article,
+        <div class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" {% if settings.animations_reveal_on_scroll %}data-cascadestyle="--animation-order: {{ forloop.index }};"{% endif %}>
+          {%- render 'article-card' 
+            , article: article,
             media_height: section.settings.image_height,
             media_aspect_ratio: article.image.aspect_ratio,
             show_image: section.settings.show_image,
             show_date: section.settings.show_date,
             show_author: section.settings.show_author,
-            show_excerpt: true
-          -%}
+            show_excerpt: true -%}
         </div>
       {%- endfor -%}
     </div>
 
     <div class="load-more">
-      <a href="javascript:void(0);" class="load-more_btn btn">VIEW ALL {%- render 'es-arrow-right-1' -%}</a>
+      <a href="javascript:void(0);" class="load-more_btn btn">VIEW ALL
+        {%- render 'es-arrow-right-1' -%}
+      </a>
       <div class="load-more_spinner"></div>
     </div>
     {% comment %} 
-      {%- if paginate.pages > 1 -%}
-        {%- render 'pagination', paginate: paginate -%}
-      {%- endif -%}
-    {% endcomment %}
-  </div>
+    {%- if paginate.pages > 1 -%}
+    {%- render 'pagination', paginate: paginate -%}
+    {%- endif -%}
+    {% endcomment %}</div>
 {%- endpaginate -%}
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function() {
     const productsOnPage = document.querySelector('.blog-articles');
     let nextUrl = productsOnPage.dataset.nextUrl;
     const blogCounts = document.querySelector('.main-blog__count');
-    
+
     const loadMoreBtn = document.querySelector('.load-more_btn');
     const loadMoreSpinner = document.querySelector('.load-more_spinner');
-    
+
     function loadMoreProducts() {
       loadMoreBtn.style.display = 'none';
       loadMoreSpinner.style.display = 'block';
-    
-      fetch(nextUrl)
-        .then(response => response.text())
-        .then(html => {
-          loadMoreSpinner.style.display = 'none';
-    
-          const parser = new DOMParser();
-          const doc = parser.parseFromString(html, 'text/html');
-          const newProducts = doc.querySelector('.blog-articles');
-          const newBlogCounts = doc.querySelector('.main-blog__count');
 
-          blogCounts.innerHTML = newBlogCounts.innerHTML;
-    
-          const newUrl = newProducts?.dataset.nextUrl;
-          if (newUrl) {
-            loadMoreBtn.style.display = 'flex';
-            nextUrl = newUrl;
-          }
-    
-          productsOnPage.insertAdjacentHTML('beforeend', newProducts.innerHTML);
-        })
-        .catch(error => {
-          console.error('Error loading more products:', error);
-          loadMoreSpinner.style.display = 'none';
-        });
-    }    
+      fetch(nextUrl).then(response => response.text()).then(html => {
+        loadMoreSpinner.style.display = 'none';
 
-    loadMoreBtn.addEventListener("click", function () {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const newProducts = doc.querySelector('.blog-articles');
+        const newBlogCounts = doc.querySelector('.main-blog__count');
+
+        blogCounts.innerHTML = newBlogCounts.innerHTML;
+
+        const newUrl = newProducts ?. dataset.nextUrl;
+        if (newUrl) {
+          loadMoreBtn.style.display = 'flex';
+          nextUrl = newUrl;
+        }
+
+        productsOnPage.insertAdjacentHTML('beforeend', newProducts.innerHTML);
+      }).catch(error => {
+        console.error('Error loading more products:', error);
+        loadMoreSpinner.style.display = 'none';
+      });
+    }
+
+    loadMoreBtn.addEventListener("click", function() {
       console.log("0000");
       loadMoreProducts();
     })
@@ -112,93 +158,103 @@
 </script>
 
 {% schema %}
-{
-  "name": "t:sections.main-blog.name",
-  "tag": "section",
-  "class": "section",
-  "settings": [
-    {
-      "type": "select",
-      "id": "layout",
-      "options": [
-        {
-          "value": "grid",
-          "label": "t:sections.main-blog.settings.layout.options__1.label"
-        },
-        {
-          "value": "collage",
-          "label": "t:sections.main-blog.settings.layout.options__2.label"
-        }
-      ],
-      "default": "collage",
-      "label": "t:sections.main-blog.settings.layout.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_image",
-      "default": true,
-      "label": "t:sections.main-blog.settings.show_image.label"
-    },
-    {
-      "type": "select",
-      "id": "image_height",
-      "options": [
-        {
-          "value": "adapt",
-          "label": "t:sections.main-blog.settings.image_height.options__1.label"
-        },
-        {
-          "value": "small",
-          "label": "t:sections.main-blog.settings.image_height.options__2.label"
-        },
-        {
-          "value": "medium",
-          "label": "t:sections.main-blog.settings.image_height.options__3.label"
-        },
-        {
-          "value": "large",
-          "label": "t:sections.main-blog.settings.image_height.options__4.label"
-        }
-      ],
-      "default": "medium",
-      "label": "t:sections.main-blog.settings.image_height.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_date",
-      "default": true,
-      "label": "t:sections.main-blog.settings.show_date.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_author",
-      "default": false,
-      "label": "t:sections.main-blog.settings.show_author.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 36
-    }
-  ]
-}
+  {
+    "name": "t:sections.main-blog.name",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "select",
+        "id": "layout",
+        "options": [
+          {
+            "value": "grid",
+            "label": "t:sections.main-blog.settings.layout.options__1.label"
+          }, {
+            "value": "collage",
+            "label": "t:sections.main-blog.settings.layout.options__2.label"
+          }
+        ],
+        "default": "collage",
+        "label": "t:sections.main-blog.settings.layout.label"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_image",
+        "default": true,
+        "label": "t:sections.main-blog.settings.show_image.label"
+      },
+      {
+        "type": "select",
+        "id": "image_height",
+        "options": [
+          {
+            "value": "adapt",
+            "label": "t:sections.main-blog.settings.image_height.options__1.label"
+          }, {
+            "value": "small",
+            "label": "t:sections.main-blog.settings.image_height.options__2.label"
+          }, {
+            "value": "medium",
+            "label": "t:sections.main-blog.settings.image_height.options__3.label"
+          }, {
+            "value": "large",
+            "label": "t:sections.main-blog.settings.image_height.options__4.label"
+          }
+        ],
+        "default": "medium",
+        "label": "t:sections.main-blog.settings.image_height.label"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_date",
+        "default": true,
+        "label": "t:sections.main-blog.settings.show_date.label"
+      }, {
+        "type": "checkbox",
+        "id": "show_author",
+        "default": false,
+        "label": "t:sections.main-blog.settings.show_author.label"
+      }, {
+        "type": "header",
+        "content": "t:sections.all.padding.section_padding_heading"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 36
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 36
+      }, {
+        "type": "range",
+        "id": "desktop_padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 50
+      }, {
+        "type": "range",
+        "id": "mobile_padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 50
+      }
+    ]
+  }
 {% endschema %}

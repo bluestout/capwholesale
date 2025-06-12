@@ -3256,12 +3256,12 @@ body {
           letter-spacing: 2px;
           display: flex;
           align-items: center;
-          gap: 2rem;
+          gap: 10px;
           margin-top: auto;
 
-          svg {
-            filter: grayscale(1);
-          }
+          // svg {
+          //   filter: grayscale(1);
+          // }
         }
       }
     }
@@ -3270,10 +3270,18 @@ body {
 
 .main-blog {
   .main-blog__header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     margin-bottom: 50px;
+
+    .page-width {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      & > * {
+        display: block;
+        flex: 1;
+      }
+    }
 
     .title--primary {
       color: black;
@@ -3281,6 +3289,7 @@ body {
       font-family: "Inter", sans-serif;
       font-weight: 700;
       line-height: 39px;
+      text-align: center;
 
       @media (max-width: 750px) {
         font-size: 20px;
@@ -3295,6 +3304,7 @@ body {
       font-family: "Inter", sans-serif;
       font-weight: 400;
       line-height: 25.5px;
+      text-align: right;
     }
   }
 
@@ -3305,7 +3315,9 @@ body {
     row-gap: 50px !important;
 
     @media (max-width: 750px) {
-      row-gap: 30px !important;
+      row-gap: 15px !important;
+      padding-left: 10px;
+      padding-right: 10px;
     }
 
     .article {
@@ -3370,7 +3382,7 @@ body {
     justify-content: center;
     width: max-content;
     margin: auto;
-    gap: 16px;
+    gap: 10px;
     text-decoration: unset;
     padding: 4px 12px;
     background-color: #fff;
@@ -3378,7 +3390,7 @@ body {
 
     svg {
       transform: rotate(90deg);
-      filter: grayscale(1);
+      // filter: grayscale(1);
     }
   }
 }
@@ -4711,6 +4723,7 @@ cart-items {
         @media (max-width: 1000px) {
           padding: 0px;
           width: 100%;
+          margin-bottom: 20px;
         }
       }
       .ui-beeline-red {
