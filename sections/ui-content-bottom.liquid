@@ -1,74 +1,88 @@
-<div class="ui-contact">
-  <div class="ui-contact-container">
-    <div class="ui-contact-row-left">
-      <h1 class="ui-contact-container-h1">{{ section.settings.ui_bottom_text }}</h1>
-      {%- if section.settings.red_underline_state -%}
-        <div class="ui-contact-redunderline"></div>
+<div class="ui-contact-bottom-container">
+  <div class="ui-contact-bottom-left">
+    {%- for block in section.blocks -%}
+      {% if block.settings.ui_bottom_left_header != blank %}
+        <h1>{{ block.settings.ui_bottom_left_header }}</h1>
       {% endif %}
-      <ul>
-        {%- for block in section.blocks -%}
-          {% if block.type == 'ui_bottom_contact_over1' and block.settings.ui_bottom_content_left != blank %}
-            <li>{{ block.settings.ui_bottom_content_left }}</li>
-          {% endif %}
-        {% endfor %}
-      </ul>
-    </div>
-    <div class="ui-contact-row-right">
-      <ul>
-        {%- for block in section.blocks -%}
-          {% if block.type == 'ui_bottom_contact_over2' and block.settings.ui_bottom_content_right != blank %}
-            <li>{{ block.settings.ui_bottom_content_right }}</li>
-          {% endif %}
-        {% endfor %}
-      </ul>
-    </div>
+      {% if block.settings.ui_bottom_left_state == true %}
+        <div class="ui-both-red-underline"></div>
+      {% endif %}
+      {% if block.settings.ui_bottom_left_body != blank %}
+        <div class="ui-bottom-left-body">
+          {{ block.settings.ui_bottom_left_body }}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="ui-contact-bottom-right">
+    {%- for block in section.blocks -%}
+      {% if block.settings.ui_bottom_right_header != blank %}
+        <h1>{{ block.settings.ui_bottom_right_header }}</h1>
+      {% endif %}
+      {% if block.settings.ui_bottom_right_state == true %}
+        <div class="ui-both-red-underline"></div>
+      {% endif %}
+      {% if block.settings.ui_bottom_right_body != blank %}
+        <div class="ui-bottom-right-body">
+          {{ block.settings.ui_bottom_right_body }}
+        </div>
+      {% endif %}
+    {% endfor %}
   </div>
 </div>
+
 {% schema %}
 {
-  "name": "ui bottom contact",
+  "name": "ui contact us bottom",
   "tag": "section",
-  "settings": [
-    {
-      "type": "text",
-      "id": "ui_bottom_text",
-      "label": "ui_bottom_text"
-    },
-    {
-      "type": "checkbox",
-      "id": "red_underline_state",
-      "label": "red_underline_state",
-      "default": true
-    }
-  ],
+  "settings": [],
   "blocks": [
     {
-      "type": "ui_bottom_contact_over1",
-      "name": "ui_bottom_contact_over1",
+      "type": "ui-contact-bottom_left",
+      "name": "ui_contact_bottom_left",
       "settings": [
         {
           "type": "text",
-          "id": "ui_bottom_content_left",
-          "label": "ui_bottom_content_left"
-        }
+          "id": "ui_bottom_left_header",
+          "label": "ui_bottom_left_header"
+        },
+        {
+          "type": "checkbox",
+          "id": "ui_bottom_left_state",
+          "label": "ui_bottom_left_state"
+        },
+        {
+          "type": "richtext",
+          "id": "ui_bottom_left_body",
+          "label": "ui_bottom_left_body"
+        },
       ]
     },
     {
-      "type": "ui_bottom_contact_over2",
-      "name": "ui_bottom_contact_over2",
+      "type": "ui-contact-bottom_right",
+      "name": "ui_contact_bottom_right",
       "settings": [
         {
           "type": "text",
-          "id": "ui_bottom_content_right",
-          "label": "ui_bottom_content_right"
+          "id": "ui_bottom_right_header",
+          "label": "ui_bottom_right_header"
+        },
+        {
+          "type": "checkbox",
+          "id": "ui_bottom_right_state",
+          "label": "ui_bottom_right_state"
+        },
+        {
+          "type": "richtext",
+          "id": "ui_bottom_right_body",
+          "label": "ui_bottom_right_body"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "ui bottom contact",
-      "settings": {}
+      "name": "ui contact us bottom"
     }
   ]
 }
