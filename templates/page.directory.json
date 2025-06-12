@@ -24,9 +24,10 @@
           "type": "item",
           "settings": {
             "item_width": 5,
-            "title": "Hat Style",
+            "image": "shopify://shop_images/bg.png",
+            "title": "Ladies Caps",
             "url": "",
-            "title_2": "Hat Style 2",
+            "title_2": "",
             "url_2": ""
           }
         },
@@ -34,17 +35,53 @@
           "type": "item",
           "settings": {
             "item_width": 5,
-            "title": "Hat Style",
+            "image": "shopify://shop_images/bg_1.png",
+            "title": "Flexfit",
             "url": "",
-            "title_2": "Hat Style 2",
+            "image_2": "shopify://shop_images/img.png",
+            "title_2": "Wholesale Apparel",
             "url_2": ""
           }
-        },
-        "item_JhgUji": {
+        }
+      },
+      "block_order": [
+        "item_3fTwfQ",
+        "item_KNpFEY"
+      ],
+      "name": "ES Gallery with Link",
+      "settings": {
+        "scrollable": false,
+        "title": "",
+        "hide_title_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "item_count_row": 2,
+        "show_gradient": true
+      }
+    },
+    "es_gallery_with_link_PkEpWC": {
+      "type": "es-gallery-with-link",
+      "blocks": {
+        "item_ktPAK8": {
           "type": "item",
           "settings": {
             "item_width": 5,
-            "title": "Hat Style",
+            "image": "shopify://shop_images/bg_2.png",
+            "title": "Performance",
+            "url": "",
+            "image_2": "shopify://shop_images/img_1.png",
+            "title_2": "FlatBilled",
+            "url_2": ""
+          }
+        },
+        "item_TBqMmg": {
+          "type": "item",
+          "settings": {
+            "item_width": 5,
+            "image": "shopify://shop_images/bg_3.png",
+            "title": "Trucker Mash Back",
             "url": "",
             "title_2": "Hat Style 2",
             "url_2": ""
@@ -52,9 +89,96 @@
         }
       },
       "block_order": [
-        "item_3fTwfQ",
-        "item_KNpFEY",
-        "item_JhgUji"
+        "item_ktPAK8",
+        "item_TBqMmg"
+      ],
+      "name": "ES Gallery with Link",
+      "settings": {
+        "scrollable": false,
+        "title": "",
+        "hide_title_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "item_count_row": 2,
+        "show_gradient": false
+      }
+    },
+    "es_gallery_with_link_yRNNYb": {
+      "type": "es-gallery-with-link",
+      "blocks": {
+        "item_RWYbD6": {
+          "type": "item",
+          "settings": {
+            "item_width": 5,
+            "image": "shopify://shop_images/bg.png",
+            "title": "Ladies Caps",
+            "url": "",
+            "title_2": "Hat Style 2",
+            "url_2": ""
+          }
+        },
+        "item_FH9TNV": {
+          "type": "item",
+          "settings": {
+            "item_width": 5,
+            "image": "shopify://shop_images/bg_1.png",
+            "title": "Flexfit",
+            "url": "",
+            "image_2": "shopify://shop_images/img.png",
+            "title_2": "Wholesale Apparel",
+            "url_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_RWYbD6",
+        "item_FH9TNV"
+      ],
+      "name": "ES Gallery with Link",
+      "settings": {
+        "scrollable": false,
+        "title": "",
+        "hide_title_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "item_count_row": 2,
+        "show_gradient": false
+      }
+    },
+    "es_gallery_with_link_EhAEr4": {
+      "type": "es-gallery-with-link",
+      "blocks": {
+        "item_749ezw": {
+          "type": "item",
+          "settings": {
+            "item_width": 5,
+            "image": "shopify://shop_images/bg_2.png",
+            "title": "Performance",
+            "url": "",
+            "image_2": "shopify://shop_images/img_1.png",
+            "title_2": "FlatBilled",
+            "url_2": ""
+          }
+        },
+        "item_zwJyJ6": {
+          "type": "item",
+          "settings": {
+            "item_width": 5,
+            "image": "shopify://shop_images/bg_3.png",
+            "title": "Trucker Mash Back",
+            "url": "",
+            "title_2": "Hat Style 2",
+            "url_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_749ezw",
+        "item_zwJyJ6"
       ],
       "name": "ES Gallery with Link",
       "settings": {
@@ -72,6 +196,9 @@
   },
   "order": [
     "main",
-    "es_gallery_with_link_aP9Len"
+    "es_gallery_with_link_aP9Len",
+    "es_gallery_with_link_PkEpWC",
+    "es_gallery_with_link_yRNNYb",
+    "es_gallery_with_link_EhAEr4"
   ]
 }
