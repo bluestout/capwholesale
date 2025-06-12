@@ -17,6 +17,46 @@
         "padding_bottom": 28
       }
     },
+    "es_image_banner_fVRefc": {
+      "type": "es-image-banner",
+      "blocks": {
+        "heading_FrjgG3": {
+          "type": "heading",
+          "settings": {
+            "subheading": "Shop Hat Styles",
+            "heading": "",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_FrjgG3"
+      ],
+      "name": "ES Image Banner",
+      "settings": {
+        "show_space": true,
+        "image": "shopify://shop_images/Image.png",
+        "image_mobile": "shopify://shop_images/allenburt_94637_create_a_real_photo_with_people_wearing_corpo_2e5fd7b5-a835-45c1-9453-06ef636c270e_2_1.png",
+        "image_overlay_opacity": 0,
+        "opacity_type": "normal",
+        "opacity_color": "primary",
+        "opacity_weight_on_desktop": "light",
+        "opacity_direction": "vertical",
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "",
+        "stack_images_on_mobile": false,
+        "mobile_content_position": "middle",
+        "mobile_content_alignment": "left",
+        "opacity_direct_on_mobile": "vertical",
+        "opacity_height_on_mobile": "small",
+        "image_height_on_mobile": "square",
+        "show_text_below": false
+      }
+    },
     "es_gallery_with_link_aP9Len": {
       "type": "es-gallery-with-link",
       "blocks": {
@@ -196,6 +236,7 @@
   },
   "order": [
     "main",
+    "es_image_banner_fVRefc",
     "es_gallery_with_link_aP9Len",
     "es_gallery_with_link_PkEpWC",
     "es_gallery_with_link_yRNNYb",
