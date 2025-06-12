@@ -1,211 +1,88 @@
-<div class="ui-contact-container">
-  {% for block in section.blocks %}
-    {% if block.type == 'ui-left-block' %}
-      <div class="ui-content-left">
-        <h1>{{ block.settings.ui_left_block_header }}</h1>
-
-        {% if block.settings.ui_left_second_text %}
-          <div class="ui_underline_red_line"></div>
-        {% endif %}
-        {% if block.settings.ui_left_block_rich != blank %}
-          <div class="ui_big_text">
-            {{ block.settings.ui_left_block_rich }}
-          </div>
-        {% endif %}
-        <div class="ui-content-left_first">
-          <ul>
-            {%- for item in section.blocks -%}
-              {%- if item.settings['ui-ul-text_li'] != blank -%}
-                <li>{{ item.settings['ui-ul-text_li'] }}</li>
-              {% endif %}
-            {% endfor %}
-          </ul>
+<div class="ui-contact-middle-container">
+  <div class="ui-contact-middle-left">
+    {%- for block in section.blocks -%}
+      {% if block.settings.ui_middle_left_header != blank %}
+        <h1>{{ block.settings.ui_middle_left_header }}</h1>
+      {% endif %}
+      {% if block.settings.ui_middle_left_state == true %}
+        <div class="ui-both-red-underline"></div>
+      {% endif %}
+      {% if block.settings.ui_middle_left_body != blank %}
+        <div class="ui-middle-left-body">
+          {{ block.settings.ui_middle_left_body }}
         </div>
-        <div class="ui-content-left_second">
-          <div class="ui-content-left_third">
-            {%- for block in section.blocks -%}
-              {%- if block.type == 'ui-ul-text_left_redtext' and block.settings['ui-ul-text_left_redtext'] != blank -%}
-                <a href="mailto:info@customizedwear.com" title="mailto:info@customizedwear.com">
-                  {{- block.settings['ui-ul-text_left_redtext'] -}}
-                </a>
-              {% endif %}
-            {% endfor %}
-          </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="ui-contact-middle-right">
+    {%- for block in section.blocks -%}
+      {% if block.settings.ui_middle_right_header != blank %}
+        <h1>{{ block.settings.ui_middle_right_header }}</h1>
+      {% endif %}
+      {% if block.settings.ui_middle_right_state == true %}
+        <div class="ui-both-red-underline"></div>
+      {% endif %}
+      {% if block.settings.ui_middle_right_body != blank %}
+        <div class="ui-middle-right-body">
+          {{ block.settings.ui_middle_right_body }}
         </div>
-        <div>
-          {%- for block in section.blocks -%}
-            {%- if block.type == 'ui-left_headertext' and block.settings['ui-ul-text_left_headertext'] != blank -%}
-              <p>{{ block.settings['ui-ul-text_left_headertext'] }}</p>
-            {% endif %}
-          {% endfor %}
-        </div>
-      </div>
-    {% endif %}
-    {% if block.type == 'ui-right-block' %}
-      <div class="ui-content-right">
-        <h1>{{ block.settings.ui_right_block_header }}</h1>
-        {% if block.settings.ui_right_second_text %}
-          <div class="ui_underline_red_line"></div>
-        {% endif %}
-        {% if block.settings.ui_left_block__header_text %}
-          {{ block.settings.ui_left_block__header_text }}
-        {% endif %}
-        {% if block.settings.ui_left_block__header_text != blank %}
-          <div class="ui_big_text">
-            {{ block.settings.ui_left_block__header_text }}
-          </div>
-        {% endif %}
-        {% if block.settings['ui-right-block-rich'] != blank %}
-          <div class="ui_big_text">
-            {{ block.settings['ui-right-block-rich'] }}
-          </div>
-        {% endif %}
-        <div class="ui_ul_top">
-          <ul>
-            {%- for item in section.blocks -%}
-              {% if item.type == 'ui-ul-text_right' and item.settings['ui-ul-text_li_right'] != blank %}
-                <li>{{ item.settings['ui-ul-text_li_right'] }}</li>
-              {% endif %}
-            {% endfor %}
-          </ul>
-        </div>
-        <div class="ui_bottom_shipping">
-          <div>
-            <span>{% render 'capWholeico' %}</span>
-          </div>
-          <div>
-            {%- for block in section.blocks -%}
-              {%- if block.type == 'ui-right_headertext' and block.settings['ui-ul-text_right_headertext'] != blank -%}
-                <p>{{ block.settings['ui-ul-text_right_headertext'] }}</p>
-              {% endif %}
-            {% endfor %}
-          </div>
-        </div>
-      </div>
-    {% endif %}
-  {% endfor %}
+      {% endif %}
+    {% endfor %}
+  </div>
 </div>
 
 {% schema %}
 {
-  "name": "ui contact second",
+  "name": "ui contact us middle",
   "tag": "section",
-  "settings": [
-    {
-      "type": "text",
-      "id": "ui-left-header-text",
-      "label": "ui-left-header-text"
-    }
-  ],
+  "settings": [],
   "blocks": [
     {
-      "type": "ui-left-block",
-      "name": "ui-left-block",
+      "type": "ui-contact-middle_left",
+      "name": "ui_contact_middle_left",
       "settings": [
         {
           "type": "text",
-          "id": "ui_left_block_header",
-          "label": "ui-left-block-header"
+          "id": "ui_middle_left_header",
+          "label": "ui_middle_left_header"
         },
         {
           "type": "checkbox",
-          "id": "ui_left_second_text",
-          "label": "ui-left-second-text",
-          "default": true
+          "id": "ui_middle_left_state",
+          "label": "ui_middle_left_state"
         },
         {
           "type": "richtext",
-          "id": "ui_left_block_rich",
-          "label": "ui-left-block-rich"
-        }
+          "id": "ui_middle_left_body",
+          "label": "ui_middle_left_body"
+        },
       ]
     },
     {
-      "type": "ui-right-block",
-      "name": "ui-right-block",
+      "type": "ui-contact-middle_right",
+      "name": "ui_contact_middle_right",
       "settings": [
         {
           "type": "text",
-          "id": "ui_left_block__header_text",
-          "label": "ui_left_block__header_text"
-        },
-        {
-          "type": "text",
-          "id": "ui_right_block_header",
-          "label": "ui-right-block-header"
+          "id": "ui_middle_right_header",
+          "label": "ui_middle_right_header"
         },
         {
           "type": "checkbox",
-          "id": "ui_right_second_text",
-          "label": "ui-right-second-text"
+          "id": "ui_middle_right_state",
+          "label": "ui_middle_right_state"
         },
         {
           "type": "richtext",
-          "id": "ui-right-block-rich",
-          "label": "ui-right-block-rich"
-        }
-      ]
-    },
-    {
-      "type": "ui-ul-text",
-      "name": "ui-ul-text",
-      "settings": [
-        {
-          "type": "text",
-          "id": "ui-ul-text_li",
-          "label": "ui-ul-text_li"
-        }
-      ]
-    },
-    {
-      "type": "ui-ul-text_right",
-      "name": "ui-ul-text_right",
-      "settings": [
-        {
-          "type": "text",
-          "id": "ui-ul-text_li_right",
-          "label": "ui-ul-text_li_right"
-        }
-      ]
-    },
-    {
-      "type": "ui-ul-text_left_redtext",
-      "name": "ui-ul-text_left_redtext",
-      "settings": [
-        {
-          "type": "richtext",
-          "id": "ui-ul-text_left_redtext",
-          "label": "ui-ul-text_left_redtext"
-        }
-      ]
-    },
-    {
-      "type": "ui-left_headertext",
-      "name": "ui-left_headertext",
-      "settings": [
-        {
-          "type": "text",
-          "id": "ui-ul-text_left_headertext",
-          "label": "ui-ul-text_left_headertext"
-        }
-      ]
-    },
-    {
-      "type": "ui-right_headertext",
-      "name": "ui-right_headertext",
-      "settings": [
-        {
-          "type": "text",
-          "id": "ui-ul-text_right_headertext",
-          "label": "ui-ul-text_right_headertext"
+          "id": "ui_middle_right_body",
+          "label": "ui_middle_right_body"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "ui contact second",
-      "settings": {}
+      "name": "ui contact us middle"
     }
   ]
 }
