@@ -12,6 +12,16 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  .rich-text__heading.h2{
+    font-size : 30px;
+  }
+
+  @media( max-width : 768px ){
+    .rich-text__heading.h2{
+      font-size: 20px;
+    }
+  }
 {%- endstyle -%}
 
 <div class="isolate{% unless section.settings.full_width %} page-width{% endunless %}">
