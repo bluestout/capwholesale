@@ -3,9 +3,7 @@
     {% if block.type == 'ui-left-block' %}
       <div class="ui-content-left">
         <h1>{{ block.settings.ui_left_block_header }}</h1>
-        {% if block.settings.ui_left_block__header_text %}
-          <h2>{{ block.settings.ui_left_block__header_text }}</h2>
-        {% endif %}
+
         {% if block.settings.ui_left_second_text %}
           <div class="ui_underline_red_line"></div>
         {% endif %}
@@ -27,7 +25,9 @@
           <div class="ui-content-left_third">
             {%- for block in section.blocks -%}
               {%- if block.type == 'ui-ul-text_left_redtext' and block.settings['ui-ul-text_left_redtext'] != blank -%}
-                {{ block.settings['ui-ul-text_left_redtext'] }}
+                <a href="mailto:info@customizedwear.com" title="mailto:info@customizedwear.com">
+                  {{- block.settings['ui-ul-text_left_redtext'] -}}
+                </a>
               {% endif %}
             {% endfor %}
           </div>
@@ -47,12 +47,20 @@
         {% if block.settings.ui_right_second_text %}
           <div class="ui_underline_red_line"></div>
         {% endif %}
+        {% if block.settings.ui_left_block__header_text %}
+          {{ block.settings.ui_left_block__header_text }}
+        {% endif %}
+        {% if block.settings.ui_left_block__header_text != blank %}
+          <div class="ui_big_text">
+            {{ block.settings.ui_left_block__header_text }}
+          </div>
+        {% endif %}
         {% if block.settings['ui-right-block-rich'] != blank %}
           <div class="ui_big_text">
             {{ block.settings['ui-right-block-rich'] }}
           </div>
         {% endif %}
-        <div>
+        <div class="ui_ul_top">
           <ul>
             {%- for item in section.blocks -%}
               {% if item.type == 'ui-ul-text_right' and item.settings['ui-ul-text_li_right'] != blank %}
@@ -62,11 +70,16 @@
           </ul>
         </div>
         <div class="ui_bottom_shipping">
-          {%- for block in section.blocks -%}
-            {%- if block.type == 'ui-right_headertext' and block.settings['ui-ul-text_right_headertext'] != blank -%}
-              <p>{{ block.settings['ui-ul-text_right_headertext'] }}</p>
-            {% endif %}
-          {% endfor %}
+          <div>
+            <span>{% render 'capWholeico' %}</span>
+          </div>
+          <div>
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'ui-right_headertext' and block.settings['ui-ul-text_right_headertext'] != blank -%}
+                <p>{{ block.settings['ui-ul-text_right_headertext'] }}</p>
+              {% endif %}
+            {% endfor %}
+          </div>
         </div>
       </div>
     {% endif %}
@@ -91,11 +104,6 @@
       "settings": [
         {
           "type": "text",
-          "id": "ui_left_block__header_text",
-          "label": "ui_left_block__header_text"
-        },
-        {
-          "type": "text",
           "id": "ui_left_block_header",
           "label": "ui-left-block-header"
         },
@@ -116,6 +124,11 @@
       "type": "ui-right-block",
       "name": "ui-right-block",
       "settings": [
+        {
+          "type": "text",
+          "id": "ui_left_block__header_text",
+          "label": "ui_left_block__header_text"
+        },
         {
           "type": "text",
           "id": "ui_right_block_header",
