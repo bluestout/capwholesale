@@ -258,7 +258,7 @@
             content: '';
             height: 3px;
             width: 70px;
-            background-color: #990000;
+            background-color: #EE0000;
             display: block;
             position: absolute;
             bottom: 0;
@@ -276,6 +276,7 @@
 
         &.hxxl {
           font-size: 50px;
+          max-width: max-content;
 
           @media (max-width: 750px) {
             font-size: 40px;
@@ -4243,8 +4244,9 @@ cart-items {
 }
 
 .banner__box {
-  padding-bottom: 0px !important;
-  padding-top: 100px;
+  // padding-bottom: 0px !important;
+  // padding-top: 100px;
+
   @media (max-width: 749px) {
     height: 485px !important;
   }

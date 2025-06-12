@@ -1,9 +1,9 @@
 {{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
-<style>
+{% comment %} <style>
   .banner__content {
     padding-top: 100px;
   }
-</style>
+</style> {% endcomment %}
 
 {%- if section.settings.image_height == 'adapt' and section.settings.image != blank -%}
   {%- style -%}
