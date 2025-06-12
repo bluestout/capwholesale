@@ -27,7 +27,7 @@
             {%- endcase %}
           {%- endfor -%}
         </div>
-        <div class="grid__item">
+        <div class="grid__item ui-custom-change">
           {%- for block in section.blocks -%}
             {%- case block.type %}
               {%- when 'text' -%}
@@ -45,6 +45,8 @@
                         height="{{ block.settings.image.height }}"
                       >
                     </div>
+                  {% when block.settings.ui-red_underline %}
+                    <div class="ui-red-underline"></div>
                   {% endif %}
                   <div class="grid__item--icon-with-text_text font-small">
                     {{ block.settings.text }}
@@ -166,7 +168,8 @@
         {
           "type": "checkbox",
           "id": "ui-red_underline",
-          "label": "ui_red_underline"
+          "label": "ui_red_underline",
+          "default": true
         }
       ]
     }

@@ -28,14 +28,18 @@
         </div>
       {% endif %}
     {% endfor %}
-    {%- for block in section.blocks -%}
-      {% if block.type == 'ui_image_text' %}
-        <div>
-          <div><img src="{{ block.settings.ui_text_image | img_url: "20px" }}" alt="" width="" height=""></div>
-        </div>
-        {{ block.settings.ui_image_text }}
-      {% endif %}
-    {%- endfor -%}
+    <div class="ui-contact-image">
+      {%- for block in section.blocks -%}
+        {% if block.type == 'ui_image_text' %}
+          <div>
+            <div><img src="{{ block.settings.ui_text_image | img_url: "20px" }}" alt="" width="" height=""></div>
+          </div>
+          <div>
+            {{ block.settings.ui_image_text }}
+          </div>
+        {% endif %}
+      {%- endfor -%}
+    </div>
   </div>
 </div>
 
