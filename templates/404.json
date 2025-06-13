@@ -12,7 +12,7 @@
     "main": {
       "type": "main-404",
       "settings": {
-        "text": "<p>Looks like the page you're looking for no longer exists.</p><p>Try going back to the previous page or to the pages below.</p>",
+        "text": "<p>Looks like the page you're looking for no longer exists.Try going back </p><p>to the previous page or to the pages below.</p>",
         "button_1": "GO TO THE HOME PAGE",
         "button_link_1": "/",
         "button_2": "Continue shopping",
@@ -21,7 +21,6 @@
     },
     "es_featured_collection_eYjT4U": {
       "type": "es-featured-collection",
-      "name": "ES Featured Collection",
       "settings": {
         "border_top": false,
         "title": "You may also like",
