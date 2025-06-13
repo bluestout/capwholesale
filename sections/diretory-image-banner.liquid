@@ -1,0 +1,57 @@
+<style>
+  .directory-image-banner-wrapper {
+    position: relative;
+  }
+
+  .directory-image-banner-wrapper img {
+    width: 100%;
+  }
+
+  .directory-image-banner-wrapper div {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    font-size: 50px;
+    font-family: Inter;
+    font-weight: 700;
+    line-height: 65px;
+    word-wrap: break-word;
+    color: white;
+  }
+</style>
+
+<section>
+  <div class="directory-image-banner-wrapper">
+    {%- if section.settings.image_banner != blank -%}
+      <img src="{{ section.settings.image_banner | img_url : "medium" }}" alt="">
+    {%- endif -%}
+    <div>
+      {{ section.settings.heading }}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Directory Image Banner",
+    "tag": "section",
+    "class": "directory-section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image_banner",
+        "label": "Image Banner"
+      }, {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Directory Image Banner",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
