@@ -25,7 +25,7 @@
           "settings": {
             "subheading": "Shop Hat Styles",
             "heading": "",
-            "border_bottom": false,
+            "border_bottom": true,
             "heading_size": "h0"
           }
         }
