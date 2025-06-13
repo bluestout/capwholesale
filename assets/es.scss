@@ -4220,7 +4220,7 @@ cart-items {
       list-style: none;
 
       li + li {
-        margin-top: 16px;
+        // margin-top: 16px;
       }
     }
   }
@@ -5288,6 +5288,11 @@ sk-form {
 .article-card-wrapper .card .card__heading a{
   width: 80%;
 }
+
+.article-template__content h3 strong{
+  font-weight: 700 !important;
+}
+
 @media( max-width : 768px ){
   .slider-mobile-gutter .article-card-wrapper .card .card__content .card__information .read-more{
     margin-left: 35px;
@@ -5295,5 +5300,52 @@ sk-form {
 
   .article-card-wrapper .card .card__heading a{
     width: 100%;
+  }
+}
+
+.rich-text__wrapper .rich-text__text h3 {
+  color: black;
+  font-size: 20px;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 26px;
+  word-wrap: break-word;
+  text-align: left;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.rich-text__wrapper .rich-text__text p {
+  color: black;
+  font-size: 15px;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 25.50px;
+  word-wrap: break-word;
+  text-align: left;
+  margin-top: 5px;
+}
+
+.rich-text__wrapper .rich-text__text p a{
+  color: #EE0000;
+}
+
+.rich-text .rich-text__blocks ul{
+  list-style: disc !important;
+  padding-left: 3rem !important;
+}
+
+.rich-text .rich-text__blocks ul li{
+  text-align: left !important;
+}
+
+.rich-text .rich-text__blocks ul li a{
+  color: #EE0000;
+}
+
+@media( max-width : 768px ){
+  .rich-text__wrapper{
+    width: 100% !important;
+    padding: 0 10px;
   }
 }
