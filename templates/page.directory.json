@@ -23,8 +23,8 @@
         "heading_FrjgG3": {
           "type": "heading",
           "settings": {
-            "subheading": "Shop Hat Styles",
-            "heading": "",
+            "subheading": "",
+            "heading": "Shop Hat Styles",
             "border_bottom": true,
             "heading_size": "hxl"
           }
@@ -49,7 +49,7 @@
         "show_text_box": false,
         "color_scheme": "scheme-1",
         "stack_images_on_mobile": false,
-        "mobile_content_position": "bottom",
+        "mobile_content_position": "middle",
         "mobile_content_alignment": "center",
         "opacity_direct_on_mobile": "vertical",
         "opacity_height_on_mobile": "small",
