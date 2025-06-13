@@ -4232,7 +4232,7 @@ cart-items {
       list-style: none;
 
       li + li {
-        margin-top: 16px;
+        // margin-top: 16px;
       }
     }
   }
@@ -5324,6 +5324,7 @@ sk-form {
   word-wrap: break-word;
   text-align: left;
   margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 .rich-text__wrapper .rich-text__text p {
@@ -5348,6 +5349,10 @@ sk-form {
 
 .rich-text .rich-text__blocks ul li{
   text-align: left !important;
+}
+
+.rich-text .rich-text__blocks ul li a{
+  color: #EE0000;
 }
 
 @media( max-width : 768px ){
