@@ -28,8 +28,8 @@
       "settings": {
         "show_space": false,
         "image": "shopify://shop_images/allenburt_94637_create_a_real_photo_with_people_wearing_corpo_2e5fd7b5-a835-45c1-9453-06ef636c270e_0_1_1.png",
-        "image_overlay_opacity": 60,
-        "opacity_type": "gradient",
+        "image_overlay_opacity": 30,
+        "opacity_type": "normal",
         "opacity_color": "primary",
         "opacity_weight_on_desktop": "light",
         "opacity_direction": "horizontal",
