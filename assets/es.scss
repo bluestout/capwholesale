@@ -3346,7 +3346,7 @@ body {
   .blog-articles {
     display: flex !important;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     row-gap: 50px !important;
 
     @media (max-width: 750px) {

@@ -14,6 +14,10 @@
       padding-bottom: {{ section.settings.mobile_padding_bottom }}px !important;
     }
   }
+
+  .load-more.no-border::before {
+    border-top: none !important;
+  }
 {%- endstyle -%}
 <style>
   .main-blog .main-blog__header {
@@ -117,10 +121,12 @@
     const productsOnPage = document.querySelector('.blog-articles');
     let nextUrl = productsOnPage.dataset.nextUrl;
     const blogCounts = document.querySelector('.main-blog__count');
-
+    
+    const loadMore = document.querySelector('.load-more');
+ 
     const loadMoreBtn = document.querySelector('.load-more_btn');
     const loadMoreSpinner = document.querySelector('.load-more_spinner');
-
+     
     function loadMoreProducts() {
       loadMoreBtn.style.display = 'none';
       loadMoreSpinner.style.display = 'block';
@@ -150,6 +156,7 @@
 
     loadMoreBtn.addEventListener("click", function() {
       console.log("0000");
+      loadMore.classList.add('no-border'); 
       loadMoreProducts();
     })
   })
