@@ -25,8 +25,8 @@
           "settings": {
             "subheading": "Shop Hat Styles",
             "heading": "",
-            "border_bottom": false,
-            "heading_size": "h1"
+            "border_bottom": true,
+            "heading_size": "hxl"
           }
         }
       },
@@ -34,7 +34,7 @@
         "heading_FrjgG3"
       ],
       "settings": {
-        "show_space": true,
+        "show_space": false,
         "image": "shopify://shop_images/Image_783a0d6f-5463-4758-8cdb-e5cddbfeddbb.png",
         "image_mobile": "shopify://shop_images/allenburt_94637_create_a_real_photo_with_people_wearing_corpo_2e5fd7b5-a835-45c1-9453-06ef636c270e_2_1.png",
         "image_overlay_opacity": 0,
@@ -42,18 +42,18 @@
         "opacity_color": "primary",
         "opacity_weight_on_desktop": "light",
         "opacity_direction": "vertical",
-        "image_height": "medium",
+        "image_height": "adapt",
         "image_behavior": "none",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
         "show_text_box": false,
-        "color_scheme": "",
+        "color_scheme": "scheme-1",
         "stack_images_on_mobile": false,
-        "mobile_content_position": "middle",
-        "mobile_content_alignment": "left",
+        "mobile_content_position": "bottom",
+        "mobile_content_alignment": "center",
         "opacity_direct_on_mobile": "vertical",
         "opacity_height_on_mobile": "small",
-        "image_height_on_mobile": "square",
+        "image_height_on_mobile": "adapt",
         "show_text_below": false
       }
     },
