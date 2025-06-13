@@ -261,7 +261,7 @@
             background-color: #ee0000;
             display: block;
             position: absolute;
-            bottom: 0;
+            bottom: -10px;
             right: 0;
           }
         }
@@ -274,10 +274,17 @@
           }
         }
 
+        &.hxl {
+          font-size: 50px;
+          max-width: max-content;
+
+          @media (max-width: 750px) {
+            font-size: 30px;
+          }
+        }
+
         &.hxxl {
-          // @media (max-width: 750px) {
-          //   font-size: 40px;
-          // }
+          font-size: 100px;
 
           & + .banner__text {
             font-weight: 700;
@@ -296,6 +303,22 @@
 
           @media (max-width: 768px) {
             font-size: 20px;
+          }
+        }
+      }
+
+      &.sm-banner__content--middle-center {
+        .banner__heading {
+          &.hxl {
+            @media (max-width: 768px) {
+              margin: auto;
+
+              &.is-border-bottom::after {
+                right: unset;
+                left: 50%;
+                transform: translateX(-50%);
+              }
+            }
           }
         }
       }
