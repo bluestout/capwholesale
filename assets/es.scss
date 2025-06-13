@@ -5284,6 +5284,21 @@ sk-form {
     }
   }
 }
+
+.es-featured-collection {
+  .card-wrapper {
+    .card__content {
+      .card__information {
+        .card-information {
+          @media (max-width: 850px) {
+            position: absolute;
+            bottom: 25px;
+          }
+        }
+      }
+    }
+  }
+}
 // 404 page
 .article-card-wrapper .card .card__heading a{
   width: 80%;
