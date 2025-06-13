@@ -5013,8 +5013,11 @@ cart-items {
   background-color: #f9f9f9;
   display: flex;
   justify-content: center;
-  column-gap: 100px;
+  column-gap: 19%;
   padding: 50px 1.5rem;
+  @media (max-width: 1320px) {
+    column-gap: 100px;
+  }
   @media (max-width: 1150px) {
     column-gap: 20px;
   }
@@ -5119,9 +5122,12 @@ cart-items {
 .ui-contact-bottom-container {
   display: flex;
   justify-content: center;
-  column-gap: 100px;
+  column-gap: 19%;
   align-items: flex-end;
   padding: 50px 1.5rem;
+  @media (max-width: 1320px) {
+    column-gap: 100px;
+  }
   @media (max-width: 1150px) {
     column-gap: 20px;
   }
@@ -5197,6 +5203,9 @@ sk-form {
     max-width: 600px;
     left: 50%;
     transform: translate(-50%, 0%);
+    @media (max-width:600px) {
+      display: none;
+    }
   }
 }
 .ui-red-underline {
