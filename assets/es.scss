@@ -5323,7 +5323,7 @@ sk-form {
   line-height: 26px;
   word-wrap: break-word;
   text-align: left;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .rich-text__wrapper .rich-text__text p {
@@ -5334,12 +5334,20 @@ sk-form {
   line-height: 25.50px;
   word-wrap: break-word;
   text-align: left;
-  margin-top: 10px;
+  margin-top: 5px;
+}
+
+.rich-text__wrapper .rich-text__text p a{
+  color: #EE0000;
+}
+
+.rich-text .rich-text__blocks ul{
+  list-style: disc !important;
 }
 
 @media( max-width : 768px ){
   .rich-text__wrapper{
-    width: 100%;
+    width: 100% !important;
     padding: 0 10px;
   }
 }
