@@ -130,6 +130,7 @@
     function loadMoreProducts() {
       loadMoreBtn.style.display = 'none';
       loadMoreSpinner.style.display = 'block';
+      loadMore.classList.add('no-border');
 
       fetch(nextUrl).then(response => response.text()).then(html => {
         loadMoreSpinner.style.display = 'none';
@@ -144,6 +145,7 @@
         const newUrl = newProducts ?. dataset.nextUrl;
         if (newUrl) {
           loadMoreBtn.style.display = 'flex';
+          loadMore.classList.remove('no-border');
           nextUrl = newUrl;
         }
 
@@ -155,8 +157,6 @@
     }
 
     loadMoreBtn.addEventListener("click", function() {
-      console.log("0000");
-      loadMore.classList.add('no-border'); 
       loadMoreProducts();
     })
   })
