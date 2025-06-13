@@ -74,7 +74,6 @@
         },
         "icon_with_text_QKjkMq": {
           "type": "icon_with_text",
-          "disabled": true,
           "settings": {
             "text": "<p>You're in the right place. At <a href=\"https://CapWholesalers.com\" title=\"https://CapWholesalers.com\">CapWholesalers.com</a>, we specialize in fast, affordable service for teams, brands, small businesses, and promotional resellers across the U.S.</p>",
             "align_items": "flex-start"
