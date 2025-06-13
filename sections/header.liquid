@@ -139,6 +139,11 @@
       assign localization_forms = true
     endif
   -%}
+  {%- if section.settings.header_background != blank -%}
+    <div class="es-header-background">
+      <img src="{{ section.settings.header_background | img_url: 'master' }}">
+    </div>
+  {%- endif -%}
   <header class="header header-row header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }} page-width{% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}">
     {%- if section.settings.logo_position != 'middle-center' -%}
       {%- if request.page_type == 'index' -%}
@@ -538,6 +543,11 @@
   "name": "t:sections.header.name",
   "class": "section-header",
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "header_background",
+      "label": "Header Background"
+    },
     {
       "type": "select",
       "id": "logo_position",
