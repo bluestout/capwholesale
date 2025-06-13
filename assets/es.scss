@@ -4230,7 +4230,7 @@ cart-items {
   padding-bottom: 0px !important;
   padding-top: 100px;
   @media (max-width: 749px) {
-    height: 485px !important;
+    max-height: 485px !important;
   }
 }
 
