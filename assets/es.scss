@@ -260,8 +260,7 @@
         }
 
         &.hxxl {
-          font-size: 50px;
-          text-align: right;
+          
           @media (max-width: 750px) {
             font-size: 40px;
           }
@@ -4218,10 +4217,10 @@ cart-items {
 }
 
 .banner__div__beeline {
-  width: 70px;
-  height: 3px;
-  flex-shrink: 0;
-  background: #e00;
+  // width: 70px;
+  // height: 3px;
+  // flex-shrink: 0;
+  // background: #e00;
   border: none;
   display: block;
   margin-left: auto;
