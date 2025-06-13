@@ -21,8 +21,7 @@
         }
       },
       "block_order": [
-        "heading_NgReDB",
-        "text_WHkNyh"
+        "heading_NgReDB"
       ],
       "settings": {
         "show_space": false,
@@ -147,6 +146,7 @@
     },
     "ui_contact_us_qpg4aD": {
       "type": "ui-contact-us",
+      
       "blocks": {
         "ui_contact_middle_left_pcGp8G": {
           "type": "ui-contact-middle_left",

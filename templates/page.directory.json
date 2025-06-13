@@ -1,0 +1,245 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "es_image_banner_fVRefc": {
+      "type": "es-image-banner",
+      "blocks": {
+        "heading_FrjgG3": {
+          "type": "heading",
+          "settings": {
+            "subheading": "Shop Hat Styles",
+            "heading": "",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_FrjgG3"
+      ],
+      "name": "ES Image Banner",
+      "settings": {
+        "show_space": true,
+        "image": "shopify://shop_images/Image.png",
+        "image_mobile": "shopify://shop_images/allenburt_94637_create_a_real_photo_with_people_wearing_corpo_2e5fd7b5-a835-45c1-9453-06ef636c270e_2_1.png",
+        "image_overlay_opacity": 0,
+        "opacity_type": "normal",
+        "opacity_color": "primary",
+        "opacity_weight_on_desktop": "light",
+        "opacity_direction": "vertical",
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "",
+        "stack_images_on_mobile": false,
+        "mobile_content_position": "middle",
+        "mobile_content_alignment": "left",
+        "opacity_direct_on_mobile": "vertical",
+        "opacity_height_on_mobile": "small",
+        "image_height_on_mobile": "square",
+        "show_text_below": false
+      }
+    },
+    "es_gallery_with_link_aP9Len": {
+      "type": "es-gallery-with-link",
+      "blocks": {
+        "item_3fTwfQ": {
+          "type": "item",
+          "settings": {
+            "item_width": 5,
+            "image": "shopify://shop_images/bg.png",
+            "title": "Ladies Caps",
+            "url": "",
+            "title_2": "",
+            "url_2": ""
+          }
+        },
+        "item_KNpFEY": {
+          "type": "item",
+          "settings": {
+            "item_width": 5,
+            "image": "shopify://shop_images/bg_1.png",
+            "title": "Flexfit",
+            "url": "",
+            "image_2": "shopify://shop_images/img.png",
+            "title_2": "Wholesale Apparel",
+            "url_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_3fTwfQ",
+        "item_KNpFEY"
+      ],
+      "name": "ES Gallery with Link",
+      "settings": {
+        "scrollable": false,
+        "title": "",
+        "hide_title_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "item_count_row": 2,
+        "show_gradient": true
+      }
+    },
+    "es_gallery_with_link_PkEpWC": {
+      "type": "es-gallery-with-link",
+      "blocks": {
+        "item_ktPAK8": {
+          "type": "item",
+          "settings": {
+            "item_width": 5,
+            "image": "shopify://shop_images/bg_2.png",
+            "title": "Performance",
+            "url": "",
+            "image_2": "shopify://shop_images/img_1.png",
+            "title_2": "FlatBilled",
+            "url_2": ""
+          }
+        },
+        "item_TBqMmg": {
+          "type": "item",
+          "settings": {
+            "item_width": 5,
+            "image": "shopify://shop_images/bg_3.png",
+            "title": "Trucker Mash Back",
+            "url": "",
+            "title_2": "Hat Style 2",
+            "url_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_ktPAK8",
+        "item_TBqMmg"
+      ],
+      "name": "ES Gallery with Link",
+      "settings": {
+        "scrollable": false,
+        "title": "",
+        "hide_title_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "item_count_row": 2,
+        "show_gradient": false
+      }
+    },
+    "es_gallery_with_link_yRNNYb": {
+      "type": "es-gallery-with-link",
+      "blocks": {
+        "item_RWYbD6": {
+          "type": "item",
+          "settings": {
+            "item_width": 5,
+            "image": "shopify://shop_images/bg.png",
+            "title": "Ladies Caps",
+            "url": "",
+            "title_2": "Hat Style 2",
+            "url_2": ""
+          }
+        },
+        "item_FH9TNV": {
+          "type": "item",
+          "settings": {
+            "item_width": 5,
+            "image": "shopify://shop_images/bg_1.png",
+            "title": "Flexfit",
+            "url": "",
+            "image_2": "shopify://shop_images/img.png",
+            "title_2": "Wholesale Apparel",
+            "url_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_RWYbD6",
+        "item_FH9TNV"
+      ],
+      "name": "ES Gallery with Link",
+      "settings": {
+        "scrollable": false,
+        "title": "",
+        "hide_title_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "item_count_row": 2,
+        "show_gradient": false
+      }
+    },
+    "es_gallery_with_link_EhAEr4": {
+      "type": "es-gallery-with-link",
+      "blocks": {
+        "item_749ezw": {
+          "type": "item",
+          "settings": {
+            "item_width": 5,
+            "image": "shopify://shop_images/bg_2.png",
+            "title": "Performance",
+            "url": "",
+            "image_2": "shopify://shop_images/img_1.png",
+            "title_2": "FlatBilled",
+            "url_2": ""
+          }
+        },
+        "item_zwJyJ6": {
+          "type": "item",
+          "settings": {
+            "item_width": 5,
+            "image": "shopify://shop_images/bg_3.png",
+            "title": "Trucker Mash Back",
+            "url": "",
+            "title_2": "Hat Style 2",
+            "url_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_749ezw",
+        "item_zwJyJ6"
+      ],
+      "name": "ES Gallery with Link",
+      "settings": {
+        "scrollable": false,
+        "title": "",
+        "hide_title_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "item_count_row": 2,
+        "show_gradient": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "es_image_banner_fVRefc",
+    "es_gallery_with_link_aP9Len",
+    "es_gallery_with_link_PkEpWC",
+    "es_gallery_with_link_yRNNYb",
+    "es_gallery_with_link_EhAEr4"
+  ]
+}
