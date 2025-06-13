@@ -30,7 +30,9 @@
         "color_scheme": "",
         "full_width": true,
         "padding_top": 40,
-        "padding_bottom": 52
+        "padding_bottom": 52,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 20
       }
     },
     "main": {
@@ -60,8 +62,10 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 100
+        "padding_top": 20,
+        "padding_bottom": 100,
+        "padding_top_mobile": 12,
+        "padding_bottom_mobile": 52
       }
     }
   },
