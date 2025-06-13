@@ -5343,6 +5343,11 @@ sk-form {
 
 .rich-text .rich-text__blocks ul{
   list-style: disc !important;
+  padding-left: 3rem !important;
+}
+
+.rich-text .rich-text__blocks ul li{
+  text-align: left !important;
 }
 
 @media( max-width : 768px ){
