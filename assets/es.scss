@@ -4277,7 +4277,7 @@ cart-items {
 
 .utility-bar {
     width: 100%;
-    background-color: #990000;
+    background-color: #e00;
     text-align: center;
     display: flex;
     min-height: 40px;
@@ -4734,11 +4734,12 @@ cart-items {
 
 .other-page-header {
     position: relative;
-    background-image: url(./Thin-Header-Desktop.svg);
+    background-image: url(./header-background.jpg);
     width: 100%;
+    height: 124px;
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center -32px;
+    background-size: 100% calc(100% + 40px);
+    background-position: center -40px;
     border: none;
 }
 
@@ -5380,23 +5381,39 @@ sk-form {
     padding: 0px !important;
 }
 
-.triangle-nav {
-    display: none;
-    width: 0;
-    height: 0;
-    border-left: 50vw solid transparent;
-    border-right: 50vw solid transparent;
-    border-bottom: 10px solid #FFFFFF;
-    background-color: #CCCCCC;
-}
-
 .scroll-trigger.animate--slide-in {
     padding: 0px 10px;
 }
 
 @media screen and (max-width: 750px) {
-    .triangle-nav {
+    .header-container {
+        position: relative;
+    }
+
+    .es-library .content-container {
+        padding-top: 0px;
+    }
+
+    sticky-header.header-wrapper::before {
+        content: '';
         display: block;
+        position: absolute;
+        right: 0;
+        bottom: -10px;
+        border-left: 50vw solid transparent;
+        border-top: 10px solid rgba(0, 0, 0, 0.2);
+        z-index: 2;
+    }
+
+    sticky-header.header-wrapper::after {
+        content: '';
+        left: 0;
+        display: block;
+        position: absolute;
+        border-right: 50vw solid transparent;
+        border-top: 10px solid rgba(0, 0, 0, 0.2);
+        bottom: -10px;
+        z-index: 2;
     }
 
     section {
@@ -5407,6 +5424,7 @@ sk-form {
 
     .other-page-header {
         background-image: none;
+        background-color: #FFFFFF;
     }
 
     .header-container {
