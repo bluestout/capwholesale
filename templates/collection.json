@@ -26,13 +26,17 @@
           "settings": {
             "subheading": "",
             "heading": "{{ collection.title }}",
-            "border_bottom": false,
+            "border_bottom": true,
             "heading_size": "h1"
           }
         }
       },
       "block_order": [
         "heading_Ui89kH"
+      ],
+      "custom_css": [
+        ".banner::after,.banner__media::after {height: 96.5%;}",
+        "@media screen and (max-width: 749px) {.banner::after, .banner__media::after {height: 100%; }}"
       ],
       "settings": {
         "show_space": false,
