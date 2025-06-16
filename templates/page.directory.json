@@ -34,9 +34,9 @@
         "heading_FrjgG3"
       ],
       "custom_css": [
-        ".banner::after {height: 100%; border-bottom-right-radius: 15px;}",
+        ".banner::after {height: 97%; border-bottom-right-radius: 15px;}",
         ".banner__media img {object-fit: fill;}",
-        "@media(max-width:768px){.banner__media img {object-fit: fill; }}"
+        "@media (max-width: 768px) {.banner__media img {object-fit: fill; }}"
       ],
       "settings": {
         "show_space": false,
