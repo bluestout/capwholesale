@@ -5506,3 +5506,49 @@ sk-form {
 #cloud_search_filters_root .cloud-search-page-controls .cloud-search-page-controls__filters-container .cloud-search-page-controls__filters .cloud-search-filter .cloud-search-filter__name:after{
   border-color: #EE0000 !important;
 }
+
+#CartDrawer-CartItems {
+  .drawer__cart-items-wrapper {
+    border-bottom: 1px solid #cccccc;
+    .cart-items {
+      .cart-item {
+        &:first-child {
+          padding-top: 10px !important;
+        }
+        padding-top: 30px;
+        padding-bottom: 31px;
+        td {
+          &:nth-child(2) {
+            grid-column: 2 / 5;
+            .ui-cart-money {
+              font-weight: bold;
+              color: #000;
+            }
+          }
+          &:nth-child(3) {
+            grid-column-start: 1;
+            padding-top: 30px;
+          }
+          .ui-custom-cart-drawer {
+            display: flex;
+            cart-remove-button {
+              &:first-child {
+                margin-left: 0px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// buget-number
+.header__icon--cart {
+  .cart-count-bubble {
+    background-color: #fff;
+    span {
+      color: black;
+    }
+  }
+}
