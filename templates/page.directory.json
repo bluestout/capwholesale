@@ -33,7 +33,9 @@
       "block_order": [
         "heading_FrjgG3"
       ],
-      "custom_css": [],
+      "custom_css": [
+        ".banner::after{height: 97%; border-bottom-right-radius:10px;}"
+      ],
       "settings": {
         "show_space": false,
         "image": "shopify://shop_images/Image_783a0d6f-5463-4758-8cdb-e5cddbfeddbb.png",
