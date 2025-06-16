@@ -8,7 +8,8 @@
           "settings": {
             "subheading": "",
             "heading": "Contact Us",
-            "heading_size": "hxxl"
+            "border_bottom": true,
+            "heading_size": "hxl"
           }
         }
       },
@@ -17,9 +18,9 @@
       ],
       "settings": {
         "show_space": false,
-        "image": "shopify:\/\/shop_images\/allenburt_94637_create_a_real_photo_with_people_wearing_corpo_2e5fd7b5-a835-45c1-9453-06ef636c270e_0_1_1.png",
-        "image_overlay_opacity": 60,
-        "opacity_type": "gradient",
+        "image": "shopify://shop_images/allenburt_94637_create_a_real_photo_with_people_wearing_corpo_2e5fd7b5-a835-45c1-9453-06ef636c270e_0_1_1.png",
+        "image_overlay_opacity": 30,
+        "opacity_type": "normal",
         "opacity_color": "primary",
         "opacity_weight_on_desktop": "light",
         "opacity_direction": "horizontal",
@@ -64,15 +65,16 @@
         },
         "icon_with_text_QKjkMq": {
           "type": "icon_with_text",
-          "disabled": true,
           "settings": {
-            "text": "<p>You're in the right place. At <a href=\"https:\/\/CapWholesalers.com\" title=\"https:\/\/CapWholesalers.com\">CapWholesalers.com<\/a>, we specialize in fast, affordable service for teams, brands, small businesses, and promotional resellers across the U.S.<\/p>"
+            "text": "<p>You're in the right place. At <a href=\"https://CapWholesalers.com\" title=\"https://CapWholesalers.com\">CapWholesalers.com</a>, we specialize in fast, affordable service for teams, brands, small businesses, and promotional resellers across the U.S.</p>",
+            "align_items": "flex-start"
           }
         },
         "icon_with_text_A6zD8X": {
           "type": "icon_with_text",
           "settings": {
-            "text": "<h3>Get in Touch with a CapWholesalers Specialist<\/h3>"
+            "text": "<h3>Get in Touch with a CapWholesalers Specialist</h3>",
+            "align_items": "flex-start"
           }
         },
         "ui_check_ok_WDBmxm": {
@@ -85,34 +87,39 @@
         "icon_with_text_xCaxTk": {
           "type": "icon_with_text",
           "settings": {
-            "text": "<p>Whether you're ordering blank Richardson 112 hats in bulk or customizing leather patch hats for your brand, our experienced team is here to help.<\/p>"
+            "text": "<p>Whether you're ordering blank Richardson 112 hats in bulk or customizing leather patch hats for your brand, our experienced team is here to help.</p>",
+            "align_items": "flex-start"
           }
         },
         "icon_with_text_BUGg48": {
           "type": "icon_with_text",
           "settings": {
-            "image": "shopify:\/\/shop_images\/iconamoon_email-light.svg",
-            "text": "<p><a href=\"mailto:info@customizedwear.com\" title=\"mailto:info@customizedwear.com\">info@customizedwear.com<\/a><\/p>"
+            "image": "shopify://shop_images/iconamoon_email-light.svg",
+            "text": "<p><a href=\"mailto:info@customizedwear.com\" title=\"mailto:info@customizedwear.com\">info@customizedwear.com</a></p>",
+            "align_items": "center"
           }
         },
         "icon_with_text_Xn86nc": {
           "type": "icon_with_text",
           "settings": {
-            "text": "<p><strong>Our Customer Service Department is open:<\/strong><\/p>"
+            "text": "<p><strong>Our Customer Service Department is open:</strong></p>",
+            "align_items": "flex-start"
           }
         },
         "icon_with_text_BbVPB9": {
           "type": "icon_with_text",
           "settings": {
-            "image": "shopify:\/\/shop_images\/material-symbols-light_calendar-today-outline-sharp.svg",
-            "text": "<p>Monday - Friday<\/p><p>9:00 AM - 5:00 PM (EST)<\/p>"
+            "image": "shopify://shop_images/material-symbols-light_calendar-today-outline-sharp.svg",
+            "text": "<p>Monday - Friday</p><p>9:00 AM - 5:00 PM (EST)</p>",
+            "align_items": "flex-start"
           }
         },
         "icon_with_text_9AHdyH": {
           "type": "icon_with_text",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Vector.svg",
-            "text": "<p> <a href=\"tel:+18779842277\" title=\"tel:+18779842277\">877-984-2277 (CAPS)<\/a><\/p>"
+            "image": "shopify://shop_images/Vector.svg",
+            "text": "<p> <a href=\"tel:+18779842277\" title=\"tel:+18779842277\">877-984-2277 (CAPS)</a></p>",
+            "align_items": "flex-start"
           }
         }
       },
