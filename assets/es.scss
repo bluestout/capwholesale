@@ -327,9 +327,6 @@
 
       &.sm-banner__content--middle-center {
         .banner__heading {
-          @media (max-width: 768px){
-            font-size: 30px;
-          }
           &.hxl {
             @media (max-width: 768px) {
               margin: auto;
@@ -5464,6 +5461,18 @@ sk-form {
     display: block;
     position: absolute;
     bottom: -1px;
+  }
+
+  .es-image-banner .banner .banner__content .banner__heading.h1{
+    font-size: 30px;
+  }
+
+  .es-image-banner .banner .banner__content.sm-banner__content--middle-center .banner__heading{
+    margin: auto;
+  }
+
+  #cloud_search_filters_root{
+    background-color: white;
   }
 }
 
