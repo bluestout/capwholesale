@@ -123,7 +123,7 @@
                           </strong>
                         </div>
                       {%- else -%}
-                        <div class="product-option ui-price-fix" >
+                        <div class="product-option ui-price-fix">
                           {{ item.original_price | money }}
                         </div>
                       {%- endif -%}
@@ -281,20 +281,36 @@
                               </button>
                             </quantity-input>
                           </div>
-                          <cart-remove-button
-                            id="Remove-{{ item.index | plus: 1 }}"
-                            data-index="{{ item.index | plus: 1 }}"
-                          >
-                            <a
-                              href="{{ item.url_to_remove }}"
-                              class="button button--tertiary"
-                              aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
+                          <div class="ui-cart-icon-container">
+                            <cart-remove-button
+                              id="Remove-{{ item.index | plus: 1 }}"
+                              data-index="{{ item.index | plus: 1 }}"
                             >
-                              <span class="svg-wrapper">
-                                {{- 'icon-remove.svg' | inline_asset_content -}}
-                              </span>
-                            </a>
-                          </cart-remove-button>
+                              <a
+                                href="{{ item.url }}"
+                                class="button button--tertiary"
+                                aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
+                              >
+                                <span class="svg-wrapper">
+                                  {{- 'icon-remove.svg' | inline_asset_content -}}
+                                </span>
+                              </a>
+                            </cart-remove-button>
+                            <cart-remove-button
+                              id="editor-{{ item.index | plus: 1 }}"
+                              data-index="{{ item.index | plus: 1 }}"
+                            >
+                              <a
+                                href="{{ item.url_to_remove }}"
+                                class="button button--tertiary"
+                                aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
+                              >
+                                <span class="svg-wrapper">
+                                  {%- render 'editor-icon' -%}
+                                </span>
+                              </a>
+                            </cart-remove-button>
+                          </div>
                         </div>
                         {%- if has_qty_rules or has_vol_pricing -%}
                           <button
