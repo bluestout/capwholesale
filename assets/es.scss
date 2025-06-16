@@ -327,9 +327,6 @@
 
       &.sm-banner__content--middle-center {
         .banner__heading {
-          @media (max-width: 768px){
-            font-size: 30px;
-          }
           &.hxl {
             @media (max-width: 768px) {
               margin: auto;
@@ -3752,6 +3749,10 @@ cart-items {
       }
     }
   }
+
+  .button--tertiary {
+    min-width: max-content;
+  }
 }
 
 .es-size-chart {
@@ -4942,24 +4943,6 @@ cart-items {
   }
 }
 
-// .product-card-wrapper {
-//   .card--standard {
-//     .card__inner {
-//       position: relative;
-//       width: 100%;
-//       // padding-top: 76%;
-//       display: block;
-//       .card__media {
-//         .media--transparent {
-//           img {
-//             object-fit: cover;
-//             // background-color: #f3f3f3 !important;
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
 .ui-content-red-line {
   display: flex;
   flex-direction: column;
@@ -5321,38 +5304,17 @@ sk-form {
   }
 }
 
-.es-featured-collection {
-  .card-wrapper {
-    .card__content {
-      .card__information {
-        .card-information {
-          @media (max-width: 850px) {
-            position: absolute;
-            bottom: 25px;
-          }
-        }
-      }
-    }
-  }
-}
-
 // cart
 .ui-cart-icon-container{
   display: flex;
   margin-left: 5px;
+
   @media (max-width:425px) {
     margin-left: 0px;
   }
 }
 
-.es-featured-collection{
-  .ui-custom-slide-bottom{
-    .card__inner{
-      padding-top: 76% !important;
-    }
-  }
-}
-.article-card-wrapper .card .card__heading a{
+.article-card-wrapper .card .card__heading a {
   width: 80%;
 }
 
@@ -5500,6 +5462,18 @@ sk-form {
     position: absolute;
     bottom: -1px;
   }
+
+  .es-image-banner .banner .banner__content .banner__heading.h1{
+    font-size: 30px;
+  }
+
+  .es-image-banner .banner .banner__content.sm-banner__content--middle-center .banner__heading{
+    margin: auto;
+  }
+
+  #cloud_search_filters_root{
+    background-color: white;
+  }
 }
 
 .product-grid .grid__item .card-wrapper .card__content .card__information .card__heading{
@@ -5527,4 +5501,8 @@ sk-form {
 
 .cloud-search-page-controls__filters-container{
   padding-left: 10px;
+}
+
+#cloud_search_filters_root .cloud-search-page-controls .cloud-search-page-controls__filters-container .cloud-search-page-controls__filters .cloud-search-filter .cloud-search-filter__name:after{
+  border-color: #EE0000 !important;
 }
