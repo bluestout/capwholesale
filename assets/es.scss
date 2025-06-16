@@ -5502,3 +5502,7 @@ sk-form {
 .cloud-search-page-controls__filters-container{
   padding-left: 10px;
 }
+
+#cloud_search_filters_root .cloud-search-page-controls .cloud-search-page-controls__filters-container .cloud-search-page-controls__filters .cloud-search-filter .cloud-search-filter__name:after{
+  border-color: #EE0000 !important;
+}
