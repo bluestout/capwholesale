@@ -34,7 +34,7 @@
         "heading_FrjgG3"
       ],
       "custom_css": [
-        ".banner::after {height: 97%; border-bottom-right-radius: 15px;}"
+        ".banner::after {height: 100%; border-bottom-right-radius: 15px;}"
       ],
       "settings": {
         "show_space": false,
