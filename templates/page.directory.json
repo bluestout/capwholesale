@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -33,7 +42,7 @@
         "opacity_color": "primary",
         "opacity_weight_on_desktop": "light",
         "opacity_direction": "vertical",
-        "image_height": "adapt",
+        "image_height": "small",
         "image_behavior": "none",
         "desktop_content_position": "middle-left",
         "desktop_content_alignment": "left",
@@ -55,7 +64,7 @@
           "type": "item",
           "settings": {
             "item_width": 5,
-            "image": "shopify:\/\/shop_images\/bg.png",
+            "image": "shopify://shop_images/bg.png",
             "title": "Ladies Caps",
             "url": "",
             "title_2": "",
@@ -66,10 +75,10 @@
           "type": "item",
           "settings": {
             "item_width": 5,
-            "image": "shopify:\/\/shop_images\/bg_1.png",
+            "image": "shopify://shop_images/bg_1.png",
             "title": "Flexfit",
             "url": "",
-            "image_2": "shopify:\/\/shop_images\/img.png",
+            "image_2": "shopify://shop_images/img.png",
             "title_2": "Wholesale Apparel",
             "url_2": ""
           }
@@ -98,10 +107,10 @@
           "type": "item",
           "settings": {
             "item_width": 5,
-            "image": "shopify:\/\/shop_images\/bg_2.png",
+            "image": "shopify://shop_images/bg_2.png",
             "title": "Performance",
             "url": "",
-            "image_2": "shopify:\/\/shop_images\/img_1.png",
+            "image_2": "shopify://shop_images/img_1.png",
             "title_2": "FlatBilled",
             "url_2": ""
           }
@@ -110,7 +119,7 @@
           "type": "item",
           "settings": {
             "item_width": 5,
-            "image": "shopify:\/\/shop_images\/bg_3.png",
+            "image": "shopify://shop_images/bg_3.png",
             "title": "Trucker Mash Back",
             "url": "",
             "title_2": "Hat Style 2",
@@ -141,7 +150,7 @@
           "type": "item",
           "settings": {
             "item_width": 5,
-            "image": "shopify:\/\/shop_images\/bg.png",
+            "image": "shopify://shop_images/bg.png",
             "title": "Ladies Caps",
             "url": "",
             "title_2": "Hat Style 2",
@@ -152,10 +161,10 @@
           "type": "item",
           "settings": {
             "item_width": 5,
-            "image": "shopify:\/\/shop_images\/bg_1.png",
+            "image": "shopify://shop_images/bg_1.png",
             "title": "Flexfit",
             "url": "",
-            "image_2": "shopify:\/\/shop_images\/img.png",
+            "image_2": "shopify://shop_images/img.png",
             "title_2": "Wholesale Apparel",
             "url_2": ""
           }
@@ -184,10 +193,10 @@
           "type": "item",
           "settings": {
             "item_width": 5,
-            "image": "shopify:\/\/shop_images\/bg_2.png",
+            "image": "shopify://shop_images/bg_2.png",
             "title": "Performance",
             "url": "",
-            "image_2": "shopify:\/\/shop_images\/img_1.png",
+            "image_2": "shopify://shop_images/img_1.png",
             "title_2": "FlatBilled",
             "url_2": ""
           }
@@ -196,7 +205,7 @@
           "type": "item",
           "settings": {
             "item_width": 5,
-            "image": "shopify:\/\/shop_images\/bg_3.png",
+            "image": "shopify://shop_images/bg_3.png",
             "title": "Trucker Mash Back",
             "url": "",
             "title_2": "Hat Style 2",
