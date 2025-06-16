@@ -34,6 +34,10 @@
       "block_order": [
         "heading_Ui89kH"
       ],
+      "custom_css": [
+        ".banner::after,.banner__media::after {height: 96.5%;}",
+        "@media screen and (max-width: 749px) {.banner::after, .banner__media::after {height: 100%; }}"
+      ],
       "settings": {
         "show_space": false,
         "image": "shopify://shop_images/Image_1d217737-4e43-4002-bc00-9973503e65dd.png",
