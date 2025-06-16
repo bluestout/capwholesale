@@ -218,6 +218,9 @@
         }
       }
     }
+    @media (max-width: 500px) {
+      min-height: 200px;
+    }
 
     .banner__content {
       // background: rgba(0, 0, 0, 0.3);
@@ -309,6 +312,9 @@
 
       &.sm-banner__content--middle-center {
         .banner__heading {
+          @media (max-width: 768px){
+            font-size: 30px;
+          }
           &.hxl {
             @media (max-width: 768px) {
               margin: auto;
@@ -5437,5 +5443,15 @@ sk-form {
     font-size: 30px;
     text-align: center;
     margin: 0 auto;
+  }
+
+  .es-image-banner .banner .banner__content.sm-banner__content--middle-center .banner__heading.hxl.is-border-bottom:after{
+    content: "";
+    height: 2px;
+    width: 70px;
+    background-color: #e00;
+    display: block;
+    position: absolute;
+    bottom: -1px;
   }
 }
