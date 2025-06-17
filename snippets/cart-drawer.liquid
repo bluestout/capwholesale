@@ -46,15 +46,25 @@
     background: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
   }
 
-  .drawer__footer{
+  .drawer__footer {
     border-top: none;
   }
 
-  .ui-right-text dt{
+  .ui-right-text dt {
     display: inline-block;
     width: 55px;
     text-align: right;
     margin-right: 6px;
+  }
+
+  .ui-custom-cart-drawer a {
+    min-width: max-content;
+  }
+
+  @media screen and (min-width: 750px) and (max-width: 989px) {
+    .ui-custom-cart-drawer cart-remove-button {
+      width: auto !important;
+    }
   }
 </style>
 
@@ -606,19 +616,20 @@
         </div>
 
         <!-- CTAs -->
-{% comment %} 
-        {%- if settings.additional_info_text != blank -%}
-          <div class="additional-information">
-            <a href="{{ settings.additional_info_url }}">
-              {%- if settings.additional_info_image != blank -%}
-                <div class="additional-information-image">
-                  <img src="{{ settings.additional_info_image | img_url: 'master' }}" width="" height="">
-                </div>
-              {%- endif -%}
-              <div class="additional-information-image">{{ settings.additional_info_text }}</div>
-            </a>
-          </div>
-        {%- endif -%} {% endcomment %}
+        {% comment %}
+          {%- if settings.additional_info_text != blank -%}
+            <div class="additional-information">
+              <a href="{{ settings.additional_info_url }}">
+                {%- if settings.additional_info_image != blank -%}
+                  <div class="additional-information-image">
+                    <img src="{{ settings.additional_info_image | img_url: 'master' }}" width="" height="">
+                  </div>
+                {%- endif -%}
+                <div class="additional-information-image">{{ settings.additional_info_text }}</div>
+              </a>
+            </div>
+          {%- endif -%}
+        {% endcomment %}
       </div>
     </div>
   </div>
