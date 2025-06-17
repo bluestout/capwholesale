@@ -15,6 +15,24 @@
   .drawer {
     visibility: hidden;
   }
+  .ui-red-button button {
+    background-color: #e00;
+    letter-spacing: 4.5px;
+  }
+  .ui-red-close svg {
+    color: #e00;
+    fill: #e00;
+  }
+
+  .ui-rate-small {
+    text-align: center !important;
+    margin-top: 10px !important;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
 </style>
 
 <cart-drawer class="drawer{% if cart == empty %} is-empty{% endif %}">
@@ -70,8 +88,7 @@
           onclick="this.closest('cart-drawer').close()"
           aria-label="{{ 'accessibility.close' | t }}"
         >
-          Close
-          <span class="svg-wrapper">
+          <span class="svg-wrapper ui-red-close">
             {{- 'icon-close.svg' | inline_asset_content -}}
           </span>
         </button>
@@ -206,7 +223,7 @@
                                 {%- endif -%}
                               {%- endfor -%}
                             </dl>
- 
+
                             <p class="product-option">{{ item.selling_plan_allocation.selling_plan.name }}</p>
                           {%- endif -%}
 
@@ -223,7 +240,7 @@
                             {%- endfor -%}
                           </ul>
                         </td>
-        
+
                         {%- liquid
                           assign has_qty_rules = false
                           if item.variant.quantity_rule.increment > 1 or item.variant.quantity_rule.min > 1 or item.variant.quantity_rule.max != null
@@ -516,7 +533,22 @@
             <p class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
           </div>
 
-          <small class="tax-note caption-large rte">
+          <div class="cart__ctas ui-red-button" {{ block.shopify_attributes }}>
+            <button
+              type="submit"
+              id="CartDrawer-Checkout"
+              class="cart__checkout-button button"
+              name="checkout"
+              form="CartDrawer-Form"
+              {% if cart == empty %}
+                disabled
+              {% endif %}
+            >
+              {{ 'sections.cart.checkout' | t }}
+            </button>
+          </div>
+
+          <small class="tax-note caption-large rte ui-rate-small">
             {%- if cart.duties_included and cart.taxes_included -%}
               {%- if shop.shipping_policy.body == blank -%}
                 {{ 'sections.cart.duties_and_taxes_included_shipping_at_checkout_without_policy' | t }}
@@ -558,21 +590,6 @@
         </div>
 
         <!-- CTAs -->
-
-        <div class="cart__ctas" {{ block.shopify_attributes }}>
-          <button
-            type="submit"
-            id="CartDrawer-Checkout"
-            class="cart__checkout-button button"
-            name="checkout"
-            form="CartDrawer-Form"
-            {% if cart == empty %}
-              disabled
-            {% endif %}
-          >
-            {{ 'sections.cart.checkout' | t }}
-          </button>
-        </div>
 
         {%- if settings.additional_info_text != blank -%}
           <div class="additional-information">
