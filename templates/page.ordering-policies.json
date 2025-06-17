@@ -64,9 +64,9 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 80,
+        "padding_top": 32,
         "padding_bottom": 80,
-        "padding_top_mobile": 40,
+        "padding_top_mobile": 12,
         "padding_bottom_mobile": 40
       }
     }
