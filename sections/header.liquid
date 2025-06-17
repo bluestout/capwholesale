@@ -120,7 +120,7 @@
     assign header_tag = 'sticky-header'
   endif
 %}
-
+{{ section.settings.transparent_header | json }}
 <{{ header_tag }}
   {% if header_tag == 'sticky-header' %}
     data-sticky-type="{{ section.settings.sticky_header_type }}"
