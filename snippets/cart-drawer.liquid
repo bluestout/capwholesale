@@ -430,35 +430,28 @@
                           {%- render 'loading-spinner' -%}
                           <div class="ui-custom-cart-drawer">
                             <cart-remove-button
-                              id="CartDrawer-Remove-{{ item.index | plus: 1 }}"
+                              id="Remove-{{ item.index | plus: 1 }}"
                               data-index="{{ item.index | plus: 1 }}"
                             >
-                              <button
-                                type="button"
-                                class="button button--tertiary cart-remove-button"
+                              <a
+                                href="{{ item.url }}"
+                                class="button button--tertiary"
                                 aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
-                                data-variant-id="{{ item.variant.id }}"
                               >
                                 <span class="svg-wrapper">
                                   {{- 'icon-remove.svg' | inline_asset_content -}}
                                 </span>
-                              </button>
+                              </a>
                             </cart-remove-button>
-                            <cart-remove-button
-                              id="CartDrawer-Remove-{{ item.index | plus: 1 }}"
-                              data-index="{{ item.index | plus: 1 }}"
+                            <a
+                              href="{{ item.product.url }}"
+                              class="button button--tertiary"
+                              aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
                             >
-                              <button
-                                type="button"
-                                class="button button--tertiary cart-remove-button"
-                                aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
-                                data-variant-id="{{ item.variant.id }}"
-                              >
-                                <span class="svg-wrapper">
-                                  {%- render 'editor-icon' -%}
-                                </span>
-                              </button>
-                            </cart-remove-button>
+                              <span class="svg-wrapper">
+                                {%- render 'editor-icon' -%}
+                              </span>
+                            </a>
                           </div>
                           <div class="cart-item__price-wrapper">
                             {%- if item.original_line_price != item.final_line_price -%}
