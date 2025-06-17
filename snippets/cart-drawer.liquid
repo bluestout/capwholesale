@@ -32,9 +32,11 @@
     font-weight: 400;
     line-height: 150%;
   }
+
   cart-drawer-items {
     position: relative;
   }
+
   .ui-drawer-gradient::after {
     position: absolute;
     height: 91px;
@@ -46,15 +48,25 @@
     background: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
   }
 
-  .drawer__footer{
+  .drawer__footer {
     border-top: none;
   }
 
-  .ui-right-text dt{
+  .ui-right-text dt {
     display: inline-block;
     width: 55px;
     text-align: right;
     margin-right: 6px;
+  }
+
+  .ui-custom-cart-drawer a {
+    min-width: max-content;
+  }
+
+  @media screen and (min-width: 750px) and (max-width: 989px) {
+    .ui-custom-cart-drawer cart-remove-button {
+      width: auto !important;
+    }
   }
 </style>
 
@@ -62,7 +74,7 @@
   <div id="CartDrawer" class="cart-drawer">
     <div id="CartDrawer-Overlay" class="cart-drawer__overlay"></div>
     <div
-      class="drawer__inner ui-drawer-gradient gradient color-{{ settings.cart_color_scheme }}"
+      class="drawer__inner{% if cart != blank %} ui-drawer-gradient {% endif %} gradient color-{{ settings.cart_color_scheme }}"
       role="dialog"
       aria-modal="true"
       aria-label="{{ 'sections.cart.title' | t }}"
@@ -430,35 +442,28 @@
                           {% comment %} {%- render 'loading-spinner' -%} {% endcomment %}
                           <div class="ui-custom-cart-drawer">
                             <cart-remove-button
-                              id="CartDrawer-Remove-{{ item.index | plus: 1 }}"
+                              id="Remove-{{ item.index | plus: 1 }}"
                               data-index="{{ item.index | plus: 1 }}"
                             >
-                              <button
-                                type="button"
-                                class="button button--tertiary cart-remove-button"
+                              <a
+                                href="{{ item.url }}"
+                                class="button button--tertiary"
                                 aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
-                                data-variant-id="{{ item.variant.id }}"
                               >
                                 <span class="svg-wrapper">
                                   {{- 'icon-remove.svg' | inline_asset_content -}}
                                 </span>
-                              </button>
+                              </a>
                             </cart-remove-button>
-                            <cart-remove-button
-                              id="CartDrawer-Remove-{{ item.index | plus: 1 }}"
-                              data-index="{{ item.index | plus: 1 }}"
+                            <a
+                              href="{{ item.product.url }}"
+                              class="button button--tertiary"
+                              aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
                             >
-                              <button
-                                type="button"
-                                class="button button--tertiary cart-remove-button"
-                                aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
-                                data-variant-id="{{ item.variant.id }}"
-                              >
-                                <span class="svg-wrapper">
-                                  {%- render 'editor-icon' -%}
-                                </span>
-                              </button>
-                            </cart-remove-button>
+                              <span class="svg-wrapper">
+                                {%- render 'editor-icon' -%}
+                              </span>
+                            </a>
                           </div>
                           <div class="cart-item__price-wrapper">
                             {%- if item.original_line_price != item.final_line_price -%}
@@ -613,19 +618,20 @@
         </div>
 
         <!-- CTAs -->
-{% comment %} 
-        {%- if settings.additional_info_text != blank -%}
-          <div class="additional-information">
-            <a href="{{ settings.additional_info_url }}">
-              {%- if settings.additional_info_image != blank -%}
-                <div class="additional-information-image">
-                  <img src="{{ settings.additional_info_image | img_url: 'master' }}" width="" height="">
-                </div>
-              {%- endif -%}
-              <div class="additional-information-image">{{ settings.additional_info_text }}</div>
-            </a>
-          </div>
-        {%- endif -%} {% endcomment %}
+        {% comment %}
+          {%- if settings.additional_info_text != blank -%}
+            <div class="additional-information">
+              <a href="{{ settings.additional_info_url }}">
+                {%- if settings.additional_info_image != blank -%}
+                  <div class="additional-information-image">
+                    <img src="{{ settings.additional_info_image | img_url: 'master' }}" width="" height="">
+                  </div>
+                {%- endif -%}
+                <div class="additional-information-image">{{ settings.additional_info_text }}</div>
+              </a>
+            </div>
+          {%- endif -%}
+        {% endcomment %}
       </div>
     </div>
   </div>
