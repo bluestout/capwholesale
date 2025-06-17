@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.header.name",
   "type": "header",
@@ -32,7 +41,7 @@
         "mobile_menu_aLMmPP": {
           "type": "mobile_menu",
           "settings": {
-            "menu": ""
+            "menu": "moblie-main-menu-1"
           }
         },
         "specific_link_UME8We": {
@@ -65,7 +74,7 @@
       "settings": {
         "logo_position": "middle-left",
         "mobile_logo_position": "center",
-        "menu": "main-menu",
+        "menu": "main-menu-1",
         "separate_menu": true,
         "separate_menu_count": 4,
         "menu_type_desktop": "mega",
