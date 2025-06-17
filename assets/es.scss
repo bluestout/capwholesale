@@ -2344,7 +2344,7 @@
         line-height: 25.5px;
 
         &.pagination__item--current {
-          color: #EE0000;
+          color: #ee0000;
           font-size: 15px;
           font-family: "Inter", sans-serif;
           font-weight: 700;
@@ -2785,7 +2785,7 @@
   font-size: 15px;
   font-family: "Inter", sans-serif;
   font-weight: 600;
-  line-height: 25.50px;
+  line-height: 25.5px;
   align-items: baseline;
   gap: 2px;
 
@@ -3190,9 +3190,9 @@ body {
 }
 
 .article-template {
-    @media (max-width: 750px) {
-      padding: 10px;
-    }
+  @media (max-width: 750px) {
+    padding: 10px;
+  }
   .article-template__title {
     color: black;
     font-size: 40px;
@@ -3268,7 +3268,7 @@ body {
         font-size: 18px;
         font-family: Inter;
         font-weight: 500;
-        line-height: 23.40px;
+        line-height: 23.4px;
         word-wrap: break-word;
       }
 
@@ -3276,7 +3276,7 @@ body {
         content: "";
         width: 35px;
         height: 5px;
-        background-color: #EE0000;
+        background-color: #ee0000;
         display: block;
       }
 
@@ -3307,8 +3307,8 @@ body {
           font-family: "Inter", sans-serif;
           font-weight: 700;
           text-transform: uppercase;
-          line-height: 25.50px;
-          letter-spacing: 4.50px;
+          line-height: 25.5px;
+          letter-spacing: 4.5px;
           display: flex;
           align-items: center;
           gap: 10px;
@@ -5320,21 +5320,66 @@ sk-form {
 }
 // 404 page
 
-
 // cart
-.ui-cart-icon-container{
+.ui-cart-icon-container {
   display: flex;
   margin-left: 5px;
-  @media (max-width:425px) {
+  @media (max-width: 425px) {
     margin-left: 0px;
   }
 }
 
-.es-featured-collection{
-  .ui-custom-slide-bottom{
-    .card__inner{
+.es-featured-collection {
+  .ui-custom-slide-bottom {
+    .card__inner {
       padding-top: 76% !important;
     }
   }
 }
 // cart
+
+#CartDrawer-CartItems {
+  .drawer__cart-items-wrapper {
+    border-bottom: 1px solid #cccccc;
+    .cart-items {
+      .cart-item {
+        &:first-child {
+          padding-top: 10px !important;
+        }
+        padding-top: 30px;
+        padding-bottom: 31px;
+        td {
+          &:nth-child(2) {
+            grid-column: 2 / 5;
+            .ui-cart-money {
+              font-weight: bold;
+              color: #000;
+            }
+          }
+          &:nth-child(3) {
+            grid-column-start: 1;
+            padding-top: 30px;
+          }
+          .ui-custom-cart-drawer {
+            display: flex;
+            cart-remove-button {
+              &:first-child {
+                margin-left: 0px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// buget-number
+.header__icon--cart {
+  .cart-count-bubble {
+    background-color: #fff;
+    span {
+      color: black;
+    }
+  }
+}
