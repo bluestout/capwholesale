@@ -32,13 +32,36 @@
     font-weight: 400;
     line-height: 150%;
   }
+  cart-drawer-items {
+    position: relative;
+  }
+  .ui-drawer-gradient::after {
+    position: absolute;
+    height: 91px;
+    content: '';
+    width: 100%;
+    left: 0;
+    bottom: 167px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+  }
+
+  .drawer__footer{
+    border-top: none;
+  }
+
+  .ui-right-text dt{
+    display: inline-block;
+    width: 55px;
+    text-align: right;
+    margin-right: 6px;
+  }
 </style>
 
 <cart-drawer class="drawer{% if cart == empty %} is-empty{% endif %}">
   <div id="CartDrawer" class="cart-drawer">
     <div id="CartDrawer-Overlay" class="cart-drawer__overlay"></div>
     <div
-      class="drawer__inner gradient color-{{ settings.cart_color_scheme }}"
+      class="drawer__inner ui-drawer-gradient gradient color-{{ settings.cart_color_scheme }}"
       role="dialog"
       aria-modal="true"
       aria-label="{{ 'sections.cart.title' | t }}"
@@ -142,7 +165,7 @@
                             {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
                             <a href="{{ item.url }}" class="cart-item__link" tabindex="-1" aria-hidden="true"> </a>
                             <img
-                              class="cart-item__image"
+                              class="cart-item__image ui-cap-image-size"
                               src="{{ item.image | image_url: width: 300 }}"
                               alt="{{ item.image.alt | escape }}"
                               loading="lazy"
@@ -189,7 +212,7 @@
                             <dl>
                               {%- if item.product.has_only_default_variant == false -%}
                                 {%- for option in item.options_with_values -%}
-                                  <div class="product-option">
+                                  <div class="product-option ui-right-text">
                                     <dt>{{ option.name }}:</dt>
                                     <dd>
                                       {{ option.value -}}
@@ -202,7 +225,7 @@
                               {%- for property in item.properties -%}
                                 {%- assign property_first_char = property.first | slice: 0 -%}
                                 {%- if property.last != blank and property_first_char != '_' -%}
-                                  <div class="product-option">
+                                  <div class="product-option ui-right-text">
                                     <dt>{{ property.first }}:</dt>
                                     <dd>
                                       {%- if property.last contains '/uploads/' -%}
