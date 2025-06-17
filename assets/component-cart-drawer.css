@@ -99,7 +99,7 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  filter: grayscale(1);
+  /* filter: grayscale(1); */
   display: flex;
   align-items: center;
   gap: 8px;

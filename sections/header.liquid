@@ -120,12 +120,11 @@
     assign header_tag = 'sticky-header'
   endif
 %}
-
 <{{ header_tag }}
   {% if header_tag == 'sticky-header' %}
     data-sticky-type="{{ section.settings.sticky_header_type }}"
   {% endif %}
-  class="header-wrapper {% if template contains 'index' %} homepage-header{% else %} other-page-header {% endif %} color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %} header-container"
+  class="header-wrapper {% if section.settings.transparent_header contains template %} homepage-header{% else %} other-page-header {% endif %} color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %} header-container"
 >
   {%- liquid
     assign social_links = false
@@ -539,6 +538,11 @@
   "class": "section-header",
   "settings": [
     {
+      "type": "image_picker",
+      "id": "header_background",
+      "label": "Header Background"
+    },
+    {
       "type": "select",
       "id": "logo_position",
       "options": [
@@ -733,6 +737,11 @@
       "type": "text",
       "id": "phone_number",
       "label": "Phone number"
+    },
+    {
+      "type": "textarea",
+      "id": "transparent_header",
+      "label": "Transparent Header"
     }
   ],
   "blocks": [

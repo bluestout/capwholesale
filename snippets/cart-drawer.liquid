@@ -19,8 +19,7 @@
     background-color: #e00;
     letter-spacing: 4.5px;
   }
-  .ui-red-close svg {
-    color: #e00;
+  .ui-red-close svg path {
     fill: #e00;
   }
 
@@ -590,7 +589,7 @@
         </div>
 
         <!-- CTAs -->
-
+{% comment %} 
         {%- if settings.additional_info_text != blank -%}
           <div class="additional-information">
             <a href="{{ settings.additional_info_url }}">
@@ -602,7 +601,7 @@
               <div class="additional-information-image">{{ settings.additional_info_text }}</div>
             </a>
           </div>
-        {%- endif -%}
+        {%- endif -%} {% endcomment %}
       </div>
     </div>
   </div>

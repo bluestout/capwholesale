@@ -34,7 +34,9 @@
         "heading_FrjgG3"
       ],
       "custom_css": [
-        ".banner::after {height: 97%; border-bottom-right-radius: 15px;}"
+        ".banner::after {height: 97%; border-bottom-right-radius: 15px;}",
+        ".banner__media img {object-fit: contain;}",
+        "@media (max-width: 768px) {.banner__media img {object-fit: contain; } .banner::after {height: 100%; border-bottom-right-radius: 0px; }}"
       ],
       "settings": {
         "show_space": false,
@@ -45,7 +47,7 @@
         "opacity_color": "primary",
         "opacity_weight_on_desktop": "light",
         "opacity_direction": "vertical",
-        "image_height": "small",
+        "image_height": "adapt",
         "image_behavior": "none",
         "desktop_content_position": "middle-left",
         "desktop_content_alignment": "left",
