@@ -296,20 +296,15 @@
                                 </span>
                               </a>
                             </cart-remove-button>
-                            <cart-remove-button
-                              id="editor-{{ item.index | plus: 1 }}"
-                              data-index="{{ item.index | plus: 1 }}"
+                            <a
+                              href="{{ item.product.url }}"
+                              class="button button--tertiary"
+                              aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
                             >
-                              <a
-                                href="{{ item.url_to_remove }}"
-                                class="button button--tertiary"
-                                aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
-                              >
-                                <span class="svg-wrapper">
-                                  {%- render 'editor-icon' -%}
-                                </span>
-                              </a>
-                            </cart-remove-button>
+                              <span class="svg-wrapper">
+                                {%- render 'editor-icon' -%}
+                              </span>
+                            </a>
                           </div>
                         </div>
                         {%- if has_qty_rules or has_vol_pricing -%}

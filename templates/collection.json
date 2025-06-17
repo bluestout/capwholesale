@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "banner": {
@@ -17,6 +26,7 @@
           "settings": {
             "subheading": "",
             "heading": "{{ collection.title }}",
+            "border_bottom": true,
             "heading_size": "h1"
           }
         }
@@ -24,23 +34,30 @@
       "block_order": [
         "heading_Ui89kH"
       ],
+      "custom_css": [
+        ".banner::after,.banner__media::after {height: 96.5%;}",
+        "@media screen and (max-width: 749px) {.banner::after, .banner__media::after {height: 100%; }}"
+      ],
       "settings": {
         "show_space": false,
-        "image": "shopify:\/\/shop_images\/Rectangle.jpg",
-        "image_mobile": "shopify:\/\/shop_images\/img_78135cd6-fabc-4c68-bd52-8981602b2e7e.png",
-        "image_overlay_opacity": 100,
-        "opacity_type": "gradient",
+        "image": "shopify://shop_images/Image_1d217737-4e43-4002-bc00-9973503e65dd.png",
+        "image_mobile": "shopify://shop_images/Image_aa532615-9c9f-4b93-a400-ef3ab946aae5.png",
+        "image_overlay_opacity": 30,
+        "opacity_type": "normal",
+        "opacity_color": "primary",
+        "opacity_weight_on_desktop": "light",
         "opacity_direction": "horizontal",
         "image_height": "adapt",
         "image_behavior": "none",
         "desktop_content_position": "middle-left",
-        "desktop_content_alignment": "left",
+        "desktop_content_alignment": "center",
         "show_text_box": false,
         "color_scheme": "scheme-3",
         "stack_images_on_mobile": false,
-        "mobile_content_position": "bottom",
+        "mobile_content_position": "middle",
         "mobile_content_alignment": "center",
         "opacity_direct_on_mobile": "vertical",
+        "opacity_height_on_mobile": "small",
         "image_height_on_mobile": "adapt",
         "show_text_below": false
       }
@@ -49,7 +66,7 @@
       "type": "main-collection-product-grid",
       "settings": {
         "products_per_page": 16,
-        "columns_desktop": 4,
+        "columns_desktop": 5,
         "columns_mobile": "2",
         "color_scheme": "scheme-1",
         "image_ratio": "square",
