@@ -50,6 +50,10 @@
   transform: translateY(0);
 }
 
+.other-page-header .mega-menu[open] .mega-menu__content {
+  margin-top: -15px;
+}
+
 .mega-menu__list {
   display: grid;
   gap: 1.8rem 4rem;

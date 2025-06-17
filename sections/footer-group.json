@@ -59,21 +59,9 @@
         "padding_top": 72,
         "padding_bottom": 0
       }
-    },
-    "es_featured_videos_MUFbPU": {
-      "type": "es-featured-videos",
-      "name": "ES Featured Videos",
-      "settings": {
-        "scrollable": false,
-        "title": "Customized Wear Techniques 101",
-        "description": "<p>Discover the best techniques for embroidering hats, washing caps & measuring your head for the perfect fit with ease!</p>",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
     }
   },
   "order": [
-    "footer",
-    "es_featured_videos_MUFbPU"
+    "footer"
   ]
 }
