@@ -161,7 +161,7 @@
                               </strong>
                             </div>
                           {%- else -%}
-                            <div class="product-option">
+                            <div class="product-option ui-cart-money">
                               {{ item.original_price | money }}
                             </div>
                           {%- endif -%}
@@ -206,7 +206,7 @@
                                 {%- endif -%}
                               {%- endfor -%}
                             </dl>
-
+ 
                             <p class="product-option">{{ item.selling_plan_allocation.selling_plan.name }}</p>
                           {%- endif -%}
 
@@ -223,24 +223,7 @@
                             {%- endfor -%}
                           </ul>
                         </td>
-
-                        <td class="cart-item__totals right" role="cell" headers="CartDrawer-ColumnTotal">
-                          <cart-remove-button
-                            id="CartDrawer-Remove-{{ item.index | plus: 1 }}"
-                            data-index="{{ item.index | plus: 1 }}"
-                          >
-                            <button
-                              type="button"
-                              class="button button--tertiary cart-remove-button"
-                              aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
-                              data-variant-id="{{ item.variant.id }}"
-                            >
-                              <span class="svg-wrapper">
-                                {{- 'icon-remove.svg' | inline_asset_content -}}
-                              </span>
-                            </button>
-                          </cart-remove-button>
-                        </td>
+        
                         {%- liquid
                           assign has_qty_rules = false
                           if item.variant.quantity_rule.increment > 1 or item.variant.quantity_rule.min > 1 or item.variant.quantity_rule.max != null
@@ -405,6 +388,38 @@
                             </div>
                           </quantity-popover>
                           {%- render 'loading-spinner' -%}
+                          <div class="ui-custom-cart-drawer">
+                            <cart-remove-button
+                              id="CartDrawer-Remove-{{ item.index | plus: 1 }}"
+                              data-index="{{ item.index | plus: 1 }}"
+                            >
+                              <button
+                                type="button"
+                                class="button button--tertiary cart-remove-button"
+                                aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
+                                data-variant-id="{{ item.variant.id }}"
+                              >
+                                <span class="svg-wrapper">
+                                  {{- 'icon-remove.svg' | inline_asset_content -}}
+                                </span>
+                              </button>
+                            </cart-remove-button>
+                            <cart-remove-button
+                              id="CartDrawer-Remove-{{ item.index | plus: 1 }}"
+                              data-index="{{ item.index | plus: 1 }}"
+                            >
+                              <button
+                                type="button"
+                                class="button button--tertiary cart-remove-button"
+                                aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
+                                data-variant-id="{{ item.variant.id }}"
+                              >
+                                <span class="svg-wrapper">
+                                  {%- render 'editor-icon' -%}
+                                </span>
+                              </button>
+                            </cart-remove-button>
+                          </div>
                           <div class="cart-item__price-wrapper">
                             {%- if item.original_line_price != item.final_line_price -%}
                               <div class="cart-item__discounted-prices">
@@ -564,7 +579,7 @@
             <a href="{{ settings.additional_info_url }}">
               {%- if settings.additional_info_image != blank -%}
                 <div class="additional-information-image">
-                  <img src="{{ settings.additional_info_image | img_url: 'master' }}">
+                  <img src="{{ settings.additional_info_image | img_url: 'master' }}" width="" height="">
                 </div>
               {%- endif -%}
               <div class="additional-information-image">{{ settings.additional_info_text }}</div>
