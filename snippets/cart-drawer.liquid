@@ -15,6 +15,23 @@
   .drawer {
     visibility: hidden;
   }
+  .ui-red-button button {
+    background-color: #e00;
+    letter-spacing: 4.5px;
+  }
+  .ui-red-close svg path {
+    fill: #e00;
+  }
+
+  .ui-rate-small {
+    text-align: center !important;
+    margin-top: 10px !important;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
 </style>
 
 <cart-drawer class="drawer{% if cart == empty %} is-empty{% endif %}">
@@ -70,8 +87,7 @@
           onclick="this.closest('cart-drawer').close()"
           aria-label="{{ 'accessibility.close' | t }}"
         >
-          Close
-          <span class="svg-wrapper">
+          <span class="svg-wrapper ui-red-close">
             {{- 'icon-close.svg' | inline_asset_content -}}
           </span>
         </button>
@@ -161,7 +177,7 @@
                               </strong>
                             </div>
                           {%- else -%}
-                            <div class="product-option">
+                            <div class="product-option ui-cart-money">
                               {{ item.original_price | money }}
                             </div>
                           {%- endif -%}
@@ -224,23 +240,6 @@
                           </ul>
                         </td>
 
-                        <td class="cart-item__totals right" role="cell" headers="CartDrawer-ColumnTotal">
-                          <cart-remove-button
-                            id="CartDrawer-Remove-{{ item.index | plus: 1 }}"
-                            data-index="{{ item.index | plus: 1 }}"
-                          >
-                            <button
-                              type="button"
-                              class="button button--tertiary cart-remove-button"
-                              aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
-                              data-variant-id="{{ item.variant.id }}"
-                            >
-                              <span class="svg-wrapper">
-                                {{- 'icon-remove.svg' | inline_asset_content -}}
-                              </span>
-                            </button>
-                          </cart-remove-button>
-                        </td>
                         {%- liquid
                           assign has_qty_rules = false
                           if item.variant.quantity_rule.increment > 1 or item.variant.quantity_rule.min > 1 or item.variant.quantity_rule.max != null
@@ -405,6 +404,38 @@
                             </div>
                           </quantity-popover>
                           {%- render 'loading-spinner' -%}
+                          <div class="ui-custom-cart-drawer">
+                            <cart-remove-button
+                              id="CartDrawer-Remove-{{ item.index | plus: 1 }}"
+                              data-index="{{ item.index | plus: 1 }}"
+                            >
+                              <button
+                                type="button"
+                                class="button button--tertiary cart-remove-button"
+                                aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
+                                data-variant-id="{{ item.variant.id }}"
+                              >
+                                <span class="svg-wrapper">
+                                  {{- 'icon-remove.svg' | inline_asset_content -}}
+                                </span>
+                              </button>
+                            </cart-remove-button>
+                            <cart-remove-button
+                              id="CartDrawer-Remove-{{ item.index | plus: 1 }}"
+                              data-index="{{ item.index | plus: 1 }}"
+                            >
+                              <button
+                                type="button"
+                                class="button button--tertiary cart-remove-button"
+                                aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
+                                data-variant-id="{{ item.variant.id }}"
+                              >
+                                <span class="svg-wrapper">
+                                  {%- render 'editor-icon' -%}
+                                </span>
+                              </button>
+                            </cart-remove-button>
+                          </div>
                           <div class="cart-item__price-wrapper">
                             {%- if item.original_line_price != item.final_line_price -%}
                               <div class="cart-item__discounted-prices">
@@ -501,7 +532,22 @@
             <p class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
           </div>
 
-          <small class="tax-note caption-large rte">
+          <div class="cart__ctas ui-red-button" {{ block.shopify_attributes }}>
+            <button
+              type="submit"
+              id="CartDrawer-Checkout"
+              class="cart__checkout-button button"
+              name="checkout"
+              form="CartDrawer-Form"
+              {% if cart == empty %}
+                disabled
+              {% endif %}
+            >
+              {{ 'sections.cart.checkout' | t }}
+            </button>
+          </div>
+
+          <small class="tax-note caption-large rte ui-rate-small">
             {%- if cart.duties_included and cart.taxes_included -%}
               {%- if shop.shipping_policy.body == blank -%}
                 {{ 'sections.cart.duties_and_taxes_included_shipping_at_checkout_without_policy' | t }}
@@ -543,34 +589,19 @@
         </div>
 
         <!-- CTAs -->
-
-        <div class="cart__ctas" {{ block.shopify_attributes }}>
-          <button
-            type="submit"
-            id="CartDrawer-Checkout"
-            class="cart__checkout-button button"
-            name="checkout"
-            form="CartDrawer-Form"
-            {% if cart == empty %}
-              disabled
-            {% endif %}
-          >
-            {{ 'sections.cart.checkout' | t }}
-          </button>
-        </div>
-
+{% comment %} 
         {%- if settings.additional_info_text != blank -%}
           <div class="additional-information">
             <a href="{{ settings.additional_info_url }}">
               {%- if settings.additional_info_image != blank -%}
                 <div class="additional-information-image">
-                  <img src="{{ settings.additional_info_image | img_url: 'master' }}">
+                  <img src="{{ settings.additional_info_image | img_url: 'master' }}" width="" height="">
                 </div>
               {%- endif -%}
               <div class="additional-information-image">{{ settings.additional_info_text }}</div>
             </a>
           </div>
-        {%- endif -%}
+        {%- endif -%} {% endcomment %}
       </div>
     </div>
   </div>

@@ -1,27 +1,17 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
       "type": "main-404",
       "settings": {
-        "text": "<p>Looks like the page you're looking for no longer exists.</p><p>Try going back to the previous page or to the pages below.</p>",
+        "text": "<p>Looks like the page you're looking for no longer exists.Try going back </p><p>to the previous page or to the pages below.</p>",
         "button_1": "GO TO THE HOME PAGE",
-        "button_link_1": "/",
+        "button_link_1": "\/",
         "button_2": "Continue shopping",
-        "button_link_2": "shopify://collections"
+        "button_link_2": "shopify:\/\/collections"
       }
     },
     "es_featured_collection_eYjT4U": {
       "type": "es-featured-collection",
-      "name": "ES Featured Collection",
       "settings": {
         "border_top": false,
         "title": "You may also like",

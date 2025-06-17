@@ -140,7 +140,8 @@
           </span>
         {%- endif -%}
         <button>
-          {{ 'customer.register.submit' | t }}
+          {% comment %} {{ 'customer.register.submit' | t }} {% endcomment %}
+          CREATE AN ACCOUNT
         </button>
       {%- endform -%}
       <div class="sign-up">
