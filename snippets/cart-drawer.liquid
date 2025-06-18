@@ -54,7 +54,7 @@
 
   .ui-right-text_row dt {
     display: inline-block;
-    width: 55px;
+    width: 50px;
     text-align: right;
     margin-right: 6px;
     vertical-align: top;
@@ -67,16 +67,50 @@
     vertical-align: top;
   }
 
-  .ui-custom-cart-drawer a {
-    min-width: max-content;
+  .ui-custom-cart-drawer {
+    column-gap: 20px;
   }
 
-  .ui-price-width span{
+  .ui-custom-cart-drawer a {
+    min-width: max-content;
+    padding: 0px;
+  }
+
+  .ui-price-width span {
     display: block;
     text-align: left;
     width: 95px;
     overflow: hidden;
-  } 
+  }
+
+  .ui-pading-left {
+    padding-right: 10px !important;
+  }
+
+  #CartDrawer-CartItems .drawer__cart-items-wrapper .cart-items .cart-item {
+    row-gap: 0px;
+  }
+
+  #CartDrawer-CartItems .drawer__cart-items-wrapper .cart-items .cart-item td:nth-child(2) {
+    padding-left: 4rem;
+  }
+
+  @media screen and (max-width: 415px) {
+    .ui-drawer-gradient::after {
+      bottom: 180px;
+    }
+  }
+
+  @media screen and (max-width: 440px) {
+    #CartDrawer-CartItems .drawer__cart-items-wrapper .cart-items .cart-item td:nth-child(3) {
+      padding-left: 0px;
+    }
+    .ui-custom-cart-drawer {
+      column-gap: 17px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
 
   @media screen and (min-width: 750px) and (max-width: 989px) {
     .ui-custom-cart-drawer cart-remove-button {
@@ -85,7 +119,7 @@
   }
 </style>
 
-<cart-drawer class="drawer{% if cart == empty %} is-empty{% endif %}">
+<cart-drawer class="drawer{% if cart == empty %} is-empty {% endif %}" style="z-index: 15000;">
   <div id="CartDrawer" class="cart-drawer">
     <div id="CartDrawer-Overlay" class="cart-drawer__overlay"></div>
     <div
@@ -106,7 +140,6 @@
                 onclick="this.closest('cart-drawer').close()"
                 aria-label="{{ 'accessibility.close' | t }}"
               >
-                Close
                 <span class="svg-wrapper">
                   {{- 'icon-close.svg' | inline_asset_content -}}
                 </span>
@@ -472,7 +505,7 @@
                             </cart-remove-button>
                             <a
                               href="{{ item.product.url }}"
-                              class="button button--tertiary"
+                              class="button button--tertiary ui-pading-left"
                               aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
                             >
                               <span class="svg-wrapper">
