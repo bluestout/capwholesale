@@ -31,10 +31,15 @@
 
 .mega-menu[open] .header__menu-item {
   color: #990000;
+  transition: .3s ease;
+}
+
+.mega-menu .header__menu-item::before {
+  content: '';
+  transition: .3s ease;
 }
 
 .mega-menu[open] .header__menu-item::before {
-  content: '';
   position: fixed;
   top: 0;
   display: block;
