@@ -244,7 +244,7 @@
                                     <dt>{{ option.name }}:</dt>
                                     <dd>
                                       {{ option.value -}}
-                                      {%- unless forloop.last %}, {% endunless %}
+                                      {% comment %} {%- unless forloop.last %}, {% endunless %} {% endcomment %}
                                     </dd>
                                   </div>
                                 {%- endfor -%}
@@ -454,7 +454,7 @@
                               </span>
                             </div>
                           </quantity-popover>
-                          {%- render 'loading-spinner' -%}
+                          {% comment %} {%- render 'loading-spinner' -%} {% endcomment %}
                           <div class="ui-custom-cart-drawer">
                             <cart-remove-button
                               id="Remove-{{ item.index | plus: 1 }}"

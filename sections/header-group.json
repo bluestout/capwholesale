@@ -43,30 +43,10 @@
           "settings": {
             "menu": "moblie-main-menu-1"
           }
-        },
-        "specific_link_UME8We": {
-          "type": "specific_link",
-          "settings": {
-            "link_text": "5-Panel Golf Hats",
-            "custom_class": "",
-            "link_color": "#990000",
-            "font_weight": 600
-          }
-        },
-        "specific_link_eKmwhh": {
-          "type": "specific_link",
-          "settings": {
-            "link_text": "Richardson Hats",
-            "custom_class": "",
-            "link_color": "#990000",
-            "font_weight": 600
-          }
         }
       },
       "block_order": [
-        "mobile_menu_aLMmPP",
-        "specific_link_UME8We",
-        "specific_link_eKmwhh"
+        "mobile_menu_aLMmPP"
       ],
       "custom_css": [
         "@media (min-width: 768px) {.shop-all {margin-bottom: 30px; }}"
