@@ -39,11 +39,11 @@
 
   .ui-drawer-gradient::after {
     position: absolute;
-    height: 91px;
+    height: 50px;
     content: '';
     width: 100%;
     left: 0;
-    bottom: 167px;
+    bottom: 160px;
     z-index: -1;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
   }
@@ -52,16 +52,31 @@
     border-top: none;
   }
 
-  .ui-right-text dt {
+  .ui-right-text_row dt {
     display: inline-block;
     width: 55px;
     text-align: right;
     margin-right: 6px;
+    vertical-align: top;
+    font-size: 13px !important;
+  }
+  .ui-right-text_row dd {
+    width: calc(100% - 70px);
+    display: inline-block;
+    font-size: 13px !important;
+    vertical-align: top;
   }
 
   .ui-custom-cart-drawer a {
     min-width: max-content;
   }
+
+  .ui-price-width span{
+    display: block;
+    text-align: left;
+    width: 95px;
+    overflow: hidden;
+  } 
 
   @media screen and (min-width: 750px) and (max-width: 989px) {
     .ui-custom-cart-drawer cart-remove-button {
@@ -225,7 +240,7 @@
                             <dl>
                               {%- if item.product.has_only_default_variant == false -%}
                                 {%- for option in item.options_with_values -%}
-                                  <div class="product-option ui-right-text">
+                                  <div class="product-option ui-right-text_row">
                                     <dt>{{ option.name }}:</dt>
                                     <dd>
                                       {{ option.value -}}
@@ -238,7 +253,7 @@
                               {%- for property in item.properties -%}
                                 {%- assign property_first_char = property.first | slice: 0 -%}
                                 {%- if property.last != blank and property_first_char != '_' -%}
-                                  <div class="product-option ui-right-text">
+                                  <div class="product-option ui-right-text_row">
                                     <dt>{{ property.first }}:</dt>
                                     <dd>
                                       {%- if property.last contains '/uploads/' -%}
@@ -465,7 +480,7 @@
                               </span>
                             </a>
                           </div>
-                          <div class="cart-item__price-wrapper">
+                          <div class="cart-item__price-wrapper ui-price-width">
                             {%- if item.original_line_price != item.final_line_price -%}
                               <div class="cart-item__discounted-prices">
                                 <span class="visually-hidden">
