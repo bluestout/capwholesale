@@ -18,17 +18,71 @@
     }
   }
 
+  #main-cart-items{
+    border: none;
+    padding-bottom: 0px;
+  }
+
   .ui-right-text dt{
     display: inline-block;
-    width: 55px;
+    width: 50px;
     text-align: right;
     margin-right: 6px;
     vertical-align: top;
   }
+
+  .ui-main-cart-items table{
+    border-collapse: collapse;
+  }
+
+
+
+  .ui-main-cart-items tr {
+    border-bottom: 1px solid #ccc;
+    margin-top: 30px;
+    padding-bottom: 30px;
+  }
+
   .ui-right-text dd{
     vertical-align: top;width: calc(100% - 70px);
     display: inline-block;
     vertical-align: top;
+  }
+
+  .ui-main-cart-items thead tr th:nth-child(3){
+    text-align: center;
+    padding-right: 175px;
+  }
+
+  .ui-main-cart-items thead tr th:nth-child(4){
+    text-align: left;
+  }
+
+  .ui-main-cart-items tbody tr td:nth-child(4){
+    display: flex;
+    justify-content: center;
+  }
+
+  .ui-main-cart-items tbody tr td:nth-child(5) span{
+    text-align: left;
+    margin-top: 1.5rem !important;
+  }
+
+  @media screen and (max-width: 750px){
+    .ui-main-cart-items tbody tr td:nth-child(4){
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 5px;
+    }
+    .ui-cart-icon-container{
+      margin-top: -5px;
+    }
+  }
+
+  @media screen and (min-width: 750px){
+    .ui-main-cart-items tbody tr td{
+      padding-bottom: 4rem;
+    }
   }
 
   @media screen and (max-width: 1000px){
@@ -72,7 +126,7 @@
 
     <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
       <div class="cart__items" id="main-cart-items" data-id="{{ section.id }}">
-        <div class="js-contents">
+        <div class="js-contents ui-main-cart-items">
           {%- if cart != empty -%}
             <table class="cart-items">
               <caption class="visually-hidden">
