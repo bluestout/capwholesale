@@ -71,6 +71,10 @@
     column-gap: 20px;
   }
 
+  .ui-custom-cart-drawer cart-remove-button .button{
+    min-width: none !important;
+  }
+
   .ui-custom-cart-drawer a {
     min-width: max-content;
     padding: 0px;
@@ -89,10 +93,6 @@
 
   #CartDrawer-CartItems .drawer__cart-items-wrapper .cart-items .cart-item {
     row-gap: 0px;
-  }
-
-  #CartDrawer-CartItems .drawer__cart-items-wrapper .cart-items .cart-item td:nth-child(2) {
-    padding-left: 4rem;
   }
 
   @media screen and (max-width: 415px) {
@@ -497,6 +497,7 @@
                                 href="{{ item.url }}"
                                 class="button button--tertiary"
                                 aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
+                                style="min-width: auto;"
                               >
                                 <span class="svg-wrapper">
                                   {{- 'icon-remove.svg' | inline_asset_content -}}
