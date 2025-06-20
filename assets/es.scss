@@ -1554,6 +1554,12 @@
           width: auto;
           height: auto;
           right: 1rem;
+
+          .icon {
+            path {
+              fill: #EE0000;
+            }
+          }
         }
       }
 
