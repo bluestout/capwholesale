@@ -18,9 +18,18 @@
     }
   }
 
+  .section-{{ section.id }}-padding {
+    padding-top: 65px;
+  }
+
   #main-cart-items{
     border: none;
     padding-bottom: 0px;
+  }
+
+  .ui-right-text{
+    line-height: 16px !important;
+    margin-top: 20px;
   }
 
   .ui-right-text dt{
@@ -88,6 +97,12 @@
   @media screen and (max-width: 1000px){
     .ui-margin-hidden{
       margin-bottom: 6px !important;
+    }
+  }
+
+  @media screen and (max-width: 450px ){
+    .gradient .page-width .title-wrapper-with-link .title--primary{
+      font-size: 20px;
     }
   }
 {%- endstyle -%}
