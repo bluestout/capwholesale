@@ -66,7 +66,7 @@
                 <div class="newsletter-form__field-wrapper">
                   <div class="field">
                     <input
-                      id="NewsletterForm--{{ section.id }}"
+                      id="NewsletterForm--{{ section.id }}-2"
                       type="email"
                       name="contact[email]"
                       class="field__input"
@@ -85,7 +85,7 @@
                       placeholder="Enter your email "
                       required
                     >
-                    <label class="field__label" for="NewsletterForm--{{ section.id }}">
+                    <label class="field__label" for="NewsletterForm--{{ section.id }}-2">
                       Enter your email
                     </label>
                     <button
@@ -212,7 +212,8 @@
                                 loading: 'lazy',
                                 widths: '50, 100, 150, 200, 300, 400, 550, 800, 1100',
                                 height: brand_image_height,
-                                width: block.settings.image.width
+                                width: block.settings.image.width,
+                                alt: block.settings.image.id
                               }}
                             {%- if block.settings.image_url != blank -%}
                               </a>
@@ -236,7 +237,8 @@
                                 loading: 'lazy',
                                 widths: '50, 100, 150, 200, 300, 400, 550, 800, 1100',
                                 height: brand_image_height,
-                                width: block.settings.image.width
+                                width: block.settings.image.width,
+                                alt: block.settings.image.id
                               }}
                             {%- if block.settings.image_url_2 != blank -%}
                               </a>
@@ -343,7 +345,7 @@
                           <img
                             srcset="{{ block.settings.image | image_url: width: block.settings.image_width }}, {{ block.settings.image | image_url: width: image_size_2x }} 2x"
                             src="{{ block.settings.image | image_url: width: 760 }}"
-                            alt="{{ block.settings.image.alt | escape }}"
+                            alt="{{ block.settings.image.alt | default: alt: block.settings.image.id | escape }}"
                             loading="lazy"
                             width="{{ block.settings.image.width }}"
                             height="{{ block.settings.image.height }}"
