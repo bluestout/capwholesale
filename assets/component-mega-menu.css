@@ -31,10 +31,12 @@
 
 .mega-menu[open] .header__menu-item {
   color: #990000;
+  transition: .3s ease;
 }
-
-.mega-menu[open] .header__menu-item::before {
+/* 
+.mega-menu .header__menu-item::before {
   content: '';
+  transition: .3s ease;
   position: fixed;
   top: 0;
   display: block;
@@ -43,7 +45,14 @@
   bottom: 0;
   background: rgba(0, 0, 0, .2);
   z-index: -2;
+  opacity: 0;
+  visibility: hidden;
 }
+
+.mega-menu[open] .header__menu-item::before {
+  opacity: 1;
+  visibility: visible;
+} */
 
 .mega-menu[open] .mega-menu__content {
   opacity: 1;

@@ -1484,6 +1484,7 @@
           }
 
           &:hover {
+            font-weight: 600;
             color: #990000;
           }
         }
@@ -1533,6 +1534,10 @@
         .icon {
           width: 20px;
           height: auto;
+
+          path {
+            fill: #EE0000;
+          }
         }
       }
 
@@ -1549,6 +1554,12 @@
           width: auto;
           height: auto;
           right: 1rem;
+
+          .icon {
+            path {
+              fill: #EE0000;
+            }
+          }
         }
       }
 
@@ -4403,6 +4414,7 @@ cart-items {
     }
     @media (max-width: 610px) {
       flex: none;
+      margin-right: 8px;
     }
     span {
       svg {
@@ -4756,6 +4768,14 @@ cart-items {
   background-size: 100% calc(100% + 40px);
   background-position: 0 -40px;
   border: none;
+
+  .header__menu-item {
+    .icon-caret {
+      path {
+        fill: #EE0000;
+      }
+    }
+  }
 
   @media (max-width: 750px) {
     height: 70px;
@@ -5614,6 +5634,27 @@ sk-form {
   .modal__close-button.link {
     svg {
       filter: unset;
+
+      path {
+        fill: #e00;
+      }
     }
+  }
+}
+
+.megamenu-open {
+  sticky-header {
+    z-index: 2;
+  }
+
+  &::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .2);
+    z-index: 1;
   }
 }
