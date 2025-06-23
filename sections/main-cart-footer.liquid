@@ -15,6 +15,17 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+  .ui-button-fix{
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 170%;
+    letter-spacing: 4.5px;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: none;
+  }
 {%- endstyle -%}
 
 <div
@@ -25,26 +36,66 @@
   <div class="page-width">
     <div class="cart__footer isolate section-{{ section.id }}-padding">
       <div class="cart__footer-inner">
-        {%- if settings.show_cart_note -%}
-          <cart-note class="cart__note field">
-            <label for="Cart-note">{{ 'sections.cart.note' | t }}</label>
-            <textarea
-              class="text-area field__input"
-              name="note"
-              form="cart"
-              id="Cart-note"
-              placeholder="{{ 'sections.cart.note' | t }}"
-            >{{ cart.note }}</textarea>
-          </cart-note>
-        {%- endif -%}
+        {% comment %}
+          {%- if settings.show_cart_note -%}
+            <cart-note class="cart__note field">
+              <label for="Cart-note">{{ 'sections.cart.note' | t }}</label>
+              <textarea
+                class="text-area field__input"
+                name="note"
+                form="cart"
+                id="Cart-note"
+                placeholder="{{ 'sections.cart.note' | t }}"
+              >{{ cart.note }}</textarea>
+            </cart-note>
+          {%- endif -%}
 
-        {%- if settings.additional_info_url -%}
-          <div class="cart__footer-additional-info">
-            <a href="{{ settings.additional_info_url }}" class="es-button">
-              <p class="ui-after-red">{{ settings.additional_info_text }}</p>
-            </a>
+          {%- if settings.additional_info_url -%}
+            <div class="cart__footer-additional-info">
+              <a href="{{ settings.additional_info_url }}" class="es-button">
+                <p class="ui-after-red">{{ settings.additional_info_text }}</p>
+              </a>
+            </div>
+          {%- endif -%}
+        {% endcomment %}
+        <modal-opener
+          class="product-popup-modal__opener quick-add-hidden"
+          data-modal="#PopupModal-{{ section.id }}"
+        >
+          <button
+            id="ProductPopup-{{ section.id }}"
+            class="ui-button-fix"
+            type="button"
+            aria-haspopup="dialog"
+          >
+            {{ settings.additional_info_text }}
+            <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" fill="none">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M1.28033 9.37652C0.987437 9.66941 0.512563 9.66941 0.21967 9.37652C-0.073223 9.08363 -0.073223 8.60875 0.21967 8.31586L3.53549 5.00004L0.21967 1.68421C-0.073223 1.39132 -0.0732229 0.916447 0.21967 0.623554C0.512564 0.330661 0.987437 0.330661 1.28033 0.623554L5.12648 4.46971C5.41938 4.7626 5.41938 5.23747 5.12648 5.53037L1.28033 9.37652Z" fill="#EE0000"/>
+            </svg>
+          </button>
+        </modal-opener>
+        <modal-dialog id="PopupModal-{{ section.id }}" class="product-popup-modal">
+          <div
+            role="dialog"
+            aria-label="{{ section.settings.text }}"
+            aria-modal="true"
+            class="product-popup-modal__content"
+            tabindex="-1"
+          >
+            <button
+              id="ModalClose-{{ section.id }}"
+              type="button"
+              class="product-popup-modal__toggle"
+              aria-label="{{ 'accessibility.close' | t }}"
+            >
+              {{- 'icon-close.svg' | inline_asset_content -}}
+            </button>
+            <div class="product-popup-modal__content-info">
+              {% comment %} <h1 class="h2">{{ section.settings.page.title | escape }}</h1> {% endcomment %}
+              {{ section.settings.page.content }}
+            </div>
           </div>
-        {%- endif -%}
+        </modal-dialog>
       </div>
 
       <div class="cart__blocks">
@@ -129,11 +180,13 @@
                 {%- endif -%}
               </small>
 
-              {% comment %} {%- if additional_checkout_buttons -%}
-                <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
-                  {{ content_for_additional_checkout_buttons }}
-                </div>
-              {% comment %} {%- endif -%} {% endcomment %} 6:6 10: 00 am {% endcomment %}
+              {% comment %}
+                {%- if additional_checkout_buttons -%}
+                  <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
+                    {{ content_for_additional_checkout_buttons }}
+                  </div>
+                {% comment %} {%- endif -%} {% endcomment %} 6:6 10: 00 am
+              {% endcomment %}
           {%- endcase -%}
         {% endfor %}
 
@@ -157,6 +210,11 @@
     {
       "type": "header",
       "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "page",
+      "id": "page",
+      "label": "t:sections.main-product.blocks.collapsible_tab.settings.page.label"
     },
     {
       "type": "range",
