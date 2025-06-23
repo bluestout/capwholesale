@@ -253,37 +253,9 @@ cart-items {
   margin-left: 11px;
 }
 
-.cart__footer .cart_footer_wahat_happens_button_text {
-  padding: 30px 15px;
-}
-
-.cart__footer .cart_footer_wahat_happens_button_text button{
-  color: black;
-  font-size: 13px;
-  font-family: Inter;
-  font-weight: 800;
-  text-transform: uppercase;
-  line-height: 16.90px;
-  letter-spacing: 2px;
-  word-wrap: break-word;
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  gap: 15px;
-  text-decoration: unset !important;
-}
-
-.cart__contents .cart-item__details{
-  padding-bottom: 16px !important;
-}
-
 @media( max-width: 768px ){
   .cart__contents .cart-edit-button{
     margin-left: 1.5rem;
-  }
-
-  .cart__contents .cart-item__details{
-    padding-bottom: 14px  !important;
   }
 
   .cart__contents cart-items .title-wrapper-with-link{
@@ -316,10 +288,6 @@ cart-items {
     margin: 0 auto;
   }
 }
-/* 
-.cart__contents .cart-item{
-  border-bottom: 1px solid #CCC;
-} */
 
 #main-cart-items .cart-item:last-child{
   border-bottom: 0px solid #CCC;
@@ -327,50 +295,6 @@ cart-items {
 
 #main-cart-items .cart-item {
   border-bottom: 1px solid #CCC;
-}
-
-.cart__contents .cart-item__details dl{
-  display: flex;
-  flex-direction: column;
-}
-
-.cart__contents .product-option[data-option-name="SKU"] {
-  order: -2;
-}
-
-.cart__contents .product-option[data-option-name="Color"] {
-  order: -4;
-}
-
-.cart__contents .product-option[data-option-name="Size"] {
-  order: -3;
-}
-
-.cart__contents .product-option[data-option-name="Brand"]:nth-child(n+5) {
-  border-bottom: 1px solid #CCC;
-  padding-bottom: 12px;
-  margin-bottom: 12px;
-  order: -1;
-}
-
-.cart__contents .product-option[data-option-name="Brand"]:nth-child(n+8) {
-  border-bottom: 1px solid #CCC;
-  padding-bottom: 12px;
-  margin-bottom: 12px;
-  order: -1;
-}
-
-.cart__footer .cart__note label{
-  font-size: 13px;
-  font-family: Inter;
-  font-weight: 800;
-  text-transform: uppercase;
-  line-height: 16.90px;
-  letter-spacing: 2px;
-  word-wrap: break-word;
-  display: flex;
-  align-items: center;
-  gap: 10px;
 }
 
 .cart_footer_wahat_happens_button_text p{
@@ -491,14 +415,6 @@ cart-items {
 }
 
 @media screen and (max-width: 749px) {
-  /* .product-popup-modal__content table {
-    display: block;
-    max-width: fit-content;
-    overflow-x: auto;
-    white-space: nowrap;
-    margin: 0;
-  } */
-
   .product-media-modal__dialog .global-media-settings,
   .product-media-modal__dialog .global-media-settings video,
   .product-media-modal__dialog .global-media-settings model-viewer,
