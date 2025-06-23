@@ -19,8 +19,13 @@
     background-color: #e00 !important;
     letter-spacing: 4.5px;
   }
+
   .ui-red-close svg path {
     fill: #e00;
+  }
+
+  .ui__close_button{
+    padding-bottom: 7px;
   }
 
   .ui-rate-small {
@@ -189,7 +194,7 @@
       <div class="drawer__header">
         <h2 class="drawer__heading ui-capitalize">{{ 'sections.cart.title' | t }}</h2>
         <button
-          class="drawer__close"
+          class="drawer__close ui__close_button"
           type="button"
           onclick="this.closest('cart-drawer').close()"
           aria-label="{{ 'accessibility.close' | t }}"
