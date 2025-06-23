@@ -9,6 +9,13 @@
     {%- endif -%}
   }
 
+  @media screen and (max-width:768px){
+    .ui-cart-feature-container{
+      padding-bottom: 50px !important;
+      padding-top: 30px !important;
+    }
+  }
+
   {% if section.settings.border_bottom %}
     #shopify-section-{{ section.id }}::after {
       /* border-bottom: 1px solid #C6C6C6; */
@@ -41,7 +48,7 @@
   <div class="page-width">
     <div class="swiper">
       <div class="es-featured-collection__title-wrapper">
-        <h2 class="es-font-h2 center">{{ section.settings.title }}</h2>
+        <h2 class="es-font-h2 center ui-font-h2-fix">{{ section.settings.title }}</h2>
         <div class="es-featured-collection__navigation small-hide">
           <div class="swiper-button-prev es-swiper-button">
             {%- render 'es-icon-arrow-right' -%}
@@ -67,8 +74,8 @@
                     show_rating: section.settings.show_rating,
                     skip_styles: skip_card_product_styles,
                     section_id: section.id,
-                    quick_add: section.settings.quick_add
-                    show_redunderline: section.settings.show_redunderline
+                    quick_add: section.settings.quick_add,
+                    show_redunderline: section.settings.show_redunderline,
                     show_undertext: section.settings.show_undertext
                   %}
                 </div>
@@ -111,7 +118,7 @@
 {
   "name": "ES Featured Collection",
   "tag": "section",
-  "class": "section es-featured-collection",
+  "class": "section es-featured-collection ui-cart-feature-container",
   "settings": [
     {
       "type": "checkbox",
@@ -226,7 +233,7 @@
       "type": "checkbox",
       "id": "show_redunderline",
       "default": true,
-      "label":"show_underline"
+      "label": "show_underline"
     },
     {
       "type": "checkbox",

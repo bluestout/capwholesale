@@ -19,8 +19,13 @@
     background-color: #e00 !important;
     letter-spacing: 4.5px;
   }
+
   .ui-red-close svg path {
     fill: #e00;
+  }
+
+  .ui__close_button{
+    padding-bottom: 7px;
   }
 
   .ui-rate-small {
@@ -53,7 +58,7 @@
   }
 
   .ui-right-text_row {
-    line-height: 16px;
+    line-height: 16px !important;
   }
 
   .ui-right-text_row dt {
@@ -100,11 +105,22 @@
   }
 
   .ui-cart-drawer-dl {
-    margin-top: 20px;
+    margin-top: 20px !important;
   }
 
-  .button:not([disabled]):hover:after, .shopify-challenge__button:hover:after, .customer button:hover:after, .shopify-payment-button__button--unbranded:hover:after{
+  .button:not([disabled]):hover:after,
+  .shopify-challenge__button:hover:after,
+  .customer button:hover:after,
+  .shopify-payment-button__button--unbranded:hover:after {
     box-shadow: none;
+  }
+
+  .ui-capitalize {
+    text-transform: capitalize;
+  }
+
+  .ui-font-button {
+    font-size: 15px !important;
   }
 
   @media screen and (max-width: 415px) {
@@ -176,9 +192,9 @@
         </div>
       {%- endif -%}
       <div class="drawer__header">
-        <h2 class="drawer__heading">{{ 'sections.cart.title' | t }}</h2>
+        <h2 class="drawer__heading ui-capitalize">{{ 'sections.cart.title' | t }}</h2>
         <button
-          class="drawer__close"
+          class="drawer__close ui__close_button"
           type="button"
           onclick="this.closest('cart-drawer').close()"
           aria-label="{{ 'accessibility.close' | t }}"
@@ -253,7 +269,7 @@
                             <p class="caption-with-letter-spacing light">{{ item.product.vendor }}</p>
                           {%- endif -%}
 
-                          <a href="{{ item.url }}" class="cart-item__name h4 break">
+                          <a href="{{ item.url }}" class="cart-item__name h4 break ui-font-button">
                             {{- item.product.title | escape -}}
                           </a>
 
@@ -273,7 +289,7 @@
                               </strong>
                             </div>
                           {%- else -%}
-                            <div class="product-option ui-cart-money">
+                            <div class="product-option ui-cart-money ui-font-button">
                               {{ item.original_price | money }}
                             </div>
                           {%- endif -%}
@@ -538,12 +554,12 @@
                                 <span class="visually-hidden">
                                   {{ 'products.product.price.sale_price' | t }}
                                 </span>
-                                <span class="price price--end">
+                                <span class="price price--end ui-font-button">
                                   {{ item.final_line_price | money_with_currency }}
                                 </span>
                               </div>
                             {%- else -%}
-                              <span class="price price--end">
+                              <span class="price price--end ui-font-button">
                                 {{ item.original_line_price | money_with_currency }}
                               </span>
                             {%- endif -%}
@@ -626,7 +642,7 @@
             <button
               type="submit"
               id="CartDrawer-Checkout"
-              class="cart__checkout-button button"
+              class="cart__checkout-button button ui-font-button"
               name="checkout"
               form="CartDrawer-Form"
               {% if cart == empty %}
