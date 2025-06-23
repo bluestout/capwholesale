@@ -265,6 +265,11 @@
           "listen-product-fetch": "/products/",
           "drawer-locator": ".quick-add-modal__content.global-settings-popup"
         }
+      },
+      "4275615285897611771": {
+        "type": "shopify://apps/fera/blocks/embed/2fbfcfa7-8a04-479f-89a8-0621fa099c51",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
