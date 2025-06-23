@@ -5658,3 +5658,9 @@ sk-form {
     z-index: 1;
   }
 }
+
+@media(min-width: 769px) {
+  .section-header.shopify-section-group-header-group:has(.other-page-header) {
+    background-image: linear-gradient(to bottom, #EE0000 76%, transparent 76%);
+  }
+}

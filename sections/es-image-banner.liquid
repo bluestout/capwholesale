@@ -47,6 +47,11 @@
   #Banner-{{ section.id }}.opacity-gradient.opacity-horizontal.opacity-color--secondary::after {
     background: linear-gradient(90deg, #553300 0%, rgba(85, 51, 0, 0) 100%);
   }
+  @media (min-width: 769px) {
+    #Banner-{{ section.id }}.banner {
+      background-image: linear-gradient(to bottom, #676767 80%, transparent 80%);
+    }
+  }
 
   @media (max-width: 768px) {
     #Banner-{{ section.id }}.opacity-gradient.sm-opacity-vertical::after {
@@ -164,12 +169,12 @@
                 {{ block.settings.subheading }}
               </p>
             {%- endif -%}
-            <h2
+            <{{ block.settings.heading_tag }}
               class="banner__heading inline-richtext {{ block.settings.heading_size }}{% if block.settings.border_bottom %} is-border-bottom{% endif %}"
               {{ block.shopify_attributes }}
             >
               {{ block.settings.heading }}
-            </h2>
+            </{{ block.settings.heading_tag }}>
           {%- when 'text' -%}
             <div
               class="banner__text rte {{ block.settings.text_style }}"
@@ -585,6 +590,22 @@
           "id": "heading",
           "default": "t:sections.image-banner.blocks.heading.settings.heading.default",
           "label": "t:sections.image-banner.blocks.heading.settings.heading.label"
+        },
+        {
+          "type": "select",
+          "id": "heading_tag",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            }
+          ],
+          "default": "h2",
+          "label": "Heading Tag"
         },
         {
           "type": "checkbox",
