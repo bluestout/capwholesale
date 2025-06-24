@@ -24,6 +24,7 @@
           "type": "heading",
           "settings": {
             "heading": "Ordering, Shipping, and Return Policies",
+            "heading_tag": "h1",
             "heading_size": "h1"
           }
         }
