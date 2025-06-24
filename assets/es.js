@@ -10,6 +10,10 @@ const KlaviyoReady = () => {
   })
 }
 
+const setESQuantityRadios = widget => {
+  console.log('widget', widget);
+}
+
 const observer = new MutationObserver((mutations, obs) => {
   const KlaviyoImage = document.querySelector('.needsclick img');
   if (KlaviyoImage) {
@@ -19,3 +23,11 @@ const observer = new MutationObserver((mutations, obs) => {
 });
 
 observer.observe(document.body, { childList: true, subtree: true });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const esQuantityRadios = document.querySelector(".es-quantity-radios");
+
+  if (esQuantityRadios) {
+    setESQuantityRadios(esQuantityRadios);
+  }
+})
