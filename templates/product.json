@@ -30,6 +30,12 @@
             "swatch_shape": "square"
           }
         },
+        "quantity_radios_EyWCw6": {
+          "type": "quantity_radios",
+          "settings": {
+            "heading": "<b>Step 3:</b> Buy more and save!"
+          }
+        },
         "quantity_selector": {
           "type": "quantity_selector",
           "settings": {}
@@ -125,6 +131,7 @@
         "title",
         "text_Pb8kXM",
         "variant_picker",
+        "quantity_radios_EyWCw6",
         "quantity_selector",
         "price",
         "buy_buttons",
