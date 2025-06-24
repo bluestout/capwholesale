@@ -5404,16 +5404,21 @@ sk-form {
   }
 }
 
-.rich-text__wrapper .rich-text__text h3 {
-  color: black;
-  font-size: 20px;
-  font-family: Inter;
-  font-weight: 400;
-  line-height: 26px;
-  word-wrap: break-word;
-  text-align: left;
-  margin-top: 20px;
-  margin-bottom: 10px;
+.rich-text__wrapper {
+  .rich-text__text {
+    h2,
+    h3 {
+      color: black;
+      font-size: 20px;
+      font-family: Inter;
+      font-weight: 400;
+      line-height: 26px;
+      word-wrap: break-word;
+      text-align: left;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+  }
 }
 
 .rich-text__wrapper .rich-text__text p {
@@ -5656,5 +5661,11 @@ sk-form {
     left: 0;
     background-color: rgba(0, 0, 0, .2);
     z-index: 1;
+  }
+}
+
+@media(min-width: 769px) {
+  .section-header.shopify-section-group-header-group:has(.other-page-header) {
+    background-image: linear-gradient(to bottom, #EE0000 76%, transparent 76%);
   }
 }

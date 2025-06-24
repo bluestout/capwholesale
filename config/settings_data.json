@@ -137,7 +137,8 @@
       "main-password-header": {
         "type": "main-password-header",
         "settings": {
-          "color_scheme": "scheme-2"
+          "color_scheme": "scheme-1",
+          "image": "shopify://shop_images/Logo_5acf654a-c6fd-4154-99c0-edb41aae0067.svg"
         }
       },
       "main-password-footer": {
@@ -265,6 +266,11 @@
           "listen-product-fetch": "/products/",
           "drawer-locator": ".quick-add-modal__content.global-settings-popup"
         }
+      },
+      "4275615285897611771": {
+        "type": "shopify://apps/fera/blocks/embed/2fbfcfa7-8a04-479f-89a8-0621fa099c51",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {

@@ -47,6 +47,7 @@
                         src="{{ block.settings.image | img_url: 'master' }}"
                         width="{{ block.settings.image.width }}"
                         height="{{ block.settings.image.height }}"
+                        alt="{{ block.settings.image.alt | default: block.settings.image.id }}"
                       >
                     </div>
                   {% endif %}
