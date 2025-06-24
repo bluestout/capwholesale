@@ -26,6 +26,11 @@
     background-color: transparent;
     border: none;
   }
+
+  .ui-what-happens-now a{
+    color: red;
+    text-decoration: none;
+  }
 {%- endstyle -%}
 
 <div
@@ -90,7 +95,7 @@
             >
               {{- 'icon-close.svg' | inline_asset_content -}}
             </button>
-            <div class="product-popup-modal__content-info">
+            <div class="product-popup-modal__content-info ui-what-happens-now">
               {% comment %} <h1 class="h2">{{ section.settings.page.title | escape }}</h1> {% endcomment %}
               {{ section.settings.page.content }}
             </div>

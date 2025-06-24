@@ -1,20 +1,11 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
       "type": "main-login",
       "settings": {
         "enable_shop_login_button": false,
-        "image": "shopify://shop_images/allenburt_94637_realistic_4K_photo_soft_pastel_solid_backgrou_441aa162-1815-4350-833e-e31dedf2f561_1_1.png",
-        "sm_image": "shopify://shop_images/allenburt_94637_realistic_4K_photo_soft_pastel_solid_backgrou_441aa162-1815-4350-833e-e31dedf2f561_1_1_1.png",
+        "image": "shopify:\/\/shop_images\/allenburt_94637_realistic_4K_photo_soft_pastel_solid_backgrou_441aa162-1815-4350-833e-e31dedf2f561_1_1.png",
+        "sm_image": "shopify:\/\/shop_images\/allenburt_94637_realistic_4K_photo_soft_pastel_solid_backgrou_441aa162-1815-4350-833e-e31dedf2f561_1_1_1.png",
         "padding_top": 36,
         "padding_bottom": 36
       }
