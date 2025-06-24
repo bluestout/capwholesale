@@ -186,7 +186,7 @@
             "heading": "Product Reviews",
             "layout": "list",
             "star_color": "#ee0000",
-            "when_no_reviews": "show_from_related"
+            "when_no_reviews": "show"
           }
         }
       },
