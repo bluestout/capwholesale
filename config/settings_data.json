@@ -137,7 +137,8 @@
       "main-password-header": {
         "type": "main-password-header",
         "settings": {
-          "color_scheme": "scheme-1"
+          "color_scheme": "scheme-1",
+          "image": "shopify://shop_images/Logo_5acf654a-c6fd-4154-99c0-edb41aae0067.svg"
         }
       },
       "main-password-footer": {
