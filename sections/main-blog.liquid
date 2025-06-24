@@ -78,13 +78,13 @@
         <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
           Blog
         </h1>
-        <div class="main-blog__count">
+        <h2 class="main-blog__count">
           {%- assign current_page_count = paginate.current_page | times: 6 -%}
           {%- if current_page_count > blog.articles_count %}
             {%- assign current_page_count = blog.articles_count -%}
           {%- endif -%}
           Showing {{ current_page_count }} of {{ blog.articles_count }} articles
-        </div>
+        </h2>
       </div>
     </div>
 
