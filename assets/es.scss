@@ -5404,16 +5404,21 @@ sk-form {
   }
 }
 
-.rich-text__wrapper .rich-text__text h3 {
-  color: black;
-  font-size: 20px;
-  font-family: Inter;
-  font-weight: 400;
-  line-height: 26px;
-  word-wrap: break-word;
-  text-align: left;
-  margin-top: 20px;
-  margin-bottom: 10px;
+.rich-text__wrapper {
+  .rich-text__text {
+    h2,
+    h3 {
+      color: black;
+      font-size: 20px;
+      font-family: Inter;
+      font-weight: 400;
+      line-height: 26px;
+      word-wrap: break-word;
+      text-align: left;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+  }
 }
 
 .rich-text__wrapper .rich-text__text p {
