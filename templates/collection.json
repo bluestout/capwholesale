@@ -17,6 +17,7 @@
           "settings": {
             "subheading": "",
             "heading": "{{ collection.title }}",
+            "heading_tag": "h1",
             "border_bottom": true,
             "heading_size": "h1"
           }
