@@ -255,17 +255,7 @@
                 </div>
               {%- when 'quantity_radios' -%}
                 <div class="es-quantity-radios">
-                  {%- for i in (1..9) %}
-                    {%- for j in (1..i) %}
-                      {%- assign x = 2 | times: j %}
-                    {%- endfor %}
-                    <label>
-                      <input type="radio" value="{{ x }}">
-                      <span>{{ x }}+</span>
-                      <span></span>
-                      <span></span>
-                    </label>
-                  {%- endfor -%}
+                  <div class="es-quantity-radios__header">{{ block.settings.heading }}</div>
                 </div>
               {%- when 'quantity_selector' -%}
                 <div
