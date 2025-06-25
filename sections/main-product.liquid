@@ -1,4 +1,4 @@
-{%  comment  %} START - DYNAMIC STYLES FOR CUSTOMIZER APP {% endcomment %}
+{% comment %} START - DYNAMIC STYLES FOR CUSTOMIZER APP {% endcomment %}
 {%- style -%}
   {%- if product.options.size == 1 -%}
     .cl-po--option[data-option="Customize Your Hat"] .cl-po--label::before{
@@ -237,7 +237,12 @@
                 {{ block.settings.custom_liquid }}
               {%- when 'collapsible_tab' -%}
                 <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
-                  <details id="Details-{{ block.id }}-{{ section.id }}"{% if block.settings.default_open %} open{% endif %}>
+                  <details
+                    id="Details-{{ block.id }}-{{ section.id }}"
+                    {% if block.settings.default_open %}
+                      open
+                    {% endif %}
+                  >
                     <summary>
                       <div class="summary__title">
                         {% render 'icon-accordion', icon: block.settings.icon %}
@@ -271,14 +276,16 @@
                   {% # theme-check-enable %}
                   <label class="quantity__label form__label" for="Quantity-{{ section.id }}">
                     {{ 'products.product.quantity.label' | t }}
-                    {% comment %} <span class="quantity__rules-cart{% if cart_qty == 0 %} hidden{% endif %}">
-                      {%- render 'loading-spinner' -%}
-                      <span
-                        >(
-                        {{- 'products.product.quantity.in_cart_html' | t: quantity: cart_qty -}}
-                        )</span
-                      >
-                    </span> {% endcomment %}
+                    {% comment %}
+                      <span class="quantity__rules-cart{% if cart_qty == 0 %} hidden{% endif %}">
+                        {%- render 'loading-spinner' -%}
+                        <span
+                          >(
+                          {{- 'products.product.quantity.in_cart_html' | t: quantity: cart_qty -}}
+                          )</span
+                        >
+                      </span>
+                    {% endcomment %}
                   </label>
                   <div class="price-per-item__container">
                     <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
@@ -387,7 +394,10 @@
                                 </dt>
                                 <dd>
                                   <span class="price-per-item--current">
-                                    {{- 'products.product.volume_pricing.price_at_each_html' | t: price: variant_price -}}
+                                    {{-
+                                      'products.product.volume_pricing.price_at_each_html'
+                                      | t: price: variant_price
+                                    -}}
                                   </span>
                                 </dd>
                               </dl>
@@ -401,32 +411,34 @@
                       </price-per-item>
                     {%- endif -%}
                   </div>
-                  {% comment %} <div class="quantity__rules caption" id="Quantity-Rules-{{ section.id }}">
-                    {%- if product.selected_or_first_available_variant.quantity_rule.increment > 1 -%}
-                      <span class="divider">
-                        {{-
-                          'products.product.quantity.multiples_of'
-                          | t: quantity: product.selected_or_first_available_variant.quantity_rule.increment
-                        -}}
-                      </span>
-                    {%- endif -%}
-                    {%- if product.metafields.custom.qty_cw > 1 -%}
-                      <span class="divider">
-                        {{-
-                          'products.product.quantity.minimum_of'
-                          | t: quantity: product.metafields.custom.qty_cw
-                        -}}
-                      </span>
-                    {%- endif -%}
-                    {%- if product.selected_or_first_available_variant.quantity_rule.max != null -%}
-                      <span class="divider">
-                        {{-
-                          'products.product.quantity.maximum_of'
-                          | t: quantity: product.selected_or_first_available_variant.quantity_rule.max
-                        -}}
-                      </span>
-                    {%- endif -%}
-                  </div> {% endcomment %}
+                  {% comment %}
+                    <div class="quantity__rules caption" id="Quantity-Rules-{{ section.id }}">
+                      {%- if product.selected_or_first_available_variant.quantity_rule.increment > 1 -%}
+                        <span class="divider">
+                          {{-
+                            'products.product.quantity.multiples_of'
+                            | t: quantity: product.selected_or_first_available_variant.quantity_rule.increment
+                          -}}
+                        </span>
+                      {%- endif -%}
+                      {%- if product.metafields.custom.qty_cw > 1 -%}
+                        <span class="divider">
+                          {{-
+                            'products.product.quantity.minimum_of'
+                            | t: quantity: product.metafields.custom.qty_cw
+                          -}}
+                        </span>
+                      {%- endif -%}
+                      {%- if product.selected_or_first_available_variant.quantity_rule.max != null -%}
+                        <span class="divider">
+                          {{-
+                            'products.product.quantity.maximum_of'
+                            | t: quantity: product.selected_or_first_available_variant.quantity_rule.max
+                          -}}
+                        </span>
+                      {%- endif -%}
+                    </div>
+                  {% endcomment %}
                   {%- if product.quantity_price_breaks_configured? -%}
                     <volume-pricing class="parent-display" id="Volume-{{ section.id }}">
                       {%- if product.selected_or_first_available_variant.quantity_price_breaks.size > 0 -%}
@@ -477,7 +489,9 @@
 
                   <div class="sub-total-price">
                     <span class="sub-total-price-title">Total: </span>
-                    <span class="sub-total-price-value" data-live-price-quantity="{{ product.id }}">{{ total_price | money_with_currency }}</span>
+                    <span class="sub-total-price-value" data-live-price-quantity="{{ product.id }}">
+                      {{- total_price | money_with_currency -}}
+                    </span>
                   </div>
                 </div>
               {%- when 'popup' -%}
@@ -493,7 +507,12 @@
                     aria-haspopup="dialog"
                   >
                     {% if block.settings.image != blank %}
-                      <img src="{{ block.settings.image | image_url: width: 100 }}" alt="{{ block.settings.image.alt }}" width="22" height="">
+                      <img
+                        src="{{ block.settings.image | image_url: width: 100 }}"
+                        alt="{{ block.settings.image.alt }}"
+                        width="22"
+                        height=""
+                      >
                     {% endif %}
                     {{ block.settings.text | default: block.settings.page.title | escape }}
                   </button>
@@ -767,45 +786,65 @@
   </div>
 </product-info>
 
-
 {% comment %} START - ADDITIONAL INFO UNDER MEDIA GALLERY {% endcomment %}
 {% render 'component-media-info', to_show: 'mobile-only', section: section %}
 {% comment %} END - ADDITIONAL INFO UNDER MEDIA GALLERY {% endcomment %}
 
-
 <script>
-  const changePrice = newPrice => {
-    document.querySelector('.sub-total-price-value').textContent = newPrice + " USD";
-  }
-  document.addEventListener("LPO:ready", function () {
-    var defaultPrice = document.querySelector('.cl-po--radio-item input[name="_Buy more and save!"]:checked')?.nextElementSibling?.querySelector("._price")?.textContent;
+  const changePrice = (newPrice) => {
+    document.querySelector('.sub-total-price-value').textContent = newPrice + ' USD';
+  };
+  document.addEventListener('LPO:ready', function () {
+    var defaultPrice = document
+      .querySelector('.cl-po--radio-item input[name="_Buy more and save!"]:checked')
+      ?.nextElementSibling?.querySelector('._price')?.textContent;
     var radios = document.querySelectorAll('.cl-po--radio-item input[name="_Buy more and save!"]');
 
     if (defaultPrice) {
       changePrice(defaultPrice);
     }
 
-    document.querySelector('.product .quantity input[name="quantity"]').addEventListener("change", function () {
+    document.querySelector('.product .quantity input[name="quantity"]').addEventListener('change', function () {
       console.log({
         value: parseInt(this.value),
-        min: parseInt(this.dataset.min)
-      })
+        min: parseInt(this.dataset.min),
+      });
       if (parseInt(this.value) < parseInt(this.dataset.min)) {
-        document.querySelector(".product-form__buttons button[name='add']")?.setAttribute("disabled", true);
+        document.querySelector(".product-form__buttons button[name='add']")?.setAttribute('disabled', true);
       } else {
-        document.querySelector(".product-form__buttons button[name='add']")?.removeAttribute("disabled");
+        document.querySelector(".product-form__buttons button[name='add']")?.removeAttribute('disabled');
       }
-    })
+    });
 
-    radios.forEach(radio => {
-      radio.addEventListener("change", function () {
-        var currentPrice = this.nextElementSibling?.querySelector("._price")?.textContent;
+    radios.forEach((radio) => {
+      radio.addEventListener('change', function () {
+        var currentPrice = this.nextElementSibling?.querySelector('._price')?.textContent;
         if (currentPrice) {
           changePrice(currentPrice);
         }
       });
-    })
-  })
+    });
+  });
+
+  document.querySelector('.product .quantity input[name="quantity"]').addEventListener('input', function () {
+    const ui_input_value = parseInt(this.value);
+    const ui_input_min_value = parseInt(this.dataset.min);
+    if (ui_input_value < ui_input_min_value) {
+      document.querySelector(".product-form__buttons button[name='add']")?.setAttribute('disabled', true);
+    } else {
+      document.querySelector(".product-form__buttons button[name='add']")?.removeAttribute('disabled');
+    }
+  });
+  
+  document.querySelector(".product-form__buttons button[name='add']").addEventListener('click', () => {
+    const input_value = document.querySelector('.product .quantity input[name="quantity"]').value;
+    const input_min_value = document.querySelector('.product .quantity input[name="quantity"]').dataset.min;
+    if (input_value < input_min_value) {
+      document.querySelector(".product-form__buttons button[name='add']")?.setAttribute('disabled', true);
+    } else {
+      document.querySelector(".product-form__buttons button[name='add']")?.removeAttribute('disabled');
+    }
+  });
 </script>
 
 {% schema %}
@@ -1790,7 +1829,7 @@
         {
           "type": "header",
           "content": "t:sections.main-product.blocks.icon_with_text.settings.pairing_2.label"
-        },        
+        },
         {
           "type": "select",
           "id": "icon_2",
@@ -1990,7 +2029,7 @@
         {
           "type": "header",
           "content": "t:sections.main-product.blocks.icon_with_text.settings.pairing_3.label"
-        },        
+        },
         {
           "type": "select",
           "id": "icon_3",
@@ -2325,7 +2364,7 @@
       ],
       "default": "hide",
       "label": "t:sections.main-product.settings.mobile_thumbnails.label"
-    },    
+    },
     {
       "type": "select",
       "id": "media_position",
