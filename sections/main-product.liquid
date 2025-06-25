@@ -822,11 +822,26 @@
     });
   });
 
-  document.querySelector('.product .quantity input[name="quantity"]').addEventListener('keyup', function () {
+  document.querySelector('.product .quantity input[name="quantity"]').addEventListener('input', function () {
     const ui_input_value = parseInt(this.value);
-    settimeout(() => {
-      this.value = ui_input_value < parseInt(this.dataset.min) ? parseInt(this.dataset.min) : this.value;
-    }, 1500);
+    const ui_input_min_value = parseInt(this.dataset.min);
+    console.log("goodbye")
+    if (ui_input_value < ui_input_min_value) {
+      document.querySelector(".product-form__buttons button[name='add']")?.setAttribute('disabled', true);
+    } else {
+      document.querySelector(".product-form__buttons button[name='add']")?.removeAttribute('disabled');
+    }
+  });
+  
+  document.querySelector(".product-form__buttons button[name='add']").addEventListener('click', () => {
+    const input_value = document.querySelector('.product .quantity input[name="quantity"]').value;
+    const input_min_value = document.querySelector('.product .quantity input[name="quantity"]').dataset.min;
+    console.log('🐾🐾🐾🐾' + input_value + '🗡️🗡️🗡️🗡️' + input_min_value);
+    if (input_value < input_min_value) {
+      document.querySelector(".product-form__buttons button[name='add']")?.setAttribute('disabled', true);
+    } else {
+      document.querySelector(".product-form__buttons button[name='add']")?.removeAttribute('disabled');
+    }
   });
 </script>
 
