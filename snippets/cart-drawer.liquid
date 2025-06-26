@@ -140,6 +140,15 @@
     }
   }
 
+  @media screen and (max-width: 768px) {
+    .drawer {
+      opacity: 0; 
+    }
+    .drawer.active {
+      opacity: 1;
+    }
+  }
+
   @media screen and (max-width: 440px) {
     #CartDrawer-CartItems .drawer__cart-items-wrapper .cart-items .cart-item td:nth-child(3) {
       padding-left: 0px;
