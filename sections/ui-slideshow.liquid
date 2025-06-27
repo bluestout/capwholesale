@@ -33,6 +33,7 @@
                       class="{% if block.settings.sm_image != blank %}small-hide{% endif %}"
                       width="{{ block.settings.image.width }}"
                       height="{{ block.settings.image.height }}"
+                      alt="{{ block.settings.image.alt | default: block.settings.image.id }}"
                       style=""
                     >
                     {%- if block.settings.sm_image != blank -%}
