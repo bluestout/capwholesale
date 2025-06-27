@@ -83,6 +83,9 @@
       "block_order": [
         "sk_form_builder_form_DiWr4W"
       ],
+      "custom_css": [
+        "sk-form {padding-bottom: 50px;}"
+      ],
       "settings": {
         "include_margins": true
       }
