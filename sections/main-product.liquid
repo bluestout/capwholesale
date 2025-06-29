@@ -87,11 +87,11 @@
       margin-top: 35px !important;
     }
 
-    /* @media screen and (max-width: 1440px){
-      .ui-page-width{
-        padding: 0px 135px;
+    @media screen and (max-width: 400px){
+      .ui-quantity{
+        max-width: 130px;
       }
-    } */
+    }
   {%- endstyle -%}
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
@@ -316,7 +316,7 @@
                     {% endcomment %}
                   </label>
                   <div class="price-per-item__container">
-                    <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
+                    <quantity-input class="quantity ui-quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
                       <button class="quantity__button" name="minus" type="button">
                         <span class="visually-hidden">
                           {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}

@@ -5779,20 +5779,25 @@ sk-form {
 
 .ui-related-product-style {
   .card-wrapper {
+    .cart__inner{
+      background-color: white;
+    }
     .card__content {
-      height: 200px;
+      padding-bottom: 30px;
       a {
         &.see-product {
           border: none;
           position: absolute;
           bottom: 0;
+          padding: 0px;
+          line-height: 0px;
           &::after {
             content: "";
             width: 60px;
             height: 1px;
             background-color: #e00;
             position: absolute;
-            top: 0px;
+            top: -15px;
           }
         }
         svg {
@@ -5800,6 +5805,29 @@ sk-form {
         }
         @media (max-width: 768px) {
           font-size: 13px !important;
+        }
+      }
+      .card-information{
+        .es-price{
+          @media (max-width: 768px) {
+            font-size: 14px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.ui-related-product-style{
+  .card--standard{
+    .card__inner{
+      background-color: white;
+    }
+    .card__content{
+      .card__information{
+        @media (max-width: 768px) {
+          padding-bottom: 40px;
         }
       }
     }
