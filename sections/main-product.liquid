@@ -22,22 +22,25 @@
     }
   {%- endif -%}
 
+  .ui-section-bottom-border{
+    border-bottom: 1px solid #ccc;
+  }
+
   @media screen and (max-width: 1200px){
     .ui-total-price{
-      font-size: 14px !important;    
+      font-size: 14px !important;
       margin-left: 15px;
     }
     .ui-main-product-label{
       font-size: 14px !important;
     }
   }
-
 {%- endstyle -%}
 {% comment %} END - DYNAMIC STYLES FOR CUSTOMIZER APP {% endcomment %}
 
 <product-info
   id="MainProduct-{{ section.id }}"
-  class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
+  class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }} ui-section-bottom-border"
   data-section="{{ section.id }}"
   data-product-id="{{ product.id }}"
   data-update-url="true"
@@ -316,7 +319,11 @@
                     {% endcomment %}
                   </label>
                   <div class="price-per-item__container">
-                    <quantity-input class="quantity ui-quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
+                    <quantity-input
+                      class="quantity ui-quantity"
+                      data-url="{{ product.url }}"
+                      data-section="{{ section.id }}"
+                    >
                       <button class="quantity__button" name="minus" type="button">
                         <span class="visually-hidden">
                           {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
