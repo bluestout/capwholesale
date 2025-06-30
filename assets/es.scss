@@ -5287,30 +5287,33 @@ cart-items {
   }
 }
 
-sk-form {
-  position: relative;
-  z-index: 2;
-  &::before {
-    content: "";
-    width: 97%;
-    height: 200px;
-    background: linear-gradient(
-      180deg,
-      rgba(153, 153, 153, 0.3) 0%,
-      rgba(255, 255, 255, 0.3) 100%
-    );
-    filter: blur(3.5px);
-    position: absolute;
-    z-index: -1;
-    padding: 0px 30px;
-    max-width: 600px;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    @media (max-width: 600px) {
-      display: none;
+.template-suffix-contact {
+  sk-form {
+    position: relative;
+    z-index: 2;
+    &::before {
+      content: "";
+      width: 97%;
+      height: 200px;
+      background: linear-gradient(
+        180deg,
+        rgba(153, 153, 153, 0.3) 0%,
+        rgba(255, 255, 255, 0.3) 100%
+      );
+      filter: blur(3.5px);
+      position: absolute;
+      z-index: -1;
+      padding: 0px 30px;
+      max-width: 600px;
+      left: 50%;
+      transform: translate(-50%, 0%);
+      @media (max-width:600px) {
+        display: none;
+      }
     }
   }
 }
+
 .ui-red-underline {
   width: 50px;
   height: 1px;
@@ -5857,6 +5860,63 @@ sk-form {
             color: #000;
           }
         }
+      }
+    }
+  }
+}
+
+
+.es-quantity-radios {
+  .es-quantity-radios__header {
+    color: #000;
+    font-size: 16px;
+    font-family: Inter, sans-serif;
+    font-weight: 600;
+    line-height: 20.8px;
+
+    b {
+      color: #990000;
+      font-weight: 600;
+    }
+  }
+
+  .es-quantity-radios__body {
+    padding-top: 10px;
+
+    label {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      color: black;
+      font-size: 15px;
+      font-family: "Inter", sans-serif;
+      font-weight: 400;
+      line-height: 25.50px;
+
+      .es-quantity-radios__custom-input {
+        width: 17px;
+        height: 17px;
+        border-radius: 50%;
+        border: 2px solid #CCC;
+      }
+
+      input {
+        display: none;
+
+        &:checked + .es-quantity-radios__custom-input {
+          border: 6px solid #000;
+        }
+      }
+
+      .es-quantity-radios__pty {
+        margin-left: 10px;
+        margin-right: auto;
+      }
+
+      &[data-quantity="1"] {
+        display: none;
       }
     }
   }
