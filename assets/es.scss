@@ -5779,7 +5779,7 @@ sk-form {
 
 .ui-related-product-style {
   .card-wrapper {
-    .cart__inner{
+    .cart__inner {
       background-color: white;
     }
     .card__content {
@@ -5807,8 +5807,8 @@ sk-form {
           font-size: 13px !important;
         }
       }
-      .card-information{
-        .es-price{
+      .card-information {
+        .es-price {
           @media (max-width: 768px) {
             font-size: 14px !important;
           }
@@ -5818,18 +5818,28 @@ sk-form {
   }
 }
 
-
-.ui-related-product-style{
-  .card--standard{
-    .card__inner{
+.ui-related-product-style {
+  .card--standard {
+    .card__inner {
       background-color: white;
     }
-    .card__content{
-      .card__information{
+    .card__content {
+      .card__information {
         @media (max-width: 768px) {
-          padding-bottom: 40px;
+          padding-bottom: 20px;
+          position: revert;
         }
       }
+    }
+  }
+}
+
+.fera-reviews-header {
+  .fera-reviews-header-row1 {
+    h1 {
+      font-size: 30px;
+      font-family: Inter;
+      font-weight: 700;
     }
   }
 }
