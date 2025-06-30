@@ -146,7 +146,7 @@
       ],
       "settings": {
         "enable_sticky_info": true,
-        "color_scheme": "scheme-2",
+        "color_scheme": "scheme-c2a2ba10-90a4-4246-8d3b-e52ce5e90803",
         "media_size": "medium",
         "constrain_to_viewport": true,
         "media_fit": "cover",
@@ -162,6 +162,26 @@
     },
     "174869335437931505": {
       "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "175076340277db3d21": {
+      "type": "apps",
+      "blocks": {
+        "fera_product_reviews_Q9cd8q": {
+          "type": "shopify:\/\/apps\/fera\/blocks\/product_reviews\/2fbfcfa7-8a04-479f-89a8-0621fa099c51",
+          "settings": {
+            "heading": "Customer Reviews",
+            "layout": "list",
+            "star_color": "#ee0000",
+            "when_no_reviews": "show"
+          }
+        }
+      },
+      "block_order": [
+        "fera_product_reviews_Q9cd8q"
+      ],
       "settings": {
         "include_margins": true
       }
@@ -183,32 +203,12 @@
         "padding_top": 80,
         "padding_bottom": 80
       }
-    },
-    "175076340277db3d21": {
-      "type": "apps",
-      "blocks": {
-        "fera_product_reviews_Q9cd8q": {
-          "type": "shopify://apps/fera/blocks/product_reviews/2fbfcfa7-8a04-479f-89a8-0621fa099c51",
-          "settings": {
-            "heading": "Product Reviews",
-            "layout": "list",
-            "star_color": "#ee0000",
-            "when_no_reviews": "show"
-          }
-        }
-      },
-      "block_order": [
-        "fera_product_reviews_Q9cd8q"
-      ],
-      "settings": {
-        "include_margins": true
-      }
     }
   },
   "order": [
     "main",
     "174869335437931505",
-    "related-products",
-    "175076340277db3d21"
+    "175076340277db3d21",
+    "related-products"
   ]
 }
