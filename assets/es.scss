@@ -5884,7 +5884,7 @@ cart-items {
     padding-top: 10px;
 
     label {
-      width: 100%;
+      width: 60%;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -5894,6 +5894,10 @@ cart-items {
       font-family: "Inter", sans-serif;
       font-weight: 400;
       line-height: 25.50px;
+
+      @media (max-width: 759px) {
+        width: 100%;
+      }
 
       .es-quantity-radios__custom-input {
         width: 17px;
