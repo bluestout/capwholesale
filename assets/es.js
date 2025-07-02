@@ -58,7 +58,7 @@ const setESQuantityRadios = widget => {
 
       input.addEventListener("change", function () {
         // console.log(this.value);
-        document.querySelector(".product .product-form__quantity .quantity__input").value = this.value;
+        document.querySelector(".product .product-form__quantity .quantity__input").value = thsis.value;
 
         const each_price = document.querySelector(".es-quantity-radios .es-quantity-radios__body").childNodes
         each_price.forEach((item) => {
