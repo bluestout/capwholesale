@@ -3,7 +3,7 @@ const KlaviyoReady = () => {
 
   klaviyoImages.forEach(img => {
     if (img.alt) {
-      console.log("have alt!");
+      // console.log("have alt!");
     } else {
       img.setAttribute("alt", "ADA Alt Text")
     }
@@ -16,11 +16,11 @@ const setESQuantityRadios = widget => {
   div.classList.add("es-quantity-radios__body");
 
   if (esQuantityRadios) {
-    console.log(widget);
+    // console.log(widget);
 
     var trs = widget.querySelectorAll("tbody tr");
 
-    console.log(trs);
+    // console.log(trs);
 
     var qtys = [];
     var prices = [];
@@ -57,8 +57,23 @@ const setESQuantityRadios = widget => {
       div.append(label);
 
       input.addEventListener("change", function () {
-        console.log(this.value);
+        // console.log(this.value);
         document.querySelector(".product .product-form__quantity .quantity__input").value = this.value;
+
+        const each_price = document.querySelector(".es-quantity-radios .es-quantity-radios__body").childNodes
+        each_price.forEach((item) => {
+          const regex = /([0-9][0-9\.]*)/;
+          const check_value = item.children[2].innerHTML;
+          const check = check_value.match(regex);
+          if (check[0] == this.value) {
+            const money_price = item.children[3].innerHTML;
+            const change_price = money_price.match(regex)[0]
+            const total_price = parseFloat(this.value) * parseFloat(change_price);
+            document.querySelector(".product .product-form__quantity .ui-total-price").children[1].innerHTML = '$' + total_price.toFixed(2) + " USD";
+          }
+        })
+
+        // console.log(match);
       })
     });
 
@@ -69,7 +84,7 @@ const setESQuantityRadios = widget => {
 const observer = new MutationObserver((mutations, obs) => {
   const KlaviyoImage = document.querySelector('.needsclick img');
   var flag = 0;
-  
+
   if (KlaviyoImage) {
     KlaviyoReady();
     flag += 1;
@@ -77,7 +92,7 @@ const observer = new MutationObserver((mutations, obs) => {
 
   const moneyTemplateTable = document.querySelector("#bold_qb_grid .money-template table");
   if (moneyTemplateTable) {
-    console.log("moneyTemplateTable", moneyTemplateTable);
+    // console.log("moneyTemplateTable", moneyTemplateTable);
     setESQuantityRadios(moneyTemplateTable);
     flag += 1;
   }
@@ -88,3 +103,73 @@ const observer = new MutationObserver((mutations, obs) => {
 });
 
 observer.observe(document.body, { childList: true, subtree: true });
+
+document.querySelector('.product-form__input .quantity input[name="quantity"]').addEventListener('change', function () {
+  const Basic_value = this.value;
+  const regex = /([0-9][0-9\.]*)/;
+  const each_price = document.querySelector(".es-quantity-radios .es-quantity-radios__body").childNodes;
+
+  const val_arr = []
+  each_price.forEach((item, index) => {
+    const count_thing = item.children[2].innerHTML;
+    const thing_money = item.children[3].innerHTML;
+    const val1 = count_thing.match(regex)[0];
+    const val2 = thing_money.match(regex)[0];
+    val_arr.push({
+      val1: val1,
+      val2: val2
+    })
+  })
+
+  each_price.forEach((item, index) => {
+    const thing_money = item.children[3].innerHTML;
+    const value = item.children[0];
+
+    const val2 = thing_money.match(regex)[0];
+    if (parseFloat(Basic_value) <= parseFloat(val_arr[index].val1) && parseFloat(Basic_value) > parseFloat(val_arr[index - 1]?.val1)) {
+      const price = parseFloat(val2) * Basic_value;
+      document.querySelector(".product .product-form__quantity .ui-total-price").children[1].innerHTML = '$' + price.toFixed(2) + " USD";
+    }
+    if(parseFloat(Basic_value) < parseFloat(val_arr[index+1]?.val1) && parseFloat(Basic_value) >= parseFloat(val_arr[index].val1) ){
+      value.checked = true;
+    }
+    else{
+      value.checked = false;
+    }
+  })
+});
+
+document.querySelector('.product-form__input .quantity input[name="quantity"]').addEventListener('input', function () {
+  const Basic_value = this.value;
+  const regex = /([0-9][0-9\.]*)/;
+  const each_price = document.querySelector(".es-quantity-radios .es-quantity-radios__body").childNodes;
+
+  const val_arr = []
+  each_price.forEach((item, index) => {
+    const count_thing = item.children[2].innerHTML;
+    const thing_money = item.children[3].innerHTML;
+    const val1 = count_thing.match(regex)[0];
+    const val2 = thing_money.match(regex)[0];
+    val_arr.push({
+      val1: val1,
+      val2: val2
+    })
+  })
+
+  each_price.forEach((item, index) => {
+    const thing_money = item.children[3].innerHTML;
+    const value = item.children[0];
+
+    const val2 = thing_money.match(regex)[0];
+    if (parseFloat(Basic_value) <= parseFloat(val_arr[index].val1) && parseFloat(Basic_value) > parseFloat(val_arr[index - 1]?.val1)) {
+      const price = parseFloat(val2) * Basic_value;
+      document.querySelector(".product .product-form__quantity .ui-total-price").children[1].innerHTML = '$' + price.toFixed(2) + " USD";
+    }
+    if(parseFloat(Basic_value) < parseFloat(val_arr[index+1]?.val1) && parseFloat(Basic_value) >= parseFloat(val_arr[index].val1) ){
+      value.checked = true;
+    }
+    else{
+      value.checked = false;
+    }
+  })
+});
