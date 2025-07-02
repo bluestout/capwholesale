@@ -45,7 +45,7 @@
 
               <div class="mySwiper-{{ block.id }} swiper">
                 <div class="swiper-wrapper">
-                  {%- paginate block.settings.metaobject.clip_arts.value by 100 -%}
+                  {%- paginate block.settings.metaobject.clip_arts.value by 50 -%}
                     {%- for clip_art in block.settings.metaobject.clip_arts.value -%}
                       <div class="grid__item swiper-slide">
                         <div class="grid__item-media">
