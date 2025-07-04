@@ -5886,7 +5886,7 @@ cart-items {
           content: url("https://cdn.shopify.com/s/files/1/0915/0893/2895/files/Union_e1b36265-5686-45cb-b4b4-73d376b2e7dd.svg?v=1751047602");
           position: absolute;
           right: -10px;
-          bottom: -1px;
+          height: 100%;
         }
       }
     }
@@ -6046,6 +6046,7 @@ cart-items {
     line-height: 20.8px;
     position: relative;
 
+    b,
     strong {
       color: #990000;
       font-weight: 600;

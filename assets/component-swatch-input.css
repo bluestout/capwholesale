@@ -21,7 +21,7 @@
 /* Active state */
 .swatch-input__input:active + .swatch-input__label,
 .swatch-input__input:checked + .swatch-input__label {
-  outline: 0.1rem solid rgb(var(--color-foreground));
+  outline: 0.1rem solid #CCC;
 }
 
 /* Hover state */
