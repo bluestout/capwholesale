@@ -35,7 +35,7 @@
           "settings": {
             "heading": "<strong>Step 3:</strong> Buy more and save!",
             "show_quantity_label": true,
-            "quantity_label": "<p>The price will be calculated automatically based on the exact dozen and odd piece price that applies.</p>"
+            "quantity_label": "<p><em>The price will be calculated automatically based on the exact dozen and odd piece price that applies.</em></p>"
           }
         },
         "quantity_selector": {
