@@ -99,7 +99,7 @@
           "type": "collapsible_tab",
           "settings": {
             "default_open": false,
-            "heading": "Collapsible row",
+            "heading": "Details",
             "icon": "details",
             "content": "<p>Maecenas vulputate convallis ante non vestibulum. Vestibulum auctor diam vitae efficitur lacinia. Nullam eu rhoncus est. Proin rhoncus tortor vel urna sodales vestibulum. Praesent vestibulum vulputate mauris, tincidunt eleifend erat auctor ut.</p>",
             "page": ""
