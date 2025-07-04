@@ -45,8 +45,14 @@
 
               <div class="mySwiper-{{ block.id }} swiper">
                 <div class="swiper-wrapper">
-                  {%- paginate block.settings.metaobject.clip_arts.value by 50 -%}
-                    {%- for clip_art in block.settings.metaobject.clip_arts.value -%}
+                  {%- liquid 
+                    assign clip_arts = block.settings.metaobject.clip_arts.value
+                    if clip_arts == blank
+                      assign clip_arts = block.settings.metaobject_2.clip_arts.value
+                    endif
+                  -%}
+                  {%- paginate clip_arts by 50 -%}
+                    {%- for clip_art in clip_arts -%}
                       <div class="grid__item swiper-slide">
                         <div class="grid__item-media">
                           <img src="{{ clip_art.image | img_url: 'master' }}" width="{{ clip_art.image.width }}" height="{{ clip_art.image.height }}">
@@ -307,6 +313,13 @@
           "id": "metaobject",
           "label": "Metaobject",
           "metaobject_type": "clip_art_library"
+        },
+        {
+          "type": "metaobject",
+          "id": "metaobject_2",
+          "label": "Metaobject 2",
+          "info": "This is the alternative Metaobject because there is the Exceed issue on Shopify with same type.",
+          "metaobject_type": "clip_art_library_2"
         }
       ]
     }
