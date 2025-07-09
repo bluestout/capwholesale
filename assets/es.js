@@ -16,11 +16,7 @@ const setESQuantityRadios = widget => {
   div.classList.add("es-quantity-radios__body");
 
   if (esQuantityRadios) {
-    // console.log(widget);
-
     var trs = widget.querySelectorAll("tbody tr");
-
-    // console.log(trs);
 
     var qtys = [];
     var prices = [];
@@ -57,11 +53,10 @@ const setESQuantityRadios = widget => {
       div.append(label);
 
       input.addEventListener("change", function () {
-        // console.log(this.value);
         document.querySelector(".product .product-form__quantity .quantity__input").value = this.value;
 
-        const each_price = document.querySelector(".es-quantity-radios .es-quantity-radios__body").childNodes
-        each_price.forEach((item) => {
+        const each_price = document.querySelector(".es-quantity-radios .es-quantity-radios__body")?.childNodes;
+        each_price?.forEach((item) => {
           const regex = /([0-9][0-9\.]*)/;
           const check_value = item.children[2].innerHTML;
           const check = check_value.match(regex);
@@ -72,8 +67,6 @@ const setESQuantityRadios = widget => {
             document.querySelector(".product .product-form__quantity .ui-total-price").children[1].innerHTML = '$' + total_price.toFixed(2) + " USD";
           }
         })
-
-        // console.log(match);
       })
     });
 
@@ -92,7 +85,6 @@ const observer = new MutationObserver((mutations, obs) => {
 
   const moneyTemplateTable = document.querySelector("#bold_qb_grid .money-template table");
   if (moneyTemplateTable) {
-    // console.log("moneyTemplateTable", moneyTemplateTable);
     setESQuantityRadios(moneyTemplateTable);
     flag += 1;
   }
@@ -107,73 +99,77 @@ observer.observe(document.body, { childList: true, subtree: true });
 document.querySelector('.product-form__input .quantity input[name="quantity"]').addEventListener('change', function () {
   const Basic_value = this.value;
   const regex = /([0-9][0-9\.]*)/;
-  const each_price = document.querySelector(".es-quantity-radios .es-quantity-radios__body").childNodes;
+  const each_price = document.querySelector(".es-quantity-radios .es-quantity-radios__body")?.childNodes;
 
-  const val_arr = []
-  each_price.forEach((item, index) => {
-    const count_thing = item.children[2].innerHTML;
-    const thing_money = item.children[3].innerHTML;
-    const val1 = count_thing.match(regex)[0];
-    const val2 = thing_money.match(regex)[0];
-    val_arr.push({
-      val1: val1,
-      val2: val2
+  if (each_price) {
+    const val_arr = []
+    each_price?.forEach((item, index) => {
+      const count_thing = item.children[2].innerHTML;
+      const thing_money = item.children[3].innerHTML;
+      const val1 = count_thing.match(regex)[0];
+      const val2 = thing_money.match(regex)[0];
+      val_arr.push({
+        val1: val1,
+        val2: val2
+      })
     })
-  })
-  val_arr.push({
-    val1: val_arr[length-1].val1 * 1e30,
-    val2: val_arr[length-1].val2
-  });
-
-  each_price.forEach((item, index) => {
-    const value = item.children[0];
-
-    if (parseFloat(Basic_value) < parseFloat(val_arr[index+1]?.val1) && parseFloat(Basic_value) >= parseFloat(val_arr[index].val1)) {
-      const price = parseFloat(val_arr[index].val2) * Basic_value;
-      document.querySelector(".product .product-form__quantity .ui-total-price").children[1].innerHTML = '$' + price.toFixed(2) + " USD";
-    }
-    if(parseFloat(Basic_value) < parseFloat(val_arr[index+1]?.val1) && parseFloat(Basic_value) >= parseFloat(val_arr[index].val1) ){
-      value.checked = true;
-    }
-    else{
-      value.checked = false;
-    }
-  })
+    val_arr.push({
+      val1: val_arr[length-1].val1 * 1e30,
+      val2: val_arr[length-1].val2
+    });
+  
+    each_price.forEach((item, index) => {
+      const value = item.children[0];
+  
+      if (parseFloat(Basic_value) < parseFloat(val_arr[index+1]?.val1) && parseFloat(Basic_value) >= parseFloat(val_arr[index].val1)) {
+        const price = parseFloat(val_arr[index].val2) * Basic_value;
+        document.querySelector(".product .product-form__quantity .ui-total-price").children[1].innerHTML = '$' + price.toFixed(2) + " USD";
+      }
+      if(parseFloat(Basic_value) < parseFloat(val_arr[index+1]?.val1) && parseFloat(Basic_value) >= parseFloat(val_arr[index].val1) ){
+        value.checked = true;
+      }
+      else{
+        value.checked = false;
+      }
+    })
+  }
 });
 
 document.querySelector('.product-form__input .quantity input[name="quantity"]').addEventListener('input', function () {
   const Basic_value = this.value;
   const regex = /([0-9][0-9\.]*)/;
-  const each_price = document.querySelector(".es-quantity-radios .es-quantity-radios__body").childNodes;
+  const each_price = document.querySelector(".es-quantity-radios .es-quantity-radios__body")?.childNodes;
 
-  const val_arr = []
-  each_price.forEach((item, index) => {
-    const count_thing = item.children[2].innerHTML;
-    const thing_money = item.children[3].innerHTML;
-    const val1 = count_thing.match(regex)[0];
-    const val2 = thing_money.match(regex)[0];
-    val_arr.push({
-      val1: val1,
-      val2: val2
+  if (each_price) {
+    const val_arr = []
+    each_price?.forEach((item, index) => {
+      const count_thing = item.children[2].innerHTML;
+      const thing_money = item.children[3].innerHTML;
+      const val1 = count_thing.match(regex)[0];
+      const val2 = thing_money.match(regex)[0];
+      val_arr.push({
+        val1: val1,
+        val2: val2
+      })
     })
-  })
-  val_arr.push({
-    val1: val_arr[length-1].val1 * 1e30,
-    val2: val_arr[length-1].val2
-  });
-
-  each_price.forEach((item, index) => {
-    const value = item.children[0];
-
-    if (parseFloat(Basic_value) < parseFloat(val_arr[index+1]?.val1) && parseFloat(Basic_value) >= parseFloat(val_arr[index].val1)) {
-      const price = parseFloat(val_arr[index].val2) * Basic_value;
-      document.querySelector(".product .product-form__quantity .ui-total-price").children[1].innerHTML = '$' + price.toFixed(2) + " USD";
-    }
-    if(parseFloat(Basic_value) < parseFloat(val_arr[index+1]?.val1) && parseFloat(Basic_value) >= parseFloat(val_arr[index].val1) ){
-      value.checked = true;
-    }
-    else{
-      value.checked = false;
-    }
-  })
+    val_arr.push({
+      val1: val_arr[length-1].val1 * 1e30,
+      val2: val_arr[length-1].val2
+    });
+  
+    each_price.forEach((item, index) => {
+      const value = item.children[0];
+  
+      if (parseFloat(Basic_value) < parseFloat(val_arr[index+1]?.val1) && parseFloat(Basic_value) >= parseFloat(val_arr[index].val1)) {
+        const price = parseFloat(val_arr[index].val2) * Basic_value;
+        document.querySelector(".product .product-form__quantity .ui-total-price").children[1].innerHTML = '$' + price.toFixed(2) + " USD";
+      }
+      if(parseFloat(Basic_value) < parseFloat(val_arr[index+1]?.val1) && parseFloat(Basic_value) >= parseFloat(val_arr[index].val1) ){
+        value.checked = true;
+      }
+      else{
+        value.checked = false;
+      }
+    })
+  }
 });
