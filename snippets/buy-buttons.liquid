@@ -24,7 +24,7 @@
       endif
     -%}
 
-    <product-form-other
+    <product-form
       data-hide-errors="{{ gift_card_recipient_feature_active }}"
       data-section-id="{{ section.id }}"
     >
@@ -34,7 +34,7 @@
         </span>
         <span class="product-form__error-message"></span>
       </div>
-      {%- form 'product', product, id: product_form_id, novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+      {%- form 'product', product, id: 'product_form_id', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
         <input
           type="hidden"
           name="id"
@@ -50,6 +50,7 @@
 
         <input type="hidden" name="properties[SKU]" value="{{ product.selected_or_first_available_variant.sku }}">
         <input type="hidden" name="properties[Brand]" value="{{ product.vendor }}">
+        {% comment %} <input type="hidden" name="properties[promotion]" value="{{ block.settings.buy_btn-text }}"> {% endcomment %}
 
         {%- if gift_card_recipient_feature_active -%}
           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
@@ -87,7 +88,7 @@
           {%- endif -%}
         </div>
       {%- endform -%}
-    </product-form-other>
+    </product-form>
 
     <product-form
       class="product-form"
@@ -240,7 +241,32 @@
     align-items: center;
   }
 
-  .price--many {
+  .disable-btn {
     cursor: no-drop;
   }
 </style>
+
+<script>
+  function updateButtonState() {
+    const input = document.querySelector('.product .quantity input[name="quantity"]');
+    const button = document.querySelector('.buy-lower-price-btn');
+    if (!input || !button) return;
+
+    const value = parseInt(input.value, 10);
+    if (value >= 1 && value <= 3) {
+      button.removeAttribute('disabled');
+      button.classList.remove('disable-btn');
+    } else {
+      button.setAttribute('disabled', 'true');
+      button.classList.add('disable-btn');
+    }
+  }
+
+  updateButtonState();
+
+  const input = document.querySelector('.product .quantity input[name="quantity"]');
+  if (input) {
+    input.addEventListener('input', updateButtonState);
+    input.addEventListener('change', updateButtonState);
+  }
+</script>
