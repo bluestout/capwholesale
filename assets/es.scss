@@ -1743,7 +1743,6 @@ product-info {
       display: block;
       min-width: max-content;
       left: 50%;
-      // transform: translateX(-20%);3:28 AM 7/3/2025
       transform: translate(-50%);
       color: white;
       font-size: 10px;
@@ -1755,15 +1754,6 @@ product-info {
       border-radius: 30px;
       z-index: 9999;
 
-      @media (max-width: 750px) {
-        width: 75px;
-        word-break: break-all;
-        text-align: center;
-        min-width: auto;
-        top: -20px;
-        left: 65%;
-      }
-
       &::after {
         content: "";
         position: absolute;
@@ -1772,6 +1762,18 @@ product-info {
         transform: translate(-50%, 100%);
         border: 4px solid transparent;
         border-top: 4px solid #000;
+      }
+
+      @media (max-width: 750px) {
+        &::after {
+          left: 30% !important;
+        }
+      }
+    }
+
+    @media (max-width: 750px) {
+      &:hover .tool-tip {
+        transform: translate(-30%) !important;
       }
     }
   }
@@ -6006,6 +6008,10 @@ cart-items {
             color: #000;
           }
         }
+
+        .fera-btn:hover {
+          opacity: .8;
+        }
       }
     }
   }
@@ -6227,7 +6233,7 @@ media-gallery {
 
 @media screen and (min-width: 750px) {
   .section-template--24442654130463__main-padding {
-    padding-top: 75px !important;
+    padding-top: 80px !important;
   }
 }
 
