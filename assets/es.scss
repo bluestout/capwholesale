@@ -5996,6 +5996,15 @@ cart-items {
       }
     }
 
+    @media (max-width: 500px) {
+      .fera-reviews-header-row1 h1 {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 26px;
+        margin-bottom: 15px;
+      }
+    }
+
     .fera-reviews-header-row2 {
       .fera-reviews-header-summary-container {
         .fera-btn {
@@ -6232,8 +6241,14 @@ media-gallery {
 // du-dev
 
 @media screen and (min-width: 750px) {
-  .section-template--24442654130463__main-padding {
+  .ui-section-bottom-border {
     padding-top: 80px !important;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .fera-widget-container {
+    margin: 30px 0px 50px 0px !important;
   }
 }
 
