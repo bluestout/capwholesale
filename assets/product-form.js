@@ -110,6 +110,7 @@ if (!customElements.get('product-form')) {
           });
       }
 
+
       handleErrorMessage(errorMessage = false) {
         if (this.hideErrors) return;
 
