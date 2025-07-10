@@ -63,7 +63,7 @@
           "settings": {
             "show_dynamic_checkout": false,
             "show_gift_card_recipient": true,
-            "buy_btn_text": "Buy a Single Piece for $6.16 (1 per style, 3 maximum)"
+            "buy_btn_text": "Buy a Single Piece for __PRICE__ (1 per style, 3 maximum)"
           }
         },
         "wishlist_hero_custom_product_button_Aacrr3": {

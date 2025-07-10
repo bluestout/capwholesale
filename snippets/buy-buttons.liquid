@@ -38,7 +38,8 @@
             disabled
           {% endif %}
         >
-          {{ block.settings.buy_btn_text | replace: '__PRICE__', product.selected_or_first_available_variant.price }}
+          {%- assign promo_price = product.selected_or_first_available_variant.price | money_with_currency %}
+          {{ block.settings.buy_btn_text | replace: '__PRICE__', promo_price }}
           {% comment %} {%- render 'loading-spinner' -%} {% endcomment %}
         </button>
       </div>
