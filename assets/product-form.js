@@ -5,6 +5,8 @@ if (!customElements.get('product-form')) {
       constructor() {
         super();
 
+        const anotherButton = document.querySelector(".buy-lower-price-btn");
+        anotherButton.addEventListener("click", this.onSubmitHandler.bind(this));
         this.form = this.querySelector('form');
         this.variantIdInput.disabled = false;
         this.form.addEventListener('submit', this.onSubmitHandler.bind(this));
