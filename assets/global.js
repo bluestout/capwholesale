@@ -1360,9 +1360,14 @@ slide.forEach((item) => {
   item.addEventListener("click", function () {
     const scroll = item.getAttribute('data-media-id');
     const scroll_name = "Slide-" + scroll;
-    document.getElementById(scroll_name).scrollIntoView({
-      left: target.offsetLeft - container.offsetLeft,
-      behavior: 'smooth'
-    });
+    const target = document.getElementById(scroll_name);
+    const container = target ? target.parentElement : null;
+
+    if (target && container) {
+      container.scrollTo({
+        left: target.offsetLeft - container.offsetLeft,
+        behavior: 'smooth'
+      });
+    }
   })
 })

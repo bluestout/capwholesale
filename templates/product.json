@@ -62,7 +62,8 @@
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": false,
-            "show_gift_card_recipient": true
+            "show_gift_card_recipient": true,
+            "buy_btn_text": "Buy a Single Piece for $6.16 (1 per style, 3 maximum)"
           }
         },
         "wishlist_hero_custom_product_button_Aacrr3": {
@@ -91,7 +92,7 @@
             "default_open": true,
             "heading": "Description",
             "icon": "description",
-            "content": "{{ product.description }}",
+            "content": "<p>Maecenas vulputate convallis ante non vestibulum. Vestibulum auctor diam vitae efficitur lacinia. Nullam eu rhoncus est. Proin rhoncus tortor vel urna sodales vestibulum. Praesent vestibulum vulputate mauris, tincidunt eleifend erat auctor ut.</p>",
             "page": ""
           }
         },
@@ -101,7 +102,7 @@
             "default_open": false,
             "heading": "Details",
             "icon": "details",
-            "content": "<p>Maecenas vulputate convallis ante non vestibulum. Vestibulum auctor diam vitae efficitur lacinia. Nullam eu rhoncus est. Proin rhoncus tortor vel urna sodales vestibulum. Praesent vestibulum vulputate mauris, tincidunt eleifend erat auctor ut.</p>",
+            "content": "<p>{{ product.description }}</p>",
             "page": ""
           }
         },

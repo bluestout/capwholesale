@@ -44,7 +44,7 @@
 
 {% if section.settings.enable_sticky_info %}
   <div class="product__column-sticky">
-  {% endif %}
+{% endif %}
 <media-gallery
   id="MediaGallery-{{ section.id }}"
   role="region"
@@ -52,7 +52,8 @@
   data-desktop-layout="{{ section.settings.gallery_layout }}"
 >
   <div id="GalleryStatus-{{ section.id }}" class="visually-hidden" role="status"></div>
-  <slider-component id="GalleryViewer-{{ section.id }}" class="slider-mobile-gutter ui-display-none">    <a class="skip-to-content-link button visually-hidden quick-add-hidden" href="#ProductInfo-{{ section.id }}">
+  <slider-component id="GalleryViewer-{{ section.id }}" class="slider-mobile-gutter ui-display-none">
+    <a class="skip-to-content-link button visually-hidden quick-add-hidden" href="#ProductInfo-{{ section.id }}">
       {{ 'accessibility.skip_to_product_info' | t }}
     </a>
     <ul
@@ -125,7 +126,8 @@
       {%- endfor -%}
     </ul>
     {% comment %} <div class="slider-buttons quick-add-hidden{% if hide_mobile_slider %} small-hide{% endif %}"> {% endcomment %}
-      {% comment %} <button
+    {% comment %}
+      <button
         type="button"
         class="slider-button slider-button--prev"
         name="previous"
@@ -134,35 +136,38 @@
         <span class="svg-wrapper">
           {{- 'icon-caret.svg' | inline_asset_content -}}
         </span>
-      </button> {% endcomment %}
-      <div class="slider-counter caption">
-  <div class="slideshow__control-wrapper">
-    {% assign featured_media = product.selected_or_first_available_variant.featured_media %}
-    
-    {% if section.settings.hide_variants and variant_images contains featured_media.src %}
-      <button 
-        class="slider-counter__link slider-counter__link--dots link"
-        data-media-id="{{ section.id }}-{{ featured_media.id }}">
-        <span class="dot"></span>
       </button>
-    {% endif %}
+    {% endcomment %}
+    <div class="slider-counter caption">
+      <div class="slideshow__control-wrapper">
+        {% assign featured_media = product.selected_or_first_available_variant.featured_media %}
 
-    {% for media in product.media %}
-      {% unless media.id == featured_media.id %}
-        {% unless section.settings.hide_variants and variant_images contains media.src %}
-          <button 
+        {% if section.settings.hide_variants and variant_images contains featured_media.src %}
+          <button
             class="slider-counter__link slider-counter__link--dots link"
-            data-media-id="{{ section.id }}-{{ media.id }}">
+            data-media-id="{{ section.id }}-{{ featured_media.id }}"
+          >
             <span class="dot"></span>
           </button>
-        {% endunless %}
-      {% endunless %}
-    {% endfor %}
-  </div>
-</div>
+        {% endif %}
 
+        {% for media in product.media %}
+          {% unless media.id == featured_media.id %}
+            {% unless section.settings.hide_variants and variant_images contains media.src %}
+              <button
+                class="slider-counter__link slider-counter__link--dots link"
+                data-media-id="{{ section.id }}-{{ media.id }}"
+              >
+                <span class="dot"></span>
+              </button>
+            {% endunless %}
+          {% endunless %}
+        {% endfor %}
+      </div>
+    </div>
 
-      {% comment %} <button
+    {% comment %}
+      <button
         type="button"
         class="slider-button slider-button--next"
         name="next"
@@ -171,7 +176,8 @@
         <span class="svg-wrapper">
           {{- 'icon-caret.svg' | inline_asset_content -}}
         </span>
-      </button> {% endcomment %}
+      </button>
+    {% endcomment %}
     {% comment %} </div> {% endcomment %}
   </slider-component>
   {%- if first_3d_model -%}
@@ -349,14 +355,45 @@
       </button>
     </slider-component>
   {%- endif -%}
-
 </media-gallery>
-
 
 {% comment %} START - ADDITIONAL INFO UNDER MEDIA GALLERY {% endcomment %}
 {% render 'component-media-info', to_show: 'desktop-only', section: section %}
 {% comment %} END - ADDITIONAL INFO UNDER MEDIA GALLERY {% endcomment %}
 
 {% if section.settings.enable_sticky_info %}
-</div>
+  </div>
 {% endif %}
+
+<script>
+  const slideBtn = document.querySelectorAll('.slider-counter__link.slider-counter__link--dots.link');
+  slideBtn.forEach((item, idx) => {
+    item.addEventListener('click', function () {
+      document.querySelectorAll('.dot').forEach((dot) => dot.classList.remove('active'));
+      document.querySelectorAll('.dot')[idx].classList.add('active');
+    });
+  });
+
+  const dots = document.querySelectorAll('.dot');
+
+  if (dots.length > 0) {
+    dots[0].classList.add('active');
+  }
+
+  dots.forEach((dot, idx) => {
+    dot.addEventListener('click', function () {
+      dots.forEach((d) => d.classList.remove('active'));
+      dot.classList.add('active');
+    });
+  });
+</script>
+
+<style>
+  .dot.active {
+    background-color: #000 !important;
+  }
+
+  .dot:first-child.active {
+    background-color: #000;
+  }
+</style>
