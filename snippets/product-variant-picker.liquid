@@ -38,9 +38,11 @@
         <fieldset class="js product-form__input product-form__input--swatch">
           <legend class="form__label">
             <span>Step {{ forloop.index }}:</span> {{ option.name }}
-            {% comment %} <span data-selected-value>
-              {{- option.selected_value -}}
-            </span> {% endcomment %}
+            {% comment %}
+              <span data-selected-value>
+                {{- option.selected_value -}}
+              </span>
+            {% endcomment %}
           </legend>
           {% render 'product-variant-options',
             product: product,
@@ -51,7 +53,9 @@
         </fieldset>
       {%- elsif picker_type == 'button' -%}
         <fieldset class="js product-form__input product-form__input--pill">
-          <legend class="form__label"><span>Step {{ forloop.index }}:</span> {{ option.name }}</legend>
+          <legend class="form__label">
+            <span>Step {{ forloop.index }}:</span> {{ option.name }}
+          </legend>
           {% render 'product-variant-options',
             product: product,
             option: option,
@@ -99,3 +103,28 @@
     </script>
   </variant-selects>
 {%- endunless -%}
+
+{% comment %}
+  <script>
+    const imageColorInput = document.querySelectorAll('.swatch-input__label.swatch-input__label--square');
+    imageColorInput.forEach((item) => {
+      item.addEventListener('click', function () {
+        console.log(document.querySelectorAll('.ui-product-label')[0], '👋👋🤛🤛🐍🐍');
+        document.querySelectorAll('.ui-product-label')[0].classList.add('.active');
+      });
+    });
+  </script>
+{% endcomment %}
+
+<style>
+  .product-form__input--pill.product-form__input--pill input[type='radio']:checked + label {
+    border: 1.5px solid #000000 !important;
+  }
+
+  @media screen and (max-width: 750px) {
+    .swatch-input__input + .swatch-input__label:hover,
+    .swatch-input__input:hover + .swatch-input__label {
+      outline: 0.2rem solid rgba(0, 0, 0) !important;
+    }
+  }
+</style>

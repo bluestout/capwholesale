@@ -23,7 +23,7 @@
 {%- for value in option.values -%}
   {%- liquid
     assign swatch_focal_point = null
-    assign variant_image = ""
+    assign variant_image = ''
     assign option_title = option.name | downcase
 
     for variant in product.variants
@@ -31,7 +31,7 @@
         assign variant_image = variant.image | image_url: width: 150
       endif
     endfor
-    
+
     if value.swatch.image
       assign image_url = value.swatch.image | image_url: width: 50
       assign swatch_value = 'url(' | append: image_url | append: ')'
