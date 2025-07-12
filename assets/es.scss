@@ -6242,7 +6242,7 @@ media-gallery {
 
 @media screen and (min-width: 750px) {
   .ui-section-bottom-border {
-    padding-top: 80px !important;
+    padding-top: 75px !important;
   }
 }
 
@@ -6255,4 +6255,19 @@ media-gallery {
 .fera-widget-container .fera-reviews-header .fera-reviews-header-row2 .fera-reviews-header-summary-container .fera-btn span {
   color: #fff !important;
   font-family: Inter !important;
+}
+
+.media>*:not(.zoom):not(.deferred-media__poster-button),
+.media model-viewer {
+  width: 640px;
+  height: auto;
+  left: 5%;
+}
+
+@media screen and (max-width: 750px) {
+  .product__media-list .media>* {
+    width: 100% !important;
+    height: 100% !important;
+    left: 0 !important;
+  }
 }
