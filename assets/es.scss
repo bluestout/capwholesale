@@ -6269,3 +6269,34 @@ media-gallery {
   color: #fff !important;
   font-family: Inter !important;
 }
+
+.media>*:not(.zoom):not(.deferred-media__poster-button),
+.media model-viewer {
+  width: 640px;
+  height: auto;
+  left: 5%;
+}
+
+@media screen and (max-width: 750px) {
+  .product__media-list .media>* {
+    width: 100% !important;
+    height: 100% !important;
+    left: 0 !important;
+  }
+}
+
+.price.price--end.ui-font-button {
+  width: 100%;
+}
+
+@media screen and (min-width: 990px) {
+
+  .title,
+  .title-wrapper-with-link {
+    margin-bottom: 60px;
+  }
+}
+
+.ui-drawer-gradient .drawer__header {
+  background-color: #FFF !important;
+}
