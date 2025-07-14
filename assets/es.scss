@@ -6271,3 +6271,19 @@ media-gallery {
     left: 0 !important;
   }
 }
+
+.price.price--end.ui-font-button {
+  width: 100%;
+}
+
+@media screen and (min-width: 990px) {
+
+  .title,
+  .title-wrapper-with-link {
+    margin-bottom: 60px;
+  }
+}
+
+.ui-drawer-gradient .drawer__header {
+  background-color: #FFF !important;
+}
