@@ -33,9 +33,11 @@
           "settings": {
             "show_social": true,
             "headline": "Discover our brands",
-            "image": "shopify:\/\/shop_images\/Group_1041.svg",
-            "image_url": "https:\/\/capwholesalers.com",
-            "image_2": "shopify:\/\/shop_images\/logo_aee7e5ff-c067-4f38-91dd-d4d449a2f9cd.svg",
+            "image": "shopify://shop_images/Group_1041.svg",
+            "cwear_text": "Custom Logos & Patches",
+            "cap_text": "Blank Hats in Bulk",
+            "image_url": "https://capwholesalers.com",
+            "image_2": "shopify://shop_images/logo_aee7e5ff-c067-4f38-91dd-d4d449a2f9cd.svg",
             "image_url_2": ""
           }
         }
