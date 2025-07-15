@@ -142,7 +142,7 @@
 
   @media screen and (max-width: 768px) {
     .drawer {
-      opacity: 0; 
+      opacity: 0;
     }
     .drawer.active {
       opacity: 1;
@@ -552,8 +552,12 @@
                                 </span>
                               </a>
                             </cart-remove-button>
+                            {%- assign cart_product_url = item.product.url
+                              | append: '?variant='
+                              | append: item.variant_id
+                            -%}
                             <a
-                              href="{{ item.product.url }}"
+                              href="{{ cart_product_url }}"
                               class="button button--tertiary ui-pading-left"
                               aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
                             >
