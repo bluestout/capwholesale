@@ -6285,3 +6285,23 @@ media-gallery {
 .ui-drawer-gradient .drawer__header {
   background-color: #FFF !important;
 }
+
+.footer .footer__content-top .footer__blocks-wrapper .footer-block .footer-block__brand-info .footer-block--newsletter {
+  display: block !important;
+
+  .footer__follow-on-shop {
+    margin: 20px 0px !important;
+  }
+}
+
+.footer-image-link-text {
+  text-decoration: none;
+  margin: 0px;
+  color: #FFF;
+  display: block;
+  width: 100%;
+}
+
+.footer-block__image-wrapper a {
+  text-decoration: none;
+}
