@@ -1730,8 +1730,8 @@ product-info {
     }
   }
 
-  
-  .product__media.media > *:not(.zoom):not(.deferred-media__poster-button),
+
+  .product__media.media>*:not(.zoom):not(.deferred-media__poster-button),
   .product__media.media model-viewer {
     width: 640px;
     height: auto;
