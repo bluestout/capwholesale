@@ -216,8 +216,10 @@
                           </strong>
                         </div>
                       {%- else -%}
-                        <div class="product-option ui-price-fix">
-                          {{ item.original_price | money }}
+                        <div class="bold-align-currency" style="display: flex; align-items: center;">
+                          <div class="product-option ui-price-fix bold-item-price">
+                            {{ item.original_price | money }}
+                          </div>
                         </div>
                       {%- endif -%}
 
@@ -519,7 +521,7 @@
                             {{ item.original_line_price | money_with_currency }}
                           </span>
                         {%- endif -%}
-
+<span style="font-weight: bold;font-size: 15px;margin-left: 4px;">{{ localization.country.currency.iso_code }}</span>
                         {%- if item.variant.available and item.unit_price_measurement -%}
                           <div class="unit-price caption">
                             <span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span>
