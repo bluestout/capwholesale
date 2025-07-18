@@ -304,13 +304,15 @@
                               <span class="visually-hidden">
                                 {{ 'products.product.price.sale_price' | t }}
                               </span>
-                              <strong class="cart-item__final-price product-option">
+                              <strong class="cart-item__final-price product-option bold-item-price">
                                 {{ item.final_price | money_with_currency }}
                               </strong>
                             </div>
                           {%- else -%}
-                            <div class="product-option ui-cart-money ui-font-button">
-                              {{ item.original_price | money_with_currency }}
+                            <div class="bold-align-currency" style="display: flex;">
+                              <div class="product-option ui-cart-money ui-font-button bold-item-price">
+                                {{ item.original_price | money_with_currency }}
+                              </div>
                             </div>
                           {%- endif -%}
 
@@ -583,7 +585,7 @@
                                 {{ item.original_line_price | money_with_currency }}
                               </span>
                             {%- endif -%}
-
+<span style="font-weight: bold;font-size: 15px;">{{ localization.country.currency.iso_code }}</span>
                             {%- if item.variant.available and item.unit_price_measurement -%}
                               <div class="unit-price caption">
                                 <span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span>
@@ -655,7 +657,9 @@
 
           <div class="totals" role="status">
             <h2 class="totals__total">{{ 'sections.cart.estimated_total' | t }}</h2>
-            <p class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
+            <div class="bold-align-currency-cart-total" style="display: flex;">
+              <p class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
+            </div>
           </div>
 
           <div class="cart__ctas ui-red-button" {{ block.shopify_attributes }}>
