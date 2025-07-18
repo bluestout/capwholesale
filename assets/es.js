@@ -64,7 +64,7 @@ const setESQuantityRadios = widget => {
             const money_price = item.children[3].innerHTML;
             const change_price = money_price.match(regex)[0]
             const total_price = parseFloat(this.value) * parseFloat(change_price);
-            document.querySelector(".product .product-form__quantity .ui-total-price").children[1].innerHTML = '$' + total_price.toFixed(2) + " USD";
+            // document.querySelector(".product .product-form__quantity .ui-total-price").children[1].innerHTML = '$' + total_price.toFixed(2) + " USD";
           }
         })
       })
@@ -123,7 +123,7 @@ document.querySelector('.product-form__input .quantity input[name="quantity"]').
   
       if (parseFloat(Basic_value) < parseFloat(val_arr[index+1]?.val1) && parseFloat(Basic_value) >= parseFloat(val_arr[index].val1)) {
         const price = parseFloat(val_arr[index].val2) * Basic_value;
-        document.querySelector(".product .product-form__quantity .ui-total-price").children[1].innerHTML = '$' + price.toFixed(2) + " USD";
+        // document.querySelector(".product .product-form__quantity .ui-total-price").children[1].innerHTML = '$' + price.toFixed(2) + " USD";
       }
       if(parseFloat(Basic_value) < parseFloat(val_arr[index+1]?.val1) && parseFloat(Basic_value) >= parseFloat(val_arr[index].val1) ){
         value.checked = true;
@@ -162,7 +162,7 @@ document.querySelector('.product-form__input .quantity input[name="quantity"]').
   
       if (parseFloat(Basic_value) < parseFloat(val_arr[index+1]?.val1) && parseFloat(Basic_value) >= parseFloat(val_arr[index].val1)) {
         const price = parseFloat(val_arr[index].val2) * Basic_value;
-        document.querySelector(".product .product-form__quantity .ui-total-price").children[1].innerHTML = '$' + price.toFixed(2) + " USD";
+        // document.querySelector(".product .product-form__quantity .ui-total-price").children[1].innerHTML = '$' + price.toFixed(2) + " USD";
       }
       if(parseFloat(Basic_value) < parseFloat(val_arr[index+1]?.val1) && parseFloat(Basic_value) >= parseFloat(val_arr[index].val1) ){
         value.checked = true;
