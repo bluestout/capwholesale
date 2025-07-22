@@ -25,6 +25,8 @@
           "settings": {
             "subheading": "",
             "heading": "Cap Size Charts & Definitions",
+            "heading_tag": "h2",
+            "border_bottom": false,
             "heading_size": "h1"
           }
         }
@@ -35,8 +37,6 @@
       "name": "ES Image Banner",
       "settings": {
         "show_space": false,
-        "image": "shopify:\/\/shop_images\/allenburt_94637_httpss.mj.runlwhUVcnLWIY_Professional_studio__665c3873-514c-42a1-b908-a04b8f7ff395_0_1.jpg",
-        "image_mobile": "shopify:\/\/shop_images\/allenburt_94637_httpss.mj.runlwhUVcnLWIY_Professional_studio__665c3873-514c-42a1-b908-a04b8f7ff395_0_1.png",
         "image_overlay_opacity": 100,
         "opacity_type": "gradient",
         "opacity_color": "primary",
@@ -117,8 +117,7 @@
         "image_with_text_aV9RAk": {
           "type": "image_with_text",
           "settings": {
-            "image": "shopify:\/\/shop_images\/1600203478-size-cap-measurement_1.png",
-            "text": "<p><strong>Note:<\/strong> if your head measurement came out to be 22 1\/4 inches, you would move up to the 22 1\/2 column (the blue one above). Following it down, you would find you are a size M (Medium), or a 7 1\/8 hat size.<\/p><p><\/p><p><strong>FITTED HAT SIZES FOR FLEX-FIT HATS<\/strong><\/p><p>\u2028Flex-fit hats have a range of sizes, such as <a href=\"#\" title=\"#\">S\/M<\/a> (Small through Medium). So a S\/M hat would fit heads with measurements of 21 inches to 22 1\/2 inches, or hat sizes 6 3\/4 to 7 1\/8. A L\/XL (Large through Extra Large) hat would fit measurements just over 22 1\/2 up to 24 inches, or hat size 7 1\/4 to 7 5\/8.<br\/><br\/><\/p><p><strong>ONE SIZE FITS MOST<\/strong>\u2028<\/p><p>If a hat does not list sizes, it is a 'one-size-fits-most' hat. It will fit sizes from hat size 6 3\/4 up to 7 5\/8.<\/p>"
+            "text": "<p><strong>Note:</strong> if your head measurement came out to be 22 1/4 inches, you would move up to the 22 1/2 column (the blue one above). Following it down, you would find you are a size M (Medium), or a 7 1/8 hat size.</p><p></p><p><strong>FITTED HAT SIZES FOR FLEX-FIT HATS</strong></p><p> Flex-fit hats have a range of sizes, such as <a href=\"#\" title=\"#\">S/M</a> (Small through Medium). So a S/M hat would fit heads with measurements of 21 inches to 22 1/2 inches, or hat sizes 6 3/4 to 7 1/8. A L/XL (Large through Extra Large) hat would fit measurements just over 22 1/2 up to 24 inches, or hat size 7 1/4 to 7 5/8.<br/><br/></p><p><strong>ONE SIZE FITS MOST</strong> </p><p>If a hat does not list sizes, it is a 'one-size-fits-most' hat. It will fit sizes from hat size 6 3/4 up to 7 5/8.</p>"
           }
         }
       },
@@ -136,7 +135,7 @@
         "heading": "Caps Size Chart",
         "heading_size": "h1",
         "heading_alignment": "center",
-        "text": "<p>Use this chart of hat sizes below to determine your size. If your head size falls in between two sizes, you should choose the next larger size.<\/p>",
+        "text": "<p>Use this chart of hat sizes below to determine your size. If your head size falls in between two sizes, you should choose the next larger size.</p>",
         "layout": "row",
         "container_color_scheme": "",
         "color_scheme": "scheme-2",
@@ -151,7 +150,7 @@
           "type": "content",
           "settings": {
             "heading": "Profile or Crown",
-            "text": "<p>A baseball cap profile refers to the structure or crown on the front of the cap above the brim. There are generally four types of baseball cap profiles:<\/p><ul><li>(A) Structured–Standard high pro-crown profile<\/li><li>(B) Mid crown profile<\/li><li>(C) Mid to Low crown profile<\/li><li>(D) Unstructured – Low crown profile<\/li><li>(E) Pro round - round upper panels<\/li><\/ul>"
+            "text": "<p>A baseball cap profile refers to the structure or crown on the front of the cap above the brim. There are generally four types of baseball cap profiles:</p><ul><li>(A) Structured–Standard high pro-crown profile</li><li>(B) Mid crown profile</li><li>(C) Mid to Low crown profile</li><li>(D) Unstructured – Low crown profile</li><li>(E) Pro round - round upper panels</li></ul>"
           }
         },
         "space_MN8Byz": {
@@ -171,9 +170,8 @@
             "sm_column": false,
             "heading": "Crown options",
             "description": "",
-            "image": "shopify:\/\/shop_images\/1566253557-cap1_1.png",
             "left_text": "",
-            "text": "<h4>PRO HIGH (A)<\/h4><p>It has a structured, steep profile and is typically featured with a flat visor.<\/p>",
+            "text": "<h4>PRO HIGH (A)</h4><p>It has a structured, steep profile and is typically featured with a flat visor.</p>",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -184,9 +182,8 @@
             "sm_column": false,
             "heading": "",
             "description": "",
-            "image": "shopify:\/\/shop_images\/1566253810-cap4_1.png",
             "left_text": "",
-            "text": "<h4>PRO MID (B)<\/h4><p>Often thought of as the traditional baseball cap, it is usually structured, but has a slightly lower profile.<\/p>",
+            "text": "<h4>PRO MID (B)</h4><p>Often thought of as the traditional baseball cap, it is usually structured, but has a slightly lower profile.</p>",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -197,9 +194,8 @@
             "sm_column": false,
             "heading": "",
             "description": "",
-            "image": "shopify:\/\/shop_images\/1566253729-cap3_1.png",
             "left_text": "",
-            "text": "<h4>MID TO LOW (C)<\/h4><p>It is slightly less slanted and shallower than the Pro Mid but can be structured or unstructured.<\/p>",
+            "text": "<h4>MID TO LOW (C)</h4><p>It is slightly less slanted and shallower than the Pro Mid but can be structured or unstructured.</p>",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -210,9 +206,8 @@
             "sm_column": false,
             "heading": "",
             "description": "",
-            "image": "shopify:\/\/shop_images\/1566253810-cap4_1.png",
             "left_text": "",
-            "text": "<h4>LOW (D)<\/h4><p>It is either unstructured or lightly structured to lie closely to the head and is paired with a pre-curved visor.<\/p>",
+            "text": "<h4>LOW (D)</h4><p>It is either unstructured or lightly structured to lie closely to the head and is paired with a pre-curved visor.</p>",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -223,9 +218,8 @@
             "sm_column": false,
             "heading": "",
             "description": "",
-            "image": "shopify:\/\/shop_images\/1566253865-screen-shot-2019-08-19-at-3.30.45-pm_1.png",
             "left_text": "",
-            "text": "<h4>PRO ROUND (E)<\/h4><p>It has premium dual-tone buckram and rounded upper panels that contour to rest securely on your head. It is featured with a slight pre-curved visor.<\/p>",
+            "text": "<h4>PRO ROUND (E)</h4><p>It has premium dual-tone buckram and rounded upper panels that contour to rest securely on your head. It is featured with a slight pre-curved visor.</p>",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -238,7 +232,7 @@
           "type": "content",
           "settings": {
             "heading": "Closure type - For adjustable caps",
-            "text": "<p>Adjustable baseball caps have closures on the back of the caps that allow you to adjust the size.<\/p>"
+            "text": "<p>Adjustable baseball caps have closures on the back of the caps that allow you to adjust the size.</p>"
           }
         },
         "image_with_text_JUHi4T": {
@@ -247,9 +241,9 @@
             "sm_column": false,
             "heading": "",
             "description": "",
-            "image": "shopify:\/\/shop_images\/1566316851-caps-good_1.png",
+            "image": "shopify://shop_images/Plastic_snap.jpg",
             "left_text": "",
-            "text": "<p>Plastic snap<\/p>",
+            "text": "<p>Plastic snap</p>",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -260,9 +254,9 @@
             "sm_column": false,
             "heading": "",
             "description": "",
-            "image": "shopify:\/\/shop_images\/1566316851-caps-good_1_1.png",
+            "image": "shopify://shop_images/Double_plastic_snap.jpg",
             "left_text": "",
-            "text": "<p>Double plastic snap<\/p>",
+            "text": "<p>Double plastic snap</p>",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -273,9 +267,9 @@
             "sm_column": false,
             "heading": "",
             "description": "",
-            "image": "shopify:\/\/shop_images\/1566316851-caps-good_1_2.png",
+            "image": "shopify://shop_images/Hook-Loop_Velcro.jpg",
             "left_text": "",
-            "text": "<p>Hook\/Loop tape<\/p>",
+            "text": "<p>Hook/Loop tape</p>",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -286,9 +280,8 @@
             "sm_column": false,
             "heading": "",
             "description": "",
-            "image": "shopify:\/\/shop_images\/1566316851-caps-good_1_3.png",
             "left_text": "",
-            "text": "<p>Tuck strap with slide<\/p>",
+            "text": "<p>Tuck strap with slide</p>",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -299,9 +292,8 @@
             "sm_column": false,
             "heading": "",
             "description": "",
-            "image": "shopify:\/\/shop_images\/1566316851-caps-good_1_4.png",
             "left_text": "",
-            "text": "<p>Tuck strap with buckle or snap buckle<\/p>",
+            "text": "<p>Tuck strap with buckle or snap buckle</p>",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -312,9 +304,8 @@
             "sm_column": false,
             "heading": "",
             "description": "",
-            "image": "shopify:\/\/shop_images\/1566316851-caps-good_1_7.png",
             "left_text": "",
-            "text": "<p>D-Fit®<\/p>",
+            "text": "<p>D-Fit®</p>",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -325,9 +316,8 @@
             "sm_column": false,
             "heading": "",
             "description": "",
-            "image": "shopify:\/\/shop_images\/1566316851-caps-good_1_6.png",
             "left_text": "",
-            "text": "<p>Nylon strap with plastic buckle<\/p>",
+            "text": "<p>Nylon strap with plastic buckle</p>",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -340,7 +330,7 @@
           "type": "content",
           "settings": {
             "heading": "Fitted caps are not adjustable",
-            "text": "<p>Fitted caps are not adjustable, since they are fitted to head sizes, and therefore do not have closure types, the back of a fitted cap is closed.<\/p>"
+            "text": "<p>Fitted caps are not adjustable, since they are fitted to head sizes, and therefore do not have closure types, the back of a fitted cap is closed.</p>"
           }
         },
         "image_with_text_yc9r6L": {
@@ -350,7 +340,7 @@
             "heading": "",
             "description": "",
             "left_text": "Panels:",
-            "text": "<p>Panels are different pieces of fabric that make up the top of the cap, there are usually five or six panels in a baseball cap.<\/p>",
+            "text": "<p>Panels are different pieces of fabric that make up the top of the cap, there are usually five or six panels in a baseball cap.</p>",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -362,7 +352,7 @@
             "heading": "",
             "description": "",
             "left_text": "Fabric Material:",
-            "text": "<p>Baseball caps are generally made of cotton, cotton blends, jersey mesh, wool, acrylic\/wool blends, and moisture wicking fabric.<\/p>",
+            "text": "<p>Baseball caps are generally made of cotton, cotton blends, jersey mesh, wool, acrylic/wool blends, and moisture wicking fabric.</p>",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -374,7 +364,7 @@
             "heading": "",
             "description": "",
             "left_text": "Brim:",
-            "text": "<p>Also known as bill or visor. The brim of the cap is the piece that protects your face from the sun. It is usually made of plastic which is sewn inside the fabric.<\/p>",
+            "text": "<p>Also known as bill or visor. The brim of the cap is the piece that protects your face from the sun. It is usually made of plastic which is sewn inside the fabric.</p>",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -386,7 +376,7 @@
             "heading": "",
             "description": "",
             "left_text": "Eyelets:",
-            "text": "<p>Eyelets are small holes at the top of the cap that allow your head to breathe. They can either be metal or reinforced stitching.<\/p>",
+            "text": "<p>Eyelets are small holes at the top of the cap that allow your head to breathe. They can either be metal or reinforced stitching.</p>",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -398,7 +388,7 @@
             "heading": "",
             "description": "",
             "left_text": "Buckram:",
-            "text": "<p>The buckram of a baseball cap is the mesh liner inside of the front of the cap that provides the structure and form. Structured caps have buckram and unstructured caps have no buckram, giving them the more casual, lower profile.<\/p>",
+            "text": "<p>The buckram of a baseball cap is the mesh liner inside of the front of the cap that provides the structure and form. Structured caps have buckram and unstructured caps have no buckram, giving them the more casual, lower profile.</p>",
             "padding_top": 0,
             "padding_bottom": 0
           }
