@@ -8,6 +8,14 @@ const KlaviyoReady = () => {
       img.setAttribute("alt", "ADA Alt Text")
     }
   })
+
+  const btnModal = document.querySelector('div[data-testid="animated-teaser"] .needsclick');
+  if (btnModal && btnModal.parentNode.tagName !== 'NAV') {
+    const navTag = document.createElement("nav");
+    navTag.style.height = '64px';
+    btnModal.parentNode.insertBefore(navTag, btnModal);
+    navTag.appendChild(btnModal);
+  }
 }
 
 const setESQuantityRadios = widget => {
@@ -92,6 +100,7 @@ const observer = new MutationObserver((mutations, obs) => {
   if (flag == 2) {
     obs.disconnect();
   }
+
 });
 
 observer.observe(document.body, { childList: true, subtree: true });
@@ -114,21 +123,21 @@ document.querySelector('.product-form__input .quantity input[name="quantity"]').
       })
     })
     val_arr.push({
-      val1: val_arr[length-1].val1 * 1e30,
-      val2: val_arr[length-1].val2
+      val1: val_arr[length - 1].val1 * 1e30,
+      val2: val_arr[length - 1].val2
     });
-  
+
     each_price.forEach((item, index) => {
       const value = item.children[0];
-  
-      if (parseFloat(Basic_value) < parseFloat(val_arr[index+1]?.val1) && parseFloat(Basic_value) >= parseFloat(val_arr[index].val1)) {
+
+      if (parseFloat(Basic_value) < parseFloat(val_arr[index + 1]?.val1) && parseFloat(Basic_value) >= parseFloat(val_arr[index].val1)) {
         const price = parseFloat(val_arr[index].val2) * Basic_value;
         // document.querySelector(".product .product-form__quantity .ui-total-price").children[1].innerHTML = '$' + price.toFixed(2) + " USD";
       }
-      if(parseFloat(Basic_value) < parseFloat(val_arr[index+1]?.val1) && parseFloat(Basic_value) >= parseFloat(val_arr[index].val1) ){
+      if (parseFloat(Basic_value) < parseFloat(val_arr[index + 1]?.val1) && parseFloat(Basic_value) >= parseFloat(val_arr[index].val1)) {
         value.checked = true;
       }
-      else{
+      else {
         value.checked = false;
       }
     })
@@ -153,21 +162,21 @@ document.querySelector('.product-form__input .quantity input[name="quantity"]').
       })
     })
     val_arr.push({
-      val1: val_arr[length-1].val1 * 1e30,
-      val2: val_arr[length-1].val2
+      val1: val_arr[length - 1].val1 * 1e30,
+      val2: val_arr[length - 1].val2
     });
-  
+
     each_price.forEach((item, index) => {
       const value = item.children[0];
-  
-      if (parseFloat(Basic_value) < parseFloat(val_arr[index+1]?.val1) && parseFloat(Basic_value) >= parseFloat(val_arr[index].val1)) {
+
+      if (parseFloat(Basic_value) < parseFloat(val_arr[index + 1]?.val1) && parseFloat(Basic_value) >= parseFloat(val_arr[index].val1)) {
         const price = parseFloat(val_arr[index].val2) * Basic_value;
         // document.querySelector(".product .product-form__quantity .ui-total-price").children[1].innerHTML = '$' + price.toFixed(2) + " USD";
       }
-      if(parseFloat(Basic_value) < parseFloat(val_arr[index+1]?.val1) && parseFloat(Basic_value) >= parseFloat(val_arr[index].val1) ){
+      if (parseFloat(Basic_value) < parseFloat(val_arr[index + 1]?.val1) && parseFloat(Basic_value) >= parseFloat(val_arr[index].val1)) {
         value.checked = true;
       }
-      else{
+      else {
         value.checked = false;
       }
     })
