@@ -1731,15 +1731,16 @@ product-info {
   }
 
 
-  .product__media.media>*:not(.zoom):not(.deferred-media__poster-button),
-  .product__media.media model-viewer {
-    width: 640px;
-    height: auto;
-    left: 5%;
+  .product__media.media {
+    max-width: 640px;
+
+    img {
+      object-fit: contain;
+    }
   }
 
   @media screen and (max-width: 750px) {
-    .product__media-list .product__media.media>* {
+    .product__media-list .product__media.media {
       width: 100% !important;
       height: 100% !important;
       left: 0 !important;
