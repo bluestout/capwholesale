@@ -26,7 +26,7 @@
             "heading": "Customer Reviews",
             "layout": "list",
             "star_color": "#990000",
-            "types_to_show": "product"
+            "types_to_show": "both"
           }
         }
       },
