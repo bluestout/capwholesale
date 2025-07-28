@@ -2457,8 +2457,15 @@ product-info {
           font-family: "Inter", sans-serif;
           font-weight: 600;
           line-height: 16px;
-          margin-bottom: 38px;
-          margin-top: 40px;
+          
+          @media (min-width: 769px) {
+            margin-bottom: 38px;
+            margin-top: 40px;
+          }
+
+          @media (max-width: 768px) {
+            margin-bottom: 0;
+          }
         }
 
         .cloud-search-page-controls__filters {
