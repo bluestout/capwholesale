@@ -1730,7 +1730,20 @@ product-info {
     }
   }
 
-
+  .product__badge {
+    .es-product__badge-item {
+      background-color: #990000;
+      padding: 5px 12px;
+      color: white;
+      font-size: 10px;
+      font-family: Inter;
+      font-weight: 600;
+      text-transform: uppercase;
+      line-height: 10px;
+      letter-spacing: 1px;
+      border-radius: 20px;
+    }
+  }
   .product__media.media {
     max-width: 640px;
 
