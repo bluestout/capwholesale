@@ -16,6 +16,10 @@
           "type": "title",
           "settings": {}
         },
+        "badge_pXBxr4": {
+          "type": "badge",
+          "settings": {}
+        },
         "fera_product_reviews_summary_EVdWNT": {
           "type": "shopify://apps/fera/blocks/product_reviews_summary/2fbfcfa7-8a04-479f-89a8-0621fa099c51",
           "settings": {
@@ -156,6 +160,7 @@
       },
       "block_order": [
         "title",
+        "badge_pXBxr4",
         "fera_product_reviews_summary_EVdWNT",
         "text_Pb8kXM",
         "variant_picker",
