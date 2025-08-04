@@ -25,7 +25,7 @@
           "settings": {
             "subheading": "",
             "heading": "Reviews",
-            "heading_tag": "h2",
+            "heading_tag": "h1",
             "border_bottom": true,
             "heading_size": "h1"
           }
@@ -36,7 +36,7 @@
       ],
       "name": "ES Image Banner",
       "settings": {
-        "show_space": true,
+        "show_space": false,
         "image": "shopify://shop_images/allenburt_94637_realistic_4K_photo_group_of_men_and_women_wea_099f589c-f969-46a4-8eed-0fdfa1e795a4_2_1.png",
         "image_overlay_opacity": 20,
         "opacity_type": "normal",
@@ -45,8 +45,8 @@
         "opacity_direction": "vertical",
         "image_height": "small",
         "image_behavior": "none",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
         "show_text_box": false,
         "color_scheme": "",
         "stack_images_on_mobile": false,
