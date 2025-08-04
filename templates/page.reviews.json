@@ -17,6 +17,47 @@
         "padding_bottom": 28
       }
     },
+    "es_image_banner_nDUdU7": {
+      "type": "es-image-banner",
+      "blocks": {
+        "heading_FAhHyU": {
+          "type": "heading",
+          "settings": {
+            "subheading": "",
+            "heading": "Reviews",
+            "heading_tag": "h2",
+            "border_bottom": true,
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_FAhHyU"
+      ],
+      "name": "ES Image Banner",
+      "settings": {
+        "show_space": true,
+        "image": "shopify://shop_images/allenburt_94637_realistic_4K_photo_group_of_men_and_women_wea_099f589c-f969-46a4-8eed-0fdfa1e795a4_2_1.png",
+        "image_overlay_opacity": 20,
+        "opacity_type": "normal",
+        "opacity_color": "primary",
+        "opacity_weight_on_desktop": "light",
+        "opacity_direction": "vertical",
+        "image_height": "small",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "",
+        "stack_images_on_mobile": false,
+        "mobile_content_position": "middle",
+        "mobile_content_alignment": "center",
+        "opacity_direct_on_mobile": "vertical",
+        "opacity_height_on_mobile": "small",
+        "image_height_on_mobile": "square",
+        "show_text_below": false
+      }
+    },
     "1753724486edbeaf6e": {
       "type": "apps",
       "blocks": {
@@ -40,6 +81,7 @@
   },
   "order": [
     "main",
+    "es_image_banner_nDUdU7",
     "1753724486edbeaf6e"
   ]
 }
