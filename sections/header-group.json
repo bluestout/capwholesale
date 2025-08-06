@@ -43,10 +43,20 @@
           "settings": {
             "menu": "moblie-main-menu-1"
           }
+        },
+        "specific_link_VjQTPq": {
+          "type": "specific_link",
+          "settings": {
+            "link_text": "Shop Custom Hats",
+            "custom_class": "use-dropdown",
+            "link_color": "#990000",
+            "font_weight": 400
+          }
         }
       },
       "block_order": [
-        "mobile_menu_aLMmPP"
+        "mobile_menu_aLMmPP",
+        "specific_link_VjQTPq"
       ],
       "custom_css": [
         "@media (min-width: 768px) {.shop-all {margin-bottom: 30px; }}"
