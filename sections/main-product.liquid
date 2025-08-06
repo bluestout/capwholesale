@@ -393,7 +393,7 @@
                           data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
                           max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
                         {% endif %}
-                        step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
+                        step="12"
                         value="{{ product.metafields.custom.qty_cw.value | minus: 0 }}"
                         form="{{ product_form_id }}"
                         required

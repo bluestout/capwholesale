@@ -435,10 +435,10 @@
 .footer-block__details-content .placeholder-svg {
   max-width: 20rem;
 }
-
+/* 
 .copyright__content {
   font-size: inherit;
-}
+} */
 
 .copyright__content a {
   color: currentColor;

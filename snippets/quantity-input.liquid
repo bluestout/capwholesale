@@ -30,7 +30,7 @@
     {% if variant.quantity_rule.max != null %}
       max="{{ variant.quantity_rule.max }}"
     {% endif %}
-    step="{{ variant.quantity_rule.increment }}"
+    step="12" {% comment %} {{ variant.quantity_rule.increment }} {% endcomment %}
     {% # theme-check-enable %}
     aria-label="{{ 'products.product.quantity.input_label' | t: product: variant.title | escape }}"
     id="Quantity-{{ variant.id }}"
