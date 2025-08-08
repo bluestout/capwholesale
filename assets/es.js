@@ -9,7 +9,7 @@ const KlaviyoReady = () => {
     }
   })
 
-  const btnModal = document.querySelector('div[data-testid="animated-teaser"] .needsclick');
+  const btnModal = document.querySelector('.kl-teaser-Uwk4Dp');
   if (btnModal && btnModal.parentNode.tagName !== 'NAV') {
     const navTag = document.createElement("nav");
     navTag.style.height = '64px';
@@ -105,7 +105,7 @@ const observer = new MutationObserver((mutations, obs) => {
 
 observer.observe(document.body, { childList: true, subtree: true });
 
-document.querySelector('.product-form__input .quantity input[name="quantity"]').addEventListener('change', function () {
+document.querySelector('.product-form__input .quantity input[name="quantity"]')?.addEventListener('change', function () {
   const Basic_value = this.value;
   const regex = /([0-9][0-9\.]*)/;
   const each_price = document.querySelector(".es-quantity-radios .es-quantity-radios__body")?.childNodes;
@@ -144,7 +144,7 @@ document.querySelector('.product-form__input .quantity input[name="quantity"]').
   }
 });
 
-document.querySelector('.product-form__input .quantity input[name="quantity"]').addEventListener('input', function () {
+document.querySelector('.product-form__input .quantity input[name="quantity"]')?.addEventListener('input', function () {
   const Basic_value = this.value;
   const regex = /([0-9][0-9\.]*)/;
   const each_price = document.querySelector(".es-quantity-radios .es-quantity-radios__body")?.childNodes;
