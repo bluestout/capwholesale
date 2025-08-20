@@ -6380,3 +6380,14 @@ media-gallery {
     line-height: 120%;
   }
 }
+
+
+.template-product {
+  @media (max-width: 750px) {
+    product-recommendations {
+      .grid__item {
+        width: calc(38% - var(--grid-mobile-horizontal-spacing) / 2);
+      }
+    }
+  }
+}
