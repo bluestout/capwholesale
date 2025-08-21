@@ -6391,3 +6391,9 @@ media-gallery {
     }
   }
 }
+
+.fera-reviews-widget#reviews {
+  @media (max-width: 750px) {
+    scroll-margin-top: 80px;
+  }
+}
