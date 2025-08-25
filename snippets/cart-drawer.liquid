@@ -309,10 +309,8 @@
                               </strong>
                             </div>
                           {%- else -%}
-                            <div class="bold-align-currency" style="display: flex;">
-                              <div class="product-option ui-cart-money ui-font-button bold-item-price">
-                                {{ item.original_price | money_with_currency }}
-                              </div>
+                            <div class="product-option ui-cart-money ui-font-button bold-item-price">
+                              {{ item.original_price | money_with_currency }}
                             </div>
                           {%- endif -%}
 
@@ -424,6 +422,7 @@
                                     aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
                                     id="Drawer-quantity-{{ item.index | plus: 1 }}"
                                     data-index="{{ item.index | plus: 1 }}"
+                                    disabled
                                   >
                                   <button class="quantity__button" name="plus" type="button">
                                     <span class="visually-hidden">
@@ -589,7 +588,6 @@
                                 {{ item.original_line_price | money_with_currency }}
                               </span>
                             {%- endif -%}
-<!-- <span style="font-weight: bold;font-size: 15px;">{{ localization.country.currency.iso_code }}</span> -->
                             {%- if item.variant.available and item.unit_price_measurement -%}
                               <div class="unit-price caption">
                                 <span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span>
