@@ -142,7 +142,7 @@
 
   @media screen and (max-width: 768px) {
     .drawer {
-      opacity: 0;
+      opacity: 0; 
     }
     .drawer.active {
       opacity: 1;
@@ -192,7 +192,7 @@
                   {{- 'icon-close.svg' | inline_asset_content -}}
                 </span>
               </button>
-              <a href="{{ routes.root_url }}" class="button">
+              <a href="{{ routes.all_products_collection_url }}" class="button">
                 {{ 'general.continue_shopping' | t }}
               </a>
 
@@ -299,19 +299,20 @@
                                 {{ 'products.product.price.regular_price' | t }}
                               </span>
                               <s class="cart-item__old-price product-option">
-                                {{- item.original_price | money_with_currency -}}
+                                {{- item.original_price | money_without_currency -}}
                               </s>
                               <span class="visually-hidden">
                                 {{ 'products.product.price.sale_price' | t }}
                               </span>
                               <strong class="cart-item__final-price product-option bold-item-price">
-                                {{ item.final_price | money_with_currency }}
+                                {{ item.final_price | money_without_currency }}
                               </strong>
                             </div>
                           {%- else -%}
-                            <div class="product-option ui-cart-money ui-font-button bold-item-price">
-                              {{ item.original_price | money_with_currency }}
-                            </div>
+                              <div class="product-option ui-cart-money ui-font-button bold-item-price">
+                                {{ item.original_price | money_without_currency }}
+                              </div>
+                         
                           {%- endif -%}
 
                           {%- if item.product.has_only_default_variant == false
@@ -509,7 +510,7 @@
                                     <ul class="list-unstyled">
                                       <li>
                                         <span>{{ item.variant.quantity_rule.min }}+</span>
-                                        <span>{{ item.variant.price | money_with_currency }}/ea</span>
+                                        <span>{{ item.variant.price | money_without_currency }}/ea</span>
                                       </li>
                                       {%- for price_break in item.variant.quantity_price_breaks -%}
                                         <li>
@@ -517,7 +518,7 @@
                                             {{- price_break.minimum_quantity -}}
                                             <span aria-hidden="true">+</span></span
                                           >
-                                          <span>{{ price_break.price | money_with_currency }}/ea</span>
+                                          <span>{{ price_break.price | money_without_currency }}/ea</span>
                                         </li>
                                       {%- endfor -%}
                                     </ul>
@@ -553,12 +554,8 @@
                                 </span>
                               </a>
                             </cart-remove-button>
-                            {%- assign cart_product_url = item.product.url
-                              | append: '?variant='
-                              | append: item.variant_id
-                            -%}
                             <a
-                              href="{{ cart_product_url }}"
+                              href="{{ item.product.url }}"
                               class="button button--tertiary ui-pading-left"
                               aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
                             >
@@ -567,41 +564,44 @@
                               </span>
                             </a>
                           </div>
-                          <div class="cart-item__price-wrapper ui-price-width">
-                            {%- if item.original_line_price != item.final_line_price -%}
-                              <div class="cart-item__discounted-prices">
-                                <span class="visually-hidden">
-                                  {{ 'products.product.price.regular_price' | t }}
-                                </span>
-                                <s class="cart-item__old-price price price--end">
-                                  {{ item.original_line_price | money_with_currency }}
-                                </s>
-                                <span class="visually-hidden">
-                                  {{ 'products.product.price.sale_price' | t }}
-                                </span>
+                          <div style="display:flex">
+                            <div class="cart-item__price-wrapper ui-price-width">
+                              {%- if item.original_line_price != item.final_line_price -%}
+                                <div class="cart-item__discounted-prices">
+                                  <span class="visually-hidden">
+                                    {{ 'products.product.price.regular_price' | t }}
+                                  </span>
+                                  <s class="cart-item__old-price price price--end">
+                                    {{ item.original_line_price | money_without_currency }}
+                                  </s>
+                                  <span class="visually-hidden">
+                                    {{ 'products.product.price.sale_price' | t }}
+                                  </span>
+                                  <span class="price price--end ui-font-button">
+                                    {{ item.final_line_price | money_without_currency }}
+                                  </span>
+                                </div>
+                              {%- else -%}
                                 <span class="price price--end ui-font-button">
-                                  {{ item.final_line_price | money_with_currency }}
+                                  {{ item.original_line_price | money_without_currency }}
                                 </span>
-                              </div>
-                            {%- else -%}
-                              <span class="price price--end ui-font-button">
-                                {{ item.original_line_price | money_with_currency }}
-                              </span>
-                            {%- endif -%}
-                            {%- if item.variant.available and item.unit_price_measurement -%}
-                              <div class="unit-price caption">
-                                <span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span>
-                                {{ item.unit_price | money_with_currency }}
-                                <span aria-hidden="true">/</span>
-                                <span class="visually-hidden"
-                                  >&nbsp;{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span
-                                >
-                                {%- if item.unit_price_measurement.reference_value != 1 -%}
-                                  {{- item.unit_price_measurement.reference_value -}}
-                                {%- endif -%}
-                                {{ item.unit_price_measurement.reference_unit }}
-                              </div>
-                            {%- endif -%}
+                              {%- endif -%}
+  
+                              {%- if item.variant.available and item.unit_price_measurement -%}
+                                <div class="unit-price caption">
+                                  <span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span>
+                                  {{ item.unit_price | money_without_currency }}
+                                  <span aria-hidden="true">/</span>
+                                  <span class="visually-hidden"
+                                    >&nbsp;{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span
+                                  >
+                                  {%- if item.unit_price_measurement.reference_value != 1 -%}
+                                    {{- item.unit_price_measurement.reference_value -}}
+                                  {%- endif -%}
+                                  {{ item.unit_price_measurement.reference_unit }}
+                                </div>
+                              {%- endif -%}
+                            </div>
                           </div>
                         </td>
                       </tr>
@@ -650,7 +650,7 @@
                   <li class="discounts__discount discounts__discount--end">
                     {{- 'icon-discount.svg' | inline_asset_content -}}
                     {{ discount.title | escape }}
-                    (-{{ discount.total_allocated_amount | money_with_currency }})
+                    (-{{ discount.total_allocated_amount | money_without_currency }})
                   </li>
                 {%- endfor -%}
               </ul>
@@ -660,7 +660,7 @@
           <div class="totals" role="status">
             <h2 class="totals__total">{{ 'sections.cart.estimated_total' | t }}</h2>
             <div class="bold-align-currency-cart-total" style="display: flex;">
-              <p class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
+              <p class="totals__total-value">{{ cart.total_price | money_without_currency }}</p>
             </div>
           </div>
 

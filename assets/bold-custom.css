@@ -1,0 +1,17 @@
+.cart-item__price-wrapper.ui-price-width, .cart-item__price-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ui-price-width span {
+  width: 100% !important;
+}
+
+.cart-drawer .price {
+ line-height: 0px !important; 
+}
+
+.ui-price-width span {
+  overflow: visible !important;
+}
