@@ -26,6 +26,9 @@ class CartDrawer extends HTMLElement {
   }
 
   open(triggeredBy) {
+    if (typeof BOLD === 'object' && BOLD.common && BOLD.common.eventEmitter && typeof BOLD.common.eventEmitter.emit === 'function') {
+  BOLD.common.eventEmitter.emit("BOLD_COMMON_cart_loaded");
+}
     if (triggeredBy) this.setActiveElement(triggeredBy);
     const cartDrawerNote = this.querySelector('[id^="Details-"] summary');
     if (cartDrawerNote && !cartDrawerNote.hasAttribute('role')) this.setSummaryAccessibility(cartDrawerNote);
@@ -71,6 +74,9 @@ class CartDrawer extends HTMLElement {
   }
 
   renderContents(parsedState) {
+    if (typeof BOLD === 'object' && BOLD.common && BOLD.common.eventEmitter && typeof BOLD.common.eventEmitter.emit === 'function') {
+  BOLD.common.eventEmitter.emit("BOLD_COMMON_cart_loaded");
+}
     this.querySelector('.drawer__inner').classList.contains('is-empty') &&
       this.querySelector('.drawer__inner').classList.remove('is-empty');
     this.productId = parsedState.id;
@@ -87,6 +93,7 @@ class CartDrawer extends HTMLElement {
       this.querySelector('#CartDrawer-Overlay').addEventListener('click', this.close.bind(this));
       this.open();
     });
+    
   }
 
   getSectionInnerHTML(html, selector = '.shopify-section') {

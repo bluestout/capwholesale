@@ -15,3 +15,7 @@
 .ui-price-width span {
   overflow: visible !important;
 }
+
+.hide-prices {
+  display: none;
+}

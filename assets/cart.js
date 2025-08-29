@@ -3,6 +3,7 @@ class CartRemoveButton extends HTMLElement {
     super();
 
     this.addEventListener('click', (event) => {
+      
       event.preventDefault();
       const cartItems = this.closest('cart-items') || this.closest('cart-drawer-items');
       cartItems.updateQuantity(this.dataset.index, 0, event);
@@ -68,6 +69,7 @@ class CartItems extends HTMLElement {
       message = window.quickOrderListStrings.step_error.replace('[step]', event.target.step);
     }
 
+    
     if (message) {
       this.setValidity(event, index, message);
     } else {
@@ -85,6 +87,7 @@ class CartItems extends HTMLElement {
 
   onChange(event) {
     this.validateQuantity(event);
+    
   }
 
   onCartUpdate() {
@@ -160,7 +163,9 @@ class CartItems extends HTMLElement {
         return response.text();
       })
       .then((state) => {
+        
         const parsedState = JSON.parse(state);
+        
 
         CartPerformance.measure(`${eventTarget}:paint-updated-sections"`, () => {
           const quantityElement =
@@ -180,14 +185,14 @@ class CartItems extends HTMLElement {
           if (cartFooter) cartFooter.classList.toggle('is-empty', parsedState.item_count === 0);
           if (cartDrawerWrapper) cartDrawerWrapper.classList.toggle('is-empty', parsedState.item_count === 0);
 
-          this.getSectionsToRender().forEach((section) => {
-            const elementToReplace =
-              document.getElementById(section.id).querySelector(section.selector) || document.getElementById(section.id);
-            elementToReplace.innerHTML = this.getSectionInnerHTML(
-              parsedState.sections[section.section],
-              section.selector
-            );
-          });
+          // this.getSectionsToRender().forEach((section) => {
+          //   const elementToReplace =
+          //     document.getElementById(section.id).querySelector(section.selector) || document.getElementById(section.id);
+          //   elementToReplace.innerHTML = this.getSectionInnerHTML(
+          //     parsedState.sections[section.section],
+          //     section.selector
+          //   );
+          // });
           const updatedValue = parsedState.items[line - 1] ? parsedState.items[line - 1].quantity : undefined;
           let message = '';
           if (items.length === parsedState.items.length && updatedValue !== parseInt(quantityElement.value)) {
@@ -223,6 +228,10 @@ class CartItems extends HTMLElement {
       })
       .finally(() => {
         this.disableLoading(line);
+  if (typeof BOLD === 'object' && BOLD.common && BOLD.common.eventEmitter && typeof BOLD.common.eventEmitter.emit === 'function') {
+    BOLD.common.eventEmitter.emit("BOLD_COMMON_cart_loaded");
+  }
+        
       });
   }
 
