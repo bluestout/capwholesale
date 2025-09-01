@@ -111,6 +111,20 @@
             "page": "apparel-size-chart-for-mobile",
             "responsive": "mobile"
           }
+        },
+        "page_yYGRLr": {
+          "type": "page",
+          "settings": {
+            "page": "apparel-size-chart-for-mobile-2",
+            "responsive": "mobile"
+          }
+        },
+        "page_DUJmfK": {
+          "type": "page",
+          "settings": {
+            "page": "apparel-size-chart-for-mobile-3",
+            "responsive": "mobile"
+          }
         }
       },
       "block_order": [
@@ -120,7 +134,9 @@
         "page_eHQ7fK",
         "page_VEC4Dd",
         "page_HPhaYk",
-        "page_8BeWGq"
+        "page_8BeWGq",
+        "page_yYGRLr",
+        "page_DUJmfK"
       ],
       "name": "ES Size Chart",
       "settings": {
