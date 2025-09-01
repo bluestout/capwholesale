@@ -3941,11 +3941,11 @@ cart-items {
                 }
               }
 
-              td:nth-child(n + 2) {
-                @media (min-width: 751px) {
-                  width: 15% !important;
-                }
-              }
+              // td:nth-child(n + 2) {
+              //   @media (min-width: 751px) {
+              //     width: 15% !important;
+              //   }
+              // }
 
               @media (min-width: 751px) {
                 &:nth-child(3) {
