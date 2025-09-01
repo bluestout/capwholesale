@@ -3933,10 +3933,10 @@ cart-items {
               th,
               td:nth-child(1) {
                 text-align: right;
-                width: 250px !important;
+                // width: 250px !important;
 
                 @media (max-width: 750px) {
-                  width: 205px !important;
+                  // width: 205px !important;
                   font-weight: 600;
                 }
               }
