@@ -37,6 +37,8 @@
       "name": "ES Image Banner",
       "settings": {
         "show_space": false,
+        "image": "shopify://shop_images/Image_b7d078c6-1174-4669-a21b-9cb2c911ad48.jpg",
+        "image_mobile": "shopify://shop_images/Image_1.jpg",
         "image_overlay_opacity": 100,
         "opacity_type": "gradient",
         "opacity_color": "primary",
