@@ -1,0 +1,163 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "es_image_banner_CdJKXc": {
+      "type": "es-image-banner",
+      "blocks": {
+        "heading_yJ3qhT": {
+          "type": "heading",
+          "settings": {
+            "subheading": "",
+            "heading": "Cap Size Charts & Definitions",
+            "heading_tag": "h1",
+            "border_bottom": false,
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_yJ3qhT"
+      ],
+      "name": "ES Image Banner",
+      "settings": {
+        "show_space": false,
+        "image_overlay_opacity": 100,
+        "opacity_type": "gradient",
+        "opacity_color": "primary",
+        "opacity_weight_on_desktop": "light",
+        "opacity_direction": "horizontal",
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": false,
+        "mobile_content_position": "bottom",
+        "mobile_content_alignment": "center",
+        "opacity_direct_on_mobile": "vertical",
+        "opacity_height_on_mobile": "large",
+        "image_height_on_mobile": "adapt",
+        "show_text_below": false
+      }
+    },
+    "es_cap_size_chart_JimhWP": {
+      "type": "es-cap-size-chart",
+      "blocks": {
+        "text_blocks_xnEngV": {
+          "type": "text_blocks",
+          "settings": {
+            "block_title": "Shirts",
+            "block_content": "<p>Neck: Take a shirt with a collar that fits you well. Lay collar flat and measure from center of collar button to far end of buttonhole. Number of inches = size. Or, measure around middle of neck. Tape should be snug, not tight.</p><p></p><p></p>"
+          }
+        },
+        "text_blocks_8x8TGU": {
+          "type": "text_blocks",
+          "settings": {
+            "block_title": "Chest",
+            "block_content": "<p>Measure around fullest part of chest, keeping tape up under arms and around shoulder blades. Or, lay garment flat; measure from 2\" below underarm to other underarm. Double.<br/><br/></p>"
+          }
+        },
+        "text_blocks_HGpmDa": {
+          "type": "text_blocks",
+          "settings": {
+            "block_title": "Waist",
+            "block_content": "<p>Measure around waist, over shirt (not over slacks) at the height you normally wear your slacks. Keep one finger between tape and body. Number of inches = size. Or, lay garment flat, measure across waistband. Double.<br/><br/></p>"
+          }
+        },
+        "page_eHQ7fK": {
+          "type": "page",
+          "name": "Size Chart 1",
+          "settings": {
+            "page": "apparel-size",
+            "responsive": "desktop"
+          }
+        },
+        "page_VEC4Dd": {
+          "type": "page",
+          "name": "Size Chart 2",
+          "settings": {
+            "page": "apparel-size-2",
+            "responsive": "desktop"
+          }
+        },
+        "page_HPhaYk": {
+          "type": "page",
+          "name": "Size Chart 3",
+          "settings": {
+            "page": "aa",
+            "responsive": "desktop"
+          }
+        },
+        "page_8BeWGq": {
+          "type": "page",
+          "settings": {
+            "page": "apparel-size-chart-for-mobile",
+            "responsive": "mobile"
+          }
+        },
+        "page_yYGRLr": {
+          "type": "page",
+          "settings": {
+            "page": "apparel-size-chart-for-mobile-2",
+            "responsive": "mobile"
+          }
+        },
+        "page_DUJmfK": {
+          "type": "page",
+          "settings": {
+            "page": "apparel-size-chart-for-mobile-3",
+            "responsive": "mobile"
+          }
+        }
+      },
+      "block_order": [
+        "text_blocks_xnEngV",
+        "text_blocks_8x8TGU",
+        "text_blocks_HGpmDa",
+        "page_eHQ7fK",
+        "page_VEC4Dd",
+        "page_HPhaYk",
+        "page_8BeWGq",
+        "page_yYGRLr",
+        "page_DUJmfK"
+      ],
+      "name": "ES Size Chart",
+      "settings": {
+        "tab_section": true,
+        "hide_section": false,
+        "custom_id": "tabCapsSizeChart",
+        "heading": "Determining your size and how to measure for our custom clothing.",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "text": "<p>To get accurate body measurements, use a cloth tape measure, keeping the tape taut but not stretched. Get a friend to help, if possible, measuring your body over properly fitting undergarments while standing erect, without shoes.<br/></p>",
+        "layout": "row",
+        "container_color_scheme": "",
+        "color_scheme": "scheme-2",
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "es_image_banner_CdJKXc",
+    "es_cap_size_chart_JimhWP"
+  ]
+}
