@@ -28,6 +28,10 @@
   {%- endstyle -%}
 {%- endif -%}
 
+<style>
+  
+</style>
+
 {%- style -%}
   #Banner-{{ section.id }}::after {
     opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
@@ -178,6 +182,7 @@
             >
               {{ block.settings.heading }}
             </{{ block.settings.heading_tag }}>
+            <div class="banner-heading__line"></div>
           {%- when 'text' -%}
             <div
               class="banner__text rte {{ block.settings.text_style }}"
