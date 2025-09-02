@@ -24,7 +24,7 @@
           "type": "heading",
           "settings": {
             "subheading": "",
-            "heading": "Cap Size Charts & Definitions",
+            "heading": "Apparel Size Chart",
             "heading_tag": "h1",
             "border_bottom": false,
             "heading_size": "h1"
@@ -37,6 +37,8 @@
       "name": "ES Image Banner",
       "settings": {
         "show_space": false,
+        "image": "shopify://shop_images/Image_2.jpg",
+        "image_mobile": "shopify://shop_images/Image_3.jpg",
         "image_overlay_opacity": 100,
         "opacity_type": "gradient",
         "opacity_color": "primary",

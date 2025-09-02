@@ -28,6 +28,61 @@
   {%- endstyle -%}
 {%- endif -%}
 
+<style>
+  .banner-heading__line {
+    height: 3px;
+    width: 70px;
+    display: flex !important;
+    background-color: #EE0000;
+  }
+
+  .banner--desktop-transparent .banner__box{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  #tabCapsSizeChart, #tabCapDefinitions {
+    background-color: #FFFFFF;
+    border-top: 1px solid #CCCCCC;
+  }
+
+  .es-size-chart .page-width--small .size-chart .size-chart__item+div{
+    margin-top: 25px;
+  }
+
+  .es-tab-buttons .container .row label span{
+    border: 1px solid #990000;
+    background-color: #990000;
+    border-bottom: none !important;
+    position: relative;
+    top: 1px;
+  }
+  
+  .es-tab-buttons .container .row label input:checked+span{
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+  }
+
+  .es-tab-buttons .container .row label span:hover{
+    border-color: #CCCCCC !important;
+  }
+
+  @media screen and (max-width: 768px) {
+    .banner--desktop-transparent .banner__box{
+      align-items: center;
+    }
+
+    .es-image-banner .banner .banner__content .banner__heading{
+      width: auto;
+    }
+
+    .banner-heading__line{
+      margin-top: 0px !important;
+    }
+  }
+</style>
+
 {%- style -%}
   #Banner-{{ section.id }}::after {
     opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
@@ -178,6 +233,7 @@
             >
               {{ block.settings.heading }}
             </{{ block.settings.heading_tag }}>
+            <div class="banner-heading__line"></div>
           {%- when 'text' -%}
             <div
               class="banner__text rte {{ block.settings.text_style }}"
