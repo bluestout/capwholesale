@@ -65,22 +65,22 @@
         "text_blocks_TEEMji": {
           "type": "text_blocks",
           "settings": {
-            "block_title": "",
-            "block_content": ""
+            "block_title": "Shirts",
+            "block_content": "<p>Neck: Take a shirt with a collar that fits you well. Lay collar flat and measure from center of collar button to far end of buttonhole. Number of inches = size. Or, measure around middle of neck. Tape should be snug, not tight.</p><p></p><p></p>"
           }
         },
         "text_blocks_hcpiWM": {
           "type": "text_blocks",
           "settings": {
-            "block_title": "",
-            "block_content": ""
+            "block_title": "Chest",
+            "block_content": "<p>Measure around fullest part of chest, keeping tape up under arms and around shoulder blades. Or, lay garment flat; measure from 2\" below underarm to other underarm. Double.<br/><br/></p>"
           }
         },
         "text_blocks_rViUth": {
           "type": "text_blocks",
           "settings": {
-            "block_title": "",
-            "block_content": ""
+            "block_title": "Waist",
+            "block_content": "<p>Measure around waist, over shirt (not over slacks) at the height you normally wear your slacks. Keep one finger between tape and body. Number of inches = size. Or, lay garment flat, measure across waistband. Double.<br/><br/></p>"
           }
         },
         "page_TqebCT": {
@@ -139,18 +139,18 @@
       ],
       "name": "Apparel Size Chart",
       "settings": {
-        "tab_section": false,
+        "tab_section": true,
         "hide_section": false,
-        "custom_id": "tabColorList",
-        "heading": "Collapsible content",
+        "custom_id": "tabCapsSizeChart",
+        "heading": "Determining your size and how to measure for our custom clothing.",
         "heading_size": "h1",
         "heading_alignment": "center",
-        "text": "",
-        "layout": "none",
+        "text": "<p>To get accurate body measurements, use a cloth tape measure, keeping the tape taut but not stretched. Get a friend to help, if possible, measuring your body over properly fitting undergarments while standing erect, without shoes.<br/></p>",
+        "layout": "row",
         "container_color_scheme": "",
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "color_scheme": "scheme-2",
+        "padding_top": 52,
+        "padding_bottom": 52
       }
     },
     "es_cap_size_chart_JimhWP": {
