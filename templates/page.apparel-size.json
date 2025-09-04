@@ -140,6 +140,7 @@
         "page_3KTFki",
         "page_c6wJWg"
       ],
+      "disabled": true,
       "name": "Apparel Size Chart",
       "settings": {
         "tab_section": true,
@@ -237,7 +238,6 @@
         "page_yYGRLr",
         "page_DUJmfK"
       ],
-      "disabled": true,
       "name": "ES Size Chart",
       "settings": {
         "tab_section": true,
