@@ -125,7 +125,7 @@
         {%- for block in section.blocks -%}
           {%- case block.type -%}
             {%- when 'page' -%}
-              <div class="table-heading">{{ block.settings.table_heading }}</div>
+              <div class="table-heading{% if block.settings.responsive == 'desktop' %} small-hide{% elsif block.settings.responsive == 'mobile' %} medium-hide large-up-hide collapsable-item{% endif %}">{{ block.settings.table_heading }}</div>
               <div class="size-chart__item{% if block.settings.responsive == 'desktop' %} small-hide{% elsif block.settings.responsive == 'mobile' %} medium-hide large-up-hide collapsable-item{% endif %}">
                 {%- if block.settings.page != blank -%}
                   <div class="size-chart__item-content">
