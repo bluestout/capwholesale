@@ -59,104 +59,6 @@
         "show_text_below": false
       }
     },
-    "apparel_size_chart_JHDnUM": {
-      "type": "apparel-size-chart",
-      "blocks": {
-        "text_blocks_TEEMji": {
-          "type": "text_blocks",
-          "settings": {
-            "block_title": "Shirts",
-            "block_content": "<p>Neck: Take a shirt with a collar that fits you well. Lay collar flat and measure from center of collar button to far end of buttonhole. Number of inches = size. Or, measure around middle of neck. Tape should be snug, not tight.</p><p></p><p></p>"
-          }
-        },
-        "text_blocks_hcpiWM": {
-          "type": "text_blocks",
-          "settings": {
-            "block_title": "Chest",
-            "block_content": "<p>Measure around fullest part of chest, keeping tape up under arms and around shoulder blades. Or, lay garment flat; measure from 2\" below underarm to other underarm. Double.<br/><br/></p>"
-          }
-        },
-        "text_blocks_rViUth": {
-          "type": "text_blocks",
-          "settings": {
-            "block_title": "Waist",
-            "block_content": "<p>Measure around waist, over shirt (not over slacks) at the height you normally wear your slacks. Keep one finger between tape and body. Number of inches = size. Or, lay garment flat, measure across waistband. Double.<br/><br/></p>"
-          }
-        },
-        "page_TqebCT": {
-          "type": "page",
-          "name": "Size Chart 1",
-          "settings": {
-            "page": "apparel-size",
-            "responsive": "desktop"
-          }
-        },
-        "page_bggWYQ": {
-          "type": "page",
-          "name": "Size Chart 2",
-          "settings": {
-            "page": "apparel-size-2",
-            "responsive": "desktop"
-          }
-        },
-        "page_wBjwPU": {
-          "type": "page",
-          "name": "Size Chart 3",
-          "settings": {
-            "page": "aa",
-            "responsive": "desktop"
-          }
-        },
-        "page_Wcg6FG": {
-          "type": "page",
-          "settings": {
-            "page": "apparel-size-chart-for-mobile",
-            "responsive": "mobile"
-          }
-        },
-        "page_3KTFki": {
-          "type": "page",
-          "settings": {
-            "page": "apparel-size-chart-for-mobile-2",
-            "responsive": "mobile"
-          }
-        },
-        "page_c6wJWg": {
-          "type": "page",
-          "settings": {
-            "page": "apparel-size-chart-for-mobile-3",
-            "responsive": "mobile"
-          }
-        }
-      },
-      "block_order": [
-        "text_blocks_TEEMji",
-        "text_blocks_hcpiWM",
-        "text_blocks_rViUth",
-        "page_TqebCT",
-        "page_bggWYQ",
-        "page_wBjwPU",
-        "page_Wcg6FG",
-        "page_3KTFki",
-        "page_c6wJWg"
-      ],
-      "disabled": true,
-      "name": "Apparel Size Chart",
-      "settings": {
-        "tab_section": true,
-        "hide_section": false,
-        "custom_id": "tabCapsSizeChart",
-        "heading": "Determining your size and how to measure for our custom clothing.",
-        "heading_size": "h1",
-        "heading_alignment": "center",
-        "text": "<p>To get accurate body measurements, use a cloth tape measure, keeping the tape taut but not stretched. Get a friend to help, if possible, measuring your body over properly fitting undergarments while standing erect, without shoes.<br/></p>",
-        "layout": "row",
-        "container_color_scheme": "",
-        "color_scheme": "scheme-2",
-        "padding_top": 52,
-        "padding_bottom": 52
-      }
-    },
     "es_cap_size_chart_JimhWP": {
       "type": "es-cap-size-chart",
       "blocks": {
@@ -264,7 +166,6 @@
   "order": [
     "main",
     "es_image_banner_CdJKXc",
-    "apparel_size_chart_JHDnUM",
     "es_cap_size_chart_JimhWP"
   ]
 }
