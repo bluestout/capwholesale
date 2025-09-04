@@ -59,6 +59,100 @@
         "show_text_below": false
       }
     },
+    "apparel_size_chart_JHDnUM": {
+      "type": "apparel-size-chart",
+      "blocks": {
+        "text_blocks_TEEMji": {
+          "type": "text_blocks",
+          "settings": {
+            "block_title": "",
+            "block_content": ""
+          }
+        },
+        "text_blocks_hcpiWM": {
+          "type": "text_blocks",
+          "settings": {
+            "block_title": "",
+            "block_content": ""
+          }
+        },
+        "text_blocks_rViUth": {
+          "type": "text_blocks",
+          "settings": {
+            "block_title": "",
+            "block_content": ""
+          }
+        },
+        "page_TqebCT": {
+          "type": "page",
+          "settings": {
+            "page": "",
+            "responsive": "both"
+          }
+        },
+        "page_bggWYQ": {
+          "type": "page",
+          "settings": {
+            "page": "",
+            "responsive": "both"
+          }
+        },
+        "page_wBjwPU": {
+          "type": "page",
+          "settings": {
+            "page": "",
+            "responsive": "both"
+          }
+        },
+        "page_Wcg6FG": {
+          "type": "page",
+          "settings": {
+            "page": "",
+            "responsive": "both"
+          }
+        },
+        "page_3KTFki": {
+          "type": "page",
+          "settings": {
+            "page": "",
+            "responsive": "both"
+          }
+        },
+        "page_c6wJWg": {
+          "type": "page",
+          "settings": {
+            "page": "",
+            "responsive": "both"
+          }
+        }
+      },
+      "block_order": [
+        "text_blocks_TEEMji",
+        "text_blocks_hcpiWM",
+        "text_blocks_rViUth",
+        "page_TqebCT",
+        "page_bggWYQ",
+        "page_wBjwPU",
+        "page_Wcg6FG",
+        "page_3KTFki",
+        "page_c6wJWg"
+      ],
+      "name": "Apparel Size Chart",
+      "settings": {
+        "tab_section": false,
+        "hide_section": false,
+        "custom_id": "tabColorList",
+        "heading": "Collapsible content",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "text": "",
+        "layout": "none",
+        "container_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "es_cap_size_chart_JimhWP": {
       "type": "es-cap-size-chart",
       "blocks": {
@@ -140,6 +234,7 @@
         "page_yYGRLr",
         "page_DUJmfK"
       ],
+      "disabled": true,
       "name": "ES Size Chart",
       "settings": {
         "tab_section": true,
@@ -160,6 +255,7 @@
   "order": [
     "main",
     "es_image_banner_CdJKXc",
+    "apparel_size_chart_JHDnUM",
     "es_cap_size_chart_JimhWP"
   ]
 }
