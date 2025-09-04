@@ -85,6 +85,7 @@
         },
         "page_TqebCT": {
           "type": "page",
+          "name": "Size Chart 1",
           "settings": {
             "page": "apparel-size",
             "responsive": "desktop"
@@ -92,6 +93,7 @@
         },
         "page_bggWYQ": {
           "type": "page",
+          "name": "Size Chart 2",
           "settings": {
             "page": "apparel-size-2",
             "responsive": "desktop"
@@ -99,6 +101,7 @@
         },
         "page_wBjwPU": {
           "type": "page",
+          "name": "Size Chart 3",
           "settings": {
             "page": "aa",
             "responsive": "desktop"
