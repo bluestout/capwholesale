@@ -3931,6 +3931,12 @@ cart-items {
 
             tr {
 
+              td:nth-child(2) {
+                @media (max-width: 750px) {
+                  text-align: left;
+                }
+              }
+
               th,
               td:nth-child(1) {
                 text-align: right;
