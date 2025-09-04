@@ -51,6 +51,10 @@ const setESQuantityRadios = widget => {
       label.setAttribute("data-quantity", qty);
       input.setAttribute("value", qty);
 
+      if (index == 1) {
+        input.setAttribute("checked", "checked");
+      }
+
       span_qty.textContent = qty + "+";
       span_price.textContent = prices[index];
 
