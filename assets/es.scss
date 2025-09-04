@@ -3882,6 +3882,7 @@ cart-items {
         @media (max-width: 750px) {
           &.collapsable-item {
             border: 1px solid #ccc;
+            margin-bottom: 50px;
 
             .size-chart__item-content {
               padding-top: 10px;
