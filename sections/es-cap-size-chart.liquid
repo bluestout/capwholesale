@@ -99,14 +99,14 @@
   <div class="{% if section.settings.layout == 'row' %}page-width--small{% elsif section.settings.layout == 'section' %} page-width{% elsif section.settings.layout == 'none' %} content-container content-container--full-width{% endif %}">
     <div class="section-{{ section.id }}-padding{% if section.settings.layout == 'section' %} content-container color-{{ section.settings.container_color_scheme }} gradient{% endif %}">
       {%- if section.settings.heading != blank -%}
-        <h2 class="es-font-h2 inline-richtext {{ section.settings.heading_size }} {{ section.settings.heading_alignment }}">
+        <h2 class="es-font-h2 inline-richtext {{ section.settings.heading_size }} {{ section.settings.heading_alignment }} {% if section.settings.apparel_text_form == true %} apparel-heading {% endif %}">
           {{ section.settings.heading }}
         </h2>
       {%- else -%}
         <h2 class="visually-hidden">{{ 'accessibility.collapsible_content_title' | t }}</h2>
       {% endif %}
 
-      <div class="font-p">
+      <div class="font-p {% if section.settings.apparel_text_form == true %} apparel-description {% endif %}">
         {{ section.settings.text }}
       </div>
 
@@ -247,8 +247,8 @@
     },
     {
       "type": "checkbox",
-      "id": "text_form",
-      "label": "Text Form",
+      "id": "apparel_text_form",
+      "label": "Apparel Text Form",
       "default": false
     },  
     {
