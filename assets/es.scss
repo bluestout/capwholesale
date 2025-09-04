@@ -3931,6 +3931,12 @@ cart-items {
 
             tr {
 
+              td:nth-child(2) {
+                @media (max-width: 750px) {
+                  text-align: left;
+                }
+              }
+
               th,
               td:nth-child(1) {
                 text-align: right;
@@ -3959,7 +3965,7 @@ cart-items {
 
               td {
                 @media (max-width: 750px) {
-                  padding: 10px 4px;
+                  padding: 10px 20px;
                 }
               }
             }
