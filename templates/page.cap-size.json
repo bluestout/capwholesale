@@ -98,7 +98,8 @@
           "name": "Size Table 1",
           "settings": {
             "page": "size-table-1",
-            "responsive": "desktop"
+            "responsive": "desktop",
+            "table_heading": ""
           }
         },
         "page_ULq7wc": {
@@ -106,14 +107,16 @@
           "name": "Size Table 2",
           "settings": {
             "page": "size-table-2",
-            "responsive": "desktop"
+            "responsive": "desktop",
+            "table_heading": ""
           }
         },
         "page_tC9qd7": {
           "type": "page",
           "settings": {
             "page": "size-chart-for-mobile",
-            "responsive": "mobile"
+            "responsive": "mobile",
+            "table_heading": ""
           }
         },
         "image_with_text_aV9RAk": {
@@ -444,8 +447,8 @@
         "layout": "row",
         "container_color_scheme": "",
         "color_scheme": "scheme-2",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 52,
+        "padding_bottom": 52
       }
     }
   },

@@ -33,14 +33,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
   }
 
   .text-block__title {
-    padding: 26px 0px 20px;
+    padding: 30px 0px 20px;
     margin: 0px;
     display: flex;
     width: max-content;
+    font-size: 20px;
     border-bottom: 1px solid #ee0000;
   }
 
@@ -62,8 +62,52 @@
       display: unset !important;
       margin-left: 10px;
     }
+
+    .es-size-chart .page-width--small .size-chart .size-chart__item .size-chart__item-content .size-chart__item-image img {
+      padding: 25px;
+    }
+
+    .table-heading{
+      margin-bottom: 10px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .banner .banner__content.sm-banner__content--bottom-center .banner__box{
+      padding: 10rem 1.5rem 8rem 1.5rem;
+    }
+
+    .banner .banner__content.sm-banner__content--bottom-center{
+      align-items: center;
+    }
+  }
+
+  .shopify-section.section.es-tab-buttons{
+    padding: 50px 0px 0px 0px !important;
+  }
+  
+  #tabCapsSizeChart, #tabCapDefinitions {
+    border: none;
+  }
+
+  .apparel-heading {
+    color: black;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 26px;
+    word-wrap: break-word;
+  }
+
+  .apparel-description {
+    color: black;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 25.50px;
+    word-wrap: break-word;
+    max-width: 100% !important;
   }
 </style>
+
 
 <div
   id="{{ section.settings.custom_id }}"
@@ -72,14 +116,14 @@
   <div class="{% if section.settings.layout == 'row' %}page-width--small{% elsif section.settings.layout == 'section' %} page-width{% elsif section.settings.layout == 'none' %} content-container content-container--full-width{% endif %}">
     <div class="section-{{ section.id }}-padding{% if section.settings.layout == 'section' %} content-container color-{{ section.settings.container_color_scheme }} gradient{% endif %}">
       {%- if section.settings.heading != blank -%}
-        <h2 class="es-font-h2 inline-richtext {{ section.settings.heading_size }} {{ section.settings.heading_alignment }}">
+        <h2 class="es-font-h2 inline-richtext {{ section.settings.heading_size }} {{ section.settings.heading_alignment }} {% if section.settings.apparel_text_form == true %} apparel-heading {% endif %}">
           {{ section.settings.heading }}
         </h2>
       {%- else -%}
         <h2 class="visually-hidden">{{ 'accessibility.collapsible_content_title' | t }}</h2>
       {% endif %}
 
-      <div class="font-p">
+      <div class="font-p {% if section.settings.apparel_text_form == true %} apparel-description {% endif %}">
         {{ section.settings.text }}
       </div>
 
@@ -102,6 +146,7 @@
         {%- for block in section.blocks -%}
           {%- case block.type -%}
             {%- when 'page' -%}
+              <div class="table-heading{% if block.settings.responsive == 'desktop' %} small-hide{% elsif block.settings.responsive == 'mobile' %} medium-hide large-up-hide collapsable-item{% endif %}">{{ block.settings.table_heading }}</div>
               <div class="size-chart__item{% if block.settings.responsive == 'desktop' %} small-hide{% elsif block.settings.responsive == 'mobile' %} medium-hide large-up-hide collapsable-item{% endif %}">
                 {%- if block.settings.page != blank -%}
                   <div class="size-chart__item-content">
@@ -217,6 +262,12 @@
       "label": "Custom ID",
       "default": "tabColorList"
     },
+    {
+      "type": "checkbox",
+      "id": "apparel_text_form",
+      "label": "Apparel Text Form",
+      "default": false
+    },  
     {
       "type": "inline_richtext",
       "id": "heading",
@@ -366,6 +417,11 @@
             }
           ],
           "default": "both"
+        },
+        {
+          "type": "text",
+          "id": "table_heading",
+          "label": "Table Heading"
         }
       ]
     },

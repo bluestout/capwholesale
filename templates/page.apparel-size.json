@@ -88,7 +88,8 @@
           "name": "Size Chart 1",
           "settings": {
             "page": "apparel-size",
-            "responsive": "desktop"
+            "responsive": "desktop",
+            "table_heading": "ADULT SIZING CHART"
           }
         },
         "page_VEC4Dd": {
@@ -96,7 +97,8 @@
           "name": "Size Chart 2",
           "settings": {
             "page": "apparel-size-2",
-            "responsive": "desktop"
+            "responsive": "desktop",
+            "table_heading": "YOUTH & GIRLS SIZING CHART"
           }
         },
         "page_HPhaYk": {
@@ -104,28 +106,32 @@
           "name": "Size Chart 3",
           "settings": {
             "page": "aa",
-            "responsive": "desktop"
+            "responsive": "desktop",
+            "table_heading": "LADIES SIZING CHART"
           }
         },
         "page_8BeWGq": {
           "type": "page",
           "settings": {
             "page": "apparel-size-chart-for-mobile",
-            "responsive": "mobile"
+            "responsive": "mobile",
+            "table_heading": "ADULT SIZING CHART"
           }
         },
         "page_yYGRLr": {
           "type": "page",
           "settings": {
             "page": "apparel-size-chart-for-mobile-2",
-            "responsive": "mobile"
+            "responsive": "mobile",
+            "table_heading": "YOUTH & GIRLS SIZING CHART"
           }
         },
         "page_DUJmfK": {
           "type": "page",
           "settings": {
             "page": "apparel-size-chart-for-mobile-3",
-            "responsive": "mobile"
+            "responsive": "mobile",
+            "table_heading": "LADIES SIZING CHART"
           }
         }
       },
@@ -145,6 +151,7 @@
         "tab_section": true,
         "hide_section": false,
         "custom_id": "tabCapsSizeChart",
+        "apparel_text_form": true,
         "heading": "Determining your size and how to measure for our custom clothing.",
         "heading_size": "h1",
         "heading_alignment": "center",

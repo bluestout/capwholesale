@@ -90,7 +90,7 @@
   font-size: 15px;
   font-family: "Inter", sans-serif;
   font-weight: 400;
-  line-height: 120%;
+  line-height: 25.50px;
 }
 
 .font-h3 {
@@ -2874,7 +2874,7 @@ product-info {
         font-weight: 400;
         line-height: 25.5px;
         appearance: none;
-        background-image: url("https://cdn.shopify.com/s/files/1/0728/5784/6001/files/Union_5.svg?v=1744987058");
+        background-image: url("https://cdn.shopify.com/s/files/1/0915/0893/2895/files/Union_1436988e-5500-43f0-95a2-af3a699142e0.svg?v=1757005718");
         background-position: calc(100% - 20px) center;
         background-repeat: no-repeat;
         color: #000;
@@ -3860,7 +3860,7 @@ cart-items {
 
 .es-size-chart {
   .page-width--small {
-    max-width: 1000px;
+    max-width: 1125px;
 
     .font-p {
       max-width: 750px;
@@ -3882,6 +3882,7 @@ cart-items {
         @media (max-width: 750px) {
           &.collapsable-item {
             border: 1px solid #ccc;
+            margin-bottom: 50px;
 
             .size-chart__item-content {
               padding-top: 10px;
@@ -3932,20 +3933,21 @@ cart-items {
 
               th,
               td:nth-child(1) {
-                text-align: center;
-                // width: 250px !important;
+                text-align: right;
+                width: 250px !important;
 
                 @media (max-width: 750px) {
-                  // width: 205px !important;
+                  width: 205px !important;
                   font-weight: 600;
                 }
               }
 
-              // td:nth-child(n + 2) {
-              //   @media (min-width: 751px) {
-              //     width: 15% !important;
-              //   }
-              // }
+              td:nth-child(n + 2) {
+                @media (min-width: 751px) {
+                  width: 15% !important;
+                  line-height: 17px;
+                }
+              }
 
               @media (min-width: 751px) {
                 &:nth-child(3) {
@@ -4147,6 +4149,7 @@ cart-items {
       .size-chart__item-content-text {
         &>*+* {
           margin-top: 20px;
+          padding-left: 25px;
         }
       }
     }
