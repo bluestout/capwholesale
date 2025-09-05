@@ -416,7 +416,7 @@
         "image_with_text_NP9Afj": {
           "type": "image_with_text",
           "settings": {
-            "sm_column": true,
+            "sm_column": false,
             "heading": "",
             "description": "",
             "left_text": "Buckram:",
