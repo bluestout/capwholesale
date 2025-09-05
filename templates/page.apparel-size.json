@@ -89,7 +89,9 @@
           "settings": {
             "page": "apparel-size",
             "responsive": "desktop",
-            "table_heading": "ADULT SIZING CHART"
+            "table_heading": "ADULT SIZING CHART",
+            "padding_left_space": 0,
+            "padding_right_space": 0
           }
         },
         "page_VEC4Dd": {
@@ -98,7 +100,9 @@
           "settings": {
             "page": "apparel-size-2",
             "responsive": "desktop",
-            "table_heading": "YOUTH & GIRLS SIZING CHART"
+            "table_heading": "YOUTH & GIRLS SIZING CHART",
+            "padding_left_space": 100,
+            "padding_right_space": 100
           }
         },
         "page_HPhaYk": {
@@ -107,7 +111,9 @@
           "settings": {
             "page": "aa",
             "responsive": "desktop",
-            "table_heading": "LADIES SIZING CHART"
+            "table_heading": "LADIES SIZING CHART",
+            "padding_left_space": 100,
+            "padding_right_space": 100
           }
         },
         "page_8BeWGq": {
@@ -115,7 +121,9 @@
           "settings": {
             "page": "apparel-size-chart-for-mobile",
             "responsive": "mobile",
-            "table_heading": "ADULT SIZING CHART"
+            "table_heading": "ADULT SIZING CHART",
+            "padding_left_space": 0,
+            "padding_right_space": 0
           }
         },
         "page_yYGRLr": {
@@ -123,7 +131,9 @@
           "settings": {
             "page": "apparel-size-chart-for-mobile-2",
             "responsive": "mobile",
-            "table_heading": "YOUTH & GIRLS SIZING CHART"
+            "table_heading": "YOUTH & GIRLS SIZING CHART",
+            "padding_left_space": 0,
+            "padding_right_space": 0
           }
         },
         "page_DUJmfK": {
@@ -131,7 +141,9 @@
           "settings": {
             "page": "apparel-size-chart-for-mobile-3",
             "responsive": "mobile",
-            "table_heading": "LADIES SIZING CHART"
+            "table_heading": "LADIES SIZING CHART",
+            "padding_left_space": 0,
+            "padding_right_space": 0
           }
         }
       },
