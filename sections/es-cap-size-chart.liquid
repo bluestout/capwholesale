@@ -85,7 +85,7 @@
   .shopify-section.section.es-tab-buttons{
     padding: 50px 0px 0px 0px !important;
   }
-  
+
 
   @media screen and (max-width: 750px) {
     #tabCapsSizeChart, #tabCapDefinitions {
@@ -110,7 +110,6 @@
     max-width: 100% !important;
   }
 </style>
-
 
 <div
   id="{{ section.settings.custom_id }}"
@@ -149,7 +148,9 @@
         {%- for block in section.blocks -%}
           {%- case block.type -%}
             {%- when 'page' -%}
-              <div class="table-heading{% if block.settings.responsive == 'desktop' %} small-hide{% elsif block.settings.responsive == 'mobile' %} medium-hide large-up-hide collapsable-item{% endif %}">{{ block.settings.table_heading }}</div>
+              <div class="table-heading{% if block.settings.responsive == 'desktop' %} small-hide{% elsif block.settings.responsive == 'mobile' %} medium-hide large-up-hide collapsable-item{% endif %}">
+                {{ block.settings.table_heading }}
+              </div>
               <div class="size-chart__item{% if block.settings.responsive == 'desktop' %} small-hide{% elsif block.settings.responsive == 'mobile' %} medium-hide large-up-hide collapsable-item{% endif %}">
                 {%- if block.settings.page != blank -%}
                   <div class="size-chart__item-content">
@@ -270,7 +271,7 @@
       "id": "apparel_text_form",
       "label": "Apparel Text Form",
       "default": false
-    },  
+    },
     {
       "type": "inline_richtext",
       "id": "heading",
@@ -427,14 +428,24 @@
           "label": "Table Heading"
         },
         {
-              "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 36
+          "type": "range",
+          "id": "padding_left_space",
+          "label": "Padding Left Space",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "padding_right_space",
+          "label": "Padding Right Space",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "default": 0
         }
       ]
     },
