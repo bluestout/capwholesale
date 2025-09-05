@@ -101,8 +101,8 @@
             "page": "apparel-size-2",
             "responsive": "desktop",
             "table_heading": "YOUTH & GIRLS SIZING CHART",
-            "padding_left_space": 100,
-            "padding_right_space": 100
+            "padding_left_space": 0,
+            "padding_right_space": 0
           }
         },
         "page_HPhaYk": {
@@ -112,8 +112,8 @@
             "page": "aa",
             "responsive": "desktop",
             "table_heading": "LADIES SIZING CHART",
-            "padding_left_space": 100,
-            "padding_right_space": 100
+            "padding_left_space": 0,
+            "padding_right_space": 0
           }
         },
         "page_8BeWGq": {
