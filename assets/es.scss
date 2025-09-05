@@ -4023,7 +4023,7 @@ cart-items {
         &.size-chart__item--image-with-text {
           .size-chart__item-content {
             display: flex;
-            gap: 20px;
+            gap: 35px;
 
             @media (max-width: 750px) {
               flex-direction: column;
