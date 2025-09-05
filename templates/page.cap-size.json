@@ -416,14 +416,14 @@
         "image_with_text_NP9Afj": {
           "type": "image_with_text",
           "settings": {
-            "sm_column": false,
+            "sm_column": true,
             "heading": "",
             "description": "",
             "left_text": "Buckram:",
             "text": "<p>The buckram of a baseball cap is the mesh liner inside of the front of the cap that provides the structure and form. Structured caps have buckram and unstructured caps have no buckram, giving them the more casual, lower profile.</p>",
             "padding_top": 0,
             "padding_bottom": 0,
-            "padding_left_space": 0
+            "padding_left_space": 10
           }
         }
       },
