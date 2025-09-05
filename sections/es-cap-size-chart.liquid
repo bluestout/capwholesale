@@ -151,7 +151,7 @@
               <div class="table-heading{% if block.settings.responsive == 'desktop' %} small-hide{% elsif block.settings.responsive == 'mobile' %} medium-hide large-up-hide collapsable-item{% endif %}">
                 {{ block.settings.table_heading }}
               </div>
-              <div class="size-chart__item{% if block.settings.responsive == 'desktop' %} small-hide{% elsif block.settings.responsive == 'mobile' %} medium-hide large-up-hide collapsable-item{% endif %}">
+              <div style="padding-left: {{block.settings.padding_left_space}}px; padding-right: {{block.settings.padding_right_space}}px;" class="size-chart__item{% if block.settings.responsive == 'desktop' %} small-hide{% elsif block.settings.responsive == 'mobile' %} medium-hide large-up-hide collapsable-item{% endif %}">
                 {%- if block.settings.page != blank -%}
                   <div class="size-chart__item-content">
                     {{ block.settings.page.content }}
