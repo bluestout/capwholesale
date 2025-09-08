@@ -1129,6 +1129,13 @@ summary::-webkit-details-marker {
   width: 100%;
 }
 
+@media screen and (min-width: 750px) {
+  .media > *:not(.zoom):not(.deferred-media__poster-button),
+  .media model-viewer {
+    top: 10%;
+  }
+}
+
 .media > img {
   object-fit: cover;
   object-position: center center;
@@ -1138,6 +1145,10 @@ summary::-webkit-details-marker {
 .media--square {
   padding-bottom: 100%;
 }
+
+    /* @media (max-width: 900px) {
+      font-size: 14px;
+    } */
 
 .media--portrait {
   padding-bottom: 125%;

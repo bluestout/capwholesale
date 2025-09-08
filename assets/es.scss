@@ -6123,9 +6123,9 @@ cart-items {
       font-weight: 600;
     }
 
-    @media (max-width: 900px) {
+    /* @media (max-width: 900px) {
       font-size: 14px;
-    }
+    } */
   }
 
   .es-quantity-radios__body {
@@ -6217,7 +6217,7 @@ media-gallery {
       display: none;
 
       @media (max-width: 750px) {
-        display: none;
+        display: block !important;
       }
     }
   }
