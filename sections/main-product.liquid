@@ -333,7 +333,9 @@
               {%- when 'quantity_radios' -%}
                 <div class="es-quantity-radios">
                   <div class="es-quantity-radios__header">
-                    {{ block.settings.heading }}
+                    {%if has_variant_picker %}
+                      {{ block.settings.heading }}
+                    {% endif %}
                     {% if block.settings.show_quantity_label %}
                       <span class="tg-show_quantity_label">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
