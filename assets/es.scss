@@ -6204,6 +6204,10 @@ media-gallery {
       @media (max-width: 750px) {
         display: block !important;
       }
+
+      .slideshow__control-wrapper{
+        justify-content: center;
+      }
     }
   }
 }
