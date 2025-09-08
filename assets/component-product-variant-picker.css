@@ -139,6 +139,10 @@ variant-selects {
   margin-bottom: 30px;
 }
 
+.product-form__input--pill {
+  margin-bottom: 30px;
+}
+
 .product-form__input--swatch .swatch-input__input + .swatch-input__label {
   --swatch-input--size: 3.6rem;
 
