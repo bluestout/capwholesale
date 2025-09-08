@@ -1146,6 +1146,10 @@ summary::-webkit-details-marker {
   padding-bottom: 100%;
 }
 
+    /* @media (max-width: 900px) {
+      font-size: 14px;
+    } */
+
 .media--portrait {
   padding-bottom: 125%;
 }
