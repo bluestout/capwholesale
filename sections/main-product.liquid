@@ -147,6 +147,13 @@
           class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
         >
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
+          
+          {%- assign has_variant_picker = false -%}
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'variant_picker' -%}
+              {%- assign has_variant_picker = true -%}
+            {%- endif -%}
+          {%- endfor -%}
 
           {%- for block in section.blocks -%}
             {%- case block.type -%}
