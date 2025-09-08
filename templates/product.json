@@ -46,6 +46,7 @@
           "type": "quantity_radios",
           "settings": {
             "heading": "<strong>Step 3:</strong> Buy more and save!",
+            "another_heading": "<strong>Step 1:</strong> Buy more and save!",
             "show_quantity_label": true,
             "quantity_label": "<p><em>The price will be calculated automatically based on the exact dozen and odd piece price that applies.</em></p>"
           }
@@ -74,7 +75,7 @@
             "contentAlignment": "center",
             "buttonAlignment": "center",
             "overrideFont": false,
-            "customFont": "helvetica_n4",
+            "customFont": "sans_serif_n4",
             "buttonFullwidth": true,
             "removeBoxShadowAndBorder": true,
             "horizontalPadding": 20,
@@ -139,7 +140,7 @@
             "contentAlignment": "center",
             "buttonAlignment": "center",
             "overrideFont": false,
-            "customFont": "helvetica_n4",
+            "customFont": "sans_serif_n4",
             "buttonFullwidth": true,
             "removeBoxShadowAndBorder": false,
             "horizontalPadding": 20,
