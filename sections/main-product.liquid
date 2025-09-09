@@ -334,9 +334,9 @@
                 <div class="es-quantity-radios">
                   <div class="es-quantity-radios__header">
                     {%if has_variant_picker == false %}
-                      {{ block.settings.heading }}
-                    {% else %}
                       {{ block.settings.another_heading }}                      
+                    {% else %}
+                      {{ block.settings.heading }}
                     {% endif %}
                     {% if block.settings.show_quantity_label %}
                       <span class="tg-show_quantity_label">
