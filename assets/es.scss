@@ -6203,6 +6203,7 @@ media-gallery {
 
       @media (max-width: 750px) {
         display: block !important;
+        overflow-x: scroll;
       }
 
       .slideshow__control-wrapper{
