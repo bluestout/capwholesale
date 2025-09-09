@@ -182,7 +182,7 @@ if (!customElements.get('product-info')) {
             const destination = this.querySelector(`#${id}-${this.dataset.section}`);
             if (source && destination) {
               destination.innerHTML = source.innerHTML;
-              destination.classList.toggle('hidden', shouldHide(source));
+              // destination.classList.toggle('hidden', shouldHide(source));
             }
           };
 
