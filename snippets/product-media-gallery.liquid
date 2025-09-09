@@ -282,7 +282,6 @@
             </button>
           </li>
         {%- endif -%}
-        {{ color_title }}
         {%- for media in product.media -%}
           {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
             {%- liquid
