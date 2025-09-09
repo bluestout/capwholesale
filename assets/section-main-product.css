@@ -19,20 +19,11 @@ product-info {
   padding-left: 0;
 }
 
-@media screen and (min-width: 1024px) {
-  .product__column-sticky {
-    display: block;
-    position: sticky;
-    top: 8rem !important;
-    z-index: 2;
-  }
-}
-
 @media screen and (min-width: 750px) {
   .product__column-sticky {
     display: block;
     position: sticky;
-    top: 10rem;
+    top: 12rem;
     z-index: 2;
   }
 
