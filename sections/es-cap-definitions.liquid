@@ -48,7 +48,7 @@
                       <div>{{ block.settings.left_text }}</div>
                     {%- endif -%}
                   </div>
-                  <div class="size-chart__item-text">
+                  <div class="size-chart__item-text" style="padding-left: {{ block.settings.padding_left_space }}px;">
                     {{ block.settings.text }}
                   </div>
                 </div>
@@ -280,6 +280,16 @@
           "label": "Padding Bottom",
           "min": 0,
           "max": 100,
+          "default": 0,
+          "unit": "px",
+          "step": 1
+        },
+        {
+          "type": "range",
+          "id": "padding_left_space",
+          "label": "Padding Left Space",
+          "min": 0,
+          "max": 50,
           "default": 0,
           "unit": "px",
           "step": 1

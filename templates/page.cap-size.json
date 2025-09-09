@@ -98,7 +98,8 @@
           "name": "Size Table 1",
           "settings": {
             "page": "size-table-1",
-            "responsive": "desktop"
+            "responsive": "desktop",
+            "table_heading": ""
           }
         },
         "page_ULq7wc": {
@@ -106,14 +107,16 @@
           "name": "Size Table 2",
           "settings": {
             "page": "size-table-2",
-            "responsive": "desktop"
+            "responsive": "desktop",
+            "table_heading": ""
           }
         },
         "page_tC9qd7": {
           "type": "page",
           "settings": {
             "page": "size-chart-for-mobile",
-            "responsive": "mobile"
+            "responsive": "mobile",
+            "table_heading": ""
           }
         },
         "image_with_text_aV9RAk": {
@@ -135,6 +138,7 @@
         "tab_section": true,
         "hide_section": false,
         "custom_id": "tabCapsSizeChart",
+        "apparel_text_form": false,
         "heading": "Caps Size Chart",
         "heading_size": "h1",
         "heading_alignment": "center",
@@ -173,11 +177,12 @@
             "sm_column": false,
             "heading": "Crown options",
             "description": "",
-            "image": "shopify://shop_images/1566253557-cap1_1.png",
+            "image": "shopify://shop_images/1566253557-cap1_1.jpg",
             "left_text": "",
             "text": "<h4>PRO HIGH (A)</h4><p>It has a structured, steep profile and is typically featured with a flat visor.</p>",
             "padding_top": 0,
-            "padding_bottom": 0
+            "padding_bottom": 0,
+            "padding_left_space": 0
           }
         },
         "image_with_text_hHdWDG": {
@@ -186,11 +191,12 @@
             "sm_column": false,
             "heading": "",
             "description": "",
-            "image": "shopify://shop_images/1566253729-cap3_1.png",
+            "image": "shopify://shop_images/1566253666-cap2_1.jpg",
             "left_text": "",
             "text": "<h4>PRO MID (B)</h4><p>Often thought of as the traditional baseball cap, it is usually structured, but has a slightly lower profile.</p>",
             "padding_top": 0,
-            "padding_bottom": 0
+            "padding_bottom": 0,
+            "padding_left_space": 0
           }
         },
         "image_with_text_DMLV8b": {
@@ -199,11 +205,12 @@
             "sm_column": false,
             "heading": "",
             "description": "",
-            "image": "shopify://shop_images/1566253666-cap2_1.png",
+            "image": "shopify://shop_images/1566253729-cap3_1.jpg",
             "left_text": "",
             "text": "<h4>MID TO LOW (C)</h4><p>It is slightly less slanted and shallower than the Pro Mid but can be structured or unstructured.</p>",
             "padding_top": 0,
-            "padding_bottom": 0
+            "padding_bottom": 0,
+            "padding_left_space": 0
           }
         },
         "image_with_text_3DGK9H": {
@@ -212,11 +219,12 @@
             "sm_column": false,
             "heading": "",
             "description": "",
-            "image": "shopify://shop_images/1566253810-cap4_1.png",
+            "image": "shopify://shop_images/1566253810-cap4_1.jpg",
             "left_text": "",
             "text": "<h4>LOW (D)</h4><p>It is either unstructured or lightly structured to lie closely to the head and is paired with a pre-curved visor.</p>",
             "padding_top": 0,
-            "padding_bottom": 0
+            "padding_bottom": 0,
+            "padding_left_space": 0
           }
         },
         "image_with_text_ywJpAM": {
@@ -225,11 +233,12 @@
             "sm_column": false,
             "heading": "",
             "description": "",
-            "image": "shopify://shop_images/1566253865-screen-shot-2019-08-19-at-3.30.45-pm_1_1.png",
+            "image": "shopify://shop_images/1566253865-screen-shot-2019-08-19-at-3.30.45-pm_1.jpg",
             "left_text": "",
             "text": "<h4>PRO ROUND (E)</h4><p>It has premium dual-tone buckram and rounded upper panels that contour to rest securely on your head. It is featured with a slight pre-curved visor.</p>",
             "padding_top": 0,
-            "padding_bottom": 0
+            "padding_bottom": 0,
+            "padding_left_space": 0
           }
         },
         "space_Jhy3br": {
@@ -253,7 +262,8 @@
             "left_text": "",
             "text": "<p>Plastic snap</p>",
             "padding_top": 0,
-            "padding_bottom": 0
+            "padding_bottom": 0,
+            "padding_left_space": 0
           }
         },
         "image_with_text_JeGrBH": {
@@ -266,7 +276,8 @@
             "left_text": "",
             "text": "<p>Double plastic snap</p>",
             "padding_top": 0,
-            "padding_bottom": 0
+            "padding_bottom": 0,
+            "padding_left_space": 0
           }
         },
         "image_with_text_m3A6fx": {
@@ -279,7 +290,8 @@
             "left_text": "",
             "text": "<p>Hook/Loop tape</p>",
             "padding_top": 0,
-            "padding_bottom": 0
+            "padding_bottom": 0,
+            "padding_left_space": 0
           }
         },
         "image_with_text_JXKrVa": {
@@ -292,7 +304,8 @@
             "left_text": "",
             "text": "<p>Tuck strap with slide</p>",
             "padding_top": 0,
-            "padding_bottom": 0
+            "padding_bottom": 0,
+            "padding_left_space": 0
           }
         },
         "image_with_text_WVB4UJ": {
@@ -305,7 +318,8 @@
             "left_text": "",
             "text": "<p>Tuck strap with buckle or snap buckle</p>",
             "padding_top": 0,
-            "padding_bottom": 0
+            "padding_bottom": 0,
+            "padding_left_space": 0
           }
         },
         "image_with_text_WDyGap": {
@@ -318,7 +332,8 @@
             "left_text": "",
             "text": "<p>D-Fit®</p>",
             "padding_top": 0,
-            "padding_bottom": 0
+            "padding_bottom": 0,
+            "padding_left_space": 0
           }
         },
         "image_with_text_hPYbW8": {
@@ -331,7 +346,8 @@
             "left_text": "",
             "text": "<p>Nylon strap with plastic buckle</p>",
             "padding_top": 0,
-            "padding_bottom": 0
+            "padding_bottom": 0,
+            "padding_left_space": 0
           }
         },
         "space_qVyg4J": {
@@ -354,7 +370,8 @@
             "left_text": "Panels:",
             "text": "<p>Panels are different pieces of fabric that make up the top of the cap, there are usually five or six panels in a baseball cap.</p>",
             "padding_top": 0,
-            "padding_bottom": 0
+            "padding_bottom": 0,
+            "padding_left_space": 10
           }
         },
         "image_with_text_xxqzDq": {
@@ -366,7 +383,8 @@
             "left_text": "Fabric Material:",
             "text": "<p>Baseball caps are generally made of cotton, cotton blends, jersey mesh, wool, acrylic/wool blends, and moisture wicking fabric.</p>",
             "padding_top": 0,
-            "padding_bottom": 0
+            "padding_bottom": 0,
+            "padding_left_space": 10
           }
         },
         "image_with_text_kFwBGP": {
@@ -378,7 +396,8 @@
             "left_text": "Brim:",
             "text": "<p>Also known as bill or visor. The brim of the cap is the piece that protects your face from the sun. It is usually made of plastic which is sewn inside the fabric.</p>",
             "padding_top": 0,
-            "padding_bottom": 0
+            "padding_bottom": 0,
+            "padding_left_space": 10
           }
         },
         "image_with_text_PPAJhM": {
@@ -390,7 +409,8 @@
             "left_text": "Eyelets:",
             "text": "<p>Eyelets are small holes at the top of the cap that allow your head to breathe. They can either be metal or reinforced stitching.</p>",
             "padding_top": 0,
-            "padding_bottom": 0
+            "padding_bottom": 0,
+            "padding_left_space": 10
           }
         },
         "image_with_text_NP9Afj": {
@@ -402,7 +422,8 @@
             "left_text": "Buckram:",
             "text": "<p>The buckram of a baseball cap is the mesh liner inside of the front of the cap that provides the structure and form. Structured caps have buckram and unstructured caps have no buckram, giving them the more casual, lower profile.</p>",
             "padding_top": 0,
-            "padding_bottom": 0
+            "padding_bottom": 0,
+            "padding_left_space": 10
           }
         }
       },
@@ -444,8 +465,8 @@
         "layout": "row",
         "container_color_scheme": "",
         "color_scheme": "scheme-2",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 52,
+        "padding_bottom": 52
       }
     }
   },

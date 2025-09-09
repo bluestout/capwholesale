@@ -147,6 +147,13 @@
           class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
         >
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
+          
+          {%- assign has_variant_picker = false -%}
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'variant_picker' -%}
+              {%- assign has_variant_picker = true -%}
+            {%- endif -%}
+          {%- endfor -%}
 
           {%- for block in section.blocks -%}
             {%- case block.type -%}
@@ -326,7 +333,11 @@
               {%- when 'quantity_radios' -%}
                 <div class="es-quantity-radios">
                   <div class="es-quantity-radios__header">
-                    {{ block.settings.heading }}
+                    {%if has_variant_picker == false %}
+                      {{ block.settings.heading }}
+                    {% else %}
+                      {{ block.settings.another_heading }}                      
+                    {% endif %}
                     {% if block.settings.show_quantity_label %}
                       <span class="tg-show_quantity_label">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -1001,8 +1012,12 @@
         {
           "type": "inline_richtext",
           "id": "heading",
-          "label": "Heading",
-          "default": "<b>Step 3:</b> Buy more and save!"
+          "label": "Heading"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "another_heading",
+          "label": "Another Heading"
         },
         {
           "type": "checkbox",
