@@ -21,6 +21,13 @@
             "menu": "about"
           }
         },
+        "link_list_YGeFNg": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Shop Wholesale Hats",
+            "menu": "footer"
+          }
+        },
         "link_list_9eCptB": {
           "type": "link_list",
           "settings": {
@@ -44,6 +51,7 @@
       },
       "block_order": [
         "link_list_iFqkVB",
+        "link_list_YGeFNg",
         "link_list_9eCptB",
         "brand_information_V94PiB"
       ],
