@@ -5114,6 +5114,21 @@ cart-items {
 
     .js-contents {
       .totals {
+        justify-content: flex-start;
+        align-items: center;
+        margin: 0;
+
+        .totals__total {
+          margin-top: 0;
+          color: #333333;
+        }
+
+        .bold-align-currency-cart-total {
+          .totals__total-value {
+            margin: 0;
+          }
+        }
+
         @media (max-width: 749px) {
           max-width: 355px;
           justify-content: space-between;

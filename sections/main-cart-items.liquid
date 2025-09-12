@@ -74,7 +74,6 @@
 
   .ui-main-cart-items tbody tr td:nth-child(5) span{
     text-align: left;
-    margin-top: 1.5rem !important;
   }
 
   @media screen and (max-width: 750px){
@@ -360,7 +359,7 @@
                                 {% if item.variant.quantity_rule.max != null %}
                                   max="{{ item.variant.quantity_rule.max }}"
                                 {% endif %}
-                                step="{{ item.variant.quantity_rule.increment }}"
+                                step="12"
                                 {% # theme-check-enable %}
                                 aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
                                 id="Quantity-{{ item.index | plus: 1 }}"
