@@ -16,6 +16,10 @@ const KlaviyoReady = () => {
     btnModal.parentNode.insertBefore(navTag, btnModal);
     navTag.appendChild(btnModal);
   }
+
+  const btn_bottom = document.querySelectorAll("nav .needsclick");
+  btn_bottom.removeAttribute("tabindex");
+  btn_bottom.removeAttribute("role")
 }
 
 const setESQuantityRadios = widget => {
@@ -186,3 +190,4 @@ document.querySelector('.product-form__input .quantity input[name="quantity"]')?
     })
   }
 });
+
