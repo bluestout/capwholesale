@@ -25,7 +25,7 @@ const KlaviyoReady = () => {
   btn_text.style.color = '#555';
   function onScroll200() {
    const displaytext = document.querySelector(".footer__content-bottom-wrapper .footer__copyright");
-   disconnect.style.display = "block"; 
+   displaytext.style.display = "block"; 
   }
 
   // Attach scroll listener
