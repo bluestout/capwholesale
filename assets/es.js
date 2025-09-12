@@ -18,8 +18,8 @@ const KlaviyoReady = () => {
   }
 
   const btn_bottom = document.querySelectorAll("nav .needsclick");
-  btn_bottom.removeAttribute("tabindex");
-  btn_bottom.removeAttribute("role")
+  btn_bottom[0].removeAttribute("tabindex");
+  btn_bottom[0].removeAttribute("role")
 }
 
 const setESQuantityRadios = widget => {
