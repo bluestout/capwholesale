@@ -23,6 +23,17 @@ const KlaviyoReady = () => {
 
   const btn_text = document.querySelector(".tp-content .tp-body");
   btn_text.style.color = '#555';
+  function onScroll200() {
+   const displaytext = document.querySelector(".footer__content-bottom-wrapper .footer__copyright");
+   disconnect.style.display = "block"; 
+  }
+
+  // Attach scroll listener
+  window.addEventListener("scroll", function () {
+    if (window.scrollY >= 200) {
+      onScroll200();
+    }
+  });
 }
 
 const setESQuantityRadios = widget => {
