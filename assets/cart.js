@@ -3,7 +3,6 @@ class CartRemoveButton extends HTMLElement {
     super();
 
     this.addEventListener('click', (event) => {
-      
       event.preventDefault();
       const cartItems = this.closest('cart-items') || this.closest('cart-drawer-items');
       cartItems.updateQuantity(this.dataset.index, 0, event);
@@ -18,6 +17,11 @@ class CartItems extends HTMLElement {
     super();
     this.lineItemStatusElement =
       document.getElementById('shopping-cart-line-item-status') || document.getElementById('CartDrawer-LineItemStatus');
+
+    // Predefined quantity lists for different customization methods
+    this.defaultQuantityList = [12, 24, 48, 72, 96, 144, 288, 576, 1008, 1500];
+    this.patchesQuantityList = [24, 48, 96, 144, 288, 576, 1008, 1500];
+    this.screenPrintQuantityList = [24, 48, 96, 144, 288, 576, 1008];
 
     const debouncedOnChange = debounce((event) => {
       this.onChange(event);
@@ -61,6 +65,16 @@ class CartItems extends HTMLElement {
     const index = event.target.dataset.index;
     let message = '';
 
+    // Check if value is a multiple of 12 and at least 12
+    if (inputValue < 12 || inputValue % 12 !== 0) {
+      message = window.quickOrderListStrings.multiples_error || 'Please enter a multiple of 12, like 12, 24, 36, 48 …';
+      
+      this.setValidity(event, index, message);
+      this.disableCheckoutButtons(true);
+      
+      return;
+    }
+
     if (inputValue < event.target.dataset.min) {
       message = window.quickOrderListStrings.min_error.replace('[min]', event.target.dataset.min);
     } else if (inputValue > parseInt(event.target.max)) {
@@ -69,12 +83,13 @@ class CartItems extends HTMLElement {
       message = window.quickOrderListStrings.step_error.replace('[step]', event.target.step);
     }
 
-    
     if (message) {
       this.setValidity(event, index, message);
+      this.disableCheckoutButtons(true);
     } else {
       event.target.setCustomValidity('');
       event.target.reportValidity();
+      this.disableCheckoutButtons(false);
       this.updateQuantity(
         index,
         inputValue,
@@ -85,9 +100,63 @@ class CartItems extends HTMLElement {
     }
   }
 
+  disableCheckoutButtons(disable) {
+    // Find checkout buttons in cart
+    const checkoutButtons = document.querySelectorAll('.cart__checkout-button, .cart-drawer__checkout-button, [name="add"], button[type="submit"]:not(.quantity__button)');
+    
+    checkoutButtons.forEach(button => {
+      if (disable) {
+        button.disabled = true;
+        button.classList.add('disabled', 'quantity-invalid');
+        button.setAttribute('data-original-text', button.textContent || button.value);
+        if (button.textContent) {
+          button.textContent = 'Invalid Quantity in Cart';
+        } else if (button.value) {
+          button.value = 'Invalid Quantity in Cart';
+        }
+      } else {
+        button.disabled = false;
+        button.classList.remove('disabled', 'quantity-invalid');
+        const originalText = button.getAttribute('data-original-text');
+        if (originalText) {
+          if (button.textContent !== undefined) {
+            button.textContent = originalText;
+          } else if (button.value !== undefined) {
+            button.value = originalText;
+          }
+          button.removeAttribute('data-original-text');
+        }
+      }
+    });
+  }
+
+  getQuantityListForItem(input) {
+    // You can enhance this logic to determine the correct list based on product type
+    // For now, return default list
+    return this.defaultQuantityList;
+  }
+
+
+  // Get the pricing tier for a given quantity
+  getPricingTier(quantity) {
+    const quantityList = this.getQuantityListForItem();
+    
+    // Find the highest tier that the quantity qualifies for
+    let applicableTier = quantityList[0];
+    
+    for (let i = 0; i < quantityList.length; i++) {
+      if (quantity >= quantityList[i]) {
+        applicableTier = quantityList[i];
+      } else {
+        break;
+      }
+    }
+    
+    return applicableTier;
+  }
+
   onChange(event) {
     this.validateQuantity(event);
-    
   }
 
   onCartUpdate() {
@@ -163,9 +232,7 @@ class CartItems extends HTMLElement {
         return response.text();
       })
       .then((state) => {
-        
         const parsedState = JSON.parse(state);
-        
 
         CartPerformance.measure(`${eventTarget}:paint-updated-sections"`, () => {
           const quantityElement =
@@ -185,14 +252,14 @@ class CartItems extends HTMLElement {
           if (cartFooter) cartFooter.classList.toggle('is-empty', parsedState.item_count === 0);
           if (cartDrawerWrapper) cartDrawerWrapper.classList.toggle('is-empty', parsedState.item_count === 0);
 
-          // this.getSectionsToRender().forEach((section) => {
-          //   const elementToReplace =
-          //     document.getElementById(section.id).querySelector(section.selector) || document.getElementById(section.id);
-          //   elementToReplace.innerHTML = this.getSectionInnerHTML(
-          //     parsedState.sections[section.section],
-          //     section.selector
-          //   );
-          // });
+          this.getSectionsToRender().forEach((section) => {
+            const elementToReplace =
+              document.getElementById(section.id).querySelector(section.selector) || document.getElementById(section.id);
+            elementToReplace.innerHTML = this.getSectionInnerHTML(
+              parsedState.sections[section.section],
+              section.selector
+            );
+          });
           const updatedValue = parsedState.items[line - 1] ? parsedState.items[line - 1].quantity : undefined;
           let message = '';
           if (items.length === parsedState.items.length && updatedValue !== parseInt(quantityElement.value)) {
@@ -228,10 +295,6 @@ class CartItems extends HTMLElement {
       })
       .finally(() => {
         this.disableLoading(line);
-  if (typeof BOLD === 'object' && BOLD.common && BOLD.common.eventEmitter && typeof BOLD.common.eventEmitter.emit === 'function') {
-    BOLD.common.eventEmitter.emit("BOLD_COMMON_cart_loaded");
-  }
-        
       });
   }
 

@@ -283,7 +283,7 @@ class QuantityInput extends HTMLElement {
     
     // Check if value is a multiple of 12 and at least 12
     if (inputValue < 12 || inputValue % 12 !== 0) {
-      const message = window.quickOrderListStrings.multiples_error || 'Please enter a multiple of 12, like 12, 24, 36, 48 …';
+      const message = window.quickOrderListStrings.multiples_error || 'Please enter a multiple of 12, like 12, 24, 36, 48�';
       
       // Set custom validity message
       event.target.setCustomValidity(message);
@@ -1389,50 +1389,19 @@ class BulkAdd extends HTMLElement {
     const inputValue = parseInt(event.target.value);
     const index = event.target.dataset.index;
 
-    // Check if value is a multiple of 12 and at least 12
-    if (inputValue < 12 || inputValue % 12 !== 0) {
-      const message = window.quickOrderListStrings.multiples_error || 'Please enter a multiple of 12, like 12, 24, 36, 48 …';
-      
-      this.setValidity(event, index, message);
-      this.disableBulkAddButtons(true);
-      
-      return;
-    }
-
     if (inputValue < event.target.dataset.min) {
       this.setValidity(event, index, window.quickOrderListStrings.min_error.replace('[min]', event.target.dataset.min));
-      this.disableBulkAddButtons(true);
     } else if (inputValue > parseInt(event.target.max)) {
       this.setValidity(event, index, window.quickOrderListStrings.max_error.replace('[max]', event.target.max));
-      this.disableBulkAddButtons(true);
     } else if (inputValue % parseInt(event.target.step) != 0) {
       this.setValidity(event, index, window.quickOrderListStrings.step_error.replace('[step]', event.target.step));
-      this.disableBulkAddButtons(true);
     } else {
       event.target.setCustomValidity('');
       event.target.reportValidity();
       event.target.setAttribute('value', inputValue);
-      this.disableBulkAddButtons(false);
       this.startQueue(index, inputValue);
     }
   }
-
-
-  disableBulkAddButtons(disable) {
-    // Find bulk add buttons
-    const bulkAddButtons = this.querySelectorAll('button[type="submit"], .bulk-add-button, .quick-add-button');
-    
-    bulkAddButtons.forEach(button => {
-      if (disable) {
-        button.disabled = true;
-        button.classList.add('disabled', 'quantity-invalid');
-      } else {
-        button.disabled = false;
-        button.classList.remove('disabled', 'quantity-invalid');
-      }
-    });
-  }
-
 
   getSectionInnerHTML(html, selector) {
     return new DOMParser().parseFromString(html, 'text/html').querySelector(selector).innerHTML;
