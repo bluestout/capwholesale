@@ -6428,3 +6428,11 @@ media-gallery {
     scroll-margin-top: 80px;
   }
 }
+
+@media screen and (max-width: 749px) {
+  .slider-mobile-gutter {
+    & + .thumbnail-slider {
+      display: none;
+    }
+  }
+}
