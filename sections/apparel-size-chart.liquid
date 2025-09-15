@@ -148,10 +148,10 @@
                 {%- endif -%}
               </div>
             {%- when 'metaobject' -%}
-              {% comment %} {%- assign title_array = 'Head size in inches,Head size in centimeters,Fitted hat size,Hat size'
+              {%- assign title_array = 'Head size in inches,Head size in centimeters,Fitted hat size,Hat size'
                 | split: ','
-              -%} {% endcomment %}
-              {% comment %} <div class="size-chart__item">
+              -%}
+              <div class="size-chart__item">
                 {%- if block.settings.metaobject_list != blank -%}
                   <div class="size-chart__item-content">
                     <table>
@@ -192,7 +192,7 @@
                     </table>
                   </div>
                 {%- endif -%}
-              </div> {% endcomment %}
+              </div>
           {%- endcase -%}
         {%- endfor -%}
       </div>
