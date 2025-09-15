@@ -190,7 +190,7 @@
               <div class="size-chart__item">
                 {%- if block.settings.metaobject_list != blank -%}
                   <div class="size-chart__item-content">
-                    <table>
+                    {% comment %} <table>
                       <tbody>
                         {%- for title in title_array -%}
                           {%- liquid
@@ -225,7 +225,7 @@
                           </tr>
                         {%- endfor -%}
                       </tbody>
-                    </table>
+                    </table> {% endcomment %}
                   </div>
                 {%- endif -%}
               </div>
