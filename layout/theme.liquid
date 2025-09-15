@@ -263,7 +263,9 @@
         font-style: var(--font-body-style);
         font-weight: var(--font-body-weight);
       }
-
+      .main-title {
+        font-size:0px;
+      }
       @media screen and (min-width: 750px) {
         body {
           font-size: 1.6rem;
@@ -333,8 +335,6 @@
   </head>
 
   <body class="gradient template-{{ template }} {% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %} template-suffix-{{ template.suffix }}">
-{% comment %} 
-    <h1 class="body-tittle"> "body-tittle" </h1> {% endcomment %}
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
@@ -346,6 +346,7 @@
     {% sections 'header-group' %}
 
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+      <h1 class="main-title">this is h1</h1>
       {{ content_for_layout }}
     </main>
 
