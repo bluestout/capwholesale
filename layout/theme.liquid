@@ -333,8 +333,8 @@
   </head>
 
   <body class="gradient template-{{ template }} {% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %} template-suffix-{{ template.suffix }}">
-
-    <h1 class="body-tittle"> "body-tittle" </h1>
+{% comment %} 
+    <h1 class="body-tittle"> "body-tittle" </h1> {% endcomment %}
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
