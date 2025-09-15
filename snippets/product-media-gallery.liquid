@@ -125,8 +125,7 @@
         {%- endunless -%}
       {%- endfor -%}
     </ul>
-    {% comment %} <div class="slider-buttons quick-add-hidden{% if hide_mobile_slider %} small-hide{% endif %}"> {% endcomment %}
-    {% comment %}
+    <div class="slider-buttons quick-add-hidden{% if hide_mobile_slider %} small-hide{% endif %}">
       <button
         type="button"
         class="slider-button slider-button--prev"
@@ -137,7 +136,6 @@
           {{- 'icon-caret.svg' | inline_asset_content -}}
         </span>
       </button>
-    {% endcomment %}
     <div class="slider-counter caption">
       <div class="slideshow__control-wrapper">
         {% assign featured_media = product.selected_or_first_available_variant.featured_media %}
