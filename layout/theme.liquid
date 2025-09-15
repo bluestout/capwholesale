@@ -327,12 +327,14 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
-    
-{{ 'bold-custom.css' | asset_url | stylesheet_tag }}
 
+    {{ 'bold-custom.css' | asset_url | stylesheet_tag }}
   </head>
 
   <body class="gradient template-{{ template }} {% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %} template-suffix-{{ template.suffix }}">
+    <header class="page-header">
+      <h1 class="page-title">{{ page_title | escape }}</h1>
+    </header>
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
