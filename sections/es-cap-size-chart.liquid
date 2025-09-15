@@ -183,7 +183,7 @@
                   </div>
                 {%- endif -%}
               </div>
-            {%- when 'metaobject' -%}
+            {% comment %} {%- when 'metaobject' -%} {% endcomment %}
               {%- assign title_array = 'Head size in inches,Head size in centimeters,Fitted hat size,Hat size'
                 | split: ','
               -%}
