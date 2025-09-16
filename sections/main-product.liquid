@@ -331,7 +331,7 @@
               {%- when 'quantity_radios' -%}
                 <div class="es-quantity-radios">
                   <div class="es-quantity-radios__header">
-                    {%if has_variant_picker == false %}
+                    {% if variant_picker_count != 0 %}
                       <span>Step {{ forloop.index }}:</span> {{ heading }}
                     {% else %}
                       {{ block.settings.heading }}
