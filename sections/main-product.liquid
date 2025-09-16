@@ -334,7 +334,7 @@
                   <div class="es-quantity-radios__header">
                     {% if variant_picker_count or product.has_only_default_variant == false %}
                       <span style="color: #900;">Step {{ variant_picker_count | plus: 1 }}:</span> {{ heading | default: "Buy more and save!" }}
-                    {% elsif variant_picker_count == 0 or product.has_only_default_variant == true %}
+                    {% elsif product.has_only_default_variant == true %}
                       <span style="color: #900;">Step 1:</span> {{ heading | default: "Buy more and save!" }}
                     {% endif %}
                     {% if block.settings.show_quantity_label %}
