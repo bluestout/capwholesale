@@ -153,6 +153,8 @@
             {% assign variant_picker_count = variant_picker_count | plus: 1 %}
           {% endfor %}
 
+          {{ product.options_with_values }}
+
           {%- for block in section.blocks -%}
             {%- case block.type -%}
               {%- when '@app' -%}
