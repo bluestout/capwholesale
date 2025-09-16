@@ -332,7 +332,7 @@
                 <div class="es-quantity-radios">
                   <div class="es-quantity-radios__header">
                     {% if variant_picker_count != 0 %}
-                      <span>Step {{ forloop.index }}:</span> {{ heading }}
+                      <span>Step {{ variant_picker_count | plus: 1 }}:</span> {{ heading }}
                     {% else %}
                       {{ block.settings.heading }}
                     {% endif %}
