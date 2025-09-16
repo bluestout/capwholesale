@@ -155,6 +155,8 @@
             {%- endif -%}
           {%- endfor -%}
 
+
+
           {%- for block in section.blocks -%}
             {%- case block.type -%}
               {%- when '@app' -%}
@@ -334,7 +336,7 @@
                 <div class="es-quantity-radios">
                   <div class="es-quantity-radios__header">
                     {%if has_variant_picker == false %}
-                      {{ block.settings.another_heading }}                      
+                      <span>Step {{ forloop.index }}:</span> {{ heading }}
                     {% else %}
                       {{ block.settings.heading }}
                     {% endif %}
