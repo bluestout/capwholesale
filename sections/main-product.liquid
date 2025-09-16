@@ -149,7 +149,14 @@
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
           
           {%- assign variant_picker_count = 0 -%}
-          {% for item in product.options_with_values %}
+          {% for option in product.options_with_values %}
+            {% assign variant_picker_count = variant_picker_count | plus: 1 %}
+            <div>
+              <label>{{ option.name }}</label>
+              {% for value in option.values %}
+                <span>{{ value }}</span>
+              {% endfor %}
+            </div>
           {% endfor %}
 
 
