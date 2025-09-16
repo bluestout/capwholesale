@@ -16,7 +16,6 @@
     class="ui-product-cariant-picker"
   >
     {%- for option in product.options_with_values -%}
-      {{ product.options_with_values.count }}
       {%- liquid
         assign swatch_count = option.values | map: 'swatch' | compact | size
         assign color_name = 'color, colour'
