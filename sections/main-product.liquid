@@ -148,12 +148,10 @@
         >
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
           
-          {%- assign has_variant_picker = false -%}
-          {%- for block in section.blocks -%}
-            {%- if block.type == 'variant_picker' -%}
-              {%- assign has_variant_picker = true -%}
-            {%- endif -%}
-          {%- endfor -%}
+          {%- assign variant_picker_count = 0 -%}
+          {% for option in product.options_with_values %}
+            {% assign variant_picker_count = variant_picker_count | plus: 1 %}
+          {% endfor %}
 
           {%- for block in section.blocks -%}
             {%- case block.type -%}
@@ -333,10 +331,10 @@
               {%- when 'quantity_radios' -%}
                 <div class="es-quantity-radios">
                   <div class="es-quantity-radios__header">
-                    {%if has_variant_picker == false %}
-                      {{ block.settings.another_heading }}                      
+                    {% if product.has_only_default_variant == false %}
+                      <span style="color: #900;">Step {{ variant_picker_count | plus: 1 }}:</span> {{ heading | default: "Buy more and save!" }}
                     {% else %}
-                      {{ block.settings.heading }}
+                      <span style="color: #900;">Step 1:</span> {{ heading | default: "Buy more and save!" }}
                     {% endif %}
                     {% if block.settings.show_quantity_label %}
                       <span class="tg-show_quantity_label">
@@ -1012,12 +1010,8 @@
         {
           "type": "inline_richtext",
           "id": "heading",
-          "label": "Heading"
-        },
-        {
-          "type": "inline_richtext",
-          "id": "another_heading",
-          "label": "Another Heading"
+          "label": "Heading",
+          "default": "Buy more and save!"
         },
         {
           "type": "checkbox",

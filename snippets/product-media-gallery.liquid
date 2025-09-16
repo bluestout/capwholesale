@@ -45,6 +45,7 @@
 {% if section.settings.enable_sticky_info %}
   <div class="product__column-sticky">
 {% endif %}
+
 <media-gallery
   id="MediaGallery-{{ section.id }}"
   role="region"
@@ -125,19 +126,19 @@
         {%- endunless -%}
       {%- endfor -%}
     </ul>
-    {% comment %} <div class="slider-buttons quick-add-hidden{% if hide_mobile_slider %} small-hide{% endif %}"> {% endcomment %}
-    {% comment %}
+    {% comment %} {% if hide_mobile_slider %} small-hide{% endif %} {% endcomment %}
+    <div class="slider-buttons quick-add-hidden">
       <button
         type="button"
         class="slider-button slider-button--prev"
         name="previous"
+        style="display: none;"
         aria-label="{{ 'general.slider.previous_slide' | t }}"
       >
         <span class="svg-wrapper">
           {{- 'icon-caret.svg' | inline_asset_content -}}
         </span>
       </button>
-    {% endcomment %}
     <div class="slider-counter caption">
       <div class="slideshow__control-wrapper">
         {% assign featured_media = product.selected_or_first_available_variant.featured_media %}
@@ -166,19 +167,18 @@
       </div>
     </div>
 
-    {% comment %}
       <button
         type="button"
         class="slider-button slider-button--next"
         name="next"
+        style="display: none;"
         aria-label="{{ 'general.slider.next_slide' | t }}"
       >
         <span class="svg-wrapper">
           {{- 'icon-caret.svg' | inline_asset_content -}}
         </span>
       </button>
-    {% endcomment %}
-    {% comment %} </div> {% endcomment %}
+    </div>
   </slider-component>
   {%- if first_3d_model -%}
     <button
