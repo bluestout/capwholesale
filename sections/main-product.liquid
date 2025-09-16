@@ -151,14 +151,11 @@
           {%- assign variant_picker_count = 0 -%}
           {% for option in product.options_with_values %}
             {% assign variant_picker_count = variant_picker_count | plus: 1 %}
-            <div>
-              <label>{{ option.name }}</label>
-              {% for value in option.values %}
-                <span>{{ value }}</span>
-              {% endfor %}
-            </div>
           {% endfor %}
 
+          {{ variant_picker_count }}
+          {{ variant_picker_count }}
+          {{ variant_picker_count }}
 
 
           {%- for block in section.blocks -%}
