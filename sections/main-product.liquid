@@ -150,7 +150,7 @@
           
           {%- assign variant_picker_count = 0 -%}
           {% for option in product.options_with_values %}
-            {{ option }}
+            {{ option | json }}
             {% assign variant_picker_count = variant_picker_count | plus: 1 %}
           {% endfor %}
 
