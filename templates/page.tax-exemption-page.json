@@ -21,10 +21,10 @@
       "type": "apps",
       "blocks": {
         "sk_form_builder_form_fpzJ7U": {
-          "type": "shopify:\/\/apps\/sk-form-builder\/blocks\/form\/f3e35b58-5874-4ef2-8e03-c92cda6e49eb",
+          "type": "shopify://apps/sk-form-builder/blocks/form/f3e35b58-5874-4ef2-8e03-c92cda6e49eb",
           "settings": {
             "show_form": true,
-            "form_token": "3361656252566a42"
+            "form_token": "2594b7a4d315a5734"
           }
         }
       },
@@ -41,7 +41,7 @@
         "text_78apVg": {
           "type": "text",
           "settings": {
-            "text": "<p>SALES TAX & TAX-Exemption<br\/>We are required by law to collect sales tax on orders shipping to the following states: AZ, CO, FL, GA, NC, OK, TX.<br\/>If you need to place your order immediately, please contact us after submitting the form at <a href=\"mailto:info@customizedwear.com.com\" target=\"_blank\">info@customizedwear.com <\/a>or give us a call about your order at 1-877-984-2277.<\/p>"
+            "text": "<p>SALES TAX & TAX-Exemption<br/>We are required by law to collect sales tax on orders shipping to the following states: AZ, CO, FL, GA, NC, OK, TX.<br/>If you need to place your order immediately, please contact us after submitting the form at <a href=\"mailto:info@customizedwear.com.com\" target=\"_blank\">info@customizedwear.com </a>or give us a call about your order at 1-877-984-2277.</p>"
           }
         }
       },
@@ -55,7 +55,9 @@
         "color_scheme": "",
         "full_width": true,
         "padding_top": 0,
-        "padding_bottom": 100
+        "padding_bottom": 100,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 20
       }
     }
   },
