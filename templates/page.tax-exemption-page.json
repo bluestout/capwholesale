@@ -76,6 +76,9 @@
       "block_order": [
         "text_78apVg"
       ],
+      "custom_css": [
+        ".rich-text__wrapper .rich-text__text p {text-align: center;}"
+      ],
       "settings": {
         "border_bottom": true,
         "desktop_content_position": "center",
