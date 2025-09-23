@@ -929,7 +929,7 @@
     }
   });
 
-  const inputValueCheck = setInterval(() => {
+  {% comment %} const inputValueCheck = setInterval(() => {
     const InputValue = document.querySelector('.product .quantity input[name="quantity"]').value;
     const InputMinValue = document.querySelector('.product .quantity input[name="quantity"]').dataset.min;
     if (parseInt(InputValue) < parseInt(InputMinValue) || InputValue == '') {
@@ -937,7 +937,7 @@
     } else {
       document.querySelector(".product-form__buttons button[name='add']")?.removeAttribute('disabled');
     }
-  }, 300);
+  }, 300); {% endcomment %}
 </script>
 
 {% schema %}

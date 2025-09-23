@@ -22,7 +22,7 @@ const KlaviyoReady = () => {
   btn_bottom[0].removeAttribute("role");
 
   const btn_text = document.querySelector(".tp-content .tp-body");
-  btn_text.style.color = '#555';
+  btn_text?.style.color = '#555';
 
 }
 
