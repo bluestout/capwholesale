@@ -18,12 +18,13 @@ const KlaviyoReady = () => {
   }
 
   const btn_bottom = document.querySelectorAll("nav .needsclick");
-  btn_bottom[0].removeAttribute("tabindex");
-  btn_bottom[0].removeAttribute("role");
+  btn_bottom[0]?.removeAttribute("tabindex");
+  btn_bottom[0]?.removeAttribute("role");
 
   const btn_text = document.querySelector(".tp-content .tp-body");
-  btn_text?.style.color = '#555';
-
+  if (btn_text) {
+    btn_text.style.color = '#555';
+  }
 }
 
 const setESQuantityRadios = widget => {

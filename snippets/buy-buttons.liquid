@@ -24,7 +24,20 @@
       endif
     -%}
 
-    {%- if block.settings.buy_btn_text != blank -%}
+    {%- assign blocked_single_pieces = "Richardson,Decky,Zapped,Mega" | downcase | split: "," -%}
+
+    {%- liquid 
+      assign blocked_single_product = true
+      assign downcased_vendor = product.vendor | downcase
+      for blocked_single_piece in blocked_single_pieces
+        if downcased_vendor contains blocked_single_piece
+          assign blocked_single_product = false
+          break
+        endif
+      endfor
+    -%}
+
+    {%- if block.settings.buy_btn_text != blank and blocked_single_product -%}
       <div class="lower-price-product-cart">
         <button
           id="ProductSubmitButton-{{ section_id }}"
