@@ -20,7 +20,8 @@
   }
   </script>
   
-  {{ 'https://static.boldcommerce.com/bold-platform/sf/pr.js' | script_tag }}
+  {% comment %} COMMENTING BELOW SCRIPT BECAUSE IT WAS CREATING ISSUES - SITE CRASHING ISSUE {% endcomment %}
+  {% comment %} {{ 'https://static.boldcommerce.com/bold-platform/sf/pr.js' | script_tag }} {% endcomment %}
   
   <style>
     .money[data-product-id], .money[data-product-handle], .money[data-variant-id], .money[data-line-index], .money[data-cart-total] {
