@@ -176,27 +176,6 @@
           "PriceColor": ""
         }
       },
-      "7870687481494312845": {
-        "type": "shopify://apps/wishlist-hero/blocks/app-embed/a9a5079b-59e8-47cb-b659-ecf1c60b9b72",
-        "disabled": false,
-        "settings": {
-          "customThemeName": "~",
-          "additionalWLButtonCssClasses": "",
-          "additionalWLCartBubbleCssClasses": "",
-          "extraHTMLToAppend": "",
-          "disableAutomaticButtonAddition": false
-        }
-      },
-      "11212335281082087862": {
-        "type": "shopify://apps/sk-form-builder/blocks/app/f3e35b58-5874-4ef2-8e03-c92cda6e49eb",
-        "disabled": false,
-        "settings": {}
-      },
-      "4275615285897611771": {
-        "type": "shopify://apps/fera/blocks/embed/2fbfcfa7-8a04-479f-89a8-0621fa099c51",
-        "disabled": false,
-        "settings": {}
-      },
       "6143736321357441667": {
         "type": "shopify://apps/tidio-live-chat-chatbots/blocks/app-embed/1002274d-fb18-4939-98f6-5f05a8deeadc",
         "disabled": false,
@@ -276,6 +255,27 @@
           "applied-discount-code-icon-style": "font-size: 15px;margin-right: 10px;",
           "applied-discount-code-remove-icon-style": "margin: 0 0px 0 5px;font-size: 15px;cursor: pointer;padding: 10px 11px 10px 10px;"
         }
+      },
+      "7870687481494312845": {
+        "type": "shopify://apps/wishlist-hero/blocks/app-embed/a9a5079b-59e8-47cb-b659-ecf1c60b9b72",
+        "disabled": true,
+        "settings": {
+          "customThemeName": "~",
+          "additionalWLButtonCssClasses": "",
+          "additionalWLCartBubbleCssClasses": "",
+          "extraHTMLToAppend": "",
+          "disableAutomaticButtonAddition": false
+        }
+      },
+      "11212335281082087862": {
+        "type": "shopify://apps/sk-form-builder/blocks/app/f3e35b58-5874-4ef2-8e03-c92cda6e49eb",
+        "disabled": true,
+        "settings": {}
+      },
+      "4275615285897611771": {
+        "type": "shopify://apps/fera/blocks/embed/2fbfcfa7-8a04-479f-89a8-0621fa099c51",
+        "disabled": true,
+        "settings": {}
       }
     },
     "color_schemes": {
