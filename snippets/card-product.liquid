@@ -42,7 +42,7 @@
       assign ratio = 1
     endif
   -%}
-  <div class="card-wrapper product-card-wrapper underline-links-hover">
+  <div class="card-wrapper product-card-wrapper underline-links-hover" onclick="window.location.href = '{{ card_product.url }}'">
     {%- assign product_state = blank -%}
     {%- if card_product.tags contains 'New' or card_product.tags contains 'New Styles' -%}
       {%- assign product_state = 'New Styles' -%}
@@ -612,7 +612,7 @@
       assign ratio = 0.8
     endif
   -%}
-  <div class="card-wrapper product-card-wrapper underline-links-hover">
+  <div class="card-wrapper product-card-wrapper underline-links-hover" onclick="window.location.href = '{{ card_product.url }}'">
     {%- assign product_state = blank -%}
     {%- if card_product.tags contains 'New' or card_product.tags contains 'New Styles' -%}
       {%- assign product_state = 'New Styles' -%}
