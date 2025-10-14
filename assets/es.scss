@@ -2391,6 +2391,8 @@ product-info {
 .product-grid {
   .grid__item {
     .card-wrapper {
+      cursor: pointer;
+      
       .card__inner {
         .card__media {
           .media {
