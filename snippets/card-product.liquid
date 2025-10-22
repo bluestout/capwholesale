@@ -698,6 +698,11 @@
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const priceElement = document.querySelector('.card__content .card__information .card-information .es-price');
-    console.log(priceElement);
+    if (priceElement) {
+      const priceText = priceElement.innerText;
+      console.log('Price:', priceText);
+    } else {
+      console.log('Element not found');
+    }
   });
 </script>
