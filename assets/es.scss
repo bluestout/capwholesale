@@ -2907,6 +2907,10 @@ product-info {
   }
 }
 
+.es-price > span {
+  display: none !important;
+}
+
 .shopify-pc__banner__dialog {
   z-index: 200000000000 !important;
 }
