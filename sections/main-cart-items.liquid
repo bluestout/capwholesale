@@ -642,7 +642,6 @@
     }
 
     if (sessionStorage.getItem('cartUpdated') === 'true') {
-      console.log('Cart already updated this session — skipping.');
       sessionStorage.removeItem('cartUpdated');
       return;
     }
