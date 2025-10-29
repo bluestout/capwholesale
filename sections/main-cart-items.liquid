@@ -633,9 +633,6 @@
       document.body.style.opacity = '0';
 
       // Wait for the fade-out to finish, then reload once
-      setTimeout(() => {
-        window.location.reload();
-      }, 300); // matches the transition time
     })
     .catch((error) => console.error('❌ Error updating cart:', error));
 });
