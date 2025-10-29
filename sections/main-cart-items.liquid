@@ -593,45 +593,43 @@
 </cart-items>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  fetch('/cart.js')
-    .then((response) => response.json())
-    .then((cartData) => {
-      const updatePromises = cartData.items.map((item) => {
-        // Only update items without properties
-        if (!item.properties || Object.keys(item.properties).length === 0) {
-          const newProperties = {
-            ...item.properties,
-            SKU: item.sku || 'N/A',
-            Brand: item.vendor || 'N/A',
-          };
+  document.addEventListener('DOMContentLoaded', () => {
+    fetch('/cart.js')
+      .then((response) => response.json())
+      .then((cartData) => {
+        const updatePromises = cartData.items.map((item) => {
+          if (!item.properties || Object.keys(item.properties).length === 0) {
+            const newProperties = {
+              ...item.properties,
+              SKU: item.sku || 'N/A',
+              Brand: item.vendor || 'N/A',
+            };
 
-          return fetch('/cart/change.js', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              id: item.key,
-              quantity: item.quantity,
-              properties: newProperties,
-            }),
-          })
-            .then((res) => res.json())
-            .catch((err) => console.error('❌ Error updating item:', err));
-        } else {
-          return Promise.resolve();
-        }
-      });
+            return fetch('/cart/change.js', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                id: item.key,
+                quantity: item.quantity,
+                properties: newProperties,
+              }),
+            })
+              .then((res) => res.json())
+              .catch((err) => console.error('❌ Error updating item:', err));
+          } else {
+            return Promise.resolve();
+          }
+        });
 
-      return Promise.all(updatePromises);
-    })
-    .then(() => {
-      window.location.reload();
-    })
-    .catch((error) => console.error('❌ Error fetching cart data:', error));
-});
-
+        return Promise.all(updatePromises);
+      })
+      .then(() => {
+        window.location.reload();
+      })
+      .catch((error) => console.error('❌ Error fetching cart data:', error));
+  });
 </script>
 
 {% schema %}
