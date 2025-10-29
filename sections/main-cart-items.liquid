@@ -593,7 +593,7 @@
 </cart-items>
 
 <script>
-  // 🧩 Function 1: Update cart item properties
+ // 🧩 Function 1: Update cart item properties
 function updateCartProperties() {
   return fetch('/cart.js')
     .then((response) => response.json())
@@ -615,8 +615,8 @@ function updateCartProperties() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             id: item.key,
-            quantity: item.quantity, // keep same quantity
-            properties: newProperties, // only update properties
+            quantity: item.quantity,
+            properties: newProperties,
           }),
         })
           .then((res) => res.json())
@@ -631,20 +631,28 @@ function updateCartProperties() {
     .catch((error) => console.error('❌ Error fetching cart data:', error));
 }
 
-// 🧩 Function 2: Smoothly reload the page
+// 🧩 Function 2: Smooth reload
 function smoothReload() {
-  // Fade out before reload
   document.body.style.transition = 'opacity 0.3s ease';
   document.body.style.opacity = '0';
-
   setTimeout(() => {
     window.location.reload();
   }, 300);
 }
 
-// 🧩 Run them in sequence
+// 🧩 Main flow
 document.addEventListener('DOMContentLoaded', () => {
+  // ✅ Prevent repeated execution
+  if (sessionStorage.getItem('cartUpdated') === 'true') {
+    console.log('🟢 Cart already updated this session — skipping.');
+    sessionStorage.removeItem('cartUpdated'); // clear after reload
+    return;
+  }
+
   updateCartProperties().then(() => {
+    // ✅ Set flag so it doesn’t run again after reload
+    sessionStorage.setItem('cartUpdated', 'true');
+    smoothReload();
   });
 });
 
