@@ -619,15 +619,15 @@
               }),
             })
               .then((res) => res.json())
-              .catch((err) => console.error('❌ Error updating item:', err));
+              .catch((err) => console.error('Error updating item:', err));
           });
 
           return Promise.all(updatePromises);
         })
         .then(() => {
-          console.log('✅ Cart update complete');
+          console.log('Cart update complete');
         })
-        .catch((error) => console.error('❌ Error fetching cart data:', error));
+        .catch((error) => console.error('Error fetching cart data:', error));
     }
 
     function smoothReload() {
@@ -635,11 +635,11 @@
       document.body.style.opacity = '0';
       setTimeout(() => {
         window.location.reload();
-      }, 300);
+      }, 50);
     }
 
     if (sessionStorage.getItem('cartUpdated') === 'true') {
-      sessionStorage.removeItem('cartUpdated'); // clear flag after reload
+      sessionStorage.removeItem('cartUpdated');
       return;
     }
 
