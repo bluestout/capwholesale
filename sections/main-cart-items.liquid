@@ -622,24 +622,23 @@
               }),
             })
               .then((res) => res.json())
-              .catch((err) => console.error('❌ Error updating item:', err));
+              .catch((err) => console.error('Error updating item:', err));
           });
 
-          return Promise.all(updatePromises).then(() => true); // true = updates happened
+          return Promise.all(updatePromises).then(() => true);
         })
         .catch((error) => {
-          console.error('❌ Error fetching cart data:', error);
+          console.error('Error fetching cart data:', error);
           return false;
         });
     }
 
-    // 🧩 Function 2: Smooth reload (fade effect)
     function smoothReload() {
       document.body.style.transition = 'opacity 0.3s ease';
       document.body.style.opacity = '0';
       setTimeout(() => {
         window.location.reload();
-      }, 300);
+      }, 50);
     }
 
     // 🧩 Main process — only run once per session
