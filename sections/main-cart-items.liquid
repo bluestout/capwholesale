@@ -562,24 +562,47 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    fetch('/cart.js')
-      .then((response) => response.json())
-      .then((data) => {
-        const result = data.items.map((item)=>{
-          let p = {{ cart | json }};
-          console.log(p)
-          if(item.properties.SKU != item.sku && item.properties.Brand != item.vendor){
-            item.properties = {
-              SKU: item.sku,
-              Brand : item.vendor
-            }
-          }
-          return item;
-        })
-        console.log(result);
-      })
-      .catch((error) => console.error('Error fetching cart data:', error));
-  });
+  fetch('/cart.js')
+    .then((response) => response.json())
+    .then((cartData) => {
+      const updatePromises = cartData.items.map((item) => {
+        if (!item.properties || Object.keys(item.properties).length === 0) {
+          const newProperties = {
+            SKU: item.sku || 'N/A',
+            Brand: item.vendor || 'N/A',
+          };
+
+          // Prepare update request
+          return fetch('/cart/change.js', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              id: item.key, // Shopify unique line item key
+              properties: newProperties,
+            }),
+          })
+            .then((res) => res.json())
+            .then((updatedItem) => {
+              console.log(`✅ Updated item ${item.title}`, updatedItem);
+              return updatedItem;
+            })
+            .catch((err) => console.error('❌ Error updating item:', err));
+        } else {
+          console.log(`ℹ️ Item ${item.title} already has properties`, item.properties);
+          return Promise.resolve(item);
+        }
+      });
+
+      return Promise.all(updatePromises);
+    })
+    .then((updatedCart) => {
+      console.log('🛒 Final cart data:', updatedCart);
+    })
+    .catch((error) => console.error('❌ Error fetching cart data:', error));
+});
+
 </script>
 
 {% schema %}
