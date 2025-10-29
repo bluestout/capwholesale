@@ -325,7 +325,9 @@
           </localization-form>
         {%- endif -%}
       </div>
-      <a href="#hero-wishlist" aria-label="#hero-wishlist" class="header__icon header__icon--wishlist link"><span class="hidden" hidden>ADA</span>{% render 'es-icon-heart' %}</a>
+      <a href="#hero-wishlist" aria-label="#hero-wishlist" class="header__icon header__icon--wishlist link"
+        ><span class="hidden" hidden>ADA</span>{% render 'es-icon-heart' -%}
+      </a>
       {% render 'header-search', input_id: 'Search-In-Modal' %}
 
       {%- if shop.customer_accounts_enabled -%}
@@ -365,7 +367,11 @@
       {%- endfor -%}
 
       {%- if section.settings.phone_number != blank -%}
-        <a href="tel:{{ section.settings.phone_number }}" aria-label="tel:{{ section.settings.phone_number }}" class="header__icon header__icon--phone link focus-inset">
+        <a
+          href="tel:{{ section.settings.phone_number }}"
+          aria-label="tel:{{ section.settings.phone_number }}"
+          class="header__icon header__icon--phone link focus-inset"
+        >
           <span class="hidden" hidden>ADA</span>
           <span class="svg-wrapper">{{ 'icon-phone.svg' | inline_asset_content }}</span>
         </a>
@@ -394,6 +400,22 @@
     desktop_menu_type: section.settings.menu_type_desktop
   -%}
 {%- endif -%}
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    fetch('/cart.js')
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Cart products:', data.items);
+        data.items.forEach((item) => {
+          console.log('Product Title:', item.product_title);
+          console.log('Quantity:', item.quantity);
+          console.log('Line Price:', item.line_price);
+        });
+      })
+      .catch((error) => console.error('Error fetching cart data:', error));
+  });
+</script>
 
 {% javascript %}
   class StickyHeader extends HTMLElement {
