@@ -626,7 +626,6 @@
         return Promise.all(updatePromises);
       })
       .then(() => {
-        window.location.reload();
       })
       .catch((error) => console.error('❌ Error fetching cart data:', error));
   });
