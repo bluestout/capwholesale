@@ -594,41 +594,51 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    fetch('/cart.js')
-      .then((response) => response.json())
-      .then((cartData) => {
-        const updatePromises = cartData.items.map((item) => {
-          if (!item.properties || Object.keys(item.properties).length === 0) {
-            const newProperties = {
-              ...item.properties,
-              SKU: item.sku || 'N/A',
-              Brand: item.vendor || 'N/A',
-            };
+  fetch('/cart.js')
+    .then((response) => response.json())
+    .then((cartData) => {
+      const updatePromises = cartData.items.map((item) => {
+        // Skip if properties already exist
+        if (item.properties && Object.keys(item.properties).length > 0) {
+          return Promise.resolve();
+        }
 
-            return fetch('/cart/change.js', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                id: item.key,
-                quantity: item.quantity,
-                properties: newProperties,
-              }),
-            })
-              .then((res) => res.json())
-              .catch((err) => console.error('❌ Error updating item:', err));
-          } else {
-            return Promise.resolve();
-          }
-        });
+        const newProperties = {
+          ...item.properties,
+          SKU: item.sku || 'N/A',
+          Brand: item.vendor || 'N/A',
+        };
 
-        return Promise.all(updatePromises);
-      })
-      .then(() => {
-      })
-      .catch((error) => console.error('❌ Error fetching cart data:', error));
-  });
+        return fetch('/cart/change.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            id: item.key,
+            quantity: item.quantity,
+            properties: newProperties,
+          }),
+        }).then((res) => res.json());
+      });
+
+      // Wait until all updates finish
+      return Promise.all(updatePromises);
+    })
+    .then(() => {
+      console.log('✅ All cart items updated. Reloading...');
+
+      // ✨ Add a quick fade-out before reload
+      document.body.style.transition = 'opacity 0.3s ease';
+      document.body.style.opacity = '0';
+
+      // Wait for the fade-out to finish, then reload once
+      setTimeout(() => {
+        window.location.reload();
+      }, 300); // matches the transition time
+    })
+    .catch((error) => console.error('❌ Error updating cart:', error));
+});
 </script>
 
 {% schema %}
