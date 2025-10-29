@@ -641,20 +641,18 @@
       }, 50);
     }
 
-    // 🧩 Main process — only run once per session
     if (sessionStorage.getItem('cartUpdated') === 'true') {
-      console.log('🟢 Cart already updated this session — skipping.');
+      console.log('Cart already updated this session — skipping.');
       sessionStorage.removeItem('cartUpdated');
       return;
     }
 
     updateCartProperties().then((shouldReload) => {
       if (shouldReload) {
-        // Only reload if there were actual updates
         sessionStorage.setItem('cartUpdated', 'true');
         smoothReload();
       } else {
-        console.log('⏭️ No items required updating — skipping reload.');
+        console.log('No items required updating — skipping reload.');
       }
     });
   });
