@@ -598,7 +598,6 @@
     .then((response) => response.json())
     .then((cartData) => {
       const updatePromises = cartData.items.map((item) => {
-        // Skip if properties already exist
         if (item.properties && Object.keys(item.properties).length > 0) {
           return Promise.resolve();
         }
@@ -622,7 +621,6 @@
         }).then((res) => res.json());
       });
 
-      // Wait until all updates finish
       return Promise.all(updatePromises);
     })
     .then(() => {
