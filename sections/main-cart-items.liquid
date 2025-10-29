@@ -594,22 +594,18 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    // 🧩 Function 1: Update cart item properties (only missing ones)
     function updateCartProperties() {
       return fetch('/cart.js')
         .then((response) => response.json())
         .then((cartData) => {
-          // Filter only items that are missing properties
           const itemsToUpdate = cartData.items.filter(
             (item) => !item.properties || Object.keys(item.properties).length === 0
           );
 
           if (itemsToUpdate.length === 0) {
-            console.log('🟢 All items already have properties — no update needed.');
-            return false; // signal that no updates are required
+            return false;
           }
 
-          // Create update promises for those items
           const updatePromises = itemsToUpdate.map((item) => {
             const newProperties = {
               SKU: item.sku || 'N/A',
