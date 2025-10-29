@@ -566,6 +566,8 @@
       .then((response) => response.json())
       .then((data) => {
         data.items.map((item)=>{
+          let p = {{ cart | json }};
+          console.log(p)
           console.log(item.properties.SKU);
           console.log(item.properties.Brand);
           
