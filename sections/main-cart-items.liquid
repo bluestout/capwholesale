@@ -626,13 +626,8 @@
       return Promise.all(updatePromises);
     })
     .then(() => {
-      console.log('✅ All cart items updated. Reloading...');
 
-      // ✨ Add a quick fade-out before reload
-      document.body.style.transition = 'opacity 0.3s ease';
-      document.body.style.opacity = '0';
 
-      // Wait for the fade-out to finish, then reload once
     })
     .catch((error) => console.error('❌ Error updating cart:', error));
 });
