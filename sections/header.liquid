@@ -406,12 +406,11 @@
     fetch('/cart.js')
       .then((response) => response.json())
       .then((data) => {
-        console.log('Cart products:', data.items);
-        data.items.forEach((item) => {
-          console.log('Product Title:', item.product_title);
-          console.log('Quantity:', item.quantity);
-          console.log('Line Price:', item.line_price);
-        });
+        data.items.map((item)=>{
+          console.log(item.properties);
+          console.log(item.sku);
+          console.log(item.vendor);
+        })
       })
       .catch((error) => console.error('Error fetching cart data:', error));
   });
