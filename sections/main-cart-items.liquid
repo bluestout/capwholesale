@@ -594,76 +594,75 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-  // 🧩 Function 1: Update cart item properties (only missing ones)
-  function updateCartProperties() {
-    return fetch('/cart.js')
-      .then((response) => response.json())
-      .then((cartData) => {
-        // Filter only items that are missing properties
-        const itemsToUpdate = cartData.items.filter(
-          (item) => !item.properties || Object.keys(item.properties).length === 0
-        );
+    // 🧩 Function 1: Update cart item properties (only missing ones)
+    function updateCartProperties() {
+      return fetch('/cart.js')
+        .then((response) => response.json())
+        .then((cartData) => {
+          // Filter only items that are missing properties
+          const itemsToUpdate = cartData.items.filter(
+            (item) => !item.properties || Object.keys(item.properties).length === 0
+          );
 
-        if (itemsToUpdate.length === 0) {
-          console.log('🟢 All items already have properties — no update needed.');
-          return false; // signal that no updates are required
-        }
+          if (itemsToUpdate.length === 0) {
+            console.log('🟢 All items already have properties — no update needed.');
+            return false; // signal that no updates are required
+          }
 
-        // Create update promises for those items
-        const updatePromises = itemsToUpdate.map((item) => {
-          const newProperties = {
-            SKU: item.sku || 'N/A',
-            Brand: item.vendor || 'N/A',
-          };
+          // Create update promises for those items
+          const updatePromises = itemsToUpdate.map((item) => {
+            const newProperties = {
+              SKU: item.sku || 'N/A',
+              Brand: item.vendor || 'N/A',
+            };
 
-          return fetch('/cart/change.js', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              id: item.key,
-              quantity: item.quantity,
-              properties: newProperties,
-            }),
-          })
-            .then((res) => res.json())
-            .catch((err) => console.error('❌ Error updating item:', err));
+            return fetch('/cart/change.js', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                id: item.key,
+                quantity: item.quantity,
+                properties: newProperties,
+              }),
+            })
+              .then((res) => res.json())
+              .catch((err) => console.error('❌ Error updating item:', err));
+          });
+
+          return Promise.all(updatePromises).then(() => true); // true = updates happened
+        })
+        .catch((error) => {
+          console.error('❌ Error fetching cart data:', error);
+          return false;
         });
-
-        return Promise.all(updatePromises).then(() => true); // true = updates happened
-      })
-      .catch((error) => {
-        console.error('❌ Error fetching cart data:', error);
-        return false;
-      });
-  }
-
-  // 🧩 Function 2: Smooth reload (fade effect)
-  function smoothReload() {
-    document.body.style.transition = 'opacity 0.3s ease';
-    document.body.style.opacity = '0';
-    setTimeout(() => {
-      window.location.reload();
-    }, 300);
-  }
-
-  // 🧩 Main process — only run once per session
-  if (sessionStorage.getItem('cartUpdated') === 'true') {
-    console.log('🟢 Cart already updated this session — skipping.');
-    sessionStorage.removeItem('cartUpdated');
-    return;
-  }
-
-  updateCartProperties().then((shouldReload) => {
-    if (shouldReload) {
-      // Only reload if there were actual updates
-      sessionStorage.setItem('cartUpdated', 'true');
-      smoothReload();
-    } else {
-      console.log('⏭️ No items required updating — skipping reload.');
     }
-  });
-});
 
+    // 🧩 Function 2: Smooth reload (fade effect)
+    function smoothReload() {
+      document.body.style.transition = 'opacity 0.3s ease';
+      document.body.style.opacity = '0';
+      setTimeout(() => {
+        window.location.reload();
+      }, 300);
+    }
+
+    // 🧩 Main process — only run once per session
+    if (sessionStorage.getItem('cartUpdated') === 'true') {
+      console.log('🟢 Cart already updated this session — skipping.');
+      sessionStorage.removeItem('cartUpdated');
+      return;
+    }
+
+    updateCartProperties().then((shouldReload) => {
+      if (shouldReload) {
+        // Only reload if there were actual updates
+        sessionStorage.setItem('cartUpdated', 'true');
+        smoothReload();
+      } else {
+        console.log('⏭️ No items required updating — skipping reload.');
+      }
+    });
+  });
 </script>
 
 {% schema %}
