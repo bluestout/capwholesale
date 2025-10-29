@@ -560,6 +560,23 @@
   </div>
 </cart-items>
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    fetch('/cart.js')
+      .then((response) => response.json())
+      .then((data) => {
+        data.items.map((item)=>{
+          console.log(item.properties.SKU);
+          console.log(item.properties.Brand);
+          
+          console.log(item.sku);
+          console.log(item.vendor);
+        })
+      })
+      .catch((error) => console.error('Error fetching cart data:', error));
+  });
+</script>
+
 {% schema %}
 {
   "name": "t:sections.main-cart-items.name",
