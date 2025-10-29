@@ -593,11 +593,13 @@
 </cart-items>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-  fetch('/cart.js')
+  // 🧩 Function 1: Update cart item properties
+function updateCartProperties() {
+  return fetch('/cart.js')
     .then((response) => response.json())
     .then((cartData) => {
       const updatePromises = cartData.items.map((item) => {
+        // Only update items without properties
         if (item.properties && Object.keys(item.properties).length > 0) {
           return Promise.resolve();
         }
@@ -610,25 +612,43 @@
 
         return fetch('/cart/change.js', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             id: item.key,
-            quantity: item.quantity,
-            properties: newProperties,
+            quantity: item.quantity, // keep same quantity
+            properties: newProperties, // only update properties
           }),
-        }).then((res) => res.json());
+        })
+          .then((res) => res.json())
+          .catch((err) => console.error('❌ Error updating item:', err));
       });
 
       return Promise.all(updatePromises);
     })
     .then(() => {
-
-
+      console.log('✅ Cart update complete');
     })
-    .catch((error) => console.error('❌ Error updating cart:', error));
+    .catch((error) => console.error('❌ Error fetching cart data:', error));
+}
+
+// 🧩 Function 2: Smoothly reload the page
+function smoothReload() {
+  // Fade out before reload
+  document.body.style.transition = 'opacity 0.3s ease';
+  document.body.style.opacity = '0';
+
+  setTimeout(() => {
+    window.location.reload();
+  }, 300);
+}
+
+// 🧩 Run them in sequence
+document.addEventListener('DOMContentLoaded', () => {
+  updateCartProperties().then(() => {
+    smoothReload(); // Reload only once, after all updates
+  });
 });
+
 </script>
 
 {% schema %}
