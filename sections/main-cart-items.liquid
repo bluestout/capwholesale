@@ -572,14 +572,13 @@
             Brand: item.vendor || 'N/A',
           };
 
-          // Prepare update request
           return fetch('/cart/change.js', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-              id: item.key, // Shopify unique line item key
+              id: item.key,
               properties: newProperties,
             }),
           })
