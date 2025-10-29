@@ -561,30 +561,24 @@
 </cart-items>
 
 <script>
- document.addEventListener('DOMContentLoaded', () => {
-  fetch('/cart.js')
-    .then((response) => response.json())
-    .then((data) => {
-      const data_items = data.items.map((item) => {
-        // Assuming SKU and Vendor are stored in item properties
-        const properties = item.properties || {};
-
-        // Check if SKU and Brand are not already set
-        if (properties.SKU !== item.sku || properties.Brand !== item.vendor) {
-          // Update properties with SKU and Brand info
-          properties.SKU = item.sku;
-          properties.Brand = item.vendor;
-        }
-
-        // Assign back to item
-        item.properties = properties;
-
-        return item;
-      });
-      console.log(data_items);
-    })
-    .catch((error) => console.error('Error fetching cart data:', error));
-});
+  document.addEventListener('DOMContentLoaded', () => {
+    fetch('/cart.js')
+      .then((response) => response.json())
+      .then((data) => {
+        data.items.map((item)=>{
+          let p = {{ cart | json }};
+          console.log(p)
+          if(item.properties.SKU != item.sku && item.properties.Brand != item.vendor){
+            item.properties = {
+              SKU: item.sku,
+              Brand : item.vendor
+            }
+          }
+          return item;
+        })
+      })
+      .catch((error) => console.error('Error fetching cart data:', error));
+  });
 </script>
 
 {% schema %}
