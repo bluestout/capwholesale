@@ -566,8 +566,7 @@
       .then((response) => response.json())
       .then((data) => {
         data.items.map((item)=>{
-          let p = {{ cart | json }};
-          console.log(p)
+          {% comment %} let p = {{ cart | json }}; {% endcomment %}
           if(item.properties.SKU != item.sku && item.properties.Brand != item.vendor){
             item.properties = {
               SKU: item.sku,
