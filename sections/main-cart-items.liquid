@@ -568,11 +568,13 @@
         data.items.map((item)=>{
           let p = {{ cart | json }};
           console.log(p)
-          console.log(item.properties.SKU);
-          console.log(item.properties.Brand);
-          
-          console.log(item.sku);
-          console.log(item.vendor);
+          if(item.properties.SKU != item.sku && item.properties.Brand != item.vendor){
+            item.properties = {
+              SKU: item.sku,
+              Brand : item.vendor
+            }
+          }
+          return item;
         })
       })
       .catch((error) => console.error('Error fetching cart data:', error));
