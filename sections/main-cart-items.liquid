@@ -645,7 +645,6 @@ function smoothReload() {
 // 🧩 Run them in sequence
 document.addEventListener('DOMContentLoaded', () => {
   updateCartProperties().then(() => {
-    smoothReload(); // Reload only once, after all updates
   });
 });
 
