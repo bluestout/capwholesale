@@ -207,3 +207,8 @@ document.querySelector('.product-form__input .quantity input[name="quantity"]')?
       onScroll200();
     }
   });
+
+  //get search pages 
+document.addEventListener("DOMContentLoaded", function() {
+  // Your code here
+});
