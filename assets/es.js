@@ -221,8 +221,21 @@ document.querySelector('.product-form__input .quantity input[name="quantity"]')?
 })();
 
 document.addEventListener("DOMContentLoaded", () => {
-  const color_filter = document.querySelectorAll(".cloud-search-filter-values-container");
-  setTimeout(() => {
-    console.log(color_filter);
-  }, 1000);
+
+  const checkColorFilter = setInterval(() => {
+    const color_filter = document.querySelectorAll(".cloud-search-filter-values-container");
+
+    if (color_filter.length > 0) {
+      console.log("Color filter found:", color_filter);
+
+      // ✅ Stop checking once found
+      clearInterval(checkColorFilter);
+
+      // ✅ If you want values inside these elements
+      color_filter.forEach(el => {
+        console.log("Filter value:", el.textContent.trim());
+      });
+    }
+  }, 200); // check every 200ms
+
 });
