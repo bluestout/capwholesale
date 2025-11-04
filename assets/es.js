@@ -222,5 +222,9 @@ document.querySelector('.product-form__input .quantity input[name="quantity"]')?
 
 document.addEventListener("DOMContentLoaded", () => {
   const color_filter = document.querySelectorAll(".cloud-search-filter-values-container");
+  setTimeout(() => {
+    console.log(color_filter);
+    
+  }, 500);
   console.log(color_filter);
 });
