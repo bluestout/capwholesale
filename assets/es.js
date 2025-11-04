@@ -208,10 +208,11 @@ document.querySelector('.product-form__input .quantity input[name="quantity"]')?
     }
   });
 
-  //get search pages 
+  //get search pages
+  
 document.addEventListener("DOMContentLoaded", function() {
   const title = document.querySelectorAll(".es-price span");
   title.forEach(item=>{
-    item.innerHTML = "From ";
+    item.innerHTML = "From";
   })
 });
