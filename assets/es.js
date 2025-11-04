@@ -228,14 +228,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (color_filter.length > 0) {
       console.log("Color filter found:", color_filter);
 
-      // ✅ Stop checking once found
       clearInterval(checkColorFilter);
 
-      // ✅ If you want values inside these elements
       color_filter.forEach(el => {
         console.log("Filter value:", el.textContent.trim());
       });
     }
-  }, 200); // check every 200ms
+  }, 200);
 
 });
