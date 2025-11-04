@@ -224,6 +224,5 @@ document.addEventListener("DOMContentLoaded", () => {
   const color_filter = document.querySelectorAll(".cloud-search-filter-values-container");
   setTimeout(() => {
     console.log(color_filter);
-  }, 500);
-  console.log(color_filter);
+  }, 1000);
 });
