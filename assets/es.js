@@ -219,3 +219,8 @@ document.querySelector('.product-form__input .quantity input[name="quantity"]')?
     }
   }, 10);
 })();
+
+document.addEventListener("Domadd",()=>{
+  const color_filter = document.querySelectorAll(".cloud-search-filter-values-container");
+  console.log(color_filter);
+})
