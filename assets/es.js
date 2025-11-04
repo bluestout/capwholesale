@@ -222,32 +222,24 @@ document.querySelector('.product-form__input .quantity input[name="quantity"]')?
 
 document.addEventListener("DOMContentLoaded", () => {
   
-  const maxWait = 10000; // 10 seconds
+  const maxWait = 10000; 
   let elapsed = 0;
 
   const checkColorFilter = setInterval(() => {
     const color_filter = document.querySelectorAll(".cloud-search-filter-values-container");
-
     if (color_filter.length > 0) {
-      console.log("Color filter found:", color_filter);
-
       clearInterval(checkColorFilter);
-
-      // ✅ correctly set z-index in JavaScript (no !important directly)
       color_filter.forEach(el => {
         el.style.zIndex = "0";
       });
 
       return;
     }
-
     elapsed += 200;
     if (elapsed >= maxWait) {
       console.warn("No color filters found within 10 seconds — stopping check.");
       clearInterval(checkColorFilter);
     }
-
   }, 200);
-
 });
 
