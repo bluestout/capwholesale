@@ -6438,3 +6438,9 @@ media-gallery {
     }
   }
 }
+
+.cloud-search-filter-values-container{
+  .cloud-search-filter{
+    z-index: 0 !important;
+  }
+}
