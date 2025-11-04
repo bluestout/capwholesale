@@ -211,5 +211,7 @@ document.querySelector('.product-form__input .quantity input[name="quantity"]')?
   //get search pages 
 document.addEventListener("DOMContentLoaded", function() {
   const title = document.querySelectorAll(".es-price span");
-  console.log(title);
+  title.forEach(item=>{
+    item.innerText = "from"
+  })
 });
