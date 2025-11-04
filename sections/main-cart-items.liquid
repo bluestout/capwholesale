@@ -197,7 +197,9 @@
                         <p class="">{{ item.product.vendor }}</p>
                       {%- endif -%}
 
-                      <a href="{{ item.url }}" class="cart-item__name h4 break  ui-font-button">{{ item.product.title | escape }}</a>
+                      <a href="{{ item.url }}" class="cart-item__name h4 break  ui-font-button">
+                        {{- item.product.title | escape -}}
+                      </a>
 
                       {%- if item.original_price != item.final_price -%}
                         <div class="cart-item__discounted-prices">
@@ -211,13 +213,23 @@
                             {{ 'products.product.price.sale_price' | t }}
                           </span>
                           <strong class="cart-item__final-price product-option">
-                            <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_price" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.final_price | money }}
+                            <span
+                              class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_price"
+                              data-item-key="{{item.key}}"
+                              style="display:none !important;"
+                            ></span>
+                            {{- item.final_price | money }}
                           </strong>
                         </div>
                       {%- else -%}
                         <div class="bold-align-currency" style="display: flex; align-items: center;">
                           <div class="product-option ui-price-fix bold-item-price">
-                            <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_price" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.original_price | money }}
+                            <span
+                              class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_price"
+                              data-item-key="{{item.key}}"
+                              style="display:none !important;"
+                            ></span>
+                            {{- item.original_price | money }}
                           </div>
                         </div>
                       {%- endif -%}
@@ -285,12 +297,22 @@
                               {{ 'products.product.price.sale_price' | t }}
                             </dt>
                             <dd class="price price--end">
-                              <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.final_line_price | money }}
+                              <span
+                                class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total"
+                                data-item-key="{{item.key}}"
+                                style="display:none !important;"
+                              ></span>
+                              {{- item.final_line_price | money }}
                             </dd>
                           </dl>
                         {%- else -%}
                           <span class="price price--end">
-                            <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.original_line_price | money }}
+                            <span
+                              class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total"
+                              data-item-key="{{item.key}}"
+                              style="display:none !important;"
+                            ></span>
+                            {{- item.original_line_price | money }}
                           </span>
                         {%- endif -%}
 
@@ -497,46 +519,56 @@
 
                     <td class="cart-item__totals right small-hide">
                       {% comment %} {%- render 'loading-spinner' -%} {% endcomment %}
-                    <div style="display:flex">
-                      <div class="cart-item__price-wrapper">
-                        {%- if item.original_line_price != item.final_line_price -%}
-                          <dl class="cart-item__discounted-prices">
-                            <dt class="visually-hidden">
-                              {{ 'products.product.price.regular_price' | t }}
-                            </dt>
-                            <dd>
-                              <s class="cart-item__old-price price price--end">
-                                {{ item.original_line_price | money }}
-                              </s>
-                            </dd>
-                            <dt class="visually-hidden">
-                              {{ 'products.product.price.sale_price' | t }}
-                            </dt>
-                            <dd class="price price--end">
-                              <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.final_line_price | money }}
-                            </dd>
-                          </dl>
-                        {%- else -%}
-                          <span class="price price--end">
-                            <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.original_line_price | money }}
-                          </span>
-                        {%- endif -%}
-                        {%- if item.variant.available and item.unit_price_measurement -%}
-                          <div class="unit-price caption">
-                            <span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span>
-                            {{ item.unit_price | money }}
-                            <span aria-hidden="true">/</span>
-                            <span class="visually-hidden"
-                              >&nbsp;{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span
-                            >
-                            {%- if item.unit_price_measurement.reference_value != 1 -%}
-                              {{- item.unit_price_measurement.reference_value -}}
-                            {%- endif -%}
-                            {{ item.unit_price_measurement.reference_unit }}
-                          </div>
-                        {%- endif -%}
+                      <div style="display:flex">
+                        <div class="cart-item__price-wrapper">
+                          {%- if item.original_line_price != item.final_line_price -%}
+                            <dl class="cart-item__discounted-prices">
+                              <dt class="visually-hidden">
+                                {{ 'products.product.price.regular_price' | t }}
+                              </dt>
+                              <dd>
+                                <s class="cart-item__old-price price price--end">
+                                  {{ item.original_line_price | money }}
+                                </s>
+                              </dd>
+                              <dt class="visually-hidden">
+                                {{ 'products.product.price.sale_price' | t }}
+                              </dt>
+                              <dd class="price price--end">
+                                <span
+                                  class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total"
+                                  data-item-key="{{item.key}}"
+                                  style="display:none !important;"
+                                ></span>
+                                {{- item.final_line_price | money }}
+                              </dd>
+                            </dl>
+                          {%- else -%}
+                            <span class="price price--end">
+                              <span
+                                class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total"
+                                data-item-key="{{item.key}}"
+                                style="display:none !important;"
+                              ></span>
+                              {{- item.original_line_price | money }}
+                            </span>
+                          {%- endif -%}
+                          {%- if item.variant.available and item.unit_price_measurement -%}
+                            <div class="unit-price caption">
+                              <span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span>
+                              {{ item.unit_price | money }}
+                              <span aria-hidden="true">/</span>
+                              <span class="visually-hidden"
+                                >&nbsp;{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span
+                              >
+                              {%- if item.unit_price_measurement.reference_value != 1 -%}
+                                {{- item.unit_price_measurement.reference_value -}}
+                              {%- endif -%}
+                              {{ item.unit_price_measurement.reference_unit }}
+                            </div>
+                          {%- endif -%}
+                        </div>
                       </div>
-                    </div>
                     </td>
                   </tr>
                 {%- endfor -%}
@@ -559,6 +591,71 @@
     </form>
   </div>
 </cart-items>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    function updateCartProperties() {
+      return fetch('/cart.js')
+        .then((response) => response.json())
+        .then((cartData) => {
+          const itemsToUpdate = cartData.items.filter(
+            (item) => !item.properties || Object.keys(item.properties).length === 0
+          );
+
+          if (itemsToUpdate.length === 0) {
+            return false;
+          }
+
+          const updatePromises = itemsToUpdate.map((item) => {
+            const newProperties = {
+              SKU: item.sku || 'N/A',
+              Brand: item.vendor || 'N/A',
+            };
+
+            return fetch('/cart/change.js', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                id: item.key,
+                quantity: item.quantity,
+                properties: newProperties,
+              }),
+            })
+              .then((res) => res.json())
+              .catch((err) => console.error('Error updating item:', err));
+          });
+
+          return Promise.all(updatePromises).then(() => true);
+        })
+        .catch((error) => {
+          console.error('Error fetching cart data:', error);
+          return false;
+        });
+    }
+
+    function smoothReload() {
+      document.body.style.transition = 'opacity 0.3s ease';
+      document.body.style.opacity = '0';
+      setTimeout(() => {
+        window.location.reload();
+      }, 50);
+    }
+
+    if (sessionStorage.getItem('cartUpdated') === 'true') {
+      sessionStorage.removeItem('cartUpdated');
+      return;
+    }
+
+    updateCartProperties().then((shouldReload) => {
+      if (shouldReload) {
+        sessionStorage.setItem('cartUpdated', 'true');
+        smoothReload();
+      } else {
+        console.log('No items required updating — skipping reload.');
+      }
+    });
+  });
+</script>
 
 {% schema %}
 {
