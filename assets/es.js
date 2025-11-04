@@ -209,10 +209,13 @@ document.querySelector('.product-form__input .quantity input[name="quantity"]')?
   });
 
   //get search pages
-  
-document.addEventListener("DOMContentLoaded", function() {
-  const title = document.querySelectorAll(".es-price span");
-  title.forEach(item=>{
-    item.innerHTML = "From";
-  })
-});
+
+(function() {
+  const interval = setInterval(() => {
+    const title = document.querySelectorAll(".es-price span");
+    if (title.length) {
+      title.forEach(item => item.textContent = "From");
+      clearInterval(interval);
+    }
+  }, 10);
+})();
