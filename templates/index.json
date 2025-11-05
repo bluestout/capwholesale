@@ -266,6 +266,7 @@
         "collection_4mktAB": {
           "type": "collection",
           "settings": {
+            "image": "shopify://shop_images/Patriotic_Novelty_Hats_maybe_Patriotic_Patterned_Hats.jpg",
             "title": "Patriotic & Novelty Hats",
             "sub_title": "<p>USA Theme Bulk</p>",
             "url": "shopify://collections/patriotic-novelty-hats"
