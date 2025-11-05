@@ -233,6 +233,134 @@
             "sub_title": "<p>Modern Hats Wholesale</p>",
             "url": "shopify://collections/camo-hats"
           }
+        },
+        "collection_c4GRwz": {
+          "type": "collection",
+          "settings": {
+            "title": "Flat Bill Caps",
+            "sub_title": "<p>Flat Brim Wholesale</p>",
+            "url": ""
+          }
+        },
+        "collection_J7G4Tn": {
+          "type": "collection",
+          "settings": {
+            "title": "Foam Mesh Caps",
+            "sub_title": "<p>Foam Mesh Wholesale</p>",
+            "url": ""
+          }
+        },
+        "collection_Npp3tm": {
+          "type": "collection",
+          "settings": {
+            "title": "Organic Hats",
+            "sub_title": "<p>Organic Hats Wholesale</p>",
+            "url": ""
+          }
+        },
+        "collection_4mktAB": {
+          "type": "collection",
+          "settings": {
+            "title": "Patriotic & Novelty Hats",
+            "sub_title": "<p>USA Theme Bulk</p>",
+            "url": ""
+          }
+        },
+        "collection_Cttcni": {
+          "type": "collection",
+          "settings": {
+            "title": "Patterned Hats",
+            "sub_title": "<p>Patterned Hats Wholesale</p>",
+            "url": ""
+          }
+        },
+        "collection_yMzppd": {
+          "type": "collection",
+          "settings": {
+            "title": "Knit Beanies",
+            "sub_title": "<p>Beanies Wholesale</p>",
+            "url": ""
+          }
+        },
+        "collection_tfEiwF": {
+          "type": "collection",
+          "settings": {
+            "title": "Sun Visors",
+            "sub_title": "<p>Visors Wholesale</p>",
+            "url": ""
+          }
+        },
+        "collection_L7qUhd": {
+          "type": "collection",
+          "settings": {
+            "title": "Straw Hats",
+            "sub_title": "<p>Straw Hats Wholesale</p>",
+            "url": ""
+          }
+        },
+        "collection_FxaaPz": {
+          "type": "collection",
+          "settings": {
+            "title": "USA Made Hats",
+            "sub_title": "<p>Made in USA Wholesale</p>",
+            "url": ""
+          }
+        },
+        "collection_j3XmJE": {
+          "type": "collection",
+          "settings": {
+            "title": "Umpire Hats",
+            "sub_title": "<p>Umpire Caps Wholesale</p>",
+            "url": ""
+          }
+        },
+        "collection_CFi4Fy": {
+          "type": "collection",
+          "settings": {
+            "title": "Roped Hats",
+            "sub_title": "<p>Rope Hats Wholesale</p>",
+            "url": ""
+          }
+        },
+        "collection_6MQLnU": {
+          "type": "collection",
+          "settings": {
+            "title": "Ladies Hats",
+            "sub_title": "<p>Women’s Hats Wholesale</p>",
+            "url": ""
+          }
+        },
+        "collection_Ti9gjW": {
+          "type": "collection",
+          "settings": {
+            "title": "Kids Hats",
+            "sub_title": "<p>Youth Hats Wholesale</p>",
+            "url": ""
+          }
+        },
+        "collection_ATc8fA": {
+          "type": "collection",
+          "settings": {
+            "title": "Sample Packs",
+            "sub_title": "<p>Wholesale Hat Samples</p>",
+            "url": ""
+          }
+        },
+        "collection_Tw68RJ": {
+          "type": "collection",
+          "settings": {
+            "title": "Men’s Shirts & Apparel",
+            "sub_title": "<p>Men’s Shirts Wholesale</p>",
+            "url": ""
+          }
+        },
+        "collection_PDLVbU": {
+          "type": "collection",
+          "settings": {
+            "title": "Ladies & Kids Shirts and Apparel",
+            "sub_title": "<p>Bulk Blank Apparel</p>",
+            "url": ""
+          }
         }
       },
       "block_order": [
@@ -247,7 +375,23 @@
         "collection_fraWam",
         "collection_TGYUpq",
         "collection_nfmcKf",
-        "collection_epykX9"
+        "collection_epykX9",
+        "collection_c4GRwz",
+        "collection_J7G4Tn",
+        "collection_Npp3tm",
+        "collection_4mktAB",
+        "collection_Cttcni",
+        "collection_yMzppd",
+        "collection_tfEiwF",
+        "collection_L7qUhd",
+        "collection_FxaaPz",
+        "collection_j3XmJE",
+        "collection_CFi4Fy",
+        "collection_6MQLnU",
+        "collection_Ti9gjW",
+        "collection_ATc8fA",
+        "collection_Tw68RJ",
+        "collection_PDLVbU"
       ],
       "custom_css": [],
       "settings": {
