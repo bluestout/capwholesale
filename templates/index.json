@@ -275,6 +275,7 @@
         "collection_Cttcni": {
           "type": "collection",
           "settings": {
+            "image": "shopify://shop_images/Patterned_maybe.jpg",
             "title": "Patterned Hats",
             "sub_title": "<p>Patterned Hats Wholesale</p>",
             "url": "shopify://collections/patterned"
@@ -283,6 +284,7 @@
         "collection_yMzppd": {
           "type": "collection",
           "settings": {
+            "image": "shopify://shop_images/Knit_Beanies.jpg",
             "title": "Knit Beanies",
             "sub_title": "<p>Beanies Wholesale</p>",
             "url": "shopify://collections/knit-beanies"
