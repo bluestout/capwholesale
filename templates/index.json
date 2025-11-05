@@ -186,6 +186,7 @@
         "collection_fw7jzE": {
           "type": "collection",
           "settings": {
+            "image": "shopify://shop_images/Bucket_Hats_Sun_Hats.jpg",
             "title": "Wholesale Bucket & Sun Hats",
             "sub_title": "<p>Bucket Hats Bulk</p>",
             "url": "shopify://collections/wholesale-bucket-sun-hats"
@@ -194,7 +195,7 @@
         "collection_EmE39w": {
           "type": "collection",
           "settings": {
-            "image": "shopify://shop_images/image_5.png",
+            "image": "shopify://shop_images/Budget_Friendly_Hats.jpg",
             "title": "Wholesale Budget Hats",
             "sub_title": "<p>Cheap Hats Wholesale</p>",
             "url": "shopify://collections/wholesale-budget-hats"
@@ -203,7 +204,7 @@
         "collection_fraWam": {
           "type": "collection",
           "settings": {
-            "image": "shopify://shop_images/image_1.png",
+            "image": "shopify://shop_images/Best_Seller.jpg",
             "title": "Best Sellers",
             "sub_title": "<p>Top Wholesale Picks</p>",
             "url": "shopify://collections/best-sellers-1"
@@ -212,7 +213,7 @@
         "collection_TGYUpq": {
           "type": "collection",
           "settings": {
-            "image": "shopify://shop_images/image_4.png",
+            "image": "shopify://shop_images/255_berry_5_Panel_1__520_x_376px.jpg",
             "title": "5-Panel Golf Hats",
             "sub_title": "<p>Golf Hats Wholesale</p>",
             "url": "shopify://collections/5-panel-golf-hats"
@@ -221,7 +222,7 @@
         "collection_nfmcKf": {
           "type": "collection",
           "settings": {
-            "image": "shopify://shop_images/image_5.png",
+            "image": "shopify://shop_images/514_Gry_Blk_6_Panel_Baseball_10-520_x_376px.jpg",
             "title": "6-Panel Baseball Caps",
             "sub_title": "<p>Baseball Caps Wholesale</p>",
             "url": "shopify://collections/wholesale-6-panel-baseball-caps"
@@ -230,7 +231,7 @@
         "collection_epykX9": {
           "type": "collection",
           "settings": {
-            "image": "shopify://shop_images/image_2.png",
+            "image": "shopify://shop_images/1168_grey_blk_7_Panel_11-520px_x_372px.jpg",
             "title": "7-Panel Hats",
             "sub_title": "<p>Modern Hats Wholesale</p>",
             "url": "shopify://collections/7-panel-hats"
