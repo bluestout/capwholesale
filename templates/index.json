@@ -240,6 +240,7 @@
         "collection_c4GRwz": {
           "type": "collection",
           "settings": {
+            "image": "shopify://shop_images/6006_Char_5_Panel_Golf_1-__520_x_376px.jpg",
             "title": "Flat Bill Caps",
             "sub_title": "<p>Flat Brim Wholesale</p>",
             "url": "shopify://collections/wholesale-flat-bill-hats"
@@ -248,6 +249,7 @@
         "collection_J7G4Tn": {
           "type": "collection",
           "settings": {
+            "image": "shopify://shop_images/Foam_Mesh_Hats.jpg",
             "title": "Foam Mesh Caps",
             "sub_title": "<p>Foam Mesh Wholesale</p>",
             "url": "shopify://collections/foam-mesh-hats"
