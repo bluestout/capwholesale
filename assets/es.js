@@ -222,7 +222,7 @@ document.querySelector('.product-form__input .quantity input[name="quantity"]')?
 
 document.addEventListener("DOMContentLoaded", () => {
   
-  const maxWait = 10000; // 10 seconds
+  const maxWait = 10000;
   let elapsed = 0;
 
   const checkColorFilter = setInterval(() => {
@@ -233,9 +233,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       clearInterval(checkColorFilter);
 
-      // ✅ Apply z-index: 0 !important
       color_filter.forEach(el => {
-        el.style.setProperty("z-index", "0", "important");
+        el.style.setProperty("z-index", "2", "important");
       });
 
       return;
