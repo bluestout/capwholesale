@@ -150,7 +150,7 @@
         "collection_J89ex6": {
           "type": "collection",
           "settings": {
-            "image": "shopify://shop_images/image_3.png",
+            "image": "shopify://shop_images/Flexfit_4__520_x_376px.jpg",
             "title": "Wholesale Flexfit & Stretch Fit Hats",
             "sub_title": "<p>Flexfit Caps Wholesale</p>",
             "url": "shopify://collections/wholesale-flexfit-hats"
@@ -159,6 +159,7 @@
         "collection_bMmnLi": {
           "type": "collection",
           "settings": {
+            "image": "shopify://shop_images/938_LegionBlue_Dads_Relax_9__520_x_376px.jpg",
             "title": "Wholesale Dad Hats & Relaxed Caps",
             "sub_title": "<p>Relaxed Caps Wholesale</p>",
             "url": "shopify://collections/wholesale-relaxed-dad-hats"
@@ -167,7 +168,7 @@
         "collection_XMDHge": {
           "type": "collection",
           "settings": {
-            "image": "shopify://shop_images/image_4.png",
+            "image": "shopify://shop_images/Sport_Perform_Dk_Green_3__520_x_376px.jpg",
             "title": "Wholesale Performance Hats",
             "sub_title": "<p>Performance Hats Bulk</p>",
             "url": "shopify://collections/wholesale-performance-hats"
@@ -176,6 +177,7 @@
         "collection_q7Lpz3": {
           "type": "collection",
           "settings": {
+            "image": "shopify://shop_images/Camouflage_Hats.jpg",
             "title": "Wholesale Camo & Military Hats",
             "sub_title": "<p>Camo Hats Wholesale</p>",
             "url": "shopify://collections/wholesale-camo-hats"
