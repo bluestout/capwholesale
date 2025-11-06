@@ -6422,7 +6422,12 @@ media-gallery {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
+  @media (max-width: 768px){
+    text-align: center;
+  }
 }
+
+
 
 
 .template-product {
