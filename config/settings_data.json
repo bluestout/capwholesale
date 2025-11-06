@@ -274,7 +274,7 @@
         "disabled": false,
         "settings": {
           "enable_compare_at": false,
-          "skip_pr_js_load": false
+          "skip_pr_js_load": true
         }
       }
     },
