@@ -50,6 +50,13 @@
     <script src="{{ 'vendor.min.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'ui-slide.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'es.js' | asset_url }}" defer="defer"></script>
+    <script>
+       if (window.BOLD && window.BOLD.csp && window.BOLD.csp.TAE && window.BOLD.csp.TAE.settings && window.BOLD.csp.TAE.settings.cart) {
+       // Increase polling interval to 10 seconds (from default ~200ms)
+       window.BOLD.csp.TAE.settings.cart.check_cart_change_interval = 10000;
+       console.log('✅ Bold CSP cart polling interval overridden to 10 seconds.');
+     }
+   </script>
 
     {%- if settings.animations_reveal_on_scroll -%}
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
