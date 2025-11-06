@@ -86,11 +86,11 @@ if (!customElements.get('product-form')) {
               document.body.addEventListener(
                 'modalClosed',
                 () => {
-                  setTimeout(() => {
-                    CartPerformance.measure("add:paint-updated-sections", () => {
-                      this.cart.renderContents(response);
-                    });
-                  });
+                  // setTimeout(() => {
+                  //   CartPerformance.measure("add:paint-updated-sections", () => {
+                  //     this.cart.renderContents(response);
+                  //   });
+                  // });
                 },
                 { once: true }
               );
