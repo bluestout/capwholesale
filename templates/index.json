@@ -293,6 +293,7 @@
         "collection_tfEiwF": {
           "type": "collection",
           "settings": {
+            "image": "shopify://shop_images/Sun_Visors.jpg",
             "title": "Sun Visors",
             "sub_title": "<p>Visors Wholesale</p>",
             "url": "shopify://collections/sun-visors"
