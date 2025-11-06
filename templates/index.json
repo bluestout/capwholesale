@@ -302,6 +302,7 @@
         "collection_L7qUhd": {
           "type": "collection",
           "settings": {
+            "image": "shopify://shop_images/Straw_Hats.jpg",
             "title": "Straw Hats",
             "sub_title": "<p>Straw Hats Wholesale</p>",
             "url": "shopify://collections/straw-hats"
@@ -310,6 +311,7 @@
         "collection_FxaaPz": {
           "type": "collection",
           "settings": {
+            "image": "shopify://shop_images/USA_Made_Hats.jpg",
             "title": "USA Made Hats",
             "sub_title": "<p>Made in USA Wholesale</p>",
             "url": "shopify://collections/usa-made-hats"
@@ -318,6 +320,7 @@
         "collection_j3XmJE": {
           "type": "collection",
           "settings": {
+            "image": "shopify://shop_images/Umpire_Hats.jpg",
             "title": "Umpire Hats",
             "sub_title": "<p>Umpire Caps Wholesale</p>",
             "url": "shopify://collections/umpire-hats"
@@ -326,6 +329,7 @@
         "collection_CFi4Fy": {
           "type": "collection",
           "settings": {
+            "image": "shopify://shop_images/Rope_Hats.jpg",
             "title": "Roped Hats",
             "sub_title": "<p>Rope Hats Wholesale</p>",
             "url": "shopify://collections/roped-hats"
@@ -342,6 +346,7 @@
         "collection_Ti9gjW": {
           "type": "collection",
           "settings": {
+            "image": "shopify://shop_images/Kids_Hats.jpg",
             "title": "Kids Hats",
             "sub_title": "<p>Youth Hats Wholesale</p>",
             "url": "shopify://collections/kids-hats"
@@ -350,6 +355,7 @@
         "collection_ATc8fA": {
           "type": "collection",
           "settings": {
+            "image": "shopify://shop_images/Sample_Hat_Packs.jpg",
             "title": "Sample Packs",
             "sub_title": "<p>Wholesale Hat Samples</p>",
             "url": "shopify://collections/sample-packs"
@@ -358,6 +364,7 @@
         "collection_Tw68RJ": {
           "type": "collection",
           "settings": {
+            "image": "shopify://shop_images/Men_s_Shirts_Apparel.jpg",
             "title": "Men’s Shirts & Apparel",
             "sub_title": "<p>Men’s Shirts Wholesale</p>",
             "url": "shopify://collections/wholesale-mens-shirts-apparel"
