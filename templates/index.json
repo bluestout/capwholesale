@@ -134,7 +134,7 @@
           "settings": {
             "image": "shopify://shop_images/112_Tri-White-Aluminum-Black-520_x_376px.jpg",
             "title": "Wholesale Trucker Mesh Hats",
-            "sub_title": "<p>Trucker Hats Wholesale</p>",
+            "sub_title": "<p><em>Trucker Hats Wholesale</em></p>",
             "url": "shopify://collections/wholesale-trucker-mesh-hats"
           }
         },
@@ -143,7 +143,7 @@
           "settings": {
             "image": "shopify://shop_images/Best_Seller_520_x_372_px.jpg",
             "title": "Wholesale Snapback Caps",
-            "sub_title": "<p>Snapback Hats Wholesale</p>",
+            "sub_title": "<p><em>Snapback Hats Wholesale</em></p>",
             "url": "shopify://collections/wholesale-snapback-caps"
           }
         },
@@ -152,7 +152,7 @@
           "settings": {
             "image": "shopify://shop_images/Flexfit_4__520_x_376px.jpg",
             "title": "Wholesale Flexfit & Stretch Fit Hats",
-            "sub_title": "<p>Flexfit Caps Wholesale</p>",
+            "sub_title": "<p><em>Flexfit Caps Wholesale</em></p>",
             "url": "shopify://collections/wholesale-flexfit-hats"
           }
         },
@@ -161,7 +161,7 @@
           "settings": {
             "image": "shopify://shop_images/938_LegionBlue_Dads_Relax_9__520_x_376px.jpg",
             "title": "Wholesale Dad Hats & Relaxed Caps",
-            "sub_title": "<p>Relaxed Caps Wholesale</p>",
+            "sub_title": "<p><em>Relaxed Caps Wholesale</em></p>",
             "url": "shopify://collections/wholesale-relaxed-dad-hats"
           }
         },
@@ -170,7 +170,7 @@
           "settings": {
             "image": "shopify://shop_images/Sport_Perform_Dk_Green_3__520_x_376px.jpg",
             "title": "Wholesale Performance Hats",
-            "sub_title": "<p>Performance Hats Bulk</p>",
+            "sub_title": "<p><em>Performance Hats Bulk</em></p>",
             "url": "shopify://collections/wholesale-performance-hats"
           }
         },
@@ -179,7 +179,7 @@
           "settings": {
             "image": "shopify://shop_images/Camouflage_Hats.jpg",
             "title": "Wholesale Camo & Military Hats",
-            "sub_title": "<p>Camo Hats Wholesale</p>",
+            "sub_title": "<p><em>Camo Hats Wholesale</em></p>",
             "url": "shopify://collections/wholesale-camo-hats"
           }
         },
@@ -188,7 +188,7 @@
           "settings": {
             "image": "shopify://shop_images/Bucket_Hats_Sun_Hats.jpg",
             "title": "Wholesale Bucket & Sun Hats",
-            "sub_title": "<p>Bucket Hats Bulk</p>",
+            "sub_title": "<p><em>Bucket Hats Bulk</em></p>",
             "url": "shopify://collections/wholesale-bucket-sun-hats"
           }
         },
@@ -197,7 +197,7 @@
           "settings": {
             "image": "shopify://shop_images/Budget_Friendly_Hats.jpg",
             "title": "Wholesale Budget Hats",
-            "sub_title": "<p>Cheap Hats Wholesale</p>",
+            "sub_title": "<p><em>Cheap Hats Wholesale</em></p>",
             "url": "shopify://collections/wholesale-budget-hats"
           }
         },
@@ -206,7 +206,7 @@
           "settings": {
             "image": "shopify://shop_images/Best_Seller.jpg",
             "title": "Best Sellers",
-            "sub_title": "<p>Top Wholesale Picks</p>",
+            "sub_title": "<p><em>Top Wholesale Picks</em></p>",
             "url": "shopify://collections/best-sellers-1"
           }
         },
@@ -215,7 +215,7 @@
           "settings": {
             "image": "shopify://shop_images/255_berry_5_Panel_1__520_x_376px.jpg",
             "title": "5-Panel Golf Hats",
-            "sub_title": "<p>Golf Hats Wholesale</p>",
+            "sub_title": "<p><em>Golf Hats Wholesale</em></p>",
             "url": "shopify://collections/5-panel-golf-hats"
           }
         },
@@ -224,7 +224,7 @@
           "settings": {
             "image": "shopify://shop_images/514_Gry_Blk_6_Panel_Baseball_10-520_x_376px.jpg",
             "title": "6-Panel Baseball Caps",
-            "sub_title": "<p>Baseball Caps Wholesale</p>",
+            "sub_title": "<p><em>Baseball Caps Wholesale</em></p>",
             "url": "shopify://collections/wholesale-6-panel-baseball-caps"
           }
         },
@@ -233,7 +233,7 @@
           "settings": {
             "image": "shopify://shop_images/1168_grey_blk_7_Panel_11-520px_x_372px.jpg",
             "title": "7-Panel Hats",
-            "sub_title": "<p>Modern Hats Wholesale</p>",
+            "sub_title": "<p><em>Modern Hats Wholesale</em></p>",
             "url": "shopify://collections/7-panel-hats"
           }
         },
@@ -242,7 +242,7 @@
           "settings": {
             "image": "shopify://shop_images/6006_Char_5_Panel_Golf_1-__520_x_376px.jpg",
             "title": "Flat Bill Caps",
-            "sub_title": "<p>Flat Brim Wholesale</p>",
+            "sub_title": "<p><em>Flat Brim Wholesale</em></p>",
             "url": "shopify://collections/wholesale-flat-bill-hats"
           }
         },
@@ -251,7 +251,7 @@
           "settings": {
             "image": "shopify://shop_images/Foam_Mesh_Hats.jpg",
             "title": "Foam Mesh Caps",
-            "sub_title": "<p>Foam Mesh Wholesale</p>",
+            "sub_title": "<p><em>Foam Mesh Wholesale</em></p>",
             "url": "shopify://collections/foam-mesh-hats"
           }
         },
@@ -259,7 +259,7 @@
           "type": "collection",
           "settings": {
             "title": "Organic Hats",
-            "sub_title": "<p>Organic Hats Wholesale</p>",
+            "sub_title": "<p><em>Organic Hats Wholesale</em></p>",
             "url": "shopify://collections/wholesale-eco-sustainable-organic-hats"
           }
         },
@@ -268,7 +268,7 @@
           "settings": {
             "image": "shopify://shop_images/Patriotic_Novelty_Hats_maybe_Patriotic_Patterned_Hats.jpg",
             "title": "Patriotic & Novelty Hats",
-            "sub_title": "<p>USA Theme Bulk</p>",
+            "sub_title": "<p><em>USA Theme Bulk</em></p>",
             "url": "shopify://collections/patriotic-novelty-hats"
           }
         },
@@ -277,7 +277,7 @@
           "settings": {
             "image": "shopify://shop_images/Patterned_maybe.jpg",
             "title": "Patterned Hats",
-            "sub_title": "<p>Patterned Hats Wholesale</p>",
+            "sub_title": "<p><em>Patterned Hats Wholesale</em></p>",
             "url": "shopify://collections/patterned"
           }
         },
@@ -286,7 +286,7 @@
           "settings": {
             "image": "shopify://shop_images/Knit_Beanies.jpg",
             "title": "Knit Beanies",
-            "sub_title": "<p>Beanies Wholesale</p>",
+            "sub_title": "<p><em>Beanies Wholesale</em></p>",
             "url": "shopify://collections/knit-beanies"
           }
         },
@@ -295,7 +295,7 @@
           "settings": {
             "image": "shopify://shop_images/Sun_Visors.jpg",
             "title": "Sun Visors",
-            "sub_title": "<p>Visors Wholesale</p>",
+            "sub_title": "<p><em>Visors Wholesale</em></p>",
             "url": "shopify://collections/sun-visors"
           }
         },
@@ -304,7 +304,7 @@
           "settings": {
             "image": "shopify://shop_images/Straw_Hats.jpg",
             "title": "Straw Hats",
-            "sub_title": "<p>Straw Hats Wholesale</p>",
+            "sub_title": "<p><em>Straw Hats Wholesale</em></p>",
             "url": "shopify://collections/straw-hats"
           }
         },
@@ -313,7 +313,7 @@
           "settings": {
             "image": "shopify://shop_images/USA_Made_Hats.jpg",
             "title": "USA Made Hats",
-            "sub_title": "<p>Made in USA Wholesale</p>",
+            "sub_title": "<p><em>Made in USA Wholesale</em></p>",
             "url": "shopify://collections/usa-made-hats"
           }
         },
@@ -322,7 +322,7 @@
           "settings": {
             "image": "shopify://shop_images/Umpire_Hats.jpg",
             "title": "Umpire Hats",
-            "sub_title": "<p>Umpire Caps Wholesale</p>",
+            "sub_title": "<p><em>Umpire Caps Wholesale</em></p>",
             "url": "shopify://collections/umpire-hats"
           }
         },
@@ -331,7 +331,7 @@
           "settings": {
             "image": "shopify://shop_images/Rope_Hats.jpg",
             "title": "Roped Hats",
-            "sub_title": "<p>Rope Hats Wholesale</p>",
+            "sub_title": "<p><em>Rope Hats Wholesale</em></p>",
             "url": "shopify://collections/roped-hats"
           }
         },
@@ -339,7 +339,7 @@
           "type": "collection",
           "settings": {
             "title": "Ladies Hats",
-            "sub_title": "<p>Women’s Hats Wholesale</p>",
+            "sub_title": "<p><em>Women’s Hats Wholesale</em></p>",
             "url": "shopify://collections/ladies-hats"
           }
         },
@@ -348,7 +348,7 @@
           "settings": {
             "image": "shopify://shop_images/Kids_Hats.jpg",
             "title": "Kids Hats",
-            "sub_title": "<p>Youth Hats Wholesale</p>",
+            "sub_title": "<p><em>Youth Hats Wholesale</em></p>",
             "url": "shopify://collections/kids-hats"
           }
         },
@@ -357,7 +357,7 @@
           "settings": {
             "image": "shopify://shop_images/Sample_Hat_Packs.jpg",
             "title": "Sample Packs",
-            "sub_title": "<p>Wholesale Hat Samples</p>",
+            "sub_title": "<p><em>Wholesale Hat Samples</em></p>",
             "url": "shopify://collections/sample-packs"
           }
         },
@@ -366,7 +366,7 @@
           "settings": {
             "image": "shopify://shop_images/Men_s_Shirts_Apparel.jpg",
             "title": "Men’s Shirts & Apparel",
-            "sub_title": "<p>Men’s Shirts Wholesale</p>",
+            "sub_title": "<p><em>Men’s Shirts Wholesale</em></p>",
             "url": "shopify://collections/wholesale-mens-shirts-apparel"
           }
         },
@@ -374,7 +374,7 @@
           "type": "collection",
           "settings": {
             "title": "Ladies & Kids Shirts and Apparel",
-            "sub_title": "<p>Bulk Blank Apparel</p>",
+            "sub_title": "<p><em>Bulk Blank Apparel</em></p>",
             "url": "shopify://collections/wholesale-ladies-kids-shirts-apparel"
           }
         }
