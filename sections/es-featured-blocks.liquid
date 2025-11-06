@@ -43,6 +43,9 @@
               <div class="es-featured-blocks__item-title">
                 <a class="es-button link" href="{{ block.settings.url }}">{{ block.settings.title }}{% render 'es-shop-by-hat-right' %}</a>
               </div>
+              <div class="ui-featured-blocks__itme-subtitle">
+                {{ block.settings.sub_title }}
+              </div>
             </div>
           </div>
         {%- endfor -%}
@@ -122,6 +125,12 @@
           "id": "title",
           "label": "Title",
           "default": "Hat Style"
+        },
+        {
+          "type": "richtext",
+          "id":"sub_title",
+          "label": "Sub Title",
+          "default": "<p>hat sub title</p>"
         },
         {
           "type": "url",
