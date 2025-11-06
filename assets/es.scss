@@ -6414,6 +6414,16 @@ media-gallery {
   }
 }
 
+.ui-featured-blocks__itme-subtitle{
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.3;
+  opacity: .85;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
 
 .template-product {
   @media (max-width: 750px) {
