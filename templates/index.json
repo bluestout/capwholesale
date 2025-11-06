@@ -258,6 +258,7 @@
         "collection_Npp3tm": {
           "type": "collection",
           "settings": {
+            "image": "shopify://shop_images/Organic_Hats.jpg",
             "title": "Organic Hats",
             "sub_title": "<p><em>Organic Hats Wholesale</em></p>",
             "url": "shopify://collections/wholesale-eco-sustainable-organic-hats"
@@ -338,6 +339,7 @@
         "collection_6MQLnU": {
           "type": "collection",
           "settings": {
+            "image": "shopify://shop_images/Ladies_Hats.jpg",
             "title": "Ladies Hats",
             "sub_title": "<p><em>Women’s Hats Wholesale</em></p>",
             "url": "shopify://collections/ladies-hats"
@@ -373,6 +375,7 @@
         "collection_PDLVbU": {
           "type": "collection",
           "settings": {
+            "image": "shopify://shop_images/Ladies_Kids_Shirts_and_Apparel.jpg",
             "title": "Ladies & Kids Shirts and Apparel",
             "sub_title": "<p><em>Bulk Blank Apparel</em></p>",
             "url": "shopify://collections/wholesale-ladies-kids-shirts-apparel"
