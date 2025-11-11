@@ -948,7 +948,9 @@
   const quantityInput = document.querySelector("quantity-input .quantity__input").value;
 if (vendor == "Richardson") {
   console.log("true");
-  console.log(quantityInput);
+  quantityInput.addEventListener("change", () => {
+  console.log("change");
+});
 } else {
   console.log("false");
 }
