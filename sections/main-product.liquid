@@ -940,15 +940,21 @@
   }, 300); {% endcomment %}
 
   // Only Work On Richardson Product.
-  const richardson_product = {{ product | json }};
+ const richardson_product = {{ product | json }};
 
-  console.log("rechardson === >", richardson_product)
+console.log("richardson === >", richardson_product);
 
-  const vendor = richardson_product.vendor;
-  const quantityInput = document.querySelector("quantity-input .quantity__input").value;
-  quantityInput.addEventListener("change", () => {
+const vendor = richardson_product.vendor;
+const quantityInputElement = document.querySelector(".quantity-input .quantity__input");
+
+if (quantityInputElement) {
+  quantityInputElement.addEventListener("change", () => {
     console.log("change");
   });
+} else {
+  console.error("Quantity input element not found");
+}
+
 if (vendor == "Richardson") {
   console.log("true");
 } else {
