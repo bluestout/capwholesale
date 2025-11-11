@@ -946,11 +946,11 @@
 
   const vendor = richardson_product.vendor;
   const quantityInput = document.querySelector("quantity-input .quantity__input").value;
+  quantityInput.addEventListener("change", () => {
+    console.log("change");
+  });
 if (vendor == "Richardson") {
   console.log("true");
-  quantityInput.addEventListener("change", () => {
-  console.log("change");
-});
 } else {
   console.log("false");
 }
