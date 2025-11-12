@@ -942,24 +942,24 @@
   // Only Work On Richardson Product.
  const richardson_product = {{ product | json }};
 
-console.log("richardson === >", richardson_product);
+  console.log("richardson === >", richardson_product);
 
-const vendor = richardson_product.vendor;
-const quantityInputElement = document.querySelector(".quantity-input .quantity__input");
+  const vendor = richardson_product.vendor;
+  const quantityInputElement = document.querySelector(".quantity-input .quantity__input");
 
-document.querySelector('.product .quantity input[name="quantity"]').addEventListener('change', function () {
-  console.log({
-    value: parseInt(this.value),
-    min: parseInt(this.dataset.min),
+  document.querySelector('.product .quantity input[name="quantity"]').addEventListener('change', function () {
+    console.log({
+      value: parseInt(this.value),
+      min: parseInt(this.dataset.min),
+    });
   });
-});
 
 
-if (vendor == "Richardson") {
-  console.log("true");
-} else {
-  console.log("false");
-}
+  if (vendor == "Richardson") {
+    console.log("true");
+  } else {
+    console.log("false");
+  }
 </script>
 
 {% schema %}
