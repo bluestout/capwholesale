@@ -941,13 +941,13 @@
 
   // Only Work On Richardson Product.
 
-  function updateTotalPrice(price) {
+  {% comment %} function updateTotalPrice(price) {
     const quantity = parseInt(quantityInputElement.value) || 1;
     const price = parseFloat(variant.price) / 100;
     const total = (price * quantity).toFixed(2);
 
     totalPriceElement.textContent = `$${total}`;
-  }
+  } {% endcomment %}
 
   const richardson_product = {{ product | json }};
 
