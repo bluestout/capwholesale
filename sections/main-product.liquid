@@ -949,23 +949,31 @@
     totalPriceElement.textContent = `$${total}`;
   } {% endcomment %}
 
-  const richardson_product = {{ product | json }};
-
+   const richardson_product = {{ product | json }};
   const vendor = richardson_product.vendor;
+
   const quantityInputElement = document.querySelector(".quantity-input .quantity__input");
-  const totalPrice = document.querySelector(".sub-total-price-value");
+  const totalPriceElement = document.querySelector(".sub-total-price-value");
 
-  const each_product_price = richardson_product.variants[0].price;
-  console.log(each_product_price)
+  // Get the base variant price (in cents, Shopify format)
+  const basePrice = richardson_product.variants[0].price;
 
+  function updateTotalPrice() {
+    const quantity = parseInt(quantityInputElement.value) || 1;
 
-  document.querySelector('.product .quantity input[name="quantity"]').addEventListener('change', function () {  
-    if (vendor == "Richardson") {
-      console.log("true");
-    } else {
-      console.log("false");
-    }    
-  });
+    if (vendor === "Richardson") {
+      const total = (basePrice * quantity) / 100; // convert to dollars
+      totalPriceElement.textContent = `$${total.toFixed(2)} USD`;
+    }
+  }
+
+  // Listen for quantity changes
+  document
+    .querySelector('.product .quantity input[name="quantity"]')
+    .addEventListener('input', updateTotalPrice);
+
+  // Initialize on load
+  updateTotalPrice();
 </script>
 
 {% schema %}
