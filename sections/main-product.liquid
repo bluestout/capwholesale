@@ -955,14 +955,9 @@
   const quantityInputElement = document.querySelector(".quantity-input .quantity__input");
 
   const each_product_price = richardson_product.variants[0].price;
-  console.log(each_product_price)
 
   document.querySelector('.product .quantity input[name="quantity"]').addEventListener('change', function () {  
-    if (vendor == "Richardson") {
-      console.log("true");
-    } else {
-      console.log("false");
-    }    
+    updateTotalPrice(this.value, each_product_price)
   });
 </script>
 
