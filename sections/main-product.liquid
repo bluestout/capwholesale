@@ -943,7 +943,7 @@
 
     function updateTotalPrice(price, count) {
       const total = (price * count) / 100;
-      totalPriceElement.textContent = `$${total.toFixed(2)} USD`;
+      const updatedText = currentText.replace(/\$[\d,.]+/, `$${total.toFixed(2)}`);
     }
 
 
