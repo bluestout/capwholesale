@@ -946,29 +946,11 @@
 
   const vendor = richardson_product.vendor;
   const quantityInputElement = document.querySelector(".quantity-input .quantity__input");
-const totalPriceElement = document.querySelector(".sub-total-price-value");
+  const totalPrice = document.querySelector(".sub-total-price-value");
 
-// Example: assume you already have your product object
-// (like the "richardson" product you showed)
-const product = richardson;
-
-// Get the first variant (or currently selected one)
-const variant = product.variants[0]; // change index or logic if user selects variant
-
-// Function to update total price
-function updateTotalPrice() {
-  const quantity = parseInt(quantityInputElement.value) || 1;
-  const price = parseFloat(variant.price) / 100; // Shopify returns price in cents
-  const total = (price * quantity).toFixed(2);
-
-  totalPriceElement.textContent = `$${total}`;
-}
-
-// Listen for quantity changes
-quantityInputElement.addEventListener("input", updateTotalPrice);
-
-// Initialize on page load
-updateTotalPrice();
+  const each_product_price = quantityInputElement.variants;
+  console.log(each_product_price)
+  console.log(totalPrice)
 
   document.querySelector('.product .quantity input[name="quantity"]').addEventListener('change', function () {
     console.log({
