@@ -947,24 +947,13 @@ console.log("richardson === >", richardson_product);
 const vendor = richardson_product.vendor;
 const quantityInputElement = document.querySelector(".quantity-input .quantity__input");
 
-document.addEventListener("input", function (event) {
-  if (event.target.matches(".quantity_input")) {
-    console.log("Quantity:", event.target.value);
-  }
+document.querySelector('.product .quantity input[name="quantity"]').addEventListener('change', function () {
+  console.log({
+    value: parseInt(this.value),
+    min: parseInt(this.dataset.min),
+  });
 });
 
-document.querySelector('.product .quantity input[name="quantity"]').addEventListener('change', function () {
-      console.log({
-        value: parseInt(this.value),
-        min: parseInt(this.dataset.min),
-      });
-      if (parseInt(this.value) < parseInt(this.dataset.min)) {
-        document.querySelector(".product-form__buttons button[name='add']")?.setAttribute('disabled', true);
-      } else {
-        document.querySelector(".product-form__buttons button[name='add']")?.removeAttribute('disabled');
-      }
-    });
-    
 
 if (vendor == "Richardson") {
   console.log("true");
