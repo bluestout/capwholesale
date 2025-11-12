@@ -940,7 +940,16 @@
   }, 300); {% endcomment %}
 
   // Only Work On Richardson Product.
- const richardson_product = {{ product | json }};
+
+  function updateTotalPrice() {
+    const quantity = parseInt(quantityInputElement.value) || 1;
+    const price = parseFloat(variant.price) / 100;
+    const total = (price * quantity).toFixed(2);
+
+    totalPriceElement.textContent = `$${total}`;
+  }
+
+  const richardson_product = {{ product | json }};
 
   console.log("richardson === >", richardson_product);
 
