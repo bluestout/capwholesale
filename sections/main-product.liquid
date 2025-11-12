@@ -945,7 +945,7 @@
       const total = (price * count) / 100;
       const updatedText = currentText.replace(/\$[\d,.]+/, `$${total.toFixed(2)}`);
       const totalPrice = document.querySelector(".sub-total-price-value");
-      totalPriceElement.textContent = updatedText;
+      totalPriceElement.innertext = updatedText;
     }
 
 
