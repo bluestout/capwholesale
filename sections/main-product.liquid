@@ -941,13 +941,11 @@
 
   // Only Work On Richardson Product.
 
-  {% comment %} function updateTotalPrice(price) {
-    const quantity = parseInt(quantityInputElement.value) || 1;
-    const price = parseFloat(variant.price) / 100;
-    const total = (price * quantity).toFixed(2);
+    function updateTotalPrice(price, count) {
+      const total = (price * count) / 100;
+      totalPriceElement.textContent = `$${total.toFixed(2)} USD`;
+    }
 
-    totalPriceElement.textContent = `$${total}`;
-  } {% endcomment %}
 
   const richardson_product = {{ product | json }};
 
@@ -957,7 +955,6 @@
 
   const each_product_price = richardson_product.variants[0].price;
   console.log(each_product_price)
-
 
   document.querySelector('.product .quantity input[name="quantity"]').addEventListener('change', function () {  
     if (vendor == "Richardson") {
