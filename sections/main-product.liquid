@@ -941,23 +941,31 @@
 
   // Only Work On Richardson Product.
 
-    function updateTotalPrice(price, count) {
-      const total = (price * count) / 100;
-      const updatedText = currentText.replace(/\$[\d,.]+/, `$${total.toFixed(2)}`);
-      const totalPrice = document.querySelector(".sub-total-price-value");
-      totalPriceElement.innertext = updatedText;
-    }
-
-
-  const richardson_product = {{ product | json }};
-
+   const richardson_product = {{ product | json }};
   const vendor = richardson_product.vendor;
   const quantityInputElement = document.querySelector(".quantity-input .quantity__input");
-
+  const totalPriceElement = document.querySelector(".sub-total-price-value");
   const each_product_price = richardson_product.variants[0].price;
 
+  function updateTotalPrice(count, price) {
+    // Get current text (e.g. "$62.04 USD")
+    const currentText = totalPriceElement.textContent;
+
+    // Calculate total
+    const total = (price * count) / 100;
+
+    // Replace only the numeric part
+    const updatedText = currentText.replace(/\$[\d,.]+/, `$${total.toFixed(2)}`);
+
+    // Update the element text
+    totalPriceElement.innerText = updatedText;
+  }
+
+  // Listen for quantity change
   document.querySelector('.product .quantity input[name="quantity"]').addEventListener('change', function () {  
-    updateTotalPrice(this.value, each_product_price)
+    if (vendor === "Richardson") {
+      updateTotalPrice(this.value, each_product_price);
+    }
   });
 </script>
 
