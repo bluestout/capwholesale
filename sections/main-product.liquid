@@ -944,6 +944,8 @@
     function updateTotalPrice(price, count) {
       const total = (price * count) / 100;
       const updatedText = currentText.replace(/\$[\d,.]+/, `$${total.toFixed(2)}`);
+      const totalPrice = document.querySelector(".sub-total-price-value");
+      totalPriceElement.textContent = updatedText;
     }
 
 
@@ -951,7 +953,6 @@
 
   const vendor = richardson_product.vendor;
   const quantityInputElement = document.querySelector(".quantity-input .quantity__input");
-  const totalPrice = document.querySelector(".sub-total-price-value");
 
   const each_product_price = richardson_product.variants[0].price;
   console.log(each_product_price)
