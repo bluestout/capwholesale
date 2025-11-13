@@ -152,7 +152,7 @@
           {% for option in product.options_with_values %}
             {% assign variant_picker_count = variant_picker_count | plus: 1 %}
           {% endfor %}
-          
+
           {%- for block in section.blocks -%}
             {%- case block.type -%}
               {%- when '@app' -%}
@@ -940,6 +940,9 @@
   }, 300); {% endcomment %}
 
   // Only Work On Richardson Product.
+
+  const product_json = {{ product | json }};
+  console.log(product_json);
 
   const richardson_product = {{ product | json }};
   const vendor = richardson_product.vendor;
