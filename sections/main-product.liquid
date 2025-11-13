@@ -158,14 +158,14 @@
               {%- when '@app' -%}
                 {% render block %}
               {%- when 'text' -%}
-                {% if product.vendor != "Richardson" %}
+                {% comment %} {% if product.vendor != "Richardson" %} {% endcomment %}
                   <p
                     class="product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
                     {{ block.shopify_attributes }}
                   >
                     {{- block.settings.text -}}
                   </p>
-                {% endif %}
+                {% comment %} {% endif %} {% endcomment %}
                 {%- if block.settings.show_installments %}
                   <div {{ block.shopify_attributes }}>
                     {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
