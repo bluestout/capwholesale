@@ -954,15 +954,14 @@
     totalPriceElement.innerText = updatedText;
   }
 
+  const Buy_More = document.querySelector(".es-quantity-radios");
+
   document.querySelector('.product .quantity input[name="quantity"]').addEventListener('change', function () {  
     if (vendor === "Richardson") {
       updateTotalPrice(this.value, each_product_price);
+      Buy_More.style.display = "none" 
     }
   });
-
-  // Dlete buy or more save
-  const Buy_More = document.querySelector(".es-quantity-radios");
-  Buy_More.style.display = "none" 
 </script>
 
 {% schema %}
