@@ -158,14 +158,16 @@
               {%- when '@app' -%}
                 {% render block %}
               {%- when 'text' -%}
-                {% comment %} {% if product.vendor != "Richardson" %} {% endcomment %}
+                {% if product.vendor != "Richardson" %}
                   <p
                     class="product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
                     {{ block.shopify_attributes }}
                   >
                     {{- block.settings.text -}}
                   </p>
-                {% comment %} {% endif %} {% endcomment %}
+                {% else %}
+                  <p class="product__text inline-richtext"><strong>$</strong><strong>857</strong><strong> USD</strong></p>
+                {% endif %}
                 {%- if block.settings.show_installments %}
                   <div {{ block.shopify_attributes }}>
                     {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
