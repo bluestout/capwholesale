@@ -956,12 +956,12 @@
 
   if (vendor === "Richardson") {
     const BuyMore = document.querySelector(".es-quantity-radios");
+    BuyMore.style.display = "none" 
   }
 
   document.querySelector('.product .quantity input[name="quantity"]').addEventListener('change', function () {  
     if (vendor === "Richardson") {
       updateTotalPrice(this.value, each_product_price);
-      BuyMore.style.display = "none" 
     }
   });
 </script>
