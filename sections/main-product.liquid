@@ -162,7 +162,7 @@
                   class="product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
                   {{ block.shopify_attributes }}
                 >
-                  block{{- block.settings.text -}}
+                  {{- block.settings.text -}}
                 </p>
                 {%- if block.settings.show_installments %}
                   <div {{ block.shopify_attributes }}>
