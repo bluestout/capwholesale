@@ -166,7 +166,7 @@
                     {{- block.settings.text -}}
                   </p>
                 {% else %}
-                  <p class="product__text inline-richtext"><strong>$</strong><strong>{{ product.variants[0].price }}</strong><strong> USD</strong></p>
+                  <p class="product__text inline-richtext"><strong>$</strong><strong>{{ product.variants[0].price | money_without_currency | replace: ",", "" }}</strong><strong> USD</strong></p>
                 {% endif %}
                 {%- if block.settings.show_installments %}
                   <div {{ block.shopify_attributes }}>
