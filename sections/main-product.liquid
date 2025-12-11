@@ -942,6 +942,29 @@
       document.querySelector(".product-form__buttons button[name='add']")?.removeAttribute('disabled');
     }
   }, 300); {% endcomment %}
+   // Only Work On Richardson Product.
+  const product_json = {{ product | json }};
+  console.log(product_json);
+  const richardson_product = {{ product | json }};
+  const vendor = richardson_product.vendor;
+  const quantityInputElement = document.querySelector(".quantity-input .quantity__input");
+  const totalPriceElement = document.querySelector(".sub-total-price-value");
+  const each_product_price = richardson_product.variants[0].price;
+  function updateTotalPrice(count, price) {
+    const currentText = totalPriceElement.textContent;
+    const total = (price * count) / 100;
+    const updatedText = currentText.replace(/\$[\d,.]+/, `$${total.toFixed(2)}`);
+    totalPriceElement.innerText = updatedText;
+  }
+  if (vendor == "Richardson") {
+    const BuyMore = document.querySelector(".es-quantity-radios");
+    BuyMore.style.display = "none"
+  }
+  document.querySelector('.product .quantity input[name="quantity"]').addEventListener('change', function () {  
+    if (vendor === "Richardson") {
+      updateTotalPrice(this.value, each_product_price);
+    }
+  });
 </script>
 
 {% schema %}
