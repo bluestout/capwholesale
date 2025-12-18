@@ -34,6 +34,16 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+    /* Enable flexbox ordering for custom price sorting */
+    #product-grid.custom-price-sort {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    #product-grid.custom-price-sort .grid__item {
+      order: 0;
+    }
 {%- endstyle -%}
 
 <div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
@@ -164,6 +174,11 @@
                     data-cascade
                     style="--animation-order: {{ forloop.index }};"
                   {% endif %}
+                  {% if product.metafields.custom.custom_sorting_price != blank %}
+                    data-product-custom-price="{{ product.metafields.custom.custom_sorting_price.value }}"
+                  {% else %}
+                    data-product-custom-price="{{ product.metafields.custom.as_low_as_price.value }}"
+                  {% endif %}
                 >
                   {% render 'card-product',
                     card_product: product,
@@ -233,7 +248,7 @@
           "label": "t:sections.main-collection-product-grid.settings.columns_mobile.options__2.label"
         }
       ]
-    },    
+    },
     {
       "type": "color_scheme",
       "id": "color_scheme",
