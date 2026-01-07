@@ -55,11 +55,7 @@
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    {% capture cfh %}
     {{ content_for_header }}
-    {% endcapture %}
-    {{ cfh | remove: ',"\/\/secure.apps.shappify.com\/apps\/csp\/customer_pricing.php?shop=stjzta-ux.myshopify.com"' | remove: ',"https:\/\/cp.boldapps.net\/csp_install_check.js?shop=stjzta-ux.myshopify.com"' | remove: ',"https:\/\/cp.boldapps.net\/js\/cspqb.js?shop=stjzta-ux.myshopify.com"' }}
-
 
     {%- liquid
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
@@ -335,8 +331,6 @@
     </script>
 
     {{ 'bold-custom.css' | asset_url | stylesheet_tag }}
-    <script src="{{ 'pr.local.js' | asset_url }}" defer type="text/javascript"></script> 
-    {% render 'bold-custom-qb-grid' %}
   </head>
 
   <body class="gradient template-{{ template }} {% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %} template-suffix-{{ template.suffix }}">
