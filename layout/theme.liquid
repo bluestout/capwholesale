@@ -55,7 +55,11 @@
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
+    {% capture cfh %}
     {{ content_for_header }}
+    {% endcapture %}
+    {{ cfh | remove: ',"\/\/secure.apps.shappify.com\/apps\/csp\/customer_pricing.php?shop=stjzta-ux.myshopify.com"' | remove: ',"https:\/\/cp.boldapps.net\/csp_install_check.js?shop=stjzta-ux.myshopify.com"' | remove: ',"https:\/\/cp.boldapps.net\/js\/cspqb.js?shop=stjzta-ux.myshopify.com"' }}
+
 
     {%- liquid
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
