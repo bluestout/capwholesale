@@ -1,0 +1,152 @@
+    <script>
+      window.BOLD = window.BOLD || {};
+      window.BOLDCUSTOM = window.BOLDCUSTOM || {};
+      window.BOLD.pre = window.BOLD.pre || {};
+      window.BOLD.pre.config = window.BOLD.pre.config || {};
+      {% comment %} window.BOLD.pre.config.USE_DEBOUNCE_FOR_RULE_ACTIONS = true; {% endcomment %}
+
+      window.BOLDCUSTOM.rules = window.BOLDCUSTOM.rules || {};
+      window.BOLDCUSTOM.customerTags = {{ customer.tags | default: [] | json }};
+      window.BOLDCUSTOM.product = {{ product | json }};
+      window.BOLDCUSTOM.cartvariants = {{ cart.items | map: 'variant' | map: 'id' | json }}
+
+      function getQBData() {
+            const mainProduct = window.BOLDCUSTOM.product;
+            if(!mainProduct) { return; }
+            fetch(`https://api.boldcommerce.com/go_pre/pricerules/stjzta-ux.myshopify.com/rulesets?products=${mainProduct.id}&customer_tags=${window.BOLDCUSTOM.customerTags?.join(',') || ''}`)
+            .then(function(resp) {return resp.json()} )
+            .then(function(rules) { 
+                let qbGrid = '';
+                let qbLevels = [];
+                for(let rs=0; rs<rules.rulesets.length; rs++){
+                    const ruleset = rules.rulesets[rs];
+                    for(let r=0; r<ruleset.rules.length; r++) {
+                        const rule = ruleset.rules[r];
+                        const conditions = ruleset.conditions;
+                        if(conditions?.length) { console.log('CONDITIONALS', conditions ) }
+                        if(rule.type != 'DISPLAY') {continue}
+                        for(let a=0; a<rule.actions.length; a++) {
+                            const action = rule.actions[a];
+                            if(action.type != 'DISPLAY_QTY_BREAK') { continue; }
+                            qbLevels.push(action);
+                        }
+                    }
+                }
+                qbLevels = qbLevels.sort( (a,b) => a.qty - b.qty ).filter( (lvl, index, allLevels) => {
+                    const prevLvl = allLevels[index-1];
+                    if(!prevLvl) { return true; }
+                    return prevLvl.qty != lvl.qty && (prevLvl.saved != lvl.saved || prevLvl.percent != lvl.percent || prevLvl.price != lvl.price);
+                }) ;
+                buildQBGrids(mainProduct, qbLevels);
+                updateFormsWithQBGrids();
+            })
+        }
+
+        function buildQBGrids(product, qbLevels) {
+            const qbData = {};
+            const qbGrids = {};
+            for(let v=0; v<product.variants.length; v++) {
+                const variant = product.variants[v];
+                for(let q=0; q<qbLevels.length; q++) {
+                    const qbRule = qbLevels[q];
+                    let price = variant.price;
+                    if(qbRule.saved) { price = price = Math.round(Math.max(price - qbRule.saved, 0)) }
+                    else if(qbRule.percent) { price = Math.round(price - (price * (qbRule.percent / 100))) }
+                    else if(qbRule.price) { price = qbRule.price }
+                    qbData[variant.id] = qbData[variant.id] || [];
+                    qbData[variant.id].push({qty: qbRule.qty, price: price});
+                }
+                let gridHTML = '';
+                for(let d=0; d<qbData[variant.id].length; d++) {
+                    const rowData = qbData[variant.id][d];
+                    const nextRow = qbData[variant.id][d+1];
+
+                    gridHTML += `<tr><td>${rowData.qty}</td><td>${(rowData.price * 0.01).toLocaleString(undefined, {style: 'currency', currency: {{ shop.currency | json }} })}</td></tr>`
+                }
+
+                qbGrids[variant.id] = `<table class="shappify_qb_grid ">
+                <thead><tr><th>Qty</th><th>Price</th></tr></thead>
+                <tbody>
+                <tr><td>1</td><td>${(variant.price * 0.01).toLocaleString(undefined, {style: 'currency', currency: {{ shop.currency | json }} })}</td></tr>
+                ${gridHTML}
+                </tbody>
+                </table>`
+            }
+            window.BOLDCUSTOM.qbData = qbData;
+            window.BOLDCUSTOM.qbGrids = qbGrids;
+            
+        }
+
+        function updateTotalPriceEl(evt) {
+            const form = evt.target;
+            if(!form) {return}
+            const variant = form.id?.value;
+            const qty = parseInt(form.quantity?.value);
+            const totalEl = document.querySelector('.sub-total-price-value'); // Why isn't this inside the form?
+
+            if(!variant || !qty || !totalEl) {return}
+
+            const qbData = window.BOLDCUSTOM.qbData[variant];
+            const bestRow = qbData?.find( (row, index, arr) => { 
+                return !arr[index+1] || (row.qty <= qty && !(arr[index+1].qty <= qty))  
+            });
+            const bestPrice = bestRow?.price || variant.price;
+            totalEl.innerText = (bestPrice * qty * 0.01).toLocaleString(undefined, {style: 'currency', currency: {{ shop.currency | json }} });
+            
+        }
+
+        function updateFormsWithQBGrids() {
+                const mainProduct = window.BOLDCUSTOM.product;
+                if(!mainProduct) { return; }
+            
+                for(let f=0; f<document.forms.length; f++) {
+                    const form = document.forms[f];
+                    form.removeEventListener('qty_change', updateTotalPriceEl)
+                    if(! (form.action.includes('cart/add'))) { continue }
+
+                    let gridEl = form.querySelector('.bold_qb_grid_custom');
+                    
+                    if(!gridEl) {
+                        gridEl = document.createElement('div');
+                        gridEl.className = 'bold_qb_grid_custom';
+                        gridEl.id = 'bold_qb_grid'
+                        form.prepend(gridEl);
+                        form.removeEventListener('change', updateFormsWithQBGrids);
+                        form.addEventListener('change', updateFormsWithQBGrids);
+                        form.addEventListener('qty_change', updateTotalPriceEl);
+                    }
+                    gridEl.innerHTML = window.BOLDCUSTOM?.qbGrids?.[form.id?.value] || '';
+                    form.dispatchEvent(new CustomEvent('QB_GRID_READY', {detail: {product: mainProduct, form: form}, bubbles: true }))
+            }
+        }
+
+        window.addEventListener('load', getQBData);
+    </script>
+
+    <style>
+        table.shappify_qb_grid{ width:auto; } 
+        div.bold_qb_grid{ width: 100%;}
+        table.shappify_qb_grid{ width:100%;font-size:12px;} 
+        table.shappify_qb_grid thead, table.shappify_qb_grid thead tr, table.shappify_qb_grid thead th, table.shappify_qb_grid thead td{
+            background:#D6D6D6;
+            color:#000000;
+            font-weight:bold;
+        } 
+        table.shappify_qb_grid tbody tr:nth-child(odd) {
+            background-color:#FFFFFF;
+        } table.shappify_qb_grid tbody tr:nth-child(even) {
+            background-color:#EFEFEF;
+        } table.shappify_qb_grid tbody {
+            color:#000000;
+        } 
+        table.shappify_qb_grid, table.shappify_qb_grid th, table.shappify_qb_grid td { 
+            text-align:left;
+            padding:5px;
+            border: 1px solid #CCCCCC;
+            border-collapse: collapse;
+        } 
+        table.shappify_qb_grid {
+            margin: 0px;
+            margin-bottom: 1.5rem;
+        }
+    </style>
