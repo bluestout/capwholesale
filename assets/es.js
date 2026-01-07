@@ -74,7 +74,10 @@ const setESQuantityRadios = widget => {
       div.append(label);
 
       input.addEventListener("change", function () {
-        document.querySelector(".product .product-form__quantity .quantity__input").value = this.value;
+
+        const qtyInput = document.querySelector(".product .product-form__quantity .quantity__input");
+        qtyInput.value = this.value;
+        qtyInput.form?.dispatchEvent(new CustomEvent('qty_change', {bubbles: true}));
 
         const each_price = document.querySelector(".es-quantity-radios .es-quantity-radios__body")?.childNodes;
         each_price?.forEach((item) => {
@@ -104,17 +107,29 @@ const observer = new MutationObserver((mutations, obs) => {
     flag += 1;
   }
 
-  const moneyTemplateTable = document.querySelector("#bold_qb_grid .money-template table");
-  if (moneyTemplateTable) {
-    setESQuantityRadios(moneyTemplateTable);
-    flag += 1;
-  }
+  // const moneyTemplateTable = document.querySelector(".product-form #bold_qb_grid table");
+  // if (moneyTemplateTable) {
+  //   setESQuantityRadios(moneyTemplateTable);
+  //   flag += 1;
+  // }
 
-  if (flag == 2) {
+  // if (flag == 2) {
     obs.disconnect();
-  }
+  // }
 
 });
+
+document.addEventListener('QB_GRID_READY', function(evt){
+  const form = evt.detail.form;
+  const moneyTemplateTable = form.querySelector('#bold_qb_grid');
+    if (moneyTemplateTable) {
+      const existingQtySelectors = document.querySelector('.es-quantity-radios .es-quantity-radios__body');
+      if(existingQtySelectors) { 
+        existingQtySelectors.parentElement.removeChild(existingQtySelectors);
+      }
+      setESQuantityRadios(moneyTemplateTable);
+    }
+})
 
 observer.observe(document.body, { childList: true, subtree: true });
 
@@ -207,47 +222,3 @@ document.querySelector('.product-form__input .quantity input[name="quantity"]')?
       onScroll200();
     }
   });
-
-  //get search pages
-
-(function() {
-  const interval = setInterval(() => {
-    const title = document.querySelectorAll(".es-price span");
-    if (title.length) {
-      title.forEach(item => item.textContent = "From");
-      clearInterval(interval);
-    }
-  }, 10);
-})();
-
-document.addEventListener("DOMContentLoaded", () => {
-  
-  const maxWait = 10000;
-  let elapsed = 0;
-
-  const checkColorFilter = setInterval(() => {
-    const color_filter = document.querySelectorAll(".cloud-search-filter-values-container");
-
-    if (color_filter.length > 0) {
-      console.log("Color filter found:", color_filter);
-
-      clearInterval(checkColorFilter);
-
-      color_filter.forEach(el => {
-        el.style.setProperty("z-index", "2", "important");
-      });
-
-      return;
-    }
-
-    elapsed += 200;
-    if (elapsed >= maxWait) {
-      console.warn("No color filters found within 10 seconds — stopping check.");
-      clearInterval(checkColorFilter);
-    }
-
-  }, 200);
-
-});
-
-
