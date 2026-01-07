@@ -240,7 +240,7 @@ class QuantityInput extends HTMLElement {
     // Set initial quantity to first value in list if current value is not in the list
     const currentValue = parseInt(this.input.value);
     if (!this.quantityList.includes(currentValue)) {
-      this.input.value = this.getClosestValidQuantity(currentValue);
+      // this.input.value = this.getClosestValidQuantity(currentValue);
     }
   }
 
@@ -350,6 +350,7 @@ class QuantityInput extends HTMLElement {
       const newValue = Math.max(12, currentValue - 12);
       this.input.value = newValue;
     }
+    this.input?.form?.dispatchEvent(new CustomEvent('qty_change', {bubbles: true}));
 
     if (previousValue !== this.input.value) this.input.dispatchEvent(this.changeEvent);
   }
