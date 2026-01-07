@@ -264,9 +264,9 @@ class CartItems extends HTMLElement {
           let message = '';
           if (items.length === parsedState.items.length && updatedValue !== parseInt(quantityElement.value)) {
             if (typeof updatedValue === 'undefined') {
-              message = window.cartStrings.error;
+              // message = window.cartStrings.error;
             } else {
-              message = window.cartStrings.quantityError.replace('[quantity]', updatedValue);
+              // message = window.cartStrings.quantityError.replace('[quantity]', updatedValue);
             }
           }
           this.updateLiveRegions(line, message);
