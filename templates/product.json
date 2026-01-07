@@ -35,6 +35,12 @@
             "text_style": "body"
           }
         },
+        "sku_HTjRGR": {
+          "type": "sku",
+          "settings": {
+            "text_style": "body"
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -169,6 +175,7 @@
         "title",
         "fera_product_reviews_summary_NAazjF",
         "text_Pb8kXM",
+        "sku_HTjRGR",
         "variant_picker",
         "quantity_radios_EyWCw6",
         "quantity_selector",
