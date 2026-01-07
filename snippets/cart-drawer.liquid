@@ -310,12 +310,12 @@
                                 {{ 'products.product.price.sale_price' | t }}
                               </span>
                               <strong class="cart-item__final-price product-option bold-item-price">
-                                <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_price" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.final_price | money_without_currency }}
+                               <span class="money" data-line-index="{{ forloop.index0 }}">{{ item.final_price | money_without_currency }}</span>
                               </strong>
                             </div>
                           {%- else -%}
                               <div class="product-option ui-cart-money ui-font-button bold-item-price">
-                                <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_price" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.original_price | money_without_currency }}
+                                <span class="money" data-line-index="{{ forloop.index0 }}">{{ item.original_price | money_without_currency }}</span>
                               </div>
                          
                           {%- endif -%}
@@ -582,12 +582,12 @@
                                     {{ 'products.product.price.sale_price' | t }}
                                   </span>
                                   <span class="price price--end ui-font-button">
-                                    <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.final_line_price | money_without_currency }}
+                                    <span class="money" data-line-total data-line-index="{{ forloop.index0 }}">{{ item.final_line_price | money_without_currency }}</span>
                                   </span>
                                 </div>
                               {%- else -%}
                                 <span class="price price--end ui-font-button">
-                                  <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.original_line_price | money_without_currency }}
+                                  <span class="money" data-line-total data-line-index="{{ forloop.index0 }}">{{ item.original_line_price | money_without_currency }}</span>
                                 </span>
                               {%- endif -%}
   
@@ -664,8 +664,9 @@
           <div class="totals" role="status">
             <h2 class="totals__total">{{ 'sections.cart.estimated_total' | t }}</h2>
             <div class="bold-align-currency-cart-total" style="display: flex;">
-              <p class="totals__total-value"><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_total" style="display:none !important;"></span>{{ cart.total_price | money_without_currency }}</p>
+              <p class="totals__total-value money" data-cart-total>{{ cart.total_price | money_without_currency }}</p>
             </div>
+          </div>
           </div>
 
           <div class="cart__ctas ui-red-button" {{ block.shopify_attributes }}>
