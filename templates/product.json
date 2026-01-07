@@ -27,17 +27,17 @@
             "hide_when_no_reviews": false
           }
         },
+        "sku_HTjRGR": {
+          "type": "sku",
+          "settings": {
+            "text_style": "body"
+          }
+        },
         "text_Pb8kXM": {
           "type": "text",
           "settings": {
             "text": "As low as <strong>$</strong><strong>{{ product.metafields.custom.as_low_as_price.value }}</strong><strong> USD</strong>",
             "show_installments": true,
-            "text_style": "body"
-          }
-        },
-        "sku_HTjRGR": {
-          "type": "sku",
-          "settings": {
             "text_style": "body"
           }
         },
@@ -174,8 +174,8 @@
       "block_order": [
         "title",
         "fera_product_reviews_summary_NAazjF",
-        "text_Pb8kXM",
         "sku_HTjRGR",
+        "text_Pb8kXM",
         "variant_picker",
         "quantity_radios_EyWCw6",
         "quantity_selector",
