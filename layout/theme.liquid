@@ -335,6 +335,8 @@
     </script>
 
     {{ 'bold-custom.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'pr.local.js' | asset_url }}" defer type="text/javascript"></script> 
+    {% render 'bold-custom-qb-grid' %}
   </head>
 
   <body class="gradient template-{{ template }} {% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %} template-suffix-{{ template.suffix }}">
