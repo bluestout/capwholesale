@@ -302,7 +302,7 @@
                   {{ block.shopify_attributes }}
                 >
                   {% comment %} <span class="visually-hidden">{{ 'products.product.sku' | t }}:</span> {% endcomment %}
-                  <span class="">{{ 'products.product.sku' | t }}:</span>
+                  <span class="product-sku-heading">{{ 'products.product.sku' | t }}:</span>
                   {{- product.selected_or_first_available_variant.sku -}}
                 </p>
               {%- when 'custom_liquid' -%}
