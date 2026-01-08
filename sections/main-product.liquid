@@ -158,16 +158,12 @@
               {%- when '@app' -%}
                 {% render block %}
               {%- when 'text' -%}
-                {% if product.vendor != "Richardson" %}
-                  <p
-                    class="product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
-                    {{ block.shopify_attributes }}
-                  >
-                    {{- block.settings.text -}}
-                  </p>
-                {% else %}
-                  <p class="product__text inline-richtext"><strong>$</strong><strong>{{ product.variants[0].price | money_without_currency | replace: ",", "" }}</strong><strong> USD</strong></p>
-                {% endif %}
+                <p
+                  class="product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
+                  {{ block.shopify_attributes }}
+                >
+                  {{- block.settings.text -}}
+                </p>
                 {%- if block.settings.show_installments %}
                   <div {{ block.shopify_attributes }}>
                     {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
@@ -301,8 +297,7 @@
                   role="status"
                   {{ block.shopify_attributes }}
                 >
-                  {% comment %} <span class="visually-hidden">{{ 'products.product.sku' | t }}:</span> {% endcomment %}
-                  <span class="product-sku-heading">{{ 'products.product.sku' | t }}:</span>
+                  <span class="visually-hidden">{{ 'products.product.sku' | t }}:</span>
                   {{- product.selected_or_first_available_variant.sku -}}
                 </p>
               {%- when 'custom_liquid' -%}
@@ -943,29 +938,6 @@
       document.querySelector(".product-form__buttons button[name='add']")?.removeAttribute('disabled');
     }
   }, 300); {% endcomment %}
-   // Only Work On Richardson Product.
-  const product_json = {{ product | json }};
-  console.log(product_json);
-  const richardson_product = {{ product | json }};
-  const vendor = richardson_product.vendor;
-  const quantityInputElement = document.querySelector(".quantity-input .quantity__input");
-  const totalPriceElement = document.querySelector(".sub-total-price-value");
-  const each_product_price = richardson_product.variants[0].price;
-  function updateTotalPrice(count, price) {
-    const currentText = totalPriceElement.textContent;
-    const total = (price * count) / 100;
-    const updatedText = currentText.replace(/\$[\d,.]+/, `$${total.toFixed(2)}`);
-    totalPriceElement.innerText = updatedText;
-  }
-  if (vendor == "Richardson") {
-    const BuyMore = document.querySelector(".es-quantity-radios");
-    BuyMore.style.display = "none"
-  }
-  document.querySelector('.product .quantity input[name="quantity"]').addEventListener('change', function () {  
-    if (vendor === "Richardson") {
-      updateTotalPrice(this.value, each_product_price);
-    }
-  });
 </script>
 
 {% schema %}
