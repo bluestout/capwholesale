@@ -3599,6 +3599,7 @@ details-disclosure > details {
 
 .product__sku {
   font-size: 16px;
+  font-weight: 700 !important;
 }
 
 .ui-sku {
