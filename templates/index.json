@@ -90,8 +90,8 @@
           "settings": {
             "image": "shopify://shop_images/Banner2_V2.jpg",
             "sm_image": "shopify://shop_images/Image_1_d7f1f0b0-521d-418a-b595-0c356b156748.png",
-            "heading": "",
-            "description": "",
+            "heading": "WHERE",
+            "description": "<p>TEST</p>",
             "button_text": "shop now",
             "button_link": "shopify://products/5-panel-brushed-wflag-sandwiched-bill",
             "ui_height": true,
