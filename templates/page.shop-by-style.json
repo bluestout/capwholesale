@@ -37,6 +37,7 @@
       "settings": {
         "show_space": false,
         "image": "shopify://shop_images/Shop_All_2880_x_388_CAPS_Collection.png",
+        "image_mobile": "shopify://shop_images/Shop_All_750x400_cropped_fill.png",
         "image_overlay_opacity": 0,
         "opacity_type": "normal",
         "opacity_color": "primary",
@@ -65,7 +66,7 @@
           "type": "item",
           "settings": {
             "item_width": 6,
-            "image": "shopify://shop_images/bg.png",
+            "image": "shopify://shop_images/Flat_Bill_1160_x_590_CAPS-Photoroom_1.png",
             "title": "5-Panel Golf Hats",
             "url": "shopify://collections/5-panel-golf-hats",
             "title_2": "Hat Style 2",
@@ -76,10 +77,10 @@
           "type": "item",
           "settings": {
             "item_width": 4,
-            "image": "shopify://shop_images/bg_1.png",
-            "title": "6-Panel Baseball Caps",
-            "url": "shopify://collections/6-panel-baseball-caps",
-            "image_2": "shopify://shop_images/img_1.png",
+            "image": "shopify://shop_images/6_Panel_1160_x_590_CAPS_Dir_Styles-Photoroom.png",
+            "title": "Baseball Caps",
+            "url": "shopify://collections/wholesale-6-panel-baseball-caps",
+            "image_2": "shopify://shop_images/7_Panel_1160_x_590_CAPS_Direct_Styles-Photoroom.png",
             "title_2": "7-Panel Hats",
             "url_2": "shopify://collections/7-panel-hats"
           }
