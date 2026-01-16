@@ -181,12 +181,12 @@
           "type": "item",
           "settings": {
             "item_width": 4,
-            "image": "shopify://shop_images/bg_hat.png",
-            "title": "Patterned Hats",
-            "url": "shopify://collections/patterned",
-            "image_2": "shopify://shop_images/img_hat.png",
-            "title_2": "Performance Hats",
-            "url_2": "shopify://collections/performance-hats"
+            "image": "shopify://shop_images/Bucket_1160_x_590_CAPS_DIR_STYLES-Photoroom.png",
+            "title": "Bucket & Sun Hats",
+            "url": "shopify://collections/wholesale-bucket-sun-hats",
+            "image_2": "shopify://shop_images/1160_x_590_Sun_Visor_CAPS_Direct_Styles-Photoroom_1.png",
+            "title_2": "Sun Visors",
+            "url_2": "shopify://collections/sun-visors"
           }
         },
         "item_qTQxKz": {
