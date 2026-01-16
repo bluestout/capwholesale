@@ -36,6 +36,7 @@
       ],
       "settings": {
         "show_space": false,
+        "image": "shopify://shop_images/Shop_All_2880_x_388_CAPS_Collection.png",
         "image_overlay_opacity": 0,
         "opacity_type": "normal",
         "opacity_color": "primary",
