@@ -97,17 +97,6 @@
             "url_2": "shopify://collections/wholesale-budget-hats"
           }
         },
-        "item_t9qBbg": {
-          "type": "item",
-          "settings": {
-            "item_width": 6,
-            "image": "shopify://shop_images/Straw_Hat_1500_x_1200_CAPS_Direct_Style-Photoroom.png",
-            "title": "Straw Hats",
-            "url": "shopify://collections/straw-hats",
-            "title_2": "Hat Style 2",
-            "url_2": ""
-          }
-        },
         "item_8iXADG": {
           "type": "item",
           "settings": {
@@ -115,6 +104,17 @@
             "image": "shopify://shop_images/DAd_Relaxed_Hat_1500_x_1200_CAPS_Dir_Styles-Photoroom_1.png",
             "title": "Relaxed Dad Hats",
             "url": "shopify://collections/wholesale-relaxed-dad-hats",
+            "title_2": "Hat Style 2",
+            "url_2": ""
+          }
+        },
+        "item_t9qBbg": {
+          "type": "item",
+          "settings": {
+            "item_width": 6,
+            "image": "shopify://shop_images/Straw_Hat_1500_x_1200_CAPS_Direct_Style-Photoroom.png",
+            "title": "Straw Hats",
+            "url": "shopify://collections/straw-hats",
             "title_2": "Hat Style 2",
             "url_2": ""
           }
@@ -251,8 +251,8 @@
         "item_qXenJt",
         "item_7rAx4D",
         "item_ayUTCT",
-        "item_t9qBbg",
         "item_8iXADG",
+        "item_t9qBbg",
         "item_iMUfVt",
         "item_JdB3Gf",
         "item_RGEwRy",
