@@ -215,24 +215,24 @@
           "type": "item",
           "settings": {
             "item_width": 4,
-            "image": "shopify://shop_images/bg_1.png",
-            "title": "Snapback Caps",
-            "url": "shopify://collections/snapback-caps",
-            "image_2": "shopify://shop_images/img_1.png",
-            "title_2": "Sun Visors",
-            "url_2": "shopify://collections/sun-visors"
+            "image": "shopify://shop_images/Eco-FriendlyCollection_1160_x_590-Photoroom.png",
+            "title": "Eco-Sustainable & Organic Hats",
+            "url": "shopify://collections/wholesale-eco-sustainable-organic-hats",
+            "image_2": "shopify://shop_images/Patriot_Novelty_1160_x_590_CAPS_Direct_Styles-Photoroom.png",
+            "title_2": "Patriotic & Novelty Hats",
+            "url_2": "shopify://collections/patriotic-novelty-hats"
           }
         },
         "item_q4Qadh": {
           "type": "item",
           "settings": {
             "item_width": 4,
-            "image": "shopify://shop_images/bg_hat.png",
-            "title": "Trucker Mesh Hats",
-            "url": "shopify://collections/trucker-mesh-hats",
-            "image_2": "shopify://shop_images/img_hat.png",
-            "title_2": "Umpire Hats",
-            "url_2": "shopify://collections/umpire-hats"
+            "image": "shopify://shop_images/Umpire_Hat_1160_x_590_CAPS_Direct_Styles-Photoroom.png",
+            "title": "Umpire Hats",
+            "url": "shopify://collections/umpire-hats",
+            "image_2": "shopify://shop_images/jerzee_Brand_Apparel_1160_x_590_Direct_Styles_CAPS_-Photoroom.png",
+            "title_2": "Apparel",
+            "url_2": "shopify://collections/shop-apparel"
           }
         },
         "item_9pMaYJ": {
