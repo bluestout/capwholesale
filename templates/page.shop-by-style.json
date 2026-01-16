@@ -123,19 +123,19 @@
           "type": "item",
           "settings": {
             "item_width": 4,
-            "image": "shopify://shop_images/bg_1.png",
+            "image": "shopify://shop_images/Flat_Bill_1160_x_590_CAPS-Photoroom.png",
             "title": "Flat Bill Hats",
-            "url": "shopify://collections/flat-bill-hats",
-            "image_2": "shopify://shop_images/img_1.png",
+            "url": "shopify://collections/wholesale-flat-bill-hats",
+            "image_2": "shopify://shop_images/Directory_Style_9_Flexfit_CAPS_1160_x_590-Photoroom.png",
             "title_2": "Flexfit Hats",
-            "url_2": "shopify://collections/flexfit-hats"
+            "url_2": "shopify://collections/wholesale-flexfit-hats"
           }
         },
         "item_JdB3Gf": {
           "type": "item",
           "settings": {
             "item_width": 4,
-            "image": "shopify://shop_images/bg_hat.png",
+            "image": "shopify://shop_images/Foam_mesh_1160_x_590_CAPS-Photoroom_1.png",
             "title": "Foam Mesh Hats",
             "url": "shopify://collections/foam-mesh-hats",
             "image_2": "shopify://shop_images/img_hat.png",
