@@ -158,9 +158,9 @@
           "type": "item",
           "settings": {
             "item_width": 6,
-            "image": "shopify://shop_images/bg_3.jpg",
-            "title": "Ladies Hats",
-            "url": "shopify://collections/ladies-hats",
+            "image": "shopify://shop_images/Cute_couple_wearing_knit_hats_1500x_1200-Photoroom.png",
+            "title": "Knit Beanies",
+            "url": "shopify://collections/knit-beanies",
             "title_2": "Hat Style 2",
             "url_2": ""
           }
@@ -169,9 +169,9 @@
           "type": "item",
           "settings": {
             "item_width": 4,
-            "image": "shopify://shop_images/bg_1.png",
-            "title": "Military Hats",
-            "url": "shopify://collections/military-hats",
+            "image": "shopify://shop_images/Performance_Hats_1160_X_590_CAPS_Direct_Styles-Photoroom.png",
+            "title": "Performance Hats",
+            "url": "shopify://collections/wholesale-performance-hats",
             "image_2": "shopify://shop_images/img_1.png",
             "title_2": "Patriotic & Novelty Hats",
             "url_2": "shopify://collections/patriotic-novelty-hats"
