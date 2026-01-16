@@ -204,9 +204,9 @@
           "type": "item",
           "settings": {
             "item_width": 6,
-            "image": "shopify://shop_images/bg.png",
-            "title": "Roped Hats",
-            "url": "shopify://collections/roped-hats",
+            "image": "shopify://shop_images/Kids_1500_x_1200_Direct_Styles-Photoroom.png",
+            "title": "Kids Hats",
+            "url": "shopify://collections/kids-hats",
             "title_2": "Hat Style 2",
             "url_2": ""
           }
