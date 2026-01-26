@@ -1,5 +1,4 @@
 if (!customElements.get('product-info')) {
-  console.log("true")
   customElements.define(
     'product-info',
     class ProductInfo extends HTMLElement {
