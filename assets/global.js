@@ -1216,10 +1216,12 @@ class VariantSelects extends HTMLElement {
     // END <== ES - 0826202501
 
     if (tagName === 'SELECT' && target.selectedOptions.length) {
-      Array.from(target.options)
-        .find((option) => option.getAttribute('selected'))
-        .removeAttribute('selected');
-      target.selectedOptions[0].setAttribute('selected', 'selected');
+      // Array.from(target.options)
+      //   .find((option) => option.getAttribute('selected'))
+      //   .removeAttribute('selected');
+      // target.selectedOptions[0].setAttribute('selected', 'selected');
+
+      
 
       const swatchValue = target.selectedOptions[0].dataset.optionSwatchValue;
       const selectedDropdownSwatchValue = target
