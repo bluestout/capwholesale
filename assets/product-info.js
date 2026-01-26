@@ -222,6 +222,8 @@ if (!customElements.get('product-info')) {
       }
 
       updateURL(url, variantId) {
+        console.log("url", url)
+        console.log("variantId", variantId)
         this.querySelector('share-button')?.updateUrl(
           `${window.shopUrl}${url}${variantId ? `?variant=${variantId}` : ''}`
         );
