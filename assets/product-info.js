@@ -1,5 +1,5 @@
 if (!customElements.get('product-info')) {
-  console.log("url", url)
+  console.log("Hello World")
   customElements.define(
     'product-info',
     class ProductInfo extends HTMLElement {
