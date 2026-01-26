@@ -1,5 +1,4 @@
 if (!customElements.get('product-info')) {
-  console.log("Hello World")
   customElements.define(
     'product-info',
     class ProductInfo extends HTMLElement {
@@ -223,8 +222,6 @@ if (!customElements.get('product-info')) {
       }
 
       updateURL(url, variantId) {
-        console.log("url", url)
-        console.log("variantId", variantId)
         this.querySelector('share-button')?.updateUrl(
           `${window.shopUrl}${url}${variantId ? `?variant=${variantId}` : ''}`
         );
