@@ -1187,7 +1187,6 @@ class VariantSelects extends HTMLElement {
 
   connectedCallback() {
     this.addEventListener('change', (event) => {
-      console.log("go go go go")
       const target = this.getInputForEventTarget(event.target);
       this.updateSelectionMetadata(event);
 
