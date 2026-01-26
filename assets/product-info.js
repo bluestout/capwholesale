@@ -1,4 +1,3 @@
-console.log("customElement", customElements)
 if (!customElements.get('product-info')) {
   customElements.define(
     'product-info',
