@@ -38,6 +38,15 @@
     "header": {
       "type": "header",
       "blocks": {
+        "specific_link_c46TDB": {
+          "type": "specific_link",
+          "settings": {
+            "link_text": "Shop All",
+            "custom_class": "/collections/shop-by-hat-style",
+            "link_color": "#990000",
+            "font_weight": 400
+          }
+        },
         "mobile_menu_aLMmPP": {
           "type": "mobile_menu",
           "settings": {
@@ -55,6 +64,7 @@
         }
       },
       "block_order": [
+        "specific_link_c46TDB",
         "mobile_menu_aLMmPP",
         "specific_link_VjQTPq"
       ],
