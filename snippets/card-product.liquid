@@ -131,14 +131,14 @@
                 id="title-{{ section_id }}-{{ card_product.id }}"
               {% endif %}
             >
-              <a
+              {% comment %} <a
                 href="{{ card_product.url }}"
                 id="StandardCardNoMediaLink-{{ section_id }}-{{ card_product.id }}"
                 data-test="yui"
                 class="full-unstyled-link"
               >
                 {{ card_product.title | escape }}
-              </a>
+              </a> {% endcomment %}
             </h2>
           </div>
           {% comment %} <div class="card__badge {{ settings.badge_position }}">
