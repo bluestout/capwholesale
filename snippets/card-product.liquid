@@ -42,6 +42,15 @@
       assign ratio = 1
     endif
   -%}
+  {% style %}
+    .ui_card_sku {
+      margin: 0;
+    }              
+
+    .ui_card_vendor {
+      margin: 0;
+    }              
+  {% endstyle %}
   <div class="card-wrapper product-card-wrapper underline-links-hover" onclick="window.location.href = '{{ card_product.url }}'">
     {%- assign product_state = blank -%}
     {%- if card_product.tags contains 'New' or card_product.tags contains 'New Styles' -%}
