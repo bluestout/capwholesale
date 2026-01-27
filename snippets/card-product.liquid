@@ -184,7 +184,7 @@
             >
               {{ card_product.title | escape }}
             </a>
-            {{ card_product | json }}
+            {{ card_product.variants | json }}
           </h2>
           <div class="card-information">
             {%- if show_vendor -%}
