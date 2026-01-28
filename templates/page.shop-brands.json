@@ -146,10 +146,10 @@
           "type": "item",
           "settings": {
             "item_width": 6,
-            "image": "shopify://shop_images/bg_3.png",
-            "title": "Pacific Headwear Augusta",
-            "url": "shopify://collections/pacific-headwear-augusta",
-            "title_2": "Hat Style 2",
+            "image": "shopify://shop_images/Imperial_Hats_Brand_Directory_1500_x_1200.jpg",
+            "title": "Imperial Hats",
+            "url": "shopify://collections/imperial-hats",
+            "title_2": "",
             "url_2": ""
           }
         },
