@@ -76,12 +76,12 @@
           "type": "item",
           "settings": {
             "item_width": 4,
-            "image": "shopify://shop_images/bg_1.png",
-            "title": "Cobra Caps",
-            "url": "shopify://collections/cobra-hats",
-            "image_2": "shopify://shop_images/img_1.png",
+            "image": "shopify://shop_images/Otto_Brand_Directory_1160_x_590_2.jpg",
+            "title": "Otto Hats",
+            "url": "shopify://collections/otto-hats",
+            "image_2": "shopify://shop_images/Decky_Brand_Directory_1160_x_590_1.jpg",
             "title_2": "Decky Hats",
-            "url_2": "shopify://collections/decky-hats"
+            "url_2": "shopify://collections/wholesale-decky-hats"
           }
         },
         "item_ayUTCT": {
