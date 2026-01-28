@@ -65,9 +65,9 @@
           "type": "item",
           "settings": {
             "item_width": 6,
-            "image": "shopify://shop_images/bg.png",
-            "title": "Adams headwear",
-            "url": "shopify://collections/adams-headwear",
+            "image": "shopify://shop_images/Richardson_1500_x_1200_CAPS.jpg",
+            "title": "Richardson Hats",
+            "url": "shopify://collections/richardson-hats",
             "title_2": "Hat Style 2",
             "url_2": ""
           }
