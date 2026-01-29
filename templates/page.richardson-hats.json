@@ -25,6 +25,7 @@
           "settings": {
             "subheading": "",
             "heading": "Shop Hat Styles",
+            "heading_tag": "h2",
             "border_bottom": true,
             "heading_size": "hxl"
           }
@@ -40,8 +41,8 @@
       ],
       "settings": {
         "show_space": false,
-        "image": "shopify://shop_images/Image_783a0d6f-5463-4758-8cdb-e5cddbfeddbb.png",
-        "image_mobile": "shopify://shop_images/allenburt_94637_create_a_real_photo_with_people_wearing_corpo_2e5fd7b5-a835-45c1-9453-06ef636c270e_2_1.png",
+        "image": "shopify://shop_images/Richardson_Banner_For_Caps_2880_X_388_with_camo_cap-Photoroom.png",
+        "image_mobile": "shopify://shop_images/Richardson_Banner_For_Caps_2880_X_388_with_camo_cap-Photoroom.png",
         "image_overlay_opacity": 30,
         "opacity_type": "normal",
         "opacity_color": "primary",
@@ -59,7 +60,8 @@
         "opacity_direct_on_mobile": "vertical",
         "opacity_height_on_mobile": "small",
         "image_height_on_mobile": "adapt",
-        "show_text_below": false
+        "show_text_below": false,
+        "banner_link": ""
       }
     },
     "es_gallery_with_link_aP9Len": {
