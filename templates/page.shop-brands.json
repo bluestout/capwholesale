@@ -168,12 +168,11 @@
           "type": "item",
           "settings": {
             "item_width": 4,
-            "image": "shopify://shop_images/bg_1.png",
-            "title": "YP Classic Yupoong Hats",
-            "url": "shopify://collections/yp-classic-yupoong-hats",
-            "image_2": "shopify://shop_images/img_1.png",
-            "title_2": "Zapped Hats",
-            "url_2": "shopify://collections/zapped-hats"
+            "image": "shopify://shop_images/Adams_Brand_Directory_1500_x_1200-CAPS.jpg",
+            "title": "Adams Headwear",
+            "url": "shopify://collections/adams-headwear",
+            "title_2": "",
+            "url_2": ""
           }
         }
       },
