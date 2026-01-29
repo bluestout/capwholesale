@@ -254,6 +254,15 @@
             "row_content": "<p>Email your sales tax-exempt certificate to <a href=\"mailto:info@capwholesalers.com\" target=\"_blank\" title=\"mailto:info@capwholesalers.com\">info@capwholesalers.com</a> with \"TAX EXEMPT\" and your order number in the subject line.</p>",
             "page": ""
           }
+        },
+        "collapsible_row_8hfTkr": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What’s your return policy?",
+            "icon": "check_mark",
+            "row_content": "<ul><li>Return full dozens only within 15 days</li><li>20% restocking fee</li><li>No returns on altered, decorated, or sample pieces</li><li>Return shipping is the customer's responsibility<br/></li></ul>",
+            "page": ""
+          }
         }
       },
       "block_order": [
@@ -279,7 +288,8 @@
         "collapsible_row_YrJqBr",
         "collapsible_row_pRHi4J",
         "collapsible_row_CBX4CH",
-        "collapsible_row_qeCPan"
+        "collapsible_row_qeCPan",
+        "collapsible_row_8hfTkr"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
