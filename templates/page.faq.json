@@ -259,8 +259,17 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "What’s your return policy?",
-            "icon": "check_mark",
+            "icon": "none",
             "row_content": "<ul><li>Return full dozens only within 15 days</li><li>20% restocking fee</li><li>No returns on altered, decorated, or sample pieces</li><li>Return shipping is the customer's responsibility<br/></li></ul>",
+            "page": ""
+          }
+        },
+        "collapsible_row_FJgb9X": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I cancel my order?",
+            "icon": "none",
+            "row_content": "<p>Only before shipment. 20% restocking fee applies. </p>",
             "page": ""
           }
         }
@@ -289,7 +298,8 @@
         "collapsible_row_pRHi4J",
         "collapsible_row_CBX4CH",
         "collapsible_row_qeCPan",
-        "collapsible_row_8hfTkr"
+        "collapsible_row_8hfTkr",
+        "collapsible_row_FJgb9X"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
