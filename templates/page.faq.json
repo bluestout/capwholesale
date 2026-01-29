@@ -281,6 +281,15 @@
             "row_content": "<p>No. Returns only when applicable.</p>",
             "page": ""
           }
+        },
+        "collapsible_row_eBmpeg": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I split colors to make a dozen?",
+            "icon": "none",
+            "row_content": "<p>No. Dozens must be per style/color/size.</p>",
+            "page": ""
+          }
         }
       },
       "block_order": [
@@ -309,7 +318,8 @@
         "collapsible_row_qeCPan",
         "collapsible_row_8hfTkr",
         "collapsible_row_FJgb9X",
-        "collapsible_row_J4chhR"
+        "collapsible_row_J4chhR",
+        "collapsible_row_eBmpeg"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
