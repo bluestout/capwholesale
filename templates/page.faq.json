@@ -209,6 +209,15 @@
             "row_content": "<p>One is a pending charge. The second includes sales tax. The pending amount drops off in 1–4 business days.</p>",
             "page": ""
           }
+        },
+        "collapsible_row_7KqgaX": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What payment methods do you accept?",
+            "icon": "check_mark",
+            "row_content": "<p>We accept Visa, Mastercard, Amex, Discover, PayPal, Zelle, Shopify Payments, Apple Pay, Google Pay, wire transfer, and pre-paid checks. No international cards or COD.</p>",
+            "page": ""
+          }
         }
       },
       "block_order": [
@@ -229,7 +238,8 @@
         "collapsible_row_kBhwwX",
         "collapsible_row_MBLiRp",
         "collapsible_row_LX4QXD",
-        "collapsible_row_ercr7T"
+        "collapsible_row_ercr7T",
+        "collapsible_row_7KqgaX"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
