@@ -96,18 +96,18 @@
         "collapsible_row_bHLYBw": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Vestibulum tempor lacus ut risus auctor tristique?",
+            "heading": "Do you carry licensed team hats like Yankees or Giants?",
             "icon": "none",
-            "row_content": "<p>Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus. Nullam sed ipsum vel quam suscipit mattis at vitae augue. Phasellus non maximus dui, a ultricies libero. Duis eu mi augue. Maecenas ante nunc, semper nec justo ac, volutpat aliquet enim. Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus.</p>",
+            "row_content": "<p>No, we do not carry licensed merchandise.</p>",
             "page": ""
           }
         },
         "collapsible_row_exqgpt": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Vestibulum tempor lacus ut risus auctor tristique?",
+            "heading": "Do you carry New Era or Nike?",
             "icon": "none",
-            "row_content": "<p>Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus. Nullam sed ipsum vel quam suscipit mattis at vitae augue. Phasellus non maximus dui, a ultricies libero. Duis eu mi augue. Maecenas ante nunc, semper nec justo ac, volutpat aliquet enim. Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus.</p>",
+            "row_content": "<p>Sorry, we do not carry those brands.</p>",
             "page": ""
           }
         },
