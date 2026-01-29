@@ -53,7 +53,7 @@
           "settings": {
             "heading": "Which are your best-selling hats?",
             "icon": "none",
-            "row_content": "<p>Our #1 bestseller is the Richardson 112 Trucker Cap, including the 112PFP, 112FP. View best sellers</p>",
+            "row_content": "<p>Our #1 bestseller is the Richardson 112 Trucker Cap, including the 112PFP, 112FP. <a href=\"/collections/best-sellers-1\" title=\"Best Sellers\">View best sellers</a></p>",
             "page": ""
           }
         },
