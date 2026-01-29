@@ -125,7 +125,7 @@
           "settings": {
             "heading": "Do you offer embroidery, screen printing, or custom patches?",
             "icon": "none",
-            "row_content": "<p>Yes! Visit <a href=\"https://www.customizedwear.com/\" target=\"_blank\" title=\"https://www.customizedwear.com/\">CustomizedWear.com</a> for custom embroidery, screen printing, and patch options. We offer leather, faux leather, flex, 3D embroidery, embroidered, and print-stitch patches. Minimums: 12 pcs for embroidery, 24 pcs for patches. Email logos@customizedwear.com or call 877-984-2277.</p>",
+            "row_content": "<p>Yes! Visit <a href=\"https://www.customizedwear.com/\" target=\"_blank\" title=\"https://www.customizedwear.com/\">CustomizedWear.com</a> for custom embroidery, screen printing, and patch options. We offer leather, faux leather, flex, 3D embroidery, embroidered, and print-stitch patches. Minimums: 12 pcs for embroidery, 24 pcs for patches. Email <a href=\"mailto:logos@customizedwear.com\" target=\"_blank\" title=\"mailto:logos@customizedwear.com\">logos@customizedwear.com</a> or call <a href=\"tel:877-984-2277\" target=\"_blank\" title=\"tel:877-984-2277\">877-984-2277</a></p>",
             "page": ""
           }
         },
