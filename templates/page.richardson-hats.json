@@ -158,6 +158,17 @@
             "title_2": "",
             "url_2": ""
           }
+        },
+        "item_9aJx37": {
+          "type": "item",
+          "settings": {
+            "item_width": 6,
+            "image": "shopify://shop_images/740_white_visor_1500_x_1200-Photoroom.png",
+            "title": "Sun Visors",
+            "url": "shopify://collections/richardson-sun-visors",
+            "title_2": "Hat Style 2",
+            "url_2": ""
+          }
         }
       },
       "block_order": [
@@ -168,7 +179,8 @@
         "item_pdBMky",
         "item_g8MptD",
         "item_npK47M",
-        "item_bHrEqQ"
+        "item_bHrEqQ",
+        "item_9aJx37"
       ],
       "settings": {
         "scrollable": false,
