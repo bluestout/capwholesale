@@ -326,6 +326,15 @@
             "row_content": "<p>Restricted based on payment type due to fraud concerns. Billing and shipping addresses must match.</p>",
             "page": ""
           }
+        },
+        "collapsible_row_p4hrTR": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What about orders over 576 pieces?",
+            "icon": "none",
+            "row_content": "<p>Large orders require custom freight quotes. We will contact you prior to processing.</p>",
+            "page": ""
+          }
         }
       },
       "block_order": [
@@ -359,7 +368,8 @@
         "collapsible_row_UBL7Yc",
         "collapsible_row_XNPPMn",
         "collapsible_row_jRMFUK",
-        "collapsible_row_9Y36xt"
+        "collapsible_row_9Y36xt",
+        "collapsible_row_p4hrTR"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
