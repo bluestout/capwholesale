@@ -62,7 +62,7 @@
           "settings": {
             "heading": "What are your lowest-priced hats?",
             "icon": "none",
-            "row_content": "<p>Budget-friendly styles start at just $1.15. Shop budget hats</p>",
+            "row_content": "<p>Budget-friendly styles start at just $1.15. <a href=\"/collections/wholesale-budget-hats\" title=\"Wholesale Budget Hats\">Shop budget hats</a></p>",
             "page": ""
           }
         },
