@@ -191,6 +191,15 @@
             "row_content": "<p>Yes! We don't send it automatically but are happy to provide it. Call or email 1–3 business days after ordering.</p>",
             "page": ""
           }
+        },
+        "collapsible_row_LX4QXD": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Why did I only receive part of my order?",
+            "icon": "none",
+            "row_content": "<p>Orders may ship from multiple warehouses. Please allow extra time.</p>",
+            "page": ""
+          }
         }
       },
       "block_order": [
@@ -209,7 +218,8 @@
         "collapsible_row_whLqXG",
         "collapsible_row_TVxY3N",
         "collapsible_row_kBhwwX",
-        "collapsible_row_MBLiRp"
+        "collapsible_row_MBLiRp",
+        "collapsible_row_LX4QXD"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
