@@ -132,9 +132,9 @@
         "collapsible_row_HjNq44": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Vestibulum tempor lacus ut risus auctor tristique?",
+            "heading": "How much is shipping?",
             "icon": "none",
-            "row_content": "<p>Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus. Nullam sed ipsum vel quam suscipit mattis at vitae augue. Phasellus non maximus dui, a ultricies libero. Duis eu mi augue. Maecenas ante nunc, semper nec justo ac, volutpat aliquet enim. Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus.</p>",
+            "row_content": "<p>Shipping via UPS or FedEx Ground. Here are sample rates (continental U.S.)</p><p><br/>Standard UPS Ground shipping rates shipping in the continental US (excludes HI, PR or AK)<br/>UP to (3) PIECES= $19.95<br/>1 DOZEN= $28.54<br/>2 DOZEN= $32.14<br/>3 DOZEN= $35.74<br/>4 DOZEN= $41.74<br/>5 DOZEN= $46.74<br/>6 DOZEN= $47.94<br/>7 DOZEN= $61.14<br/>8 DOZEN= $65.94<br/>9 DOZEN= $70.74<br/>10 DOZEN= $73.14<br/>11 DOZEN= $73.14<br/>12 DOZEN= $73.14<br/>Please call for prices over 12 dozen.</p><p><br/>*Prices subject to change.<br/></p>",
             "page": ""
           }
         },
