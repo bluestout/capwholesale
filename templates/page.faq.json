@@ -290,6 +290,15 @@
             "row_content": "<p>No. Dozens must be per style/color/size.</p>",
             "page": ""
           }
+        },
+        "collapsible_row_UBL7Yc": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is the order minimum?",
+            "icon": "none",
+            "row_content": "<p>12 pcs per style/color/size. Up to 3 sample pieces are allowed for most brands.</p>",
+            "page": ""
+          }
         }
       },
       "block_order": [
@@ -319,7 +328,8 @@
         "collapsible_row_8hfTkr",
         "collapsible_row_FJgb9X",
         "collapsible_row_J4chhR",
-        "collapsible_row_eBmpeg"
+        "collapsible_row_eBmpeg",
+        "collapsible_row_UBL7Yc"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
