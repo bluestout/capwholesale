@@ -214,7 +214,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "What payment methods do you accept?",
-            "icon": "check_mark",
+            "icon": "none",
             "row_content": "<p>We accept Visa, Mastercard, Amex, Discover, PayPal, Zelle, Shopify Payments, Apple Pay, Google Pay, wire transfer, and pre-paid checks. No international cards or COD.</p>",
             "page": ""
           }
@@ -225,6 +225,15 @@
             "heading": "Do you accept purchase orders?",
             "icon": "none",
             "row_content": "<p>No net terms. Prepayment is required.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_pRHi4J": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I set up an account?",
+            "icon": "none",
+            "row_content": "<p>Yes. Click \"Login\" on our homepage and select \"Create an Account.\"</p>",
             "page": ""
           }
         }
@@ -249,7 +258,8 @@
         "collapsible_row_LX4QXD",
         "collapsible_row_ercr7T",
         "collapsible_row_7KqgaX",
-        "collapsible_row_YrJqBr"
+        "collapsible_row_YrJqBr",
+        "collapsible_row_pRHi4J"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
