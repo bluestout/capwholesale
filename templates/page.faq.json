@@ -78,9 +78,9 @@
         "collapsible_row_bkjYWf": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "What is the minimum order? 12 pieces per color, per style?",
+            "heading": "What is the minimum order?",
             "icon": "none",
-            "row_content": "<p>Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus. Nullam sed ipsum vel quam suscipit mattis at vitae augue. Phasellus non maximus dui, a ultricies libero. Duis eu mi augue. Maecenas ante nunc, semper nec justo ac, volutpat aliquet enim. Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus.</p>",
+            "row_content": "<p>12 pieces per color, per style.</p>",
             "page": ""
           }
         },
