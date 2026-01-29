@@ -128,12 +128,12 @@
           "type": "item",
           "settings": {
             "item_width": 4,
-            "image": "shopify://shop_images/bg_1.png",
-            "title": "Flexfit",
-            "url": "",
-            "image_2": "shopify://shop_images/img.png",
-            "title_2": "Wholesale Apparel",
-            "url_2": ""
+            "image": "shopify://shop_images/320_Relaxed_Dad_1160_x_590-Photoroom_updated.png",
+            "title": "Relaxed Dad Hats",
+            "url": "shopify://collections/richardson-relaxed-dad-hats",
+            "image_2": "shopify://shop_images/R_Flex_Black_Red-Photoroom.png",
+            "title_2": "R-Flex & Sized",
+            "url_2": "shopify://collections/richardson-r-flex-sized"
           }
         }
       },
