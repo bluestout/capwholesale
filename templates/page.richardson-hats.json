@@ -89,40 +89,20 @@
             "title_2": "6 Panel Baseball Hats",
             "url_2": "shopify://collections/richardson-6-panel-baseball-hats"
           }
-        }
-      },
-      "block_order": [
-        "item_3fTwfQ",
-        "item_KNpFEY"
-      ],
-      "settings": {
-        "scrollable": false,
-        "title": "",
-        "hide_title_on_mobile": true,
-        "padding_top": 46,
-        "padding_bottom": 10,
-        "padding_top_mobile": 30,
-        "padding_bottom_mobile": 10,
-        "item_count_row": 2,
-        "show_gradient": true
-      }
-    },
-    "es_gallery_with_link_PkEpWC": {
-      "type": "es-gallery-with-link",
-      "blocks": {
-        "item_ktPAK8": {
+        },
+        "item_QgiaAF": {
           "type": "item",
           "settings": {
             "item_width": 4,
-            "image": "shopify://shop_images/bg_2.png",
-            "title": "Performance",
-            "url": "",
-            "image_2": "shopify://shop_images/img_1.png",
-            "title_2": "FlatBilled",
-            "url_2": ""
+            "image": "shopify://shop_images/147_Heather_Grey_Beanie_1160_x_590-Photoroom.png",
+            "title": "Beanies",
+            "url": "shopify://collections/richardson-beanies",
+            "image_2": "shopify://shop_images/255_Flat_Bill_Navy_1160_x_590-Photoroom.png",
+            "title_2": "Flat Billed Hats",
+            "url_2": "shopify://collections/richardson-flat-billed"
           }
         },
-        "item_TBqMmg": {
+        "item_ixBTzg": {
           "type": "item",
           "settings": {
             "item_width": 6,
@@ -135,19 +115,21 @@
         }
       },
       "block_order": [
-        "item_ktPAK8",
-        "item_TBqMmg"
+        "item_3fTwfQ",
+        "item_KNpFEY",
+        "item_QgiaAF",
+        "item_ixBTzg"
       ],
       "settings": {
         "scrollable": false,
         "title": "",
         "hide_title_on_mobile": true,
-        "padding_top": 0,
+        "padding_top": 46,
         "padding_bottom": 10,
-        "padding_top_mobile": 0,
+        "padding_top_mobile": 30,
         "padding_bottom_mobile": 10,
         "item_count_row": 2,
-        "show_gradient": false
+        "show_gradient": true
       }
     },
     "es_gallery_with_link_yRNNYb": {
@@ -241,7 +223,6 @@
     "main",
     "es_image_banner_fVRefc",
     "es_gallery_with_link_aP9Len",
-    "es_gallery_with_link_PkEpWC",
     "es_gallery_with_link_yRNNYb",
     "es_gallery_with_link_EhAEr4"
   ]
