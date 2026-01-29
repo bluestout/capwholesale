@@ -182,6 +182,15 @@
             "row_content": "<p>We ship from multiple warehouses across the U.S., including CA, TX, NY, OH, GA, and FL. Our main sales office is in Coral Springs, Florida.</p>",
             "page": ""
           }
+        },
+        "collapsible_row_MBLiRp": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I get tracking info?",
+            "icon": "none",
+            "row_content": "<p>Yes! We don't send it automatically but are happy to provide it. Call or email 1–3 business days after ordering.</p>",
+            "page": ""
+          }
         }
       },
       "block_order": [
@@ -199,7 +208,8 @@
         "collapsible_row_JFgrg4",
         "collapsible_row_whLqXG",
         "collapsible_row_TVxY3N",
-        "collapsible_row_kBhwwX"
+        "collapsible_row_kBhwwX",
+        "collapsible_row_MBLiRp"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
