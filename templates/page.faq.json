@@ -87,9 +87,9 @@
         "collapsible_row_yNczWP": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Vestibulum tempor lacus ut risus auctor tristique?",
+            "heading": "Why can’t I see inventory on the website?",
             "icon": "none",
-            "row_content": "<p>Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus. Nullam sed ipsum vel quam suscipit mattis at vitae augue. Phasellus non maximus dui, a ultricies libero. Duis eu mi augue. Maecenas ante nunc, semper nec justo ac, volutpat aliquet enim. Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus.</p>",
+            "row_content": "<p>Sorry we do not maintain a live inventory on our website due to technical limitations. Before placing your order, you are always welcome to contact us to inquire about our stock. 😀</p>",
             "page": ""
           }
         },
