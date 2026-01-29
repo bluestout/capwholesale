@@ -141,9 +141,9 @@
         "collapsible_row_Uwi7Hk": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Vestibulum tempor lacus ut risus auctor tristique?",
+            "heading": "Do you offer expedited shipping?",
             "icon": "none",
-            "row_content": "<p>Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus. Nullam sed ipsum vel quam suscipit mattis at vitae augue. Phasellus non maximus dui, a ultricies libero. Duis eu mi augue. Maecenas ante nunc, semper nec justo ac, volutpat aliquet enim. Vestibulum tempor lacus ut risus auctor tristique. Aliquam hendrerit congue dapibus.</p>",
+            "row_content": "<p>We do not currently offer express or overnight shipping. We ship ground service, and it generally takes 3 to 7 business days for delivery.  If there are any delays with your order, we'll make sure to notify you.</p>",
             "page": ""
           }
         },
