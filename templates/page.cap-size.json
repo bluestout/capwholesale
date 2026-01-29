@@ -37,8 +37,8 @@
       "name": "ES Image Banner",
       "settings": {
         "show_space": false,
-        "image": "shopify://shop_images/Image_b7d078c6-1174-4669-a21b-9cb2c911ad48.jpg",
-        "image_mobile": "shopify://shop_images/Image_1.jpg",
+        "image": "shopify://shop_images/CAP_Size_Chart_Desktop.jpg",
+        "image_mobile": "shopify://shop_images/CAP_Size_Chart_Mobile.png",
         "image_overlay_opacity": 100,
         "opacity_type": "gradient",
         "opacity_color": "primary",
@@ -56,7 +56,8 @@
         "opacity_direct_on_mobile": "vertical",
         "opacity_height_on_mobile": "large",
         "image_height_on_mobile": "adapt",
-        "show_text_below": false
+        "show_text_below": false,
+        "banner_link": ""
       }
     },
     "es_tab_buttons_pGgW6r": {
@@ -99,7 +100,9 @@
           "settings": {
             "page": "size-table-1",
             "responsive": "desktop",
-            "table_heading": ""
+            "table_heading": "",
+            "padding_left_space": 0,
+            "padding_right_space": 0
           }
         },
         "page_ULq7wc": {
@@ -108,7 +111,9 @@
           "settings": {
             "page": "size-table-2",
             "responsive": "desktop",
-            "table_heading": ""
+            "table_heading": "",
+            "padding_left_space": 0,
+            "padding_right_space": 0
           }
         },
         "page_tC9qd7": {
@@ -116,7 +121,9 @@
           "settings": {
             "page": "size-chart-for-mobile",
             "responsive": "mobile",
-            "table_heading": ""
+            "table_heading": "",
+            "padding_left_space": 0,
+            "padding_right_space": 0
           }
         },
         "image_with_text_aV9RAk": {
