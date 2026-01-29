@@ -273,29 +273,15 @@
             "padding_left_space": 0
           }
         },
-        "image_with_text_JeGrBH": {
-          "type": "image_with_text",
-          "settings": {
-            "sm_column": false,
-            "heading": "",
-            "description": "",
-            "image": "shopify://shop_images/Screenshot_2025-09-02_130951.png",
-            "left_text": "",
-            "text": "<p>Double plastic snap</p>",
-            "padding_top": 0,
-            "padding_bottom": 0,
-            "padding_left_space": 0
-          }
-        },
         "image_with_text_m3A6fx": {
           "type": "image_with_text",
           "settings": {
             "sm_column": false,
             "heading": "",
             "description": "",
-            "image": "shopify://shop_images/Screenshot_2025-09-02_130911.png",
+            "image": "shopify://shop_images/Hook-Loop_Velcro_2bf56434-5924-4c82-9b43-a7319e20addc.jpg",
             "left_text": "",
-            "text": "<p>Hook/Loop tape</p>",
+            "text": "<p>Hook/Loop Velcro</p>",
             "padding_top": 0,
             "padding_bottom": 0,
             "padding_left_space": 0
@@ -446,7 +432,6 @@
         "space_Jhy3br",
         "content_ccJ48Y",
         "image_with_text_JUHi4T",
-        "image_with_text_JeGrBH",
         "image_with_text_m3A6fx",
         "image_with_text_JXKrVa",
         "image_with_text_WVB4UJ",
