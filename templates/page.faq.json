@@ -317,6 +317,15 @@
             "row_content": "<p>Yes. We use UPS and their broker unless specified otherwise before shipment.</p>",
             "page": ""
           }
+        },
+        "collapsible_row_9Y36xt": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you offer drop shipping?",
+            "icon": "none",
+            "row_content": "<p>Restricted based on payment type due to fraud concerns. Billing and shipping addresses must match.</p>",
+            "page": ""
+          }
         }
       },
       "block_order": [
@@ -349,7 +358,8 @@
         "collapsible_row_eBmpeg",
         "collapsible_row_UBL7Yc",
         "collapsible_row_XNPPMn",
-        "collapsible_row_jRMFUK"
+        "collapsible_row_jRMFUK",
+        "collapsible_row_9Y36xt"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
