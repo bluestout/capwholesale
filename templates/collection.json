@@ -42,6 +42,7 @@
       "settings": {
         "show_space": false,
         "image": "{{ collection.image }}",
+        "image_mobile": "shopify://shop_images/Collection_2_Mobile_5_Panel_Golf_750_x_400_px.jpg",
         "image_overlay_opacity": 30,
         "opacity_type": "normal",
         "opacity_color": "primary",
@@ -50,7 +51,7 @@
         "image_height": "adapt",
         "image_behavior": "none",
         "desktop_content_position": "bottom-right",
-        "desktop_content_alignment": "center",
+        "desktop_content_alignment": "right",
         "show_text_box": false,
         "color_scheme": "scheme-3",
         "stack_images_on_mobile": false,
