@@ -18,52 +18,6 @@
         "color_scheme": "scheme-1"
       }
     },
-    "es_image_banner_YXJHhW": {
-      "type": "es-image-banner",
-      "blocks": {
-        "heading_Ui89kH": {
-          "type": "heading",
-          "settings": {
-            "subheading": "",
-            "heading": "{{ collection.title }}",
-            "heading_tag": "h1",
-            "border_bottom": true,
-            "heading_size": "h1"
-          }
-        }
-      },
-      "block_order": [
-        "heading_Ui89kH"
-      ],
-      "custom_css": [
-        ".banner::after,.banner__media::after {height: 96.5%;}",
-        "@media screen and (max-width: 749px) {.banner::after, .banner__media::after {height: 100%; }}"
-      ],
-      "settings": {
-        "show_space": false,
-        "image": "{{ collection.image }}",
-        "image_mobile": "shopify://shop_images/Collection_3_Mobile_6_Panel_Baseball_Cap_750_x_400_px.jpg",
-        "image_overlay_opacity": 30,
-        "opacity_type": "normal",
-        "opacity_color": "primary",
-        "opacity_weight_on_desktop": "light",
-        "opacity_direction": "horizontal",
-        "image_height": "adapt",
-        "image_behavior": "none",
-        "desktop_content_position": "bottom-right",
-        "desktop_content_alignment": "right",
-        "show_text_box": false,
-        "color_scheme": "scheme-3",
-        "stack_images_on_mobile": false,
-        "mobile_content_position": "middle",
-        "mobile_content_alignment": "center",
-        "opacity_direct_on_mobile": "vertical",
-        "opacity_height_on_mobile": "small",
-        "image_height_on_mobile": "adapt",
-        "show_text_below": false,
-        "banner_link": ""
-      }
-    },
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
@@ -87,7 +41,6 @@
   },
   "order": [
     "banner",
-    "es_image_banner_YXJHhW",
     "product-grid"
   ]
 }
