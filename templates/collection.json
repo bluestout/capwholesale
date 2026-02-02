@@ -36,7 +36,6 @@
         "heading_gawP3b"
       ],
       "custom_css": [
-        ".banner::after,.banner__media::after {height: 96.5%;}",
         "@media screen and (max-width: 749px) {.banner::after, .banner__media::after {height: 100%; }}"
       ],
       "name": "ES Image Banner",
