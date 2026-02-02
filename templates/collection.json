@@ -43,7 +43,7 @@
       "settings": {
         "show_space": false,
         "image": "{{ collection.image }}",
-        "image_mobile": "{{ collection.image }}",
+        "image_mobile": "{{ collection.metafields.custom.mobile_banner.value }}",
         "image_overlay_opacity": 30,
         "opacity_type": "normal",
         "opacity_color": "primary",
