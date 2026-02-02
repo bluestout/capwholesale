@@ -25,7 +25,7 @@
           "type": "heading",
           "settings": {
             "subheading": "",
-            "heading": "Image banner",
+            "heading": "{{ collection.title }}",
             "heading_tag": "h2",
             "border_bottom": false,
             "heading_size": "h1"
