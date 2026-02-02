@@ -18,6 +18,74 @@
         "color_scheme": "scheme-1"
       }
     },
+    "es_image_banner_zMTyH3": {
+      "type": "es-image-banner",
+      "blocks": {
+        "heading_gawP3b": {
+          "type": "heading",
+          "settings": {
+            "subheading": "",
+            "heading": "Image banner",
+            "heading_tag": "h2",
+            "border_bottom": false,
+            "heading_size": "h1"
+          }
+        },
+        "text_dtV7kB": {
+          "type": "text",
+          "settings": {
+            "max_width": 460,
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        },
+        "buttons_BjMKeN": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_gawP3b",
+        "text_dtV7kB",
+        "buttons_BjMKeN"
+      ],
+      "custom_css": [
+        ".banner::after,.banner__media::after {height: 96.5%;}",
+        "@media screen and (max-width: 749px) {.banner::after, .banner__media::after {height: 100%; }}"
+      ],
+      "name": "ES Image Banner",
+      "settings": {
+        "show_space": false,
+        "image": "{{ collection.image }}",
+        "image_mobile": "{{ collection.image }}",
+        "image_overlay_opacity": 30,
+        "opacity_type": "normal",
+        "opacity_color": "primary",
+        "opacity_weight_on_desktop": "light",
+        "opacity_direction": "horizontal",
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "",
+        "stack_images_on_mobile": false,
+        "mobile_content_position": "middle",
+        "mobile_content_alignment": "center",
+        "opacity_direct_on_mobile": "vertical",
+        "opacity_height_on_mobile": "small",
+        "image_height_on_mobile": "adapt",
+        "show_text_below": true,
+        "banner_link": ""
+      }
+    },
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
@@ -41,6 +109,7 @@
   },
   "order": [
     "banner",
+    "es_image_banner_zMTyH3",
     "product-grid"
   ]
 }
