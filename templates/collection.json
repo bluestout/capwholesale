@@ -61,7 +61,7 @@
         "opacity_direct_on_mobile": "vertical",
         "opacity_height_on_mobile": "small",
         "image_height_on_mobile": "adapt",
-        "show_text_below": true,
+        "show_text_below": false,
         "banner_link": ""
       }
     },
