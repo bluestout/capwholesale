@@ -239,8 +239,9 @@
                 <a href="{{ collection.metafields.custom.banner_link }}" class="ui-collection-banner-link">
                   {{ block.settings.heading }}
                 </a>
+              {% else %}
+                {{ block.settings.heading }}
               {% endif %}
-              {{ block.settings.heading }}
             </{{ block.settings.heading_tag }}>
             <div class="banner-heading__line"></div>
           {%- when 'text' -%}
