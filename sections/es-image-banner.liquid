@@ -235,10 +235,12 @@
               class="banner__heading inline-richtext {{ block.settings.heading_size }}{% if block.settings.border_bottom %} is-border-bottom{% endif %}"
               {{ block.shopify_attributes }}
             >
-              {% if collection.metafields.custom.banner_link != blank %}{% endif %}
-              <a href="{{ collection.metafields.custom.banner_link }}" class="ui-collection-banner-link">
-                {{ block.settings.heading }}
-              </a>
+              {% if collection.metafields.custom.banner_link != blank %}
+                <a href="{{ collection.metafields.custom.banner_link }}" class="ui-collection-banner-link">
+                  {{ block.settings.heading }}
+                </a>
+              {% endif %}
+              {{ block.settings.heading }}
             </{{ block.settings.heading_tag }}>
             <div class="banner-heading__line"></div>
           {%- when 'text' -%}
