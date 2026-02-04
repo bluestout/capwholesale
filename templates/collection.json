@@ -36,7 +36,8 @@
         "heading_gawP3b"
       ],
       "custom_css": [
-        "@media screen and (max-width: 749px) {.banner::after, .banner__media::after {height: 100%; } .banner:not(.banner--mobile-bottom):not(.email-signup-banner) .banner__box {background: #00000000 !important; }}"
+        "@media screen and (max-width: 749px) {.banner::after, .banner__media::after {height: 100%; } .banner:not(.banner--mobile-bottom):not(.email-signup-banner) .banner__box {background: #00000000 !important; }}",
+        "@media (max-width: 425px) {.banner__box {padding: 12rem 1.5rem; }}"
       ],
       "name": "ES Image Banner",
       "settings": {
@@ -54,7 +55,7 @@
         "desktop_content_alignment": "center",
         "show_text_box": false,
         "color_scheme": "scheme-3",
-        "stack_images_on_mobile": false,
+        "stack_images_on_mobile": true,
         "mobile_content_position": "middle",
         "mobile_content_alignment": "center",
         "opacity_direct_on_mobile": "vertical",
