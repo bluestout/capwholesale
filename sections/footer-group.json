@@ -55,12 +55,14 @@
         "link_list_9eCptB",
         "brand_information_V94PiB"
       ],
-      "custom_css": [],
+      "custom_css": [
+        "@media ()"
+      ],
       "settings": {
         "color_scheme": "scheme-3",
-        "newsletter_enable": false,
+        "newsletter_enable": true,
         "newsletter_heading": "Subscribe to our emails",
-        "enable_follow_on_shop": false,
+        "enable_follow_on_shop": true,
         "show_social": true,
         "enable_country_selector": true,
         "enable_language_selector": true,
