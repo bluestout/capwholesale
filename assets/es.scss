@@ -1467,6 +1467,10 @@
           letter-spacing: 4.5px;
           text-transform: uppercase;
         }
+
+        @media (max-width: 1320px){
+          flex-wrap: wrap;
+        }
       }
     }
   }
