@@ -4558,7 +4558,8 @@ cart-items {
     .custom-rich-text-contain::before {
       position: absolute;
       content: "";
-      width: 275px;
+      width: 100%;
+      max-width: 275px;
       bottom: -10px;
       left: 0;
       height: 1px;
