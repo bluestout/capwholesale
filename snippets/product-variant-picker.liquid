@@ -44,6 +44,7 @@
               </span>
             {% endcomment %}
           </legend>
+          {{ product | json }}
           {% render 'product-variant-options',
             product: product,
             option: option,
