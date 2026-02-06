@@ -129,6 +129,6 @@
   {%- endif -%}
 {%- endfor -%}
 <script>
-  var value1 = value;
+  var value1 = {{ option.values | json }};
   console.log(value1)
 </script>
