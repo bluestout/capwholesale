@@ -235,6 +235,7 @@
               class="banner__heading inline-richtext {{ block.settings.heading_size }}{% if block.settings.border_bottom %} is-border-bottom{% endif %}"
               {{ block.shopify_attributes }}
             >
+              
               {% if collection.metafields.custom.banner_link != blank %}
                 <a href="{{ collection.metafields.custom.banner_link }}" class="ui-collection-banner-link">
                   {{ block.settings.heading }}
@@ -242,6 +243,7 @@
               {% else %}
                 {{ block.settings.heading }}
               {% endif %}
+
             </{{ block.settings.heading_tag }}>
             <div class="banner-heading__line"></div>
           {%- when 'text' -%}
