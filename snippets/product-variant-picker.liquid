@@ -118,7 +118,9 @@
 
 <script>
   var variant = {{ product.variants | json }}
-  console.log(variant)
+  variant.map(index=>{
+    console.log(index.featured_image.src)
+  })
 </script>
 
 <style>
