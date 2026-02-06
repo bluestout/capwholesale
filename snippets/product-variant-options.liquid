@@ -5,17 +5,17 @@
   - product: {Object} product object.
   - option: {Object} current product_option object.
   - block: {Object} block object.
-  - picker_type: {String} type of picker to dispay
-
+  - picker_type: {String} type of picker to display
 
   Usage:
   {% render 'product-variant-options',
     product: product,
     option: option,
-    block: block
+    block: block,
     picker_type: picker_type
   %}
 {% endcomment %}
+
 {%- liquid
   assign product_form_id = 'product-form-' | append: section.id
 -%}
@@ -25,13 +25,23 @@
     assign swatch_focal_point = null
     assign variant_image = ''
     assign option_title = option.name | downcase
+    assign option_index = option.position | minus: 1
 
+    comment
+      Find the exact matching variant for this option value
+    endcomment
     for variant in product.variants
-      if variant.title contains value
-        assign variant_image = variant.image | image_url: width: 150
+      if variant.options[option_index] == value
+        if variant.featured_image
+          assign variant_image = variant.featured_image | image_url: width: 300
+        endif
+        break
       endif
     endfor
 
+    comment
+      Swatch color / image logic
+    endcomment
     if value.swatch.image
       assign image_url = value.swatch.image | image_url: width: 50
       assign swatch_value = 'url(' | append: image_url | append: ')'
@@ -42,6 +52,9 @@
       assign swatch_value = null
     endif
 
+    comment
+      Availability logic
+    endcomment
     assign option_disabled = true
     if value.available
       assign option_disabled = false
@@ -49,7 +62,7 @@
   -%}
 
   {%- capture input_id -%}
-    {{ section.id }}-{{ option.position }}-{{ forloop.index0 -}}
+    {{ section.id }}-{{ option.position }}-{{ forloop.index0 }}
   {%- endcapture -%}
 
   {%- capture input_name -%}
@@ -69,9 +82,15 @@
 
   {%- if picker_type == 'swatch' -%}
     {%- capture help_text -%}
-      <span class="{% if option_title contains 'color' or option_title contains 'colour' %}tool-tip{% else %}visually-hidden{% endif %}" style="--background-image: url('{{ variant_image }}')">{{ value | escape }}</span>
+      <span
+        class="{% if option_title contains 'color' or option_title contains 'colour' %}tool-tip{% else %}visually-hidden{% endif %}"
+        style="{% if variant_image != blank %}--background-image: url('{{ variant_image }}'){% endif %}"
+      >
+        {{ value | escape }}
+      </span>
       {{ label_unavailable }}
     {%- endcapture -%}
+
     {%
       render 'swatch-input',
       id: input_id,
@@ -86,32 +105,31 @@
       help_text: help_text,
       additional_props: input_dataset
     %}
+
   {%- elsif picker_type == 'button' -%}
+
     <input
       type="radio"
       id="{{ input_id }}"
       name="{{ input_name | escape }}"
       value="{{ value | escape }}"
       form="{{ product_form_id }}"
-      {% if value.selected %}
-        checked
-      {% endif %}
-      {% if option_disabled %}
-        class="disabled"
-      {% endif %}
+      {% if value.selected %}checked{% endif %}
+      {% if option_disabled %}class="disabled"{% endif %}
       {{ input_dataset }}
     >
+
     <label for="{{ input_id }}" class="ui-product-label">
-      {{ value -}}
+      {{ value }}
       {{ label_unavailable }}
     </label>
+
   {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}
+
     <option
       id="{{ input_id }}"
       value="{{ value | escape }}"
-      {% if value.selected %}
-        selected="selected"
-      {% endif %}
+      {% if value.selected %}selected="selected"{% endif %}
       {% if swatch_value and picker_type == 'swatch_dropdown' %}
         data-option-swatch-value="{{ swatch_value }}"
         {% if swatch_focal_point %}
@@ -120,11 +138,12 @@
       {% endif %}
       {{ input_dataset }}
     >
-      {% if option_disabled -%}
-        {{- 'products.product.value_unavailable' | t: option_value: value -}}
-      {%- else -%}
-        {{- value -}}
-      {%- endif %}
+      {% if option_disabled %}
+        {{ 'products.product.value_unavailable' | t: option_value: value }}
+      {% else %}
+        {{ value }}
+      {% endif %}
     </option>
+
   {%- endif -%}
 {%- endfor -%}
