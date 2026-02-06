@@ -130,5 +130,7 @@
 {%- endfor -%}
 <script>
   var value1 = {{ option.values | json }};
-  console.log(value1)
+  var value2 = {{ product.variants }}
+  console.log("1", value1);
+  console.log("2", value2);
 </script>
