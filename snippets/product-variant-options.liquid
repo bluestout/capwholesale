@@ -72,7 +72,7 @@
       <span class="{% if option_title contains 'color' or option_title contains 'colour' %}tool-tip{% else %}visually-hidden{% endif %}" style="--background-image: url('{{ variant_image }}')">{{ value | escape }}</span>
       {{ label_unavailable }}
     {%- endcapture -%}
-    {{ id | json }}
+    {{ input_id | json }}
     {%
       render 'swatch-input',
       id: input_id,
