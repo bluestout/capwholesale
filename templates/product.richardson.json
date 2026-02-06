@@ -50,6 +50,7 @@
         },
         "quantity_radios_EyWCw6": {
           "type": "quantity_radios",
+          "disabled": true,
           "settings": {
             "heading": "Buy more and save!",
             "show_quantity_label": true,
