@@ -27,9 +27,6 @@
     assign option_title = option.name | downcase
     assign option_index = option.position | minus: 1
 
-    comment
-      Find the exact matching variant for this option value
-    endcomment
     for variant in product.variants
       if variant.options[option_index] == value
         if variant.featured_image
@@ -39,9 +36,6 @@
       endif
     endfor
 
-    comment
-      Swatch color / image logic
-    endcomment
     if value.swatch.image
       assign image_url = value.swatch.image | image_url: width: 50
       assign swatch_value = 'url(' | append: image_url | append: ')'
@@ -52,9 +46,6 @@
       assign swatch_value = null
     endif
 
-    comment
-      Availability logic
-    endcomment
     assign option_disabled = true
     if value.available
       assign option_disabled = false
