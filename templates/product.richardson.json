@@ -1,0 +1,255 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "fera_product_reviews_summary_NAazjF": {
+          "type": "shopify://apps/fera/blocks/product_reviews_summary/2fbfcfa7-8a04-479f-89a8-0621fa099c51",
+          "settings": {
+            "star_color": "#990000",
+            "size": 16,
+            "show_count": true,
+            "show_avg_rating": false,
+            "alignment": "left",
+            "hide_when_no_reviews": false
+          }
+        },
+        "sku_HTjRGR": {
+          "type": "sku",
+          "settings": {
+            "text_style": "body"
+          }
+        },
+        "text_Pb8kXM": {
+          "type": "text",
+          "settings": {
+            "text": "As low as <strong>$</strong><strong>{{ product.metafields.custom.as_low_as_price.value }}</strong><strong> USD</strong>",
+            "show_installments": true,
+            "text_style": "body"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "square"
+          }
+        },
+        "quantity_radios_EyWCw6": {
+          "type": "quantity_radios",
+          "settings": {
+            "heading": "Buy more and save!",
+            "show_quantity_label": true,
+            "quantity_label": "<p><em>The price will be calculated automatically based on the exact dozen and odd piece price that applies.</em></p>"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "disabled": true,
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true,
+            "buy_btn_text": "Buy a Single Piece for __PRICE__ (1 per style, 3 maximum)"
+          }
+        },
+        "wishlist_hero_custom_product_button_Aacrr3": {
+          "type": "shopify://apps/wishlist-hero/blocks/custom-product-button/a9a5079b-59e8-47cb-b659-ecf1c60b9b72",
+          "settings": {
+            "displayButtonMode": "~",
+            "contentAlignment": "center",
+            "buttonAlignment": "center",
+            "overrideFont": false,
+            "customFont": "sans_serif_n4",
+            "buttonFullwidth": true,
+            "removeBoxShadowAndBorder": true,
+            "horizontalPadding": 20,
+            "iconTopOffset": 0,
+            "addedCssClassNames": "es-wishlist-cta",
+            "addedContainerStyles": ""
+          }
+        },
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {}
+        },
+        "collapsible_tab_eM4Wkc": {
+          "type": "collapsible_tab",
+          "name": "Description",
+          "settings": {
+            "default_open": true,
+            "heading": "Description",
+            "icon": "description",
+            "content": "<p>The quality of the project was well established before the review. The author demonstrated strong effectiveness in execution. There was no uncertainty about the direction. The approach provided a solid foundation for progress. The final presentation was well structured, with careful attention given to key details.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_nFWarT": {
+          "type": "collapsible_tab",
+          "settings": {
+            "default_open": false,
+            "heading": "Details",
+            "icon": "details",
+            "content": "<p>{{ product.description }}</p>",
+            "page": ""
+          }
+        },
+        "popup_cKwkVJ": {
+          "type": "popup",
+          "disabled": true,
+          "settings": {
+            "text": "Size",
+            "page": ""
+          }
+        },
+        "popup_wP4nXf": {
+          "type": "popup",
+          "disabled": true,
+          "settings": {
+            "text": "What happens now?",
+            "page": ""
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+            "share_label": "Share"
+          }
+        },
+        "wishlist_hero_custom_product_button_mJwmrP": {
+          "type": "shopify://apps/wishlist-hero/blocks/custom-product-button/a9a5079b-59e8-47cb-b659-ecf1c60b9b72",
+          "settings": {
+            "displayButtonMode": "~",
+            "contentAlignment": "center",
+            "buttonAlignment": "center",
+            "overrideFont": false,
+            "customFont": "sans_serif_n4",
+            "buttonFullwidth": true,
+            "removeBoxShadowAndBorder": false,
+            "horizontalPadding": 20,
+            "iconTopOffset": 0,
+            "addedCssClassNames": "",
+            "addedContainerStyles": ""
+          }
+        },
+        "additional_text_FwRYVp": {
+          "type": "additional-text",
+          "disabled": true,
+          "settings": {
+            "title_1": "Your logo",
+            "text_1": "<p>Submit \"YOUR LOGO\" now or skip and finish checkout. Please email </p><p>to <a href=\"mailto:logos@customizedwear.com\" target=\"_blank\" title=\"mailto:logos@customizedwear.com\">logos@customizedwear.com</a></p><p></p><p><strong>NOTE:</strong> Orders should be one decoration type with the same logo design. If you have multiple logos, please place your orders separately.</p>",
+            "title_2": "After checkout",
+            "text_2": "<p>Your order will be assigned to one of our decoration specialists. They will be handling your order personally throughout the whole process, from start to finish.</p><p></p><p><strong>Want to order a blank sample first? Find this item on </strong><a href=\"https://capswholesalers.com\" target=\"_blank\" title=\"https://www.capwholesalers.com\"><strong>Capswholesalers.com</strong></a></p>"
+          }
+        },
+        "custom_liquid_tW8hQd": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% if product.metafields.custom.selected_variant == true or product.metafields.custom.selected_variant == null %}\n<style>\n  .hidden {\n    display: none;\n  }\n</style>\n\n<script>\n  document.addEventListener(\"DOMContentLoaded\", () => {\n    const mediaGallery = document.querySelector('media-gallery');\n    const productSection = document.querySelector(\".product-variant-id\");\n    const sectionID = \"{{ section.id }}\";\n\n    // Ensure required elements are available\n    if (!mediaGallery || !productSection) {\n      console.error('Required elements are missing from the DOM.');\n      return;\n    }\n\n    const handle = `products/${\"{{ product.handle }}\"}.js`;\n\n    fetch(`${window.Shopify.routes.root}${handle}`)\n      .then(response => response.json())\n      .then(product => {\n        const optionsToWatch = \"{{ settings.selected_option_name }}\".split(\",\");\n        const colorOption = product.options.find(option => optionsToWatch.includes(option.name)) || null;\n\n        if (!colorOption) {\n          console.warn(\"No relevant options available for this product.\");\n          return;\n        }\n\n        const colorValues = colorOption.values;\n        const colorImagePositions = {};\n\n        // Map colors to their starting image positions\n        colorValues.forEach(color => {\n          const variant = product.variants.find(variant => variant.options[colorOption.position - 1] === color);\n\n          if (variant && variant.featured_image) {\n            colorImagePositions[color] = variant.featured_image.position;\n          }\n        });\n\n        // Sort colors by starting image position\n        const sortedColors = Object.entries(colorImagePositions).sort((a, b) => a[1] - b[1]);\n        const colorImageRanges = {};\n\n        sortedColors.forEach((color, index) => {\n          const colorName = color[0];\n          const startPos = color[1];\n          const endPos = sortedColors[index + 1] ? sortedColors[index + 1][1] : null;\n\n          colorImageRanges[colorName] = endPos ? [startPos, endPos] : [startPos];\n        });\n\n        // Group image IDs by color based on image ranges\n        const colorImageIDs = {};\n        Object.entries(colorImageRanges).forEach(([color, range]) => {\n          const startPos = range[0];\n          const endPos = range[1] || product.media.length + 1; // If no end position, use the end of the media list\n          \n          const imageIDs = product.media\n            .filter((media, index) => {\n              const imagePosition = index + 1; // Adjust index to be position-based\n              return imagePosition >= startPos && imagePosition < endPos;\n            })\n            .map(media => media.id);\n\n          colorImageIDs[color] = imageIDs;\n        });\n\n        // Apply data-media-group attributes to images\n        Object.entries(colorImageIDs).forEach(([color, imageIDs]) => {\n          imageIDs.forEach(mediaID => {\n            const selector = `[data-media-id=\"${sectionID}-${mediaID}\"], [data-target=\"${sectionID}-${mediaID}\"]`;\n            const mediaItems = mediaGallery.querySelectorAll(`li${selector}`);\n\n            mediaItems.forEach(mediaItem => {\n              mediaItem.setAttribute('data-media-group', color);\n            });\n          });\n        });\n\n        const showVariantImage = () => {\n          const variantSelects = document.querySelector('variant-selects');\n\n          // Get the selected color\n          const currentValues = Array.from(\n            variantSelects.querySelectorAll('select option[selected], fieldset input:checked')\n          ).map(el => el.value);\n\n          const selectedColor = currentValues.find(value => colorImageRanges.hasOwnProperty(value));\n\n          // Show/hide images based on the selected color\n          mediaGallery.querySelectorAll('ul li[data-media-group]').forEach(mediaItem => {\n            if (mediaItem.getAttribute('data-media-group') === selectedColor) {\n              mediaItem.classList.remove('hidden');\n            } else {\n              mediaItem.classList.add('hidden');\n            }\n          });\n\n          // Reinitialize slider if necessary\n          mediaGallery.querySelectorAll('slider-component').forEach(slider => {\n            if (typeof slider.initPages === 'function') {\n              slider.initPages();\n            }\n          });\n        };\n\n        // Initial display setup\n        showVariantImage();\n\n        // Update images when a new variant is selected\n        productSection.addEventListener('change', showVariantImage);\n      })\n      .catch(error => console.error(\"Error fetching product data:\", error));\n  });\n</script>\n{% endif %}"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "fera_product_reviews_summary_NAazjF",
+        "sku_HTjRGR",
+        "text_Pb8kXM",
+        "variant_picker",
+        "quantity_radios_EyWCw6",
+        "quantity_selector",
+        "price",
+        "buy_buttons",
+        "wishlist_hero_custom_product_button_Aacrr3",
+        "description",
+        "collapsible_tab_eM4Wkc",
+        "collapsible_tab_nFWarT",
+        "popup_cKwkVJ",
+        "popup_wP4nXf",
+        "share",
+        "wishlist_hero_custom_product_button_mJwmrP",
+        "additional_text_FwRYVp",
+        "custom_liquid_tW8hQd"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-c2a2ba10-90a4-4246-8d3b-e52ce5e90803",
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "cover",
+        "gallery_layout": "thumbnail",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "hover",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "175076340277db3d21": {
+      "type": "apps",
+      "blocks": {
+        "fera_product_reviews_Q9cd8q": {
+          "type": "shopify://apps/fera/blocks/product_reviews/2fbfcfa7-8a04-479f-89a8-0621fa099c51",
+          "settings": {
+            "heading": "Customer Reviews",
+            "layout": "list",
+            "star_color": "#ee0000",
+            "when_no_reviews": "show"
+          }
+        }
+      },
+      "block_order": [
+        "fera_product_reviews_Q9cd8q"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "main",
+    "175076340277db3d21",
+    "related-products"
+  ]
+}
