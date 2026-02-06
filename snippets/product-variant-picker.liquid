@@ -117,9 +117,9 @@
 {% endcomment %}
 
 <script>
-          
-  console.log({{ product.variants | json }})
-  </script>
+  var variant = {{ product.variants | json }}
+  console.log(variant)
+</script>
 
 <style>
   .product-form__input--pill.product-form__input--pill input[type='radio']:checked + label {
