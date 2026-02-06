@@ -226,22 +226,21 @@
         "item_q4Qadh": {
           "type": "item",
           "settings": {
-            "item_width": 4,
+            "item_width": 5,
             "image": "shopify://shop_images/Umpire_Hat_1160_x_590_CAPS_Direct_Styles-Photoroom.png",
             "title": "Umpire Hats",
             "url": "shopify://collections/umpire-hats",
-            "image_2": "shopify://shop_images/jerzee_Brand_Apparel_1160_x_590_Direct_Styles_CAPS_-Photoroom.png",
-            "title_2": "Apparel",
-            "url_2": "shopify://collections/shop-apparel"
+            "title_2": "",
+            "url_2": ""
           }
         },
         "item_9pMaYJ": {
           "type": "item",
           "settings": {
-            "item_width": 6,
-            "image": "shopify://shop_images/USA_Made_1500_x_1200_CAPS_Direct_Style-Photoroom.png",
-            "title": "USA Made Hats",
-            "url": "shopify://collections/usa-made-hats",
+            "item_width": 5,
+            "image": "shopify://shop_images/jerzee_Brand_Apparel_1160_x_590_Direct_Styles_CAPS_-Photoroom.png",
+            "title": "Apparel",
+            "url": "shopify://collections/shop-apparel",
             "title_2": "Hat Style 2",
             "url_2": ""
           }
