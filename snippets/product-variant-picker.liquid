@@ -116,13 +116,6 @@
   </script>
 {% endcomment %}
 
-<script>
-  var variant = {{ product.variants | json }}
-  variant.map(index=>{
-    console.log(index.featured_image.src)
-  })
-</script>
-
 <style>
   .product-form__input--pill.product-form__input--pill input[type='radio']:checked + label {
     border: 1.5px solid #000000 !important;
