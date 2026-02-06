@@ -36,7 +36,7 @@
         "text_Pb8kXM": {
           "type": "text",
           "settings": {
-            "text": "Price: <strong>$</strong><strong>{{ product.metafields.custom.as_low_as_price.value }}</strong><strong> USD</strong>",
+            "text": "<strong>Price:</strong> <strong>$</strong><strong>{{ product.metafields.custom.as_low_as_price.value }}</strong><strong> USD</strong>",
             "show_installments": true,
             "text_style": "body"
           }
