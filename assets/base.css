@@ -2773,9 +2773,9 @@ details[open] > .header__submenu {
 }
 
 @media screen and (min-width: 1500px) {
-  .header__inline-menu {
+  /* .header__inline-menu {
     display: block;
-  }
+  } */
 
   .header--top-center .header__inline-menu {
     justify-self: center;
