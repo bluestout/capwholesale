@@ -35,7 +35,9 @@
         },
         "price": {
           "type": "price",
-          "settings": {}
+          "settings": {
+            "prefix_text": "Price:"
+          }
         },
         "text_Pb8kXM": {
           "type": "text",
