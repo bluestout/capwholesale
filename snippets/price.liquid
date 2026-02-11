@@ -59,9 +59,9 @@
       {%- endcomment -%}
 
       <!-- Regular Price -->
-      <div class="price__regular {% if text != blank %}{% endif %}">
+      <div class="price__regular {% if text != blank %}ui-price-regular{% endif %}">
         {% if text != blank %}
-          <span class="ui-front-text">{{ text }}</span>
+          <span>{{ text }}</span>
         {% endif %}
 
         {%- if product.quantity_price_breaks_configured? -%}
