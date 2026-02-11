@@ -29,7 +29,7 @@
   assign available = target.available | default: false
 
   # Format prices with currency
-  assign money_price = price | money_with_currency
+  assign money_price = price | money
   assign money_price_min = price_min | money_with_currency
   assign money_price_max = price_max | money_with_currency
 -%}
