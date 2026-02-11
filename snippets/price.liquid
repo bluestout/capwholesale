@@ -89,6 +89,10 @@
             {{ money_price }}
           </span>
         {%- endif -%}
+
+        {% if text != blank %}
+          <span>USD</span>
+        {% endif %}
       </div>
 
       <!-- Sale Price -->
