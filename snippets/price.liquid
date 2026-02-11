@@ -59,7 +59,7 @@
       {%- endcomment -%}
 
       <!-- Regular Price -->
-      <div class="price__regular">
+      <div class="price__regular {% if text != blank %}{% endif %}">
         {% if text != blank %}
           <span class="ui-front-text">{{ text }}</span>
         {% endif %}
