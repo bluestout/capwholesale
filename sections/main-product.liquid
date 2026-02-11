@@ -204,7 +204,8 @@
                     product: product,
                     use_variant: true,
                     show_badges: true,
-                    price_class: 'price--large'
+                    price_class: 'price--large',
+                    text: block.settings.prefix_text
                   -%}
                 </div>
                 {%- if product.quantity_price_breaks_configured? -%}
