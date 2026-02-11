@@ -6468,3 +6468,11 @@ media-gallery {
   text-decoration: none;
   cursor: pointer;
 }
+
+.price {
+  .price__container {
+    .ui-front-text {
+      color: red;
+    }
+  }
+}
