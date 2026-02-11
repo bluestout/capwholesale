@@ -6485,5 +6485,15 @@ media-gallery {
   .header__icon--menu[aria-expanded='true']::before {
     height: calc(var(--viewport-height, 100vh) - (var(--header-bottom-position, 100%)) + 26px) !important;
     margin-top: -26px;
+    #menu-drawer {
+      @media (max-width: 750px) {
+        margin-top: -26px
+      }
+
+      .menu-drawer {
+        height: calc(100vh - 100%);
+        height: calc(var(--viewport-height, 100vh) - (var(--header-bottom-position, 100%)) + 26px);
+      }
+    }
   }
 }
