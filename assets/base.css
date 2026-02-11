@@ -2772,6 +2772,12 @@ details[open] > .header__submenu {
   margin-left: 0;
 }
 
+@media screen and (min-width: 990px) {
+  .header__inline-menu {
+    display: block;
+  }
+}
+
 @media screen and (min-width: 1500px) {
   /* .header__inline-menu {
     display: block;
