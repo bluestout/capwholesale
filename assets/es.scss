@@ -6486,11 +6486,7 @@ media-gallery {
     height: calc(var(--viewport-height, 100vh) - (var(--header-bottom-position, 100%)) + 26px) !important;
     margin-top: -26px;
   }
-  #menu-drawer {
-    @media (max-width: 750px) {
-      margin-top: -26px
-      height: calc(100vh - 100%);
-      height: calc(var(--viewport-height, 100vh) - (var(--header-bottom-position, 100%)) + 26px) !important;
-    }
+  .menu-drawer {
+    margin-top: -26px;
   }
 }
