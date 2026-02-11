@@ -231,6 +231,14 @@
                 {{ block.settings.subheading }}
               </p>
             {%- endif -%}
+
+            {%- liquid
+              assign heading_text = block.settings.heading
+              if request.page_type == 'collection' and collection.title != blank
+                assign heading_text = collection.title
+              endif
+            -%}
+
             <{{ block.settings.heading_tag }}
               class="banner__heading inline-richtext {{ block.settings.heading_size }}{% if block.settings.border_bottom %} is-border-bottom{% endif %}"
               {{ block.shopify_attributes }}
@@ -238,10 +246,10 @@
 
               {% if collection.metafields.custom.banner_link != blank %}
                 <a href="{{ collection.metafields.custom.banner_link }}" class="ui-collection-banner-link">
-                  {{ block.settings.heading }}
+                  {{ heading_text }}
                 </a>
               {% else %}
-                {{ block.settings.heading }}
+                {{ heading_text }}
               {% endif %}
 
             </{{ block.settings.heading_tag }}>
