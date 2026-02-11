@@ -33,6 +33,10 @@
             "text_style": "body"
           }
         },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
         "text_Pb8kXM": {
           "type": "text",
           "settings": {
@@ -59,11 +63,6 @@
         },
         "quantity_selector": {
           "type": "quantity_selector",
-          "settings": {}
-        },
-        "price": {
-          "type": "price",
-          "disabled": true,
           "settings": {}
         },
         "buy_buttons": {
@@ -176,11 +175,11 @@
         "title",
         "fera_product_reviews_summary_NAazjF",
         "sku_HTjRGR",
+        "price",
         "text_Pb8kXM",
         "variant_picker",
         "quantity_radios_EyWCw6",
         "quantity_selector",
-        "price",
         "buy_buttons",
         "wishlist_hero_custom_product_button_Aacrr3",
         "description",
