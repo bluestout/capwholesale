@@ -12,28 +12,21 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
     
-    // Parse the price from the price element
     const priceText = priceElement.innerText;
     const price = parseFloat(priceText.replace(/[^0-9.]/g, ''));
     
-    // Function to calculate and update total price
     const updateTotalPrice = () => {
         const quantity = parseInt(input.value) || 0;
         const total = quantity * price;
         
-        // Format as currency (assuming USD)
         subPriceElement.innerText = "$" + total.toFixed(2) + " USD";
-        console.log("good")
     };
     
-    // Update on page load
     updateTotalPrice();
     
-    // Update when quantity changes
     input.addEventListener('input', updateTotalPrice);
     input.addEventListener('change', updateTotalPrice);
     
-    // Also listen for custom qty_change event if it exists
     const form = input.closest('form');
     if (form) {
         form.addEventListener('qty_change', updateTotalPrice);
