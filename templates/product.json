@@ -63,7 +63,9 @@
         "price": {
           "type": "price",
           "disabled": true,
-          "settings": {}
+          "settings": {
+            "prefix_text": ""
+          }
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -101,7 +103,7 @@
             "default_open": true,
             "heading": "Description",
             "icon": "description",
-            "content": "<p>The quality of the project was well established before the review. The author demonstrated strong effectiveness in execution. There was no uncertainty about the direction. The approach provided a solid foundation for progress. The final presentation was well structured, with careful attention given to key details.</p>",
+            "content": "{{ product.metafields.custom.detail | metafield_tag }}",
             "page": ""
           }
         },
