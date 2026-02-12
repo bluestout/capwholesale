@@ -1,9 +1,10 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     const input = document.querySelector('.quantity__input');
-    setInterval(() => {
-        console.log("Hello", input.value);
-        console.log("Hello", input.min);
-    }, 1000);
+    const priceText = document.querySelector('.ui-price-regular .price-item--regular').innerText;
+    const price = parseFloat(priceText.replace(/[^0-9.]/g, ''));
+    const sub_price = document.querySelector('.sub-total-price-value');
+    console.log("opop", price)
+    console.log("opop", sub_price)
 });
 </script>
