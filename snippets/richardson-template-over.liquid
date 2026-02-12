@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const input = document.querySelectorAll('.quantity__input')[1];
     const priceElement = document.querySelector('.ui-price-regular .price-item--regular');
     const subPriceElement = document.querySelector('.sub-total-price-value');
+
+    input.min = 12;
     
     if (!input || !priceElement || !subPriceElement) {
         console.error('Required elements not found');
