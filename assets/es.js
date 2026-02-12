@@ -60,16 +60,7 @@ const setESQuantityRadios = widget => {
       label.setAttribute("data-quantity", qty);
       input.setAttribute("value", qty);
 
-      // if (index == 1) {
-      //   input.setAttribute("checked", "checked");
-      // }
-
-      const qtyInput = document.querySelector(".product .product-form__quantity .quantity__input");
-      const currentQtyValue = qtyInput ? (parseInt(qtyInput.value) || parseInt(qtyInput.getAttribute('value')) || null) : null;
-
-      if (currentQtyValue && parseInt(qty) === currentQtyValue) {
-        input.setAttribute("checked", "checked");
-      } else if (!currentQtyValue && index == 1) {
+      if (index == 1) {
         input.setAttribute("checked", "checked");
       }
 
