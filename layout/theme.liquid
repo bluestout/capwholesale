@@ -333,9 +333,11 @@
     {{ 'bold-custom.css' | asset_url | stylesheet_tag }}
     <script src="{{ 'pr.local.js' | asset_url }}" defer type="text/javascript"></script> 
     
-    {% unless template.suffix == 'richardson' %}
+    {% if template.suffix == 'richardson' %}
+      {% render 'richardson-template-over' %}
+    {% else %}
       {% render 'bold-custom-qb-grid' %}  
-    {% endunless %}
+    {% endif %}
   
   </head>
 
