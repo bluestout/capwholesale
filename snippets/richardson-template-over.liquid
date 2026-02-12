@@ -1,5 +1,9 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     const input = document.querySelector('.quantity__input');
+    setInterval(() => {
+        console.log("Hello", input.value);
+        console.log("Hello", input.min);
+    }, 1000);
 });
 </script>
