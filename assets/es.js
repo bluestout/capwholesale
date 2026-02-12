@@ -44,6 +44,13 @@ const setESQuantityRadios = widget => {
       prices.push(tr.querySelectorAll("td")[1].textContent);
     });
 
+    // Get the current quantity input value BEFORE creating radio buttons
+    const qtyInput = document.querySelector(".product .product-form__quantity .quantity__input");
+    const currentQtyValue = qtyInput ? (parseInt(qtyInput.value) || parseInt(qtyInput.getAttribute('value')) || null) : null;
+    
+    // Flag to track if we're in initial setup phase
+    let isInitialSetup = true;
+
     qtys?.forEach((qty, index) => {
       const label = document.createElement("label");
       const input = document.createElement("input");
@@ -60,8 +67,11 @@ const setESQuantityRadios = widget => {
       label.setAttribute("data-quantity", qty);
       input.setAttribute("value", qty);
 
-      if (index == 1) {
-        input.setAttribute("checked", "checked");
+      // Check the radio that matches the current input value, or default to index 1
+      if (currentQtyValue && parseInt(qty) === currentQtyValue) {
+        input.checked = true; // Use .checked instead of setAttribute to avoid triggering change event
+      } else if (!currentQtyValue && index == 1) {
+        input.checked = true; // Use .checked instead of setAttribute
       }
 
       span_qty.textContent = qty + "+";
@@ -74,10 +84,19 @@ const setESQuantityRadios = widget => {
       div.append(label);
 
       input.addEventListener("change", function () {
-
+        // Skip updating input during initial setup if it already has the correct value
+        if (isInitialSetup && currentQtyValue && parseInt(this.value) === currentQtyValue) {
+          isInitialSetup = false;
+          return;
+        }
+        
+        isInitialSetup = false;
+        
         const qtyInput = document.querySelector(".product .product-form__quantity .quantity__input");
-        qtyInput.value = this.value;
-        qtyInput.form?.dispatchEvent(new CustomEvent('qty_change', {bubbles: true}));
+        if (qtyInput) {
+          qtyInput.value = this.value;
+          qtyInput.form?.dispatchEvent(new CustomEvent('qty_change', {bubbles: true}));
+        }
 
         const each_price = document.querySelector(".es-quantity-radios .es-quantity-radios__body")?.childNodes;
         each_price?.forEach((item) => {
@@ -93,6 +112,11 @@ const setESQuantityRadios = widget => {
         })
       })
     });
+    
+    // Mark initial setup as complete after all radios are created
+    setTimeout(() => {
+      isInitialSetup = false;
+    }, 100);
 
     esQuantityRadios.append(div);
   }
