@@ -331,7 +331,6 @@
     </script>
 
     {{ 'bold-custom.css' | asset_url | stylesheet_tag }}
-    {{ template.suffix }}
     {% if template.suffix == 'richardson' %}
       {% render 'richardson-template-over' %}
     {% else %}
