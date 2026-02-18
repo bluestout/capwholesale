@@ -28,7 +28,7 @@
       ],
       "settings": {
         "show_space": false,
-        "image": "shopify://shop_images/allenburt_94637_create_a_real_photo_with_people_wearing_corpo_2e5fd7b5-a835-45c1-9453-06ef636c270e_0_1_1.png",
+        "image": "shopify://shop_images/Handsome_guy_phone_operator.jpg",
         "image_overlay_opacity": 30,
         "opacity_type": "normal",
         "opacity_color": "primary",
@@ -46,7 +46,8 @@
         "opacity_direct_on_mobile": "vertical",
         "opacity_height_on_mobile": "large",
         "image_height_on_mobile": "small",
-        "show_text_below": false
+        "show_text_below": false,
+        "banner_link": ""
       }
     },
     "main": {
@@ -61,7 +62,7 @@
       "type": "es-contact-us",
       "blocks": {
         "sk_form_builder_form_nF4A66": {
-          "type": "shopify://apps/sk-form-builder/blocks/form/f3e35b58-5874-4ef2-8e03-c92cda6e49eb",
+          "type": "shopify://apps/ai-contact-form-builder/blocks/form/f3e35b58-5874-4ef2-8e03-c92cda6e49eb",
           "settings": {
             "show_form": true,
             "form_token": "6664386f58505846"
