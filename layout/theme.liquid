@@ -337,7 +337,16 @@
       <script src="{{ 'pr.local.js' | asset_url }}" defer type="text/javascript"></script> 
       {% render 'bold-custom-qb-grid' %}  
     {% endif %}
-  
+
+    {% comment %} Google Tag Manager {% endcomment %}
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5QMQ6F7');
+    </script>
+
   </head>
 
   <body class="gradient template-{{ template }} {% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %} template-suffix-{{ template.suffix }}">
@@ -415,5 +424,11 @@
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+
+    {% comment %} Google Tag Manager {% endcomment %}
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
   </body>
 </html>
