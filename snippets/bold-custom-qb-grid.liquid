@@ -93,7 +93,6 @@
 
     if (!variantId || !qty || !totalEl) { return; }
 
-    // FIX: Look up the variant object from product data instead of using variantId string as an object
     const variantData = window.BOLDCUSTOM.product?.variants?.find(v => String(v.id) === String(variantId));
     const qbData = window.BOLDCUSTOM.qbData?.[variantId];
 
@@ -101,7 +100,6 @@
       return !arr[index + 1] || (row.qty <= qty && !(arr[index + 1].qty <= qty));
     });
 
-    // FIX: Use variantData.price as fallback (was incorrectly using 'variant.price' — variant was a string ID)
     const bestPrice = bestRow?.price ?? variantData?.price ?? 0;
 
     totalEl.innerText = (bestPrice * qty * 0.01).toLocaleString(undefined, {
@@ -117,7 +115,6 @@
     for (let f = 0; f < document.forms.length; f++) {
       const form = document.forms[f];
 
-      // FIX: Moved cart/add check before removeEventListener so non-cart forms keep their listeners
       if (!(form.action.includes('cart/add'))) { continue; }
 
       let gridEl = form.querySelector('.bold_qb_grid_custom');
@@ -130,7 +127,6 @@
         form.addEventListener('change', updateFormsWithQBGrids);
       }
 
-      // FIX: Always remove then re-add qty_change to prevent duplicate listeners on variant change
       form.removeEventListener('qty_change', updateTotalPriceEl);
       form.addEventListener('qty_change', updateTotalPriceEl);
 
