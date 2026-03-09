@@ -84,6 +84,8 @@
             const qty = parseInt(form.quantity?.value);
             const totalEl = document.querySelector('.sub-total-price-value'); // Why isn't this inside the form?
 
+            console.log("totalEl", totalEl)
+
             if(!variant || !qty || !totalEl) {return}
 
             const qbData = window.BOLDCUSTOM.qbData[variant];
