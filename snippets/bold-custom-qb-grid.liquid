@@ -83,7 +83,6 @@
     window.BOLDCUSTOM.qbGrids = qbGrids;
   }
 
-  // Core recalc logic — extracted so it can be called directly (not just from events)
   function recalcTotalPrice(form) {
     if (!form) { return; }
 
@@ -93,7 +92,6 @@
 
     if (!variantId || !qty || !totalEl) { return; }
 
-    // Look up variant object from product data by ID
     const variantData = window.BOLDCUSTOM.product?.variants?.find(v => String(v.id) === String(variantId));
     const qbData = window.BOLDCUSTOM.qbData?.[variantId];
 
@@ -101,7 +99,6 @@
       return !arr[index + 1] || (row.qty <= qty && !(arr[index + 1].qty <= qty));
     });
 
-    // Use variantData.price as fallback — previously was broken ('variant' was just a string ID)
     const bestPrice = bestRow?.price ?? variantData?.price ?? 0;
 
     totalEl.innerText = (bestPrice * qty * 0.01).toLocaleString(undefined, {
@@ -110,7 +107,6 @@
     });
   }
 
-  // Triggered by qty_change custom event
   function updateTotalPriceEl(evt) {
     recalcTotalPrice(evt.target);
   }
@@ -122,7 +118,6 @@
     for (let f = 0; f < document.forms.length; f++) {
       const form = document.forms[f];
 
-      // Moved cart/add check BEFORE removeEventListener so non-cart forms keep their listeners
       if (!(form.action.includes('cart/add'))) { continue; }
 
       let gridEl = form.querySelector('.bold_qb_grid_custom');
@@ -134,8 +129,6 @@
         form.prepend(gridEl);
 
         form.addEventListener('change', function (evt) {
-          // Detect variant selector changes (color/size swatches, dropdowns)
-          // These typically update the hidden input[name="id"] in the form
           const isVariantChange = evt.target && (
             evt.target.name === 'id' ||
             evt.target.closest?.('[name="id"]') ||
@@ -145,9 +138,6 @@
           updateFormsWithQBGrids();
 
           if (isVariantChange) {
-            // FIX: Use double rAF to wait for Shopify's theme JS to update the
-            // hidden variant input (form.id.value) before recalculating total.
-            // Without this, form.id.value still holds the OLD variant ID.
             requestAnimationFrame(function () {
               requestAnimationFrame(function () {
                 recalcTotalPrice(form);
@@ -157,14 +147,11 @@
         });
       }
 
-      // Always remove then re-add qty_change to prevent duplicate listeners stacking up
       form.removeEventListener('qty_change', updateTotalPriceEl);
       form.addEventListener('qty_change', updateTotalPriceEl);
 
       gridEl.innerHTML = window.BOLDCUSTOM?.qbGrids?.[form.id?.value] || '';
 
-      // FIX: After grid updates on variant change, immediately recalc total price
-      // so Total reflects the new variant at current qty — no user interaction needed
       recalcTotalPrice(form);
 
       form.dispatchEvent(new CustomEvent('QB_GRID_READY', {
