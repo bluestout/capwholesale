@@ -886,7 +886,7 @@
 
 <script>
   const changePrice = (newPrice) => {
-    {% comment %} document.querySelector('.sub-total-price-value').textContent = newPrice + ' USD'; {% endcomment %}
+    document.querySelector('.sub-total-price-value').textContent = newPrice + ' USD';
   };
   document.addEventListener('LPO:ready', function () {
     var defaultPrice = document
