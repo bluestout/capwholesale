@@ -34,8 +34,8 @@
       ],
       "settings": {
         "show_space": false,
-        "image": "shopify:\/\/shop_images\/Mask_group_1_f921e045-73ef-4400-b9f9-04b557a965b1.png",
-        "image_mobile": "shopify:\/\/shop_images\/Mask_group_2.png",
+        "image": "shopify://shop_images/Mask_group_1_f921e045-73ef-4400-b9f9-04b557a965b1.png",
+        "image_mobile": "shopify://shop_images/Mask_group_2.png",
         "image_overlay_opacity": 0,
         "opacity_type": "normal",
         "opacity_color": "primary",
@@ -63,9 +63,9 @@
           "type": "item",
           "settings": {
             "item_width": 6,
-            "image": "shopify:\/\/shop_images\/bg.png",
+            "image": "shopify://shop_images/bg.png",
             "title": "Adams headwear",
-            "url": "shopify:\/\/collections\/adams-headwear",
+            "url": "shopify://collections/adams-headwear",
             "title_2": "Hat Style 2",
             "url_2": ""
           }
@@ -74,44 +74,44 @@
           "type": "item",
           "settings": {
             "item_width": 4,
-            "image": "shopify:\/\/shop_images\/bg_1.png",
+            "image": "shopify://shop_images/bg_1.png",
             "title": "Cobra Caps",
-            "url": "shopify:\/\/collections\/cobra-hats",
-            "image_2": "shopify:\/\/shop_images\/img_1.png",
+            "url": "shopify://collections/cobra-hats",
+            "image_2": "shopify://shop_images/img_1.png",
             "title_2": "Decky Hats",
-            "url_2": "shopify:\/\/collections\/decky-hats"
+            "url_2": "shopify://collections/decky-hats"
           }
         },
         "item_ayUTCT": {
           "type": "item",
           "settings": {
             "item_width": 4,
-            "image": "shopify:\/\/shop_images\/Mask_group_1.png",
+            "image": "shopify://shop_images/Mask_group_1.png",
             "title": "Flexfit Hats",
-            "url": "shopify:\/\/collections\/flexfit-hats",
-            "image_2": "shopify:\/\/shop_images\/Mask_group.png",
+            "url": "shopify://collections/flexfit-hats",
+            "image_2": "shopify://shop_images/Mask_group.png",
             "title_2": "Imperial hats",
-            "url_2": "shopify:\/\/collections\/imperial-hats"
+            "url_2": "shopify://collections/imperial-hats"
           }
         },
         "item_t9qBbg": {
           "type": "item",
           "settings": {
             "item_width": 6,
-            "image": "shopify:\/\/shop_images\/bg_3.png",
+            "image": "shopify://shop_images/bg_3.png",
             "title": "Kati Sportcap",
-            "url": "shopify:\/\/collections\/kati-sportcap",
+            "url": "shopify://collections/kati-sportcap",
             "title_2": "",
-            "url_2": "shopify:\/\/collections\/kati-sportsman"
+            "url_2": "shopify://collections/kati-sportsman"
           }
         },
         "item_8iXADG": {
           "type": "item",
           "settings": {
             "item_width": 6,
-            "image": "shopify:\/\/shop_images\/bg.png",
-            "title": "Kati\/Sportsman",
-            "url": "shopify:\/\/collections\/kati-sportsman",
+            "image": "shopify://shop_images/bg.png",
+            "title": "Kati/Sportsman",
+            "url": "shopify://collections/kati-sportsman",
             "title_2": "Hat Style 2",
             "url_2": ""
           }
@@ -120,33 +120,33 @@
           "type": "item",
           "settings": {
             "item_width": 4,
-            "image": "shopify:\/\/shop_images\/bg_1.png",
+            "image": "shopify://shop_images/bg_1.png",
             "title": "Legacy Headwear",
-            "url": "shopify:\/\/collections\/legacy-headwear",
-            "image_2": "shopify:\/\/shop_images\/img_1.png",
+            "url": "shopify://collections/legacy-headwear",
+            "image_2": "shopify://shop_images/img_1.png",
             "title_2": "Mega Hats",
-            "url_2": "shopify:\/\/collections\/mega-hats"
+            "url_2": "shopify://collections/mega-cap"
           }
         },
         "item_JdB3Gf": {
           "type": "item",
           "settings": {
             "item_width": 4,
-            "image": "shopify:\/\/shop_images\/Mask_group_1.png",
+            "image": "shopify://shop_images/Mask_group_1.png",
             "title": "Otto Hats",
-            "url": "shopify:\/\/collections\/otto-hats",
-            "image_2": "shopify:\/\/shop_images\/Mask_group.png",
+            "url": "shopify://collections/otto-hats",
+            "image_2": "shopify://shop_images/Mask_group.png",
             "title_2": "Outdoor Caps",
-            "url_2": "shopify:\/\/collections\/outdoor-caps"
+            "url_2": "shopify://collections/outdoor-caps"
           }
         },
         "item_RGEwRy": {
           "type": "item",
           "settings": {
             "item_width": 6,
-            "image": "shopify:\/\/shop_images\/bg_3.png",
+            "image": "shopify://shop_images/bg_3.png",
             "title": "Pacific Headwear Augusta",
-            "url": "shopify:\/\/collections\/pacific-headwear-augusta",
+            "url": "shopify://collections/pacific-headwear-augusta",
             "title_2": "Hat Style 2",
             "url_2": ""
           }
@@ -155,9 +155,9 @@
           "type": "item",
           "settings": {
             "item_width": 6,
-            "image": "shopify:\/\/shop_images\/bg.png",
+            "image": "shopify://shop_images/bg.png",
             "title": "Richardson Hats",
-            "url": "shopify:\/\/collections\/richardson-hats",
+            "url": "shopify://collections/richardson-hats",
             "title_2": "Hat Style 2",
             "url_2": ""
           }
@@ -166,12 +166,12 @@
           "type": "item",
           "settings": {
             "item_width": 4,
-            "image": "shopify:\/\/shop_images\/bg_1.png",
+            "image": "shopify://shop_images/bg_1.png",
             "title": "YP Classic Yupoong Hats",
-            "url": "shopify:\/\/collections\/yp-classic-yupoong-hats",
-            "image_2": "shopify:\/\/shop_images\/img_1.png",
+            "url": "shopify://collections/yp-classic-yupoong-hats",
+            "image_2": "shopify://shop_images/img_1.png",
             "title_2": "Zapped Hats",
-            "url_2": "shopify:\/\/collections\/zapped-hats"
+            "url_2": "shopify://collections/zapped-hats"
           }
         }
       },
