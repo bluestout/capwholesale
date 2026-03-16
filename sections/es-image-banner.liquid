@@ -105,6 +105,12 @@
   #Banner-{{ section.id }}.opacity-gradient.opacity-horizontal.opacity-color--secondary::after {
     background: linear-gradient(90deg, #553300 0%, rgba(85, 51, 0, 0) 100%);
   }
+  #Banner-{{ section.id }}.opacity-gradient.opacity-vertical.md-up-opacity-weight--heavy::after {
+    background: linear-gradient(0deg, black 0%, rgba(0, 0, 0, 0) 50%);
+  }
+  #Banner-{{ section.id }}.opacity-gradient.opacity-vertical.md-up-opacity-weight--extra-heavy::after {
+    background: linear-gradient(0deg, black 0%, rgba(0, 0, 0, 0) 60%);
+  }
   @media (min-width: 769px) {
     #Banner-{{ section.id }}.banner {
       background-image: linear-gradient(to bottom, #676767 80%, transparent 80%);
@@ -120,6 +126,15 @@
     }
     #Banner-{{ section.id }}.opacity-gradient.sm-opacity-vertical.opacity-color--secondary::after {
       background: linear-gradient(0deg, #553300 0%, rgba(85, 51, 0, 0) 100%);
+    }
+    #Banner-{{ section.id }}.opacity-gradient.sm-opacity-horizontal::after {
+      background: rgba(0, 0, 0, 0.30);
+    }
+    #Banner-{{ section.id }}.opacity-gradient.sm-opacity-horizontal.sm-opacity-height-large::after {
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0) 100%);
+    }
+    #Banner-{{ section.id }}.opacity-gradient.sm-opacity-horizontal.opacity-color--secondary::after {
+      background: linear-gradient(90deg, #553300 0%, rgba(85, 51, 0, 0) 100%);
     }
   }
 {%- endstyle -%}
@@ -393,7 +408,7 @@
           "value": "extra-heavy"
         }
       ],
-      "label": "Opacity Height on Mobile",
+      "label": "Opacity Weight on Desktop",
       "default": "light"
     },
     {
