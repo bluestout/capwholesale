@@ -311,6 +311,7 @@
       {%- endfor -%}
     </div>
   </div>
+  {% unless cloud_search_filters %}
   {%- if thumb_image != blank -%}
     {%- assign thumb_image_width = thumb_image.settings.image.width | divided_by: 2 -%}
     {%- assign thumb_image_height = thumb_image.settings.image.height | divided_by: 2 -%}
@@ -322,6 +323,7 @@
       }}
     </div>
   {%- endif -%}
+  {% endunless %}
 </div>
 
 {% schema %}
