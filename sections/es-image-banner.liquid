@@ -17,6 +17,14 @@
       }
     }
 
+    @media screen and (max-width: 375px) {
+      #Banner-{{ section.id }}.sm-banner--adapt::before,
+      #Banner-{{ section.id }}.sm-banner--adapt .banner__media::before,
+      #Banner-{{ section.id }}.sm-banner--adapt:not(.banner--mobile-bottom) .banner__content::before {
+        padding-bottom: calc({{ 1 | divided_by: section.settings.image_mobile.aspect_ratio | times: 100 }}% + {{ section.settings.extra_padding | default: 2 }}%);
+      }
+    }
+
     @media screen and (min-width: 750px) {
       #Banner-{{ section.id }}::before,
       #Banner-{{ section.id }} .banner__media::before {
