@@ -27,7 +27,6 @@
             "subheading": "",
             "heading": "{{ collection.title }}",
             "heading_tag": "h2",
-            "border_bottom": false,
             "heading_size": "h1"
           }
         }
@@ -35,12 +34,10 @@
       "block_order": [
         "heading_gawP3b"
       ],
-      "custom_css": [
-        "@media screen and (max-width: 749px) {.banner::after, .banner__media::after {height: 100%; } .banner:not(.banner--mobile-bottom):not(.email-signup-banner) .banner__box {background: #00000000 !important; }}",
-        "@media (max-width: 500px) {.banner {max-height: 320px; min-height: 320px; }}"
-      ],
+      "custom_css": [],
       "name": "ES Image Banner",
       "settings": {
+        "banner_link": "",
         "show_space": false,
         "image": "{{ collection.image }}",
         "image_mobile": "{{ collection.metafields.custom.mobile_banner.value }}",
@@ -61,8 +58,7 @@
         "opacity_direct_on_mobile": "vertical",
         "opacity_height_on_mobile": "large",
         "image_height_on_mobile": "adapt",
-        "show_text_below": false,
-        "banner_link": ""
+        "show_text_below": false
       }
     },
     "product-grid": {
