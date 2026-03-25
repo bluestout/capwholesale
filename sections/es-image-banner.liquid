@@ -21,7 +21,7 @@
       #Banner-{{ section.id }}.sm-banner--adapt::before,
       #Banner-{{ section.id }}.sm-banner--adapt .banner__media::before,
       #Banner-{{ section.id }}.sm-banner--adapt:not(.banner--mobile-bottom) .banner__content::before {
-        padding-bottom: calc({{ 1 | divided_by: section.settings.image_mobile.aspect_ratio | times: 100 }}% + {{ section.settings.extra_padding | default: 2 }}%);
+        padding-bottom: calc({{ 1 | divided_by: section.settings.image_mobile.aspect_ratio | times: 100 }}% + {{ section.settings.extra_padding | default: 3 }}%);
       }
     }
 
