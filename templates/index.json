@@ -675,7 +675,7 @@
       "custom_css": [],
       "settings": {
         "border_top": false,
-        "title": "Best Sellers By Brand",
+        "title": "Best Sellers",
         "collection": "frontpage",
         "products_to_show": 15,
         "image_ratio": "rectangle",
