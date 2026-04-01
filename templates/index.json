@@ -116,10 +116,10 @@
           "settings": {
             "image": "shopify://shop_images/CAP_Banner_Promoting_CW_1.jpg",
             "sm_image": "shopify://shop_images/CAP_Banner_Promoting_CW_Mobile.jpg",
-            "heading": "",
+            "heading": "Need Embroidery, Patches, or Screen Printing?",
             "description": "",
-            "button_text": "",
-            "button_link": "",
+            "button_text": "Visit Customizedwear.com",
+            "button_link": "https://www.customizedwear.com/",
             "ui_height": true,
             "banner_link": "https://www.customizedwear.com/"
           }
