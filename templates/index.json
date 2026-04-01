@@ -520,7 +520,7 @@
         "padding_top": 40,
         "padding_bottom": 40,
         "padding_top_mobile": 0,
-        "padding_bottom_mobile": 10,
+        "padding_bottom_mobile": 30,
         "item_count_row": 2,
         "show_gradient": true
       }
