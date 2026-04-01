@@ -438,7 +438,7 @@
         "text_XxeLzC"
       ],
       "settings": {
-        "image": "shopify://shop_images/bonefishtrucker_1_1_1.png",
+        "image": "shopify://shop_images/1100x800_mid_down.jpg",
         "white_bar_on_image": true,
         "height": "adapt",
         "hide_media_on_mobile": false,
@@ -520,7 +520,7 @@
         "padding_top": 40,
         "padding_bottom": 40,
         "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
+        "padding_bottom_mobile": 10,
         "item_count_row": 2,
         "show_gradient": true
       }
@@ -574,7 +574,7 @@
         "button_BKEWTb"
       ],
       "settings": {
-        "image": "shopify://shop_images/1000x1014__E2_80_93_1.jpg",
+        "image": "shopify://shop_images/1100x800_mid.jpg",
         "white_bar_on_image": false,
         "height": "adapt",
         "hide_media_on_mobile": true,
