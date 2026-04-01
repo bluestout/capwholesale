@@ -113,6 +113,7 @@
         },
         "slide_item_EUaLP4": {
           "type": "slide_item",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/CAP_Banner_Promoting_CW_1.jpg",
             "sm_image": "shopify://shop_images/CAP_Banner_Promoting_CW_Mobile.jpg",
