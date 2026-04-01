@@ -110,12 +110,26 @@
             "ui_height": true,
             "banner_link": ""
           }
+        },
+        "slide_item_EUaLP4": {
+          "type": "slide_item",
+          "settings": {
+            "image": "shopify://shop_images/CAP_Banner_Promoting_CW_1.jpg",
+            "sm_image": "shopify://shop_images/CAP_Banner_Promoting_CW_Mobile.jpg",
+            "heading": "",
+            "description": "",
+            "button_text": "",
+            "button_link": "",
+            "ui_height": true,
+            "banner_link": "https://www.customizedwear.com/"
+          }
         }
       },
       "block_order": [
         "slide_item_9Kg3nH",
         "slide_item_cJphHg",
-        "slide_item_MNPCU6"
+        "slide_item_MNPCU6",
+        "slide_item_EUaLP4"
       ],
       "name": "UI Slideshow",
       "settings": {
