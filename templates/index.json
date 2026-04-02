@@ -92,8 +92,22 @@
             "banner_link": ""
           }
         },
+        "slide_item_LB4Jxi": {
+          "type": "slide_item",
+          "settings": {
+            "image": "shopify://shop_images/Shopify_CAPS_intro_to_CW_2880_x_1300_px_abdc750e-7914-4f78-8bd7-ca46ac044a8f.png",
+            "sm_image": "shopify://shop_images/Shopify_CAPS_intro_to_CW_2880_x_1300_px_abdc750e-7914-4f78-8bd7-ca46ac044a8f.png",
+            "heading": "Custom Embroidered & Patch Hats Available!",
+            "description": "<p>Shop blank hats here — or create your own branded caps at CustomizedWear.com.</p>",
+            "button_text": "shop now",
+            "button_link": "https://www.customizedwear.com/",
+            "ui_height": true,
+            "banner_link": ""
+          }
+        },
         "slide_item_MNPCU6": {
           "type": "slide_item",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/bonefishtrucker_1_1_1.png",
             "sm_image": "shopify://shop_images/bonefishtrucker_1_1_1.png",
@@ -109,6 +123,7 @@
       "block_order": [
         "slide_item_9Kg3nH",
         "slide_item_cJphHg",
+        "slide_item_LB4Jxi",
         "slide_item_MNPCU6"
       ],
       "name": "UI Slideshow",
