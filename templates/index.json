@@ -92,6 +92,19 @@
             "banner_link": ""
           }
         },
+        "slide_item_GbxgDc": {
+          "type": "slide_item",
+          "settings": {
+            "image": "shopify://shop_images/Buy_Blank_Hats_Only_Bucket_2880_x_1300_CAPS.png",
+            "sm_image": "shopify://shop_images/Buy_Blank_Hats_Only_Bucket_mobile_375x375_45e3db0e-a2f5-4238-9fe4-d0dd850d37df.png",
+            "heading": "Only Want Blank Hats?",
+            "description": "<p>Visit our blank hat wholesale site — CapWholesalers.com — where you’ll find blank hats in bulk with no decoration.</p>",
+            "button_text": "Shop Blank Hats",
+            "button_link": "shopify://pages/shop-by-style",
+            "ui_height": true,
+            "banner_link": ""
+          }
+        },
         "slide_item_LB4Jxi": {
           "type": "slide_item",
           "settings": {
@@ -123,6 +136,7 @@
       "block_order": [
         "slide_item_9Kg3nH",
         "slide_item_cJphHg",
+        "slide_item_GbxgDc",
         "slide_item_LB4Jxi",
         "slide_item_MNPCU6"
       ],
