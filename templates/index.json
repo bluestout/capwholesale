@@ -18,7 +18,6 @@
             "subheading": "Richardson",
             "heading": "AUTHORIZED DEALER",
             "heading_tag": "h2",
-            "border_bottom": false,
             "heading_size": "h2"
           }
         },
@@ -32,19 +31,15 @@
             "button_link_2": "",
             "button_style_secondary_2": false
           }
-        },
-        "image_slide_hEQFnw": {
-          "type": "image_slide",
-          "settings": {}
         }
       },
       "block_order": [
         "heading_bkYrfC",
-        "buttons_Ck37kr",
-        "image_slide_hEQFnw"
+        "buttons_Ck37kr"
       ],
       "disabled": true,
       "settings": {
+        "banner_link": "",
         "show_space": false,
         "image": "shopify://shop_images/bonefishtrucker_1_1_1.png",
         "image_mobile": "shopify://shop_images/Image_1_d7f1f0b0-521d-418a-b595-0c356b156748.png",
@@ -65,8 +60,7 @@
         "opacity_direct_on_mobile": "vertical",
         "opacity_height_on_mobile": "small",
         "image_height_on_mobile": "large",
-        "show_text_below": false,
-        "banner_link": ""
+        "show_text_below": false
       }
     },
     "ui_slideshow_wLyQMQ": {
@@ -93,7 +87,7 @@
             "heading": "SHOP ALL BRANDS",
             "description": "<p>Flexfit, YP Classic, Decky, Otto, Pacific & Many More..</p>",
             "button_text": "shop now",
-            "button_link": "shopify://products/5-panel-brushed-wflag-sandwiched-bill",
+            "button_link": "shopify://pages/shop-styles",
             "ui_height": true,
             "banner_link": ""
           }
@@ -106,7 +100,7 @@
             "heading": "Richardson",
             "description": "<p>AUTHORIZED DEALER</p>",
             "button_text": "shop now",
-            "button_link": "shopify://products/5-panel-brushed-wflag-sandwiched-bill",
+            "button_link": "shopify://pages/richardson-hats",
             "ui_height": true,
             "banner_link": ""
           }
