@@ -84,14 +84,14 @@
         "icon_with_text_WXqVMc": {
           "type": "icon_with_text",
           "settings": {
-            "text": "<p>Don't have a customer account with us? Please <a href=\"https://shopify.com/authentication/91508932895/login\" title=\"Register\">register here.</a></p>",
+            "text": "<p>Don't have a customer account with us? Please <a href=\"https://capwholesaler.myshopify.com/customer_authentication/redirect\" title=\"https://capwholesaler.myshopify.com/customer_authentication/redirect\">register here.</a></p>",
             "align_items": "flex-start"
           }
         },
         "icon_with_text_4q9PE9": {
           "type": "icon_with_text",
           "settings": {
-            "text": "<p>Already have a customer account with us? Please <a href=\"https://shopify.com/authentication/91508932895/login\" title=\"Log In page\">log in here.</a></p>",
+            "text": "<p>Already have a customer account with us? Please <a href=\"https://capwholesaler.myshopify.com/customer_authentication/redirect\" title=\"https://capwholesaler.myshopify.com/customer_authentication/redirect\">log in here.</a></p>",
             "align_items": "flex-start"
           }
         },
