@@ -499,9 +499,9 @@
           "type": "item",
           "settings": {
             "item_width": 6,
-            "image": "shopify://shop_images/SHOP_BEST_SELLERS_Richardson_112_Green_White.jpg",
+            "image": "shopify://shop_images/Richardson_model_looking_down.jpg",
             "title": "Richardson Hats",
-            "url": "shopify://products/sn20w-kati-sportcap-specialty-licensed-camo-unstru",
+            "url": "shopify://collections/richardson-hats",
             "title_2": "Hat Style 2",
             "url_2": ""
           }
@@ -512,10 +512,10 @@
             "item_width": 4,
             "image": "shopify://shop_images/bg.jpg",
             "title": "Flexfit",
-            "url": "shopify://collections/flexfit-hats",
-            "image_2": "shopify://shop_images/Otto_Ideas_1160_x_590.png",
+            "url": "shopify://collections/whoelsale-flexfit",
+            "image_2": "shopify://shop_images/Otto_New.jpg",
             "title_2": "Otto Cap",
-            "url_2": "shopify://products/12-inch-safety-color-beanie-w-reflective-threads"
+            "url_2": "shopify://collections/otto-hats"
           }
         },
         "item_ayUTCT": {
@@ -566,14 +566,14 @@
         "heading_NGVgUX": {
           "type": "heading",
           "settings": {
-            "heading": "<p>CustomizedWear.com: </p>",
+            "heading": "<p>CapWholesalers:</p>",
             "heading_size": "h1"
           }
         },
         "caption_RFkta6": {
           "type": "caption",
           "settings": {
-            "caption": "Custom Hats & Branded Headwear",
+            "caption": "Your destination for wholesale hats",
             "text_style": "subtitle",
             "text_size": "large"
           }
@@ -587,12 +587,13 @@
         "text_EXnEAX": {
           "type": "text",
           "settings": {
-            "text": "<p>Need your hats customized? Visit our sister store, CustomizedWear.com, for embroidery, leather patches, faux leather patches, flex patches, 3D embroidery, print stitch patches, and screen printing on the same top brands you shop here.</p>",
+            "text": "<p>Since 1991, CapWholesalers has been the trusted source for wholesale hats and blank caps in bulk. Shop top brands like Richardson 112, Flexfit, Otto, Decky, and Outdoor Cap, plus a wide range of trucker mesh hats and classic blanks. With low minimums of just 12 pieces, deep inventory, and fast shipping, you’ll get competitive bulk pricing on every order.</p>",
             "text_style": "body"
           }
         },
         "button_BKEWTb": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "button_label": "Learn More",
             "button_link": "shopify://collections/frontpage",
