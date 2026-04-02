@@ -430,14 +430,14 @@
         "heading_ptCCnT": {
           "type": "heading",
           "settings": {
-            "heading": "<p>Cap Wholesalers:</p>",
+            "heading": "<p>Want your caps customized? Visit CustomizedWear.com — our sister store for embroidery, leather patches, and logo branding!</p>",
             "heading_size": "h1"
           }
         },
         "caption_cNwrkM": {
           "type": "caption",
           "settings": {
-            "caption": "Your Destination for Wholesale Hats",
+            "caption": "Found your perfect blank style? Get it customized!",
             "text_style": "subtitle",
             "text_size": "medium"
           }
@@ -451,7 +451,7 @@
         "text_XxeLzC": {
           "type": "text",
           "settings": {
-            "text": "<p>Since 1991, Cap Wholesalers has been the go-to source for a diverse selection of blank hats in bulk. We offer popular styles, including Richardson 112, FlexFit, Otto, and Outdoor Caps, as well as customizable trucker mesh hats in various colors. With a low minimum order of just 12 hats, you can enjoy competitive prices while minimizing excess inventory. Shop with us for the best wholesale hat options!</p>",
+            "text": "<p>Our partner site CustomizedWear.com specializes in embroidery, leather patches, and full custom branding — all on the same brands you love from CapWholesalers.</p>",
             "text_style": "body"
           }
         }
