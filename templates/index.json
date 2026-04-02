@@ -87,7 +87,7 @@
             "heading": "SHOP ALL BRANDS",
             "description": "<p>Flexfit, YP Classic, Decky, Otto, Pacific & Many More..</p>",
             "button_text": "shop now",
-            "button_link": "shopify://pages/shop-styles",
+            "button_link": "shopify://pages/shop-by-style",
             "ui_height": true,
             "banner_link": ""
           }
