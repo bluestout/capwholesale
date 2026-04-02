@@ -370,6 +370,7 @@
         },
         "collection_Tw68RJ": {
           "type": "collection",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Men_s_Shirts_Apparel.jpg",
             "title": "Men’s Shirts & Apparel",
@@ -379,6 +380,7 @@
         },
         "collection_PDLVbU": {
           "type": "collection",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Ladies_Kids_Shirts_and_Apparel.jpg",
             "title": "Ladies & Kids Shirts and Apparel",
