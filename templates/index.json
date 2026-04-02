@@ -454,13 +454,23 @@
             "text": "<p>Our partner site CustomizedWear.com specializes in embroidery, leather patches, and full custom branding — all on the same brands you love from CapWholesalers.</p>",
             "text_style": "body"
           }
+        },
+        "button_FidpQ7": {
+          "type": "button",
+          "settings": {
+            "button_label": "shop now",
+            "button_link": "https://www.customizedwear.com/",
+            "button_style_secondary": false,
+            "open_new_tab": true
+          }
         }
       },
       "block_order": [
         "heading_ptCCnT",
         "caption_cNwrkM",
         "separator_wtfPNN",
-        "text_XxeLzC"
+        "text_XxeLzC",
+        "button_FidpQ7"
       ],
       "settings": {
         "image": "shopify://shop_images/bonefishtrucker_1_1_1.png",
