@@ -4716,6 +4716,7 @@ cart-items {
     justify-content: center;
     z-index: 2;
     align-items: flex-start;
+    box-sizing: border-box;
   
     @media (max-width: 1000px) {
       width: 100%;
