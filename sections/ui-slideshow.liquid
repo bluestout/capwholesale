@@ -21,7 +21,7 @@
 >
   <div class="{% if section.settings.layout == 'row' %}page-width--small{% elsif section.settings.layout == 'section' %} page-width{% elsif section.settings.layout == 'none' %} content-container content-container--full-width{% endif %}">
     <div class="section-{{ section.id }}-padding{% if section.settings.layout == 'section' %} content-container color-{{ section.settings.container_color_scheme }} gradient{% endif %}">
-      <div class="swiper ui-slideshow {% if template == 'index' %}ui-slidershow_top{% endif %}">
+      <div class="swiper ui-slideshow {% if template == 'index' %} ui-slidershow_top {% endif %}">
         <div class="swiper-wrapper">
           {%- for block in section.blocks -%}
             <div class="swiper-slide">
