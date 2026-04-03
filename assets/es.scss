@@ -4715,15 +4715,12 @@ cart-items {
     flex-direction: column;
     justify-content: center;
     z-index: 1;
-    box-sizing: border-box;
-    align-items: flex-start;
-    max-width: min(560px, calc(100% - 2rem));
-
+  
     @media (max-width: 1000px) {
       width: 100%;
       left: 10px;
       // align-items: center;
-      max-width: none;
+  
     }
   }
 
