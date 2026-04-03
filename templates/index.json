@@ -100,7 +100,7 @@
             "heading": "",
             "description": "",
             "button_text": "Shop Custom Hats",
-            "button_link": "shopify://pages/shop-by-style",
+            "button_link": "https://www.customizedwear.com/",
             "ui_height": true,
             "banner_link": "https://www.customizedwear.com/"
           }
