@@ -4718,6 +4718,7 @@ cart-items {
     align-items: flex-start;
     box-sizing: border-box;
     max-width: 700px;
+    padding-right: 2rem;
   
     @media (max-width: 1000px) {
       width: 100%;
