@@ -4770,11 +4770,6 @@ cart-items {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    gap: 1rem;
-    z-index: 2;
-    box-sizing: border-box;
-    max-width: min(560px, calc(100% - 2rem));
 
     @media (max-width: 1000px) {
       width: 100%;
