@@ -4714,7 +4714,7 @@ cart-items {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    z-index: 1;
+    z-index: 2;
   
     @media (max-width: 1000px) {
       width: 100%;
