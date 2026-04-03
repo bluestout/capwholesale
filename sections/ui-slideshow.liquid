@@ -30,7 +30,7 @@
               {%- endif -%}
               <div class="ui-slideshow__media">
                 {%- if block.settings.image != blank -%}
-                  <div class="ui-slideshow__media-wrapper" style="postion:absolute !important">
+                  <div class="ui-slideshow__media-wrapper">
                     <img
                       src="{{ block.settings.image | img_url: '3840x' }}"
                       class="{% if block.settings.sm_image != blank %}small-hide{% endif %}"
