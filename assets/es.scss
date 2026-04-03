@@ -4717,6 +4717,7 @@ cart-items {
     z-index: 2;
     align-items: flex-start;
     box-sizing: border-box;
+    max-width: min(560px, calc(100% - 2rem));
   
     @media (max-width: 1000px) {
       width: 100%;
