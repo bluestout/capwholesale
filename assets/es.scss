@@ -4392,7 +4392,8 @@ cart-items {
   border-bottom: 1px solid white;
   display: flex;
   align-items: center;
-  position: absolute;
+  // position: absolute;
+  position: relative;
 
   @media (max-width: 768px) {
     height: 70px;
