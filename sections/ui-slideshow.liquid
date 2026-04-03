@@ -14,21 +14,7 @@
     }
   }
 
-  /*
-    Slide images: object-fit is overridden by theme SCSS (.ui-slideshow img { height: auto } + object-fit: cover).
-    Section-scoped rules + !important apply after bundled CSS so contain/center work.
-  */
-  #shopify-section-{{ section.id }} .ui-slideshow__media-wrapper {
-    background-color: rgb(18, 18, 18);
-  }
-
-  #shopify-section-{{ section.id }} .ui-slideshow__media-wrapper img {
-    object-fit: contain !important;
-    object-position: center center !important;
-    width: 100% !important;
-    height: 100% !important;
-    max-height: none !important;
-  }
+  
 {%- endstyle -%}
 
 <div
