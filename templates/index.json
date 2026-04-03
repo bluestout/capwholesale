@@ -685,17 +685,40 @@
         "padding_bottom": 40
       }
     },
-    "es_featured_collection_RGkMJh": {
-      "type": "es-featured-collection",
-      "custom_css": [],
+    "es_featured_products_EMKnh4": {
+      "type": "es-featured-products",
+      "blocks": {
+        "product_EH3qxC": {
+          "type": "product",
+          "settings": {
+            "product": "yupoong-retro-trucker"
+          }
+        },
+        "product_Y9DKDF": {
+          "type": "product",
+          "settings": {
+            "product": "richardson-112-hat-trucker-snapback-cap-tri-color"
+          }
+        },
+        "product_iE4hWc": {
+          "type": "product",
+          "settings": {
+            "product": "richardson-printed-five-panel-trucker-hat"
+          }
+        }
+      },
+      "block_order": [
+        "product_EH3qxC",
+        "product_Y9DKDF",
+        "product_iE4hWc"
+      ],
+      "name": "ES Featured Products",
       "settings": {
         "border_top": false,
         "title": "Best Sellers",
-        "collection": "frontpage",
-        "products_to_show": 15,
-        "image_ratio": "rectangle",
+        "image_ratio": "square",
         "image_shape": "default",
-        "show_secondary_image": true,
+        "show_secondary_image": false,
         "show_vendor": false,
         "show_rating": false,
         "show_redunderline": true,
@@ -715,6 +738,6 @@
     "es_gallery_with_link_CGamDr",
     "es_image_with_text_kFT4Pw",
     "es_testimonial_xNiLtf",
-    "es_featured_collection_RGkMJh"
+    "es_featured_products_EMKnh4"
   ]
 }
