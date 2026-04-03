@@ -4670,6 +4670,10 @@ cart-items {
   }
 }
 
+.ui-slidershow_top {
+  margin-top: -110px;
+}
+
 .ui-slideshow {
   max-height: 650px;
   
@@ -4677,10 +4681,6 @@ cart-items {
     max-width: 100%;
     height: auto;
   }
-}
-
-.ui-slidershow_top {
-  margin-top: -110px;
 }
 
 .swiper-slide-active {
