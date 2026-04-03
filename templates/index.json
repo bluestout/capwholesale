@@ -142,7 +142,7 @@
       ],
       "name": "UI Slideshow",
       "settings": {
-        "layout": "section",
+        "layout": "none",
         "container_color_scheme": "",
         "color_scheme": "",
         "padding_top": 36,
