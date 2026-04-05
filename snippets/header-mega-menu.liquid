@@ -152,11 +152,13 @@
         document.querySelector(".section-header").classList.remove("megamenu-open");
       });
 
-      const parentLink = menu.querySelector('summary.header__menu-item');
+      const parentLink = summary.querySelector('a.header-menu-parent-link');
       if (parentLink) {
-        parentLink.addEventListener('click', function (e) {
-          console.log("lolololo")
-          console.log(e)
+        summary.addEventListener('click', function (e) {
+          if (e.target === parentLink || parentLink.contains(e.target)) {
+            e.preventDefault();
+            window.location.href = parentLink.href;
+          }
         });
       }
     });
