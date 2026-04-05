@@ -151,6 +151,13 @@
         menu.removeAttribute('open');
         document.querySelector(".section-header").classList.remove("megamenu-open");
       });
+
+      const parentLink = menu.querySelector('summary a.header-menu-parent-link');
+      if (parentLink) {
+        parentLink.addEventListener('click', function (e) {
+          e.stopPropagation();
+        });
+      }
     });
   });
 </script>
