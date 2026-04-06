@@ -12,15 +12,6 @@
     "es_image_banner_Qc9Nmz": {
       "type": "es-image-banner",
       "blocks": {
-        "heading_bkYrfC": {
-          "type": "heading",
-          "settings": {
-            "subheading": "Richardson",
-            "heading": "AUTHORIZED DEALER",
-            "heading_tag": "h2",
-            "heading_size": "h2"
-          }
-        },
         "buttons_Ck37kr": {
           "type": "buttons",
           "settings": {
@@ -34,7 +25,6 @@
         }
       },
       "block_order": [
-        "heading_bkYrfC",
         "buttons_Ck37kr"
       ],
       "disabled": true,
@@ -70,7 +60,7 @@
           "type": "slide_item",
           "settings": {
             "image": "shopify://shop_images/Image.jpg",
-            "sm_image": "shopify://shop_images/Image_1_d7f1f0b0-521d-418a-b595-0c356b156748.png",
+            "sm_image": "shopify://shop_images/Richardson.png",
             "heading": "Richardson",
             "description": "<p>AUTHORIZED DEALER</p>",
             "button_text": "shop now",
@@ -105,19 +95,6 @@
             "banner_link": "https://www.customizedwear.com/"
           }
         },
-        "slide_item_LB4Jxi": {
-          "type": "slide_item",
-          "settings": {
-            "image": "shopify://shop_images/Shopify_CAPS_intro_to_CW_2880_x_1300_px_abdc750e-7914-4f78-8bd7-ca46ac044a8f.png",
-            "sm_image": "shopify://shop_images/Shopify_CAPS_intro_to_CW_2880_x_1300_px_abdc750e-7914-4f78-8bd7-ca46ac044a8f.png",
-            "heading": "Custom Embroidered & Patch Hats Available!",
-            "description": "<p>Shop blank hats here — or create your own branded caps at CustomizedWear.com.</p>",
-            "button_text": "shop now",
-            "button_link": "https://www.customizedwear.com/",
-            "ui_height": true,
-            "banner_link": ""
-          }
-        },
         "slide_item_MNPCU6": {
           "type": "slide_item",
           "disabled": true,
@@ -137,7 +114,6 @@
         "slide_item_9Kg3nH",
         "slide_item_cJphHg",
         "slide_item_GbxgDc",
-        "slide_item_LB4Jxi",
         "slide_item_MNPCU6"
       ],
       "name": "UI Slideshow",
