@@ -150,7 +150,7 @@
           "type": "icon_with_text",
           "settings": {
             "image": "shopify://shop_images/iconamoon_email-light.svg",
-            "text": "<p>Email:<br/><a href=\"mailto:info@customizedwear.com\" title=\"mailto:info@customizedwear.com\">info@customizedwear.com</a></p>",
+            "text": "<p>Email: <a href=\"mailto:sales@CAPwholesalers.com\" title=\"mailto:sales@CAPwholesalers.com\">sales@CAPwholesalers.com</a></p>",
             "align_items": "center"
           }
         }
