@@ -3625,3 +3625,8 @@ details-disclosure > details {
 .cloud-search-filter-values-container.cloud-search-filter {
   z-index: 1 !important;
 }
+
+.cs-product-link .sku {
+  font-weight: 600;
+  display: block;
+}
