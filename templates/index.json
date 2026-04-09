@@ -691,7 +691,8 @@
         "product_xcmJdz": {
           "type": "product",
           "settings": {
-            "product": "adams-ace-unisex-sun-visor"
+            "product": "adams-ace-unisex-sun-visor",
+            "custom_image": "shopify://shop_images/Adams_Ace_Unisex_Sun_Visor-AC101.png"
           }
         },
         "product_ePjaTd": {
