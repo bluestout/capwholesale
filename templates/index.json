@@ -688,19 +688,79 @@
     "es_featured_products_EMKnh4": {
       "type": "es-featured-products",
       "blocks": {
-        "product_EH3qxC": {
+        "product_xcmJdz": {
           "type": "product",
           "settings": {
-            "product": "yupoong-retro-trucker"
+            "product": "adams-ace-unisex-sun-visor"
           }
         },
-        "product_Y9DKDF": {
+        "product_ePjaTd": {
+          "type": "product",
+          "settings": {
+            "product": "pacific-aug-5-panel-seamless-roped-weekender-perfo"
+          }
+        },
+        "product_nCNgYH": {
+          "type": "product",
+          "settings": {
+            "product": "cobra-6-panel-structured-mesh-back"
+          }
+        },
+        "product_Xxe8z3": {
+          "type": "product",
+          "settings": {
+            "product": "5-panel-high-profile-relaxed-cottonpoly-blend-rope"
+          }
+        },
+        "product_8h9JRQ": {
+          "type": "product",
+          "settings": {
+            "product": "budget-caps-yupoong-flat-bill-classic-5-panel-truc"
+          }
+        },
+        "product_9ziD8F": {
+          "type": "product",
+          "settings": {
+            "product": "flexfit-110-trucker-flex-snap-mesh-p68323"
+          }
+        },
+        "product_pbByEg": {
+          "type": "product",
+          "settings": {
+            "product": "mega-summer-trucker-foam-mesh"
+          }
+        },
+        "product_TKMFXn": {
+          "type": "product",
+          "settings": {
+            "product": "richardson-5-panel-seamless-front-trucker-twill-me"
+          }
+        },
+        "product_HB7FVX": {
+          "type": "product",
+          "settings": {
+            "product": "otto-five-panel-pro-style-baseball-cap"
+          }
+        },
+        "product_nMerhh": {
+          "type": "product",
+          "settings": {
+            "product": "budget-caps-otto-foam-front-high-crown-golf-mesh-solid-color"
+          }
+        },
+        "product_mKrpk3": {
+          "type": "product",
+          "settings": {
+            "product": "outdoor-ultimate-low-pro-trucker-in-60-colors"
+          }
+        },
+        "product_yMYDmx": {
           "type": "product",
           "settings": {
             "product": "richardson-112-hat-trucker-snapback-cap-tri-color"
           }
         },
-        "product_iE4hWc": {
+        "product_iyC849": {
           "type": "product",
           "settings": {
             "product": "richardson-printed-five-panel-trucker-hat"
@@ -708,9 +768,19 @@
         }
       },
       "block_order": [
-        "product_EH3qxC",
-        "product_Y9DKDF",
-        "product_iE4hWc"
+        "product_xcmJdz",
+        "product_ePjaTd",
+        "product_nCNgYH",
+        "product_Xxe8z3",
+        "product_8h9JRQ",
+        "product_9ziD8F",
+        "product_pbByEg",
+        "product_TKMFXn",
+        "product_HB7FVX",
+        "product_nMerhh",
+        "product_mKrpk3",
+        "product_yMYDmx",
+        "product_iyC849"
       ],
       "name": "ES Featured Products",
       "settings": {
