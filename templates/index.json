@@ -444,13 +444,23 @@
             "text": "<p>Since 1991, Cap Wholesalers has been the go-to source for a diverse selection of blank hats in bulk. We offer popular styles, including Richardson 112, FlexFit, Otto, and Outdoor Caps, as well as customizable trucker mesh hats in various colors. With a low minimum order of just 12 hats, you can enjoy competitive prices while minimizing excess inventory. Shop with us for the best wholesale hat options!</p>",
             "text_style": "body"
           }
+        },
+        "button_7zEDVg": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "",
+            "button_style_secondary": false,
+            "open_new_tab": false
+          }
         }
       },
       "block_order": [
         "heading_ptCCnT",
         "caption_cNwrkM",
         "separator_wtfPNN",
-        "text_XxeLzC"
+        "text_XxeLzC",
+        "button_7zEDVg"
       ],
       "settings": {
         "image": "shopify://shop_images/1100x800_mid_down__E2_80_93_4.jpg",
