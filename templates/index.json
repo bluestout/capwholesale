@@ -715,67 +715,78 @@
         "product_nCNgYH": {
           "type": "product",
           "settings": {
-            "product": "cobra-6-panel-structured-mesh-back"
+            "product": "cobra-6-panel-structured-mesh-back",
+            "custom_image": "shopify://shop_images/new-cobra-6-panel-structured-trucker-mesh-back-custom-cobra-hat-1732645.png"
           }
         },
         "product_Xxe8z3": {
           "type": "product",
           "settings": {
-            "product": "5-panel-high-profile-relaxed-cottonpoly-blend-rope"
+            "product": "5-panel-high-profile-relaxed-cottonpoly-blend-rope",
+            "custom_image": "shopify://shop_images/new-decky-brand-5-panel-high-profile-relaxed-cottonpoly-blend-rope-hat-custom-decky-caps-hat-9428859.png"
           }
         },
         "product_8h9JRQ": {
           "type": "product",
           "settings": {
-            "product": "budget-caps-yupoong-flat-bill-classic-5-panel-truc"
+            "product": "budget-caps-yupoong-flat-bill-classic-5-panel-truc",
+            "custom_image": "shopify://shop_images/new-budget-caps-yupoong-flat-bill-trucker-mesh-custom-yp-classic-hat-4608027.png"
           }
         },
         "product_9ziD8F": {
           "type": "product",
           "settings": {
-            "product": "flexfit-110-trucker-flex-snap-mesh-p68323"
+            "product": "flexfit-110-trucker-flex-snap-mesh-p68323",
+            "custom_image": "shopify://shop_images/new-flexfit-110-trucker-flex-snap-mesh-two-toned-custom-flexfit-hat-7613105.png"
           }
         },
         "product_pbByEg": {
           "type": "product",
           "settings": {
-            "product": "mega-summer-trucker-foam-mesh"
+            "product": "mega-summer-trucker-foam-mesh",
+            "custom_image": "shopify://shop_images/new-6801C-N.PINK-BK-BK--front.png"
           }
         },
         "product_TKMFXn": {
           "type": "product",
           "settings": {
-            "product": "richardson-5-panel-seamless-front-trucker-twill-me"
+            "product": "richardson-5-panel-seamless-front-trucker-twill-me",
+            "custom_image": "shopify://shop_images/new-richardson-5-panel-seamless-front-trucker-twill-mesh-snapback-hat-custom-richardson-hat-4436813.png"
           }
         },
         "product_HB7FVX": {
           "type": "product",
           "settings": {
-            "product": "otto-five-panel-pro-style-baseball-cap"
+            "product": "otto-five-panel-pro-style-baseball-cap",
+            "custom_image": "shopify://shop_images/new-otto-five-panel-pro-style-baseball-cap-custom-otto-cap-hat-9227879.png"
           }
         },
         "product_nMerhh": {
           "type": "product",
           "settings": {
-            "product": "budget-caps-otto-foam-front-high-crown-golf-mesh-solid-color"
+            "product": "budget-caps-otto-foam-front-high-crown-golf-mesh-solid-color",
+            "custom_image": "shopify://shop_images/new-budget-caps-otto-foam-front-high-crown-golf-mesh-back-caps-solid-custom-otto-cap-hat-4932515.png"
           }
         },
         "product_mKrpk3": {
           "type": "product",
           "settings": {
-            "product": "outdoor-ultimate-low-pro-trucker-in-60-colors"
+            "product": "outdoor-ultimate-low-pro-trucker-in-60-colors",
+            "custom_image": "shopify://shop_images/new-outdoor-ultimate-low-pro-trucker-in-60-colors-adult-youth-sizes-custom-outdoor-cap-hat-5941438.png"
           }
         },
         "product_yMYDmx": {
           "type": "product",
           "settings": {
-            "product": "richardson-112-hat-trucker-snapback-cap-tri-color"
+            "product": "richardson-112-hat-trucker-snapback-cap-tri-color",
+            "custom_image": "shopify://shop_images/new-richardson-112-hat-trucker-snapback-cap-tri-color-custom-richardson-hat-2231987.png"
           }
         },
         "product_iyC849": {
           "type": "product",
           "settings": {
-            "product": "richardson-printed-five-panel-trucker-hat"
+            "product": "richardson-printed-five-panel-trucker-hat",
+            "custom_image": "shopify://shop_images/new-richardson-printed-five-panel-trucker-hat-custom-richardson-hat-7861915.png"
           }
         }
       },
