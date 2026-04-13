@@ -585,7 +585,7 @@
           "type": "button",
           "settings": {
             "button_label": "Learn More",
-            "button_link": "shopify://collections/frontpage",
+            "button_link": "https://customizedwear.com/",
             "button_style_secondary": false,
             "open_new_tab": false
           }
