@@ -69,22 +69,8 @@
             "banner_link": ""
           }
         },
-        "slide_item_GbxgDc": {
-          "type": "slide_item",
-          "settings": {
-            "image": "shopify://shop_images/CWear_for_CAPS_Banner_Updated.png",
-            "sm_image": "shopify://shop_images/Customize_your_Logo_with_Patches_Embroidery_eb19d395-64c6-4477-a581-5e53a7ae2712.png",
-            "heading": "",
-            "description": "",
-            "button_text": "Shop Custom Hats",
-            "button_link": "https://www.customizedwear.com/",
-            "ui_height": true,
-            "banner_link": "https://www.customizedwear.com/"
-          }
-        },
         "slide_item_MNPCU6": {
           "type": "slide_item",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/bonefishtrucker_1_1_1.png",
             "sm_image": "shopify://shop_images/bonefishtrucker_1_1_1.png",
@@ -98,7 +84,6 @@
         },
         "slide_item_EUaLP4": {
           "type": "slide_item",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/CAP_Banner_Promoting_CW_1.jpg",
             "sm_image": "shopify://shop_images/CAP_Banner_Promoting_CW_Mobile.jpg",
@@ -113,7 +98,6 @@
       },
       "block_order": [
         "slide_item_9Kg3nH",
-        "slide_item_cJphHg",
         "slide_item_MNPCU6",
         "slide_item_EUaLP4"
       ],
