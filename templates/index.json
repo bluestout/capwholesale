@@ -71,6 +71,7 @@
         },
         "slide_item_MNPCU6": {
           "type": "slide_item",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/bonefishtrucker_1_1_1.png",
             "sm_image": "shopify://shop_images/bonefishtrucker_1_1_1.png",
