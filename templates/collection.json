@@ -26,8 +26,7 @@
           "settings": {
             "subheading": "",
             "heading": "{{ collection.title }}",
-            "heading_tag": "h2",
-            "border_bottom": false,
+            "heading_tag": "h1",
             "heading_size": "h1"
           }
         }
@@ -35,34 +34,31 @@
       "block_order": [
         "heading_gawP3b"
       ],
-      "custom_css": [
-        "@media screen and (max-width: 749px) {.banner::after, .banner__media::after {height: 100%; } .banner:not(.banner--mobile-bottom):not(.email-signup-banner) .banner__box {background: #00000000 !important; }}",
-        "@media (max-width: 500px) {.banner {max-height: 320px; min-height: 320px; }}"
-      ],
+      "custom_css": [],
       "name": "ES Image Banner",
       "settings": {
+        "banner_link": "",
         "show_space": false,
         "image": "{{ collection.image }}",
         "image_mobile": "{{ collection.metafields.custom.mobile_banner.value }}",
-        "image_overlay_opacity": 30,
-        "opacity_type": "normal",
+        "image_overlay_opacity": 70,
+        "opacity_type": "gradient",
         "opacity_color": "primary",
         "opacity_weight_on_desktop": "light",
         "opacity_direction": "horizontal",
         "image_height": "adapt",
         "image_behavior": "none",
         "desktop_content_position": "middle-left",
-        "desktop_content_alignment": "center",
+        "desktop_content_alignment": "left",
         "show_text_box": false,
         "color_scheme": "scheme-3",
         "stack_images_on_mobile": true,
         "mobile_content_position": "bottom",
-        "mobile_content_alignment": "center",
+        "mobile_content_alignment": "left",
         "opacity_direct_on_mobile": "vertical",
         "opacity_height_on_mobile": "large",
-        "image_height_on_mobile": "adapt",
-        "show_text_below": false,
-        "banner_link": ""
+        "image_height_on_mobile": "small",
+        "show_text_below": false
       }
     },
     "product-grid": {

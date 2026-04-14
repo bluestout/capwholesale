@@ -12,16 +12,6 @@
     "es_image_banner_Qc9Nmz": {
       "type": "es-image-banner",
       "blocks": {
-        "heading_bkYrfC": {
-          "type": "heading",
-          "settings": {
-            "subheading": "Richardson",
-            "heading": "AUTHORIZED DEALER",
-            "heading_tag": "h2",
-            "border_bottom": false,
-            "heading_size": "h2"
-          }
-        },
         "buttons_Ck37kr": {
           "type": "buttons",
           "settings": {
@@ -32,19 +22,14 @@
             "button_link_2": "",
             "button_style_secondary_2": false
           }
-        },
-        "image_slide_hEQFnw": {
-          "type": "image_slide",
-          "settings": {}
         }
       },
       "block_order": [
-        "heading_bkYrfC",
-        "buttons_Ck37kr",
-        "image_slide_hEQFnw"
+        "buttons_Ck37kr"
       ],
       "disabled": true,
       "settings": {
+        "banner_link": "",
         "show_space": false,
         "image": "shopify://shop_images/bonefishtrucker_1_1_1.png",
         "image_mobile": "shopify://shop_images/Image_1_d7f1f0b0-521d-418a-b595-0c356b156748.png",
@@ -65,8 +50,7 @@
         "opacity_direct_on_mobile": "vertical",
         "opacity_height_on_mobile": "small",
         "image_height_on_mobile": "large",
-        "show_text_below": false,
-        "banner_link": ""
+        "show_text_below": false
       }
     },
     "ui_slideshow_wLyQMQ": {
@@ -76,7 +60,7 @@
           "type": "slide_item",
           "settings": {
             "image": "shopify://shop_images/Image.jpg",
-            "sm_image": "shopify://shop_images/Image_1_d7f1f0b0-521d-418a-b595-0c356b156748.png",
+            "sm_image": "shopify://shop_images/Richardson_c840a069-fbb6-4100-9e06-2994455e3c4f.png",
             "heading": "Richardson",
             "description": "<p>AUTHORIZED DEALER</p>",
             "button_text": "shop now",
@@ -85,28 +69,29 @@
             "banner_link": ""
           }
         },
-        "slide_item_cJphHg": {
+        "slide_item_GbxgDc": {
           "type": "slide_item",
           "settings": {
-            "image": "shopify://shop_images/flexfit_Banner_CAPS_2880_x_1300_-Photoroom.jpg",
-            "sm_image": "shopify://shop_images/Image_1_d7f1f0b0-521d-418a-b595-0c356b156748.png",
-            "heading": "SHOP ALL BRANDS",
-            "description": "<p>Flexfit, YP Classic, Decky, Otto, Pacific & Many More..</p>",
-            "button_text": "shop now",
-            "button_link": "shopify://products/5-panel-brushed-wflag-sandwiched-bill",
+            "image": "shopify://shop_images/CWear_for_CAPS_Banner_Updated.png",
+            "sm_image": "shopify://shop_images/Customize_your_Logo_with_Patches_Embroidery_eb19d395-64c6-4477-a581-5e53a7ae2712.png",
+            "heading": "",
+            "description": "",
+            "button_text": "Shop Custom Hats",
+            "button_link": "https://www.customizedwear.com/",
             "ui_height": true,
-            "banner_link": ""
+            "banner_link": "https://www.customizedwear.com/"
           }
         },
         "slide_item_MNPCU6": {
           "type": "slide_item",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/bonefishtrucker_1_1_1.png",
             "sm_image": "shopify://shop_images/bonefishtrucker_1_1_1.png",
             "heading": "Richardson",
             "description": "<p>AUTHORIZED DEALER</p>",
             "button_text": "shop now",
-            "button_link": "shopify://products/5-panel-brushed-wflag-sandwiched-bill",
+            "button_link": "shopify://pages/richardson-hats",
             "ui_height": true,
             "banner_link": ""
           }
@@ -362,6 +347,7 @@
         },
         "collection_Tw68RJ": {
           "type": "collection",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Men_s_Shirts_Apparel.jpg",
             "title": "Men’s Shirts & Apparel",
@@ -371,6 +357,7 @@
         },
         "collection_PDLVbU": {
           "type": "collection",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Ladies_Kids_Shirts_and_Apparel.jpg",
             "title": "Ladies & Kids Shirts and Apparel",
@@ -427,7 +414,7 @@
         "caption_cNwrkM": {
           "type": "caption",
           "settings": {
-            "caption": "Your Destination for Wholesale Hats",
+            "caption": "Found your perfect blank style? Get it customized!",
             "text_style": "subtitle",
             "text_size": "medium"
           }
@@ -441,7 +428,7 @@
         "text_XxeLzC": {
           "type": "text",
           "settings": {
-            "text": "<p>Since 1991, Cap Wholesalers has been the go-to source for a diverse selection of blank hats in bulk. We offer popular styles, including Richardson 112, FlexFit, Otto, and Outdoor Caps, as well as customizable trucker mesh hats in various colors. With a low minimum order of just 12 hats, you can enjoy competitive prices while minimizing excess inventory. Shop with us for the best wholesale hat options!</p>",
+            "text": "<p>Our partner site CustomizedWear.com specializes in embroidery, leather patches, and full custom branding — all on the same brands you love from CapWholesalers.</p>",
             "text_style": "body"
           }
         },
@@ -489,7 +476,7 @@
           "type": "item",
           "settings": {
             "item_width": 6,
-            "image": "shopify://shop_images/SHOP_BEST_SELLERS_Richardson_112_Green_White.jpg",
+            "image": "shopify://shop_images/Richardson_model_looking_down.jpg",
             "title": "Richardson Hats",
             "url": "shopify://collections/richardson-hats",
             "title_2": "Hat Style 2",
@@ -556,14 +543,14 @@
         "heading_NGVgUX": {
           "type": "heading",
           "settings": {
-            "heading": "<p>CustomizedWear.com: </p>",
+            "heading": "<p>CapWholesalers:</p>",
             "heading_size": "h1"
           }
         },
         "caption_RFkta6": {
           "type": "caption",
           "settings": {
-            "caption": "Custom Hats & Branded Headwear",
+            "caption": "Your destination for wholesale hats",
             "text_style": "subtitle",
             "text_size": "large"
           }
@@ -577,12 +564,13 @@
         "text_EXnEAX": {
           "type": "text",
           "settings": {
-            "text": "<p>Need your hats customized? Visit our sister store, CustomizedWear.com, for embroidery, leather patches, faux leather patches, flex patches, 3D embroidery, print stitch patches, and screen printing on the same top brands you shop here.</p>",
+            "text": "<p>Since 1991, CapWholesalers has been the trusted source for wholesale hats and blank caps in bulk. Shop top brands like Richardson 112, Flexfit, Otto, Decky, and Outdoor Cap, plus a wide range of trucker mesh hats and classic blanks. With low minimums of just 12 pieces, deep inventory, and fast shipping, you’ll get competitive bulk pricing on every order.</p>",
             "text_style": "body"
           }
         },
         "button_BKEWTb": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "button_label": "Learn More",
             "button_link": "https://customizedwear.com/",

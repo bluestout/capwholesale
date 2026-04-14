@@ -233,7 +233,7 @@
           "settings": {
             "heading": "Can I set up an account?",
             "icon": "none",
-            "row_content": "<p>Yes. Click \"Login\" on our homepage and select \"Create an Account.\"</p>",
+            "row_content": "<p>Yes. Click <a href=\"https://capwholesaler.myshopify.com/customer_authentication/redirect\" target=\"_blank\" title=\"https://capwholesaler.myshopify.com/customer_authentication/redirect\">\"here\"</a> and select \"Create an Account.\"</p>",
             "page": ""
           }
         },
