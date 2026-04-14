@@ -95,12 +95,27 @@
             "ui_height": true,
             "banner_link": ""
           }
+        },
+        "slide_item_EUaLP4": {
+          "type": "slide_item",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/CAP_Banner_Promoting_CW_1.jpg",
+            "sm_image": "shopify://shop_images/CAP_Banner_Promoting_CW_Mobile.jpg",
+            "heading": "Need Embroidery, Patches, or Screen Printing?",
+            "description": "",
+            "button_text": "Visit Customizedwear.com",
+            "button_link": "https://www.customizedwear.com/",
+            "ui_height": true,
+            "banner_link": "https://www.customizedwear.com/"
+          }
         }
       },
       "block_order": [
         "slide_item_9Kg3nH",
-        "slide_item_GbxgDc",
-        "slide_item_MNPCU6"
+        "slide_item_cJphHg",
+        "slide_item_MNPCU6",
+        "slide_item_EUaLP4"
       ],
       "name": "UI Slideshow",
       "settings": {
@@ -279,7 +294,7 @@
         "collection_L7qUhd": {
           "type": "collection",
           "settings": {
-            "image": "shopify://shop_images/Straw_Hats.jpg",
+            "image": "shopify://shop_images/Straw_Hats_e652e752-1f0e-4d99-b09b-e9e8c726bab3.jpg",
             "title": "Straw Hats",
             "sub_title": "<p><em>Straw Hats Wholesale</em></p>",
             "url": "shopify://collections/straw-hats"
@@ -381,7 +396,7 @@
       ],
       "custom_css": [],
       "settings": {
-        "title": "Shop By Hat Style",
+        "title": "Shop by Hat Style",
         "padding_top": 32,
         "padding_bottom": 32
       }
@@ -392,7 +407,7 @@
         "heading_ptCCnT": {
           "type": "heading",
           "settings": {
-            "heading": "<p>Want your caps customized? Visit CustomizedWear.com — our sister store for embroidery, leather patches, and logo branding!</p>",
+            "heading": "<p>CapWholesalers:</p>",
             "heading_size": "h1"
           }
         },
@@ -417,13 +432,13 @@
             "text_style": "body"
           }
         },
-        "button_FidpQ7": {
+        "button_7zEDVg": {
           "type": "button",
           "settings": {
-            "button_label": "shop now",
-            "button_link": "https://www.customizedwear.com/",
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections/shop-by-hat-style",
             "button_style_secondary": false,
-            "open_new_tab": true
+            "open_new_tab": false
           }
         }
       },
@@ -432,10 +447,10 @@
         "caption_cNwrkM",
         "separator_wtfPNN",
         "text_XxeLzC",
-        "button_FidpQ7"
+        "button_7zEDVg"
       ],
       "settings": {
-        "image": "shopify://shop_images/bonefishtrucker_1_1_1.png",
+        "image": "shopify://shop_images/1100x800_mid_down__E2_80_93_4.jpg",
         "white_bar_on_image": true,
         "height": "adapt",
         "hide_media_on_mobile": false,
@@ -475,9 +490,9 @@
             "image": "shopify://shop_images/bg.jpg",
             "title": "Flexfit",
             "url": "shopify://collections/whoelsale-flexfit",
-            "image_2": "shopify://shop_images/Otto_New.jpg",
-            "title_2": "Otto Cap",
-            "url_2": "shopify://collections/otto-hats"
+            "image_2": "shopify://shop_images/1160__C3_97_590_Otto.jpg",
+            "title_2": "Otto Caps",
+            "url_2": "shopify://products/12-inch-safety-color-beanie-w-reflective-threads"
           }
         },
         "item_ayUTCT": {
@@ -485,11 +500,11 @@
           "settings": {
             "item_width": 4,
             "image": "shopify://shop_images/Decky_Charcoal_Model.jpg",
-            "title": "Decky Caps",
+            "title": "Decky Hats",
             "url": "shopify://collections/wholesale-decky-hats",
-            "image_2": "shopify://shop_images/Yp_Classic.jpg",
-            "title_2": "YP Classic",
-            "url_2": "shopify://collections/yp-classic-yupoong-hats"
+            "image_2": "shopify://shop_images/1160__C3_97_590_Yupoong.jpg",
+            "title_2": "YP Classics",
+            "url_2": "shopify://products/5-panel-mid-profile-structured-cotton-poly-blend-cap"
           }
         },
         "item_t9qBbg": {
@@ -498,7 +513,7 @@
             "item_width": 6,
             "image": "shopify://shop_images/Outdoor_Cap_new_1.jpg",
             "title": "Outdoor Cap",
-            "url": "shopify://products/6-panel-unstructured-pigment-dyed-heavy-cotton-twi",
+            "url": "shopify://collections/outdoor-caps",
             "title_2": "Hat Style 2",
             "url_2": ""
           }
@@ -517,7 +532,7 @@
         "padding_top": 40,
         "padding_bottom": 40,
         "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
+        "padding_bottom_mobile": 30,
         "item_count_row": 2,
         "show_gradient": true
       }
@@ -558,7 +573,7 @@
           "disabled": true,
           "settings": {
             "button_label": "Learn More",
-            "button_link": "shopify://collections/frontpage",
+            "button_link": "https://customizedwear.com/",
             "button_style_secondary": false,
             "open_new_tab": false
           }
@@ -572,7 +587,7 @@
         "button_BKEWTb"
       ],
       "settings": {
-        "image": "shopify://shop_images/p.72458.1-happy_couple_with_girl_on_guys_back_hoding_a_footb_1.png",
+        "image": "shopify://shop_images/1100x800_mid.jpg",
         "white_bar_on_image": false,
         "height": "adapt",
         "hide_media_on_mobile": true,
@@ -668,15 +683,121 @@
         "padding_bottom": 40
       }
     },
-    "es_featured_collection_RGkMJh": {
-      "type": "es-featured-collection",
-      "custom_css": [],
+    "es_featured_products_EMKnh4": {
+      "type": "es-featured-products",
+      "blocks": {
+        "product_xcmJdz": {
+          "type": "product",
+          "settings": {
+            "product": "adams-ace-unisex-sun-visor",
+            "custom_image": "shopify://shop_images/new-Adams_Ace_Unisex_Sun_Visor-AC101.png"
+          }
+        },
+        "product_ePjaTd": {
+          "type": "product",
+          "settings": {
+            "product": "pacific-aug-5-panel-seamless-roped-weekender-perfo",
+            "custom_image": "shopify://shop_images/new-pacific-aug-5-panel-seamless-roped-weekender-perforated-mesh-hat-custom-pacific-aug-hat-3224711.png"
+          }
+        },
+        "product_nCNgYH": {
+          "type": "product",
+          "settings": {
+            "product": "cobra-6-panel-structured-mesh-back",
+            "custom_image": "shopify://shop_images/new-cobra-6-panel-structured-trucker-mesh-back-custom-cobra-hat-1732645.png"
+          }
+        },
+        "product_Xxe8z3": {
+          "type": "product",
+          "settings": {
+            "product": "5-panel-high-profile-relaxed-cottonpoly-blend-rope",
+            "custom_image": "shopify://shop_images/new-decky-brand-5-panel-high-profile-relaxed-cottonpoly-blend-rope-hat-custom-decky-caps-hat-9428859.png"
+          }
+        },
+        "product_8h9JRQ": {
+          "type": "product",
+          "settings": {
+            "product": "budget-caps-yupoong-flat-bill-classic-5-panel-truc",
+            "custom_image": "shopify://shop_images/new-budget-caps-yupoong-flat-bill-trucker-mesh-custom-yp-classic-hat-4608027.png"
+          }
+        },
+        "product_9ziD8F": {
+          "type": "product",
+          "settings": {
+            "product": "flexfit-110-trucker-flex-snap-mesh-p68323",
+            "custom_image": "shopify://shop_images/new-flexfit-110-trucker-flex-snap-mesh-two-toned-custom-flexfit-hat-7613105.png"
+          }
+        },
+        "product_pbByEg": {
+          "type": "product",
+          "settings": {
+            "product": "mega-summer-trucker-foam-mesh",
+            "custom_image": "shopify://shop_images/new-6801C-N.PINK-BK-BK--front.png"
+          }
+        },
+        "product_TKMFXn": {
+          "type": "product",
+          "settings": {
+            "product": "richardson-5-panel-seamless-front-trucker-twill-me",
+            "custom_image": "shopify://shop_images/new-richardson-5-panel-seamless-front-trucker-twill-mesh-snapback-hat-custom-richardson-hat-4436813.png"
+          }
+        },
+        "product_HB7FVX": {
+          "type": "product",
+          "settings": {
+            "product": "otto-five-panel-pro-style-baseball-cap",
+            "custom_image": "shopify://shop_images/new-otto-five-panel-pro-style-baseball-cap-custom-otto-cap-hat-9227879.png"
+          }
+        },
+        "product_nMerhh": {
+          "type": "product",
+          "settings": {
+            "product": "budget-caps-otto-foam-front-high-crown-golf-mesh-solid-color",
+            "custom_image": "shopify://shop_images/new-budget-caps-otto-foam-front-high-crown-golf-mesh-back-caps-solid-custom-otto-cap-hat-4932515.png"
+          }
+        },
+        "product_mKrpk3": {
+          "type": "product",
+          "settings": {
+            "product": "outdoor-ultimate-low-pro-trucker-in-60-colors",
+            "custom_image": "shopify://shop_images/new-outdoor-ultimate-low-pro-trucker-in-60-colors-adult-youth-sizes-custom-outdoor-cap-hat-5941438.png"
+          }
+        },
+        "product_yMYDmx": {
+          "type": "product",
+          "settings": {
+            "product": "richardson-112-hat-trucker-snapback-cap-tri-color",
+            "custom_image": "shopify://shop_images/new-richardson-112-hat-trucker-snapback-cap-tri-color-custom-richardson-hat-2231987.png"
+          }
+        },
+        "product_iyC849": {
+          "type": "product",
+          "settings": {
+            "product": "richardson-printed-five-panel-trucker-hat",
+            "custom_image": "shopify://shop_images/new-richardson-printed-five-panel-trucker-hat-custom-richardson-hat-7861915.png"
+          }
+        }
+      },
+      "block_order": [
+        "product_xcmJdz",
+        "product_ePjaTd",
+        "product_nCNgYH",
+        "product_Xxe8z3",
+        "product_8h9JRQ",
+        "product_9ziD8F",
+        "product_pbByEg",
+        "product_TKMFXn",
+        "product_HB7FVX",
+        "product_nMerhh",
+        "product_mKrpk3",
+        "product_yMYDmx",
+        "product_iyC849"
+      ],
+      "name": "ES Featured Products",
       "settings": {
         "border_top": false,
-        "title": "Best Sellers By Brand",
-        "collection": "frontpage",
-        "products_to_show": 15,
-        "image_ratio": "rectangle",
+        "title": "Best Sellers",
+        "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
@@ -698,6 +819,6 @@
     "es_gallery_with_link_CGamDr",
     "es_image_with_text_kFT4Pw",
     "es_testimonial_xNiLtf",
-    "es_featured_collection_RGkMJh"
+    "es_featured_products_EMKnh4"
   ]
 }
