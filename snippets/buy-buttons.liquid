@@ -215,18 +215,39 @@
 </style>
 
 <script>
-  function updateButtonState() {
+  async function getCartQuantityForVariant(variantId) {
+    const response = await fetch('/cart.js');
+    const cart = await response.json();
+    const item = cart.items.find(i => i.variant_id === variantId);
+    return item ? item.quantity : 0;
+  }
+
+  async function updateButtonState() {
     const input = document.querySelector('.product .quantity input[name="quantity"]');
     const button = document.querySelector('.buy-lower-price-btn');
+    const variantIdInput = document.querySelector('.product-variant-id');
     if (!input || !button) return;
 
-    const value = parseInt(input.value, 10);
-    if (value >= 1 && value <= 3) {
-      button.removeAttribute('disabled');
-      button.classList.remove('disable-btn');
-    } else {
+    const quantityToAdd = parseInt(input.value, 10);
+
+    const quantityInvalid = quantityToAdd < 1 || quantityToAdd > 3;
+
+    let cartBlocked = false;
+    
+    if (variantIdInput) {
+      const variantId = parseInt(variantIdInput.value, 10);
+      const cartQty = await getCartQuantityForVariant(variantId);
+      const totalAfterAdd = cartQty + quantityToAdd;
+
+      cartBlocked = cartQty >= 3 || cartQty >= 12 || totalAfterAdd > 3;
+    }
+
+    if (quantityInvalid || cartBlocked) {
       button.setAttribute('disabled', 'true');
       button.classList.add('disable-btn');
+    } else {
+      button.removeAttribute('disabled');
+      button.classList.remove('disable-btn');
     }
   }
 
@@ -234,9 +255,26 @@
     updateButtonState();
 
     const input = document.querySelector('.product .quantity input[name="quantity"]');
+
     if (input) {
       input.addEventListener('input', updateButtonState);
       input.addEventListener('change', updateButtonState);
+    }
+
+    const variantIdInput = document.querySelector('.product-variant-id');
+    if (variantIdInput) {
+      const observer = new MutationObserver(() => {
+        updateButtonState();
+      });
+      observer.observe(variantIdInput, { attributes: true, attributeFilter: ['value'] });
+
+      let lastVariantId = variantIdInput.value;
+      setInterval(() => {
+        if (variantIdInput.value !== lastVariantId) {
+          lastVariantId = variantIdInput.value;
+          updateButtonState();
+        }
+      }, 300);
     }
   });
 </script>
