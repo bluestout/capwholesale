@@ -75,7 +75,7 @@
           "type": "item",
           "settings": {
             "item_width": 4,
-            "image": "shopify://shop_images/Zapped_Brand_Directory_1160_x_590_2.jpg",
+            "image": "shopify://shop_images/1160px_x_590px_Zapped.jpg",
             "title": "Zapped Hats",
             "url": "shopify://collections/zapped-hats",
             "image_2": "shopify://shop_images/Outdoor_Caps_Brand_Directory_1160_x_590_2.jpg",
@@ -167,7 +167,7 @@
           "type": "item",
           "settings": {
             "item_width": 4,
-            "image": "shopify://shop_images/Adams_Brand_Directory_1500_x_1200-CAPS.jpg",
+            "image": "shopify://shop_images/1500px_x_1200px_Adams_Headwear.jpg",
             "title": "Adams Headwear",
             "url": "shopify://collections/adams-headwear",
             "title_2": "",
