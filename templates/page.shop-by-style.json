@@ -26,7 +26,6 @@
             "subheading": "",
             "heading": "Shop by Style",
             "heading_tag": "h2",
-            "border_bottom": false,
             "heading_size": "h1"
           }
         }
@@ -35,8 +34,9 @@
         "heading_rRbi8j"
       ],
       "settings": {
+        "banner_link": "",
         "show_space": false,
-        "image": "shopify://shop_images/Shop_All_2880_x_388_CAPS_Collection.png",
+        "image": "shopify://shop_images/2880_x_910_px_Shop_by_Style_1.jpg",
         "image_mobile": "shopify://shop_images/Shop_All_750x400_cropped_fill.png",
         "image_overlay_opacity": 0,
         "opacity_type": "normal",
@@ -55,8 +55,7 @@
         "opacity_direct_on_mobile": "horizontal",
         "opacity_height_on_mobile": "small",
         "image_height_on_mobile": "adapt",
-        "show_text_below": false,
-        "banner_link": ""
+        "show_text_below": false
       }
     },
     "es_gallery_with_link_CGamDr": {
@@ -77,10 +76,10 @@
           "type": "item",
           "settings": {
             "item_width": 4,
-            "image": "shopify://shop_images/6_Panel_1160_x_590_CAPS_Dir_Styles-Photoroom.png",
+            "image": "shopify://shop_images/1160px_x_590px_Baseball_Caps.jpg",
             "title": "Baseball Caps",
             "url": "shopify://collections/wholesale-6-panel-baseball-caps",
-            "image_2": "shopify://shop_images/7_Panel_1160_x_590_CAPS_Direct_Styles-Photoroom.png",
+            "image_2": "shopify://shop_images/1160px_x_590px_Trucker_Mesh__E2_80_93_2.jpg",
             "title_2": "7 Panel Hats",
             "url_2": "shopify://collections/7-panel-hats"
           }
@@ -89,10 +88,10 @@
           "type": "item",
           "settings": {
             "item_width": 4,
-            "image": "shopify://shop_images/Trucker_Mesh_1160_x_590_CAPS_Direct_Styles-Photoroom.png",
+            "image": "shopify://shop_images/1160px_x_590px_Trucker_Mesh.jpg",
             "title": "Wholesale Trucker Mesh Hats",
             "url": "shopify://collections/wholesale-trucker-mesh-hats",
-            "image_2": "shopify://shop_images/Budget_Hats_1160_x_590_CAPS_Direct_Styles-Photoroom.png",
+            "image_2": "shopify://shop_images/1160px_x_590px_Budget_Hats.jpg",
             "title_2": "Wholesale Budget Hats",
             "url_2": "shopify://collections/wholesale-budget-hats"
           }
@@ -112,7 +111,7 @@
           "type": "item",
           "settings": {
             "item_width": 6,
-            "image": "shopify://shop_images/Straw_Hat_1500_x_1200_CAPS_Direct_Style-Photoroom.png",
+            "image": "shopify://shop_images/1500px_x_1200px_Straw_Hats.jpg",
             "title": "Straw Hats",
             "url": "shopify://collections/straw-hats",
             "title_2": "Hat Style 2",
@@ -135,7 +134,7 @@
           "type": "item",
           "settings": {
             "item_width": 4,
-            "image": "shopify://shop_images/Foam_mesh_1160_x_590_CAPS-Photoroom_1.png",
+            "image": "shopify://shop_images/1160px_x_590px_Foam_Mesh.jpg",
             "title": "Wholesale Foam Mesh Hats",
             "url": "shopify://collections/foam-mesh-hats",
             "image_2": "shopify://shop_images/Military_Hat_Otto_1160_x_590_CAPS_Dir_Style-Photoroom.png",
@@ -169,7 +168,7 @@
           "type": "item",
           "settings": {
             "item_width": 4,
-            "image": "shopify://shop_images/Performance_Hats_1160_X_590_CAPS_Direct_Styles-Photoroom.png",
+            "image": "shopify://shop_images/1160px_x_590px_Performance_Hats.jpg",
             "title": "Performance Hats",
             "url": "shopify://collections/wholesale-performance-hats",
             "image_2": "shopify://shop_images/Patterned_Hats_1160_x_590_CAPS_DIRECT_Styles-Photoroom.png",
@@ -184,7 +183,7 @@
             "image": "shopify://shop_images/Bucket_1160_x_590_CAPS_DIR_STYLES-Photoroom.png",
             "title": "Bucket & Sun Hats",
             "url": "shopify://collections/wholesale-bucket-sun-hats",
-            "image_2": "shopify://shop_images/1160_x_590_Sun_Visor_CAPS_Direct_Styles-Photoroom_1.png",
+            "image_2": "shopify://shop_images/1160px_x_590px_Sun_Visors.jpg",
             "title_2": "Sun Visors",
             "url_2": "shopify://collections/sun-visors"
           }
@@ -204,7 +203,7 @@
           "type": "item",
           "settings": {
             "item_width": 6,
-            "image": "shopify://shop_images/Kids_1500_x_1200_Direct_Styles-Photoroom.png",
+            "image": "shopify://shop_images/1500px_x_1200px_Kids_Hats__E2_80_93_1.jpg",
             "title": "Kids Hats",
             "url": "shopify://collections/kids-hats",
             "title_2": "Hat Style 2",
