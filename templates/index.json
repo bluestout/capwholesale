@@ -555,9 +555,8 @@
         },
         "button_BKEWTb": {
           "type": "button",
-          "disabled": true,
           "settings": {
-            "button_label": "SHOP NOW",
+            "button_label": "VISIT NOW",
             "button_link": "https://customizedwear.com/",
             "button_style_secondary": false,
             "open_new_tab": false
