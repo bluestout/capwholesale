@@ -24,9 +24,9 @@
       endif
     -%}
 
-    {%- assign blocked_single_pieces = "Richardson,Decky,Zapped,Mega" | downcase | split: "," -%}
+    {%- assign blocked_single_pieces = 'Richardson,Decky,Zapped,Mega' | downcase | split: ',' -%}
 
-    {%- liquid 
+    {%- liquid
       assign blocked_single_product = true
       assign downcased_vendor = product.vendor | downcase
       for blocked_single_piece in blocked_single_pieces
@@ -242,51 +242,63 @@
 
 <script>
   (function () {
+    let _promoAdding = false;
+
     async function getCartQuantityForVariant(variantId) {
       try {
-        const response = await fetch('/cart.js');
-        const cart = await response.json();
-        return cart.items
-          .filter(i => i.variant_id === variantId)
-          .reduce((sum, i) => sum + i.quantity, 0);
+        const res = await fetch('/cart.js');
+        const cart = await res.json();
+        return cart.items.filter((i) => i.variant_id === variantId).reduce((sum, i) => sum + i.quantity, 0);
       } catch (_) {
         return 0;
       }
     }
 
-    function getQuantityInput()  { return document.querySelector('.product .quantity input[name="quantity"]'); }
-    function getPromoButton()    { return document.querySelector('.buy-lower-price-btn'); }
-    function getHint()           { return document.querySelector('.buy-lower-price-hint'); }
-    function getVariantIdInput() { return document.querySelector('.product-variant-id'); }
+    function getQuantityInput() {
+      return document.querySelector('.product .quantity input[name="quantity"]');
+    }
+    function getPromoButton() {
+      return document.querySelector('.buy-lower-price-btn');
+    }
+    function getHint() {
+      return document.querySelector('.buy-lower-price-hint');
+    }
+    function getVariantIdInput() {
+      return document.querySelector('.product-variant-id');
+    }
 
     async function updateButtonState() {
       const button = getPromoButton();
-      const hint   = getHint();
+      const hint = getHint();
       if (!button) return;
 
-      const input         = getQuantityInput();
-      const variantInput  = getVariantIdInput();
-      const quantityToAdd = input ? parseInt(input.value, 10) : NaN;
+      const input = getQuantityInput();
+      const variantInput = getVariantIdInput();
 
-      const quantityValid = !isNaN(quantityToAdd) && quantityToAdd >= 1 && quantityToAdd <= 3;
+      const rawQty = input ? parseInt(input.value, 10) : NaN;
+      const quantityToAdd = !isNaN(rawQty) && rawQty >= 1 && rawQty <= 3 ? rawQty : 1;
 
       let cartBlocked = false;
-      let cartQty     = 0;
+      let cartQty = 0;
 
       if (variantInput && variantInput.value) {
         const variantId = parseInt(variantInput.value, 10);
-        cartQty         = await getCartQuantityForVariant(variantId);
-        cartBlocked     = cartQty >= 3 || (cartQty + quantityToAdd) > 3;
+        cartQty = await getCartQuantityForVariant(variantId);
+        cartBlocked = cartQty >= 3 || cartQty + quantityToAdd > 3;
       }
 
-      const shouldEnable = quantityValid && !cartBlocked;
+      const shouldEnable = !cartBlocked;
 
       if (shouldEnable) {
         button.removeAttribute('disabled');
         button.classList.remove('buy-lower-price-btn--inactive');
         if (hint) {
-          hint.textContent = "You're good to go — click to add at this price!";
-          hint.className   = 'buy-lower-price-hint hint--ok';
+          const remaining = 3 - cartQty;
+          hint.textContent =
+            remaining < 3
+              ? 'Click to add ' + remaining + ' more at this price!'
+              : "You're good to go — click to add at this price!";
+          hint.className = 'buy-lower-price-hint hint--ok';
         }
       } else {
         button.setAttribute('disabled', 'true');
@@ -294,10 +306,10 @@
         if (hint) {
           if (cartQty >= 3) {
             hint.textContent = "You've already added 3 of this style to your cart.";
-            hint.className   = 'buy-lower-price-hint hint--warn';
+            hint.className = 'buy-lower-price-hint hint--warn';
           } else {
             hint.textContent = 'Select a quantity of 1–3 to unlock this price.';
-            hint.className   = 'buy-lower-price-hint';
+            hint.className = 'buy-lower-price-hint';
           }
         }
       }
@@ -309,60 +321,85 @@
 
       button.addEventListener('click', async function (e) {
         e.preventDefault();
+        e.stopPropagation();
 
-        const input        = getQuantityInput();
+        if (_promoAdding) return;
+
+        const input = getQuantityInput();
         const variantInput = getVariantIdInput();
         if (!input || !variantInput) return;
 
-        const quantity  = parseInt(input.value, 10);
         const variantId = parseInt(variantInput.value, 10);
-        const cartQty   = await getCartQuantityForVariant(variantId);
+        const cartQty = await getCartQuantityForVariant(variantId);
 
-        if (isNaN(quantity) || quantity < 1 || quantity > 3 || cartQty >= 3 || (cartQty + quantity) > 3) {
+        const remaining = 3 - cartQty;
+        if (remaining <= 0) {
           updateButtonState();
           return;
         }
 
+        const rawQty = parseInt(input.value, 10);
+        const quantity = !isNaN(rawQty) && rawQty >= 1 && rawQty <= remaining ? rawQty : remaining;
+
+        _promoAdding = true;
         button.setAttribute('disabled', 'true');
         button.classList.add('buy-lower-price-btn--inactive');
 
         try {
-          const skuInput   = document.querySelector('input[name="properties[SKU]"]');
+          const skuInput = document.querySelector('input[name="properties[SKU]"]');
           const brandInput = document.querySelector('input[name="properties[Brand]"]');
           const properties = {};
-          if (skuInput   && skuInput.value)  properties['SKU']   = skuInput.value;
-          if (brandInput && brandInput.value) properties['Brand'] = brandInput.value;
+          if (skuInput?.value) properties['SKU'] = skuInput.value;
+          if (brandInput?.value) properties['Brand'] = brandInput.value;
 
-          const response = await fetch('/cart/add.js', {
+          const res = await fetch('/cart/add.js', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ id: variantId, quantity, properties })
+            body: JSON.stringify({ id: variantId, quantity, properties }),
           });
 
-          if (response.ok) {
+          if (res.ok) {
             input.value = 1;
+            input.dispatchEvent(new Event('input', { bubbles: true }));
             input.dispatchEvent(new Event('change', { bubbles: true }));
 
             document.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
-            document.dispatchEvent(new CustomEvent('cart-update',  { bubbles: true }));
+            document.dispatchEvent(new CustomEvent('cart-update', { bubbles: true }));
           } else {
-            const err = await response.json();
+            const err = await res.json();
             console.error('Promo add-to-cart error:', err);
           }
         } catch (err) {
           console.error('Promo add-to-cart failed:', err);
+        } finally {
+          setTimeout(() => {
+            _promoAdding = false;
+          }, 300);
         }
 
         await updateButtonState();
       });
     }
 
+    function wireFormGuard() {
+      document.addEventListener(
+        'submit',
+        function (e) {
+          if (_promoAdding) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+          }
+        },
+        true
+      );
+    }
+
     function observeQuantityInput() {
       const input = getQuantityInput();
       if (!input) return;
 
-      input.addEventListener('invalid', e => e.preventDefault());
-      input.addEventListener('input',  updateButtonState);
+      input.addEventListener('invalid', (e) => e.preventDefault());
+      input.addEventListener('input', updateButtonState);
       input.addEventListener('change', updateButtonState);
     }
 
@@ -370,8 +407,7 @@
       const variantInput = getVariantIdInput();
       if (!variantInput) return;
 
-      new MutationObserver(updateButtonState)
-        .observe(variantInput, { attributes: true, attributeFilter: ['value'] });
+      new MutationObserver(updateButtonState).observe(variantInput, { attributes: true, attributeFilter: ['value'] });
 
       let lastValue = variantInput.value;
       setInterval(() => {
@@ -382,17 +418,18 @@
       }, 300);
 
       document.addEventListener('variant:change', updateButtonState);
-      document.addEventListener('variantChange',  updateButtonState);
+      document.addEventListener('variantChange', updateButtonState);
     }
 
     document.addEventListener('DOMContentLoaded', function () {
       updateButtonState();
       wirePromoButton();
+      wireFormGuard();
       observeQuantityInput();
       observeVariantInput();
 
       document.addEventListener('cart:refresh', updateButtonState);
-      document.addEventListener('cart-update',  updateButtonState);
+      document.addEventListener('cart-update', updateButtonState);
       document.addEventListener('cart:updated', updateButtonState);
     });
   })();
