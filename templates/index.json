@@ -110,6 +110,7 @@
         },
         "slide_item_aHQKnT": {
           "type": "slide_item",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Banner1_V1.jpg",
             "heading": "",
