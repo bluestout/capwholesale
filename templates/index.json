@@ -95,12 +95,25 @@
             "ui_height": true,
             "banner_link": "https://www.customizedwear.com/"
           }
+        },
+        "slide_item_knmQ9B": {
+          "type": "slide_item",
+          "settings": {
+            "image": "shopify://shop_images/CAP_Banner_Blank_Hats.jpg",
+            "heading": "Blank Hats",
+            "description": "<p>in Bulk</p>",
+            "button_text": "Shop Blank Hats",
+            "button_link": "shopify://collections/shop-by-hat-style",
+            "ui_height": true,
+            "banner_link": ""
+          }
         }
       },
       "block_order": [
         "slide_item_9Kg3nH",
         "slide_item_MNPCU6",
-        "slide_item_EUaLP4"
+        "slide_item_EUaLP4",
+        "slide_item_knmQ9B"
       ],
       "name": "UI Slideshow",
       "settings": {
