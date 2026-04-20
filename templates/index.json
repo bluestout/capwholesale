@@ -107,13 +107,26 @@
             "ui_height": true,
             "banner_link": ""
           }
+        },
+        "slide_item_aHQKnT": {
+          "type": "slide_item",
+          "settings": {
+            "image": "shopify://shop_images/Banner1_V1.jpg",
+            "heading": "",
+            "description": "",
+            "button_text": "",
+            "button_link": "",
+            "ui_height": true,
+            "banner_link": ""
+          }
         }
       },
       "block_order": [
         "slide_item_9Kg3nH",
         "slide_item_MNPCU6",
         "slide_item_EUaLP4",
-        "slide_item_knmQ9B"
+        "slide_item_knmQ9B",
+        "slide_item_aHQKnT"
       ],
       "name": "UI Slideshow",
       "settings": {
