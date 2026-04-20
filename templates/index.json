@@ -100,8 +100,8 @@
           "type": "slide_item",
           "settings": {
             "image": "shopify://shop_images/CAP_Banner_Blank_Hats.jpg",
-            "heading": "Blank Hats",
-            "description": "<p>IN BULK</p>",
+            "heading": "Blank Hats in Bulk",
+            "description": "",
             "button_text": "Shop Blank Hats",
             "button_link": "shopify://collections/shop-by-hat-style",
             "ui_height": true,
