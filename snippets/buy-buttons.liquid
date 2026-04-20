@@ -242,18 +242,6 @@
 
 <script>
   (function () {
-    let _promoAdding = false;
-
-    async function getCartQuantityForVariant(variantId) {
-      try {
-        const res = await fetch('/cart.js');
-        const cart = await res.json();
-        return cart.items.filter((i) => i.variant_id === variantId).reduce((sum, i) => sum + i.quantity, 0);
-      } catch (_) {
-        return 0;
-      }
-    }
-
     function getQuantityInput() {
       return document.querySelector('.product .quantity input[name="quantity"]');
     }
@@ -263,135 +251,51 @@
     function getHint() {
       return document.querySelector('.buy-lower-price-hint');
     }
-    function getVariantIdInput() {
-      return document.querySelector('.product-variant-id');
+    function getMainButton() {
+      return document.querySelector('.product-form__submit');
     }
 
-    async function updateButtonState() {
-      const button = getPromoButton();
+    function updateButtonState() {
+      const promoBtn = getPromoButton();
+      const mainBtn = getMainButton();
       const hint = getHint();
-      if (!button) return;
-
       const input = getQuantityInput();
-      const variantInput = getVariantIdInput();
 
-      const rawQty = input ? parseInt(input.value, 10) : NaN;
-      const quantityToAdd = !isNaN(rawQty) && rawQty >= 1 && rawQty <= 3 ? rawQty : 1;
+      if (!input) return;
 
-      let cartBlocked = false;
-      let cartQty = 0;
+      const qty = parseInt(input.value, 10);
 
-      if (variantInput && variantInput.value) {
-        const variantId = parseInt(variantInput.value, 10);
-        cartQty = await getCartQuantityForVariant(variantId);
-        cartBlocked = cartQty >= 3 || cartQty + quantityToAdd > 3;
-      }
-
-      const shouldEnable = !cartBlocked;
-
-      if (shouldEnable) {
-        button.removeAttribute('disabled');
-        button.classList.remove('buy-lower-price-btn--inactive');
+      if (qty >= 1 && qty <= 3) {
+        if (promoBtn) {
+          promoBtn.removeAttribute('disabled');
+          promoBtn.classList.remove('buy-lower-price-btn--inactive');
+        }
+        if (mainBtn) mainBtn.setAttribute('disabled', 'true');
         if (hint) {
-          const remaining = 3 - cartQty;
-          hint.textContent =
-            remaining < 3
-              ? 'Click to add ' + remaining + ' more at this price!'
-              : "You're good to go — click to add at this price!";
-          hint.className = 'buy-lower-price-hint hint--ok';
+          hint.textContent = '';
+          hint.className = 'buy-lower-price-hint';
+        }
+      } else if (qty >= 12) {
+        if (promoBtn) {
+          promoBtn.setAttribute('disabled', 'true');
+          promoBtn.classList.add('buy-lower-price-btn--inactive');
+        }
+        if (mainBtn) mainBtn.removeAttribute('disabled');
+        if (hint) {
+          hint.textContent = '';
+          hint.className = 'buy-lower-price-hint';
         }
       } else {
-        button.setAttribute('disabled', 'true');
-        button.classList.add('buy-lower-price-btn--inactive');
+        if (promoBtn) {
+          promoBtn.setAttribute('disabled', 'true');
+          promoBtn.classList.add('buy-lower-price-btn--inactive');
+        }
+        if (mainBtn) mainBtn.setAttribute('disabled', 'true');
         if (hint) {
-          if (cartQty >= 3) {
-            hint.textContent = "You've already added 3 of this style to your cart.";
-            hint.className = 'buy-lower-price-hint hint--warn';
-          } else {
-            hint.textContent = 'Select a quantity of 1–3 to unlock this price.';
-            hint.className = 'buy-lower-price-hint';
-          }
+          hint.textContent = 'Enter 1–3 for single-piece price, or 12+ to add to cart.';
+          hint.className = 'buy-lower-price-hint hint--warn';
         }
       }
-    }
-
-    function wirePromoButton() {
-      const button = getPromoButton();
-      if (!button) return;
-
-      button.addEventListener('click', async function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        if (_promoAdding) return;
-
-        const input = getQuantityInput();
-        const variantInput = getVariantIdInput();
-        if (!input || !variantInput) return;
-
-        const variantId = parseInt(variantInput.value, 10);
-        const cartQty = await getCartQuantityForVariant(variantId);
-
-        const remaining = 3 - cartQty;
-        if (remaining <= 0) {
-          updateButtonState();
-          return;
-        }
-
-        const rawQty = parseInt(input.value, 10);
-        const quantity = !isNaN(rawQty) && rawQty >= 1 && rawQty <= remaining ? rawQty : remaining;
-
-        _promoAdding = true;
-        button.setAttribute('disabled', 'true');
-        button.classList.add('buy-lower-price-btn--inactive');
-
-        try {
-          const skuInput = document.querySelector('input[name="properties[SKU]"]');
-          const brandInput = document.querySelector('input[name="properties[Brand]"]');
-          const properties = {};
-          if (skuInput?.value) properties['SKU'] = skuInput.value;
-          if (brandInput?.value) properties['Brand'] = brandInput.value;
-
-          const res = await fetch('/cart/add.js', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ id: variantId, quantity, properties }),
-          });
-
-          if (res.ok) {
-            input.value = 1;
-            input.dispatchEvent(new Event('input', { bubbles: true }));
-            input.dispatchEvent(new Event('change', { bubbles: true }));
-
-            document.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
-            document.dispatchEvent(new CustomEvent('cart-update', { bubbles: true }));
-          } else {
-            const err = await res.json();
-            console.error('Promo add-to-cart error:', err);
-          }
-        } catch (err) {
-          console.error('Promo add-to-cart failed:', err);
-        } finally {
-          setTimeout(() => {
-            _promoAdding = false;
-          }, 300);
-        }
-
-        await updateButtonState();
-      });
-    }
-
-    function wireFormGuard() {
-      document.addEventListener(
-        'submit',
-        function (e) {
-          if (_promoAdding) {
-            e.preventDefault();
-            e.stopImmediatePropagation();
-          }
-        },
-        true
-      );
     }
 
     function observeQuantityInput() {
@@ -399,20 +303,31 @@
       if (!input) return;
 
       input.addEventListener('invalid', (e) => e.preventDefault());
+
       input.addEventListener('input', updateButtonState);
       input.addEventListener('change', updateButtonState);
+
+      new MutationObserver(updateButtonState).observe(input, { attributes: true, attributeFilter: ['value'] });
+
+      let lastQty = input.value;
+      setInterval(() => {
+        if (input.value !== lastQty) {
+          lastQty = input.value;
+          updateButtonState();
+        }
+      }, 150);
     }
 
     function observeVariantInput() {
-      const variantInput = getVariantIdInput();
+      const variantInput = document.querySelector('.product-variant-id');
       if (!variantInput) return;
 
       new MutationObserver(updateButtonState).observe(variantInput, { attributes: true, attributeFilter: ['value'] });
 
-      let lastValue = variantInput.value;
+      let lastVariant = variantInput.value;
       setInterval(() => {
-        if (variantInput.value !== lastValue) {
-          lastValue = variantInput.value;
+        if (variantInput.value !== lastVariant) {
+          lastVariant = variantInput.value;
           updateButtonState();
         }
       }, 300);
@@ -423,14 +338,8 @@
 
     document.addEventListener('DOMContentLoaded', function () {
       updateButtonState();
-      wirePromoButton();
-      wireFormGuard();
       observeQuantityInput();
       observeVariantInput();
-
-      document.addEventListener('cart:refresh', updateButtonState);
-      document.addEventListener('cart-update', updateButtonState);
-      document.addEventListener('cart:updated', updateButtonState);
     });
   })();
 </script>
