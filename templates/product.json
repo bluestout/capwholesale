@@ -35,10 +35,17 @@
         },
         "text_Pb8kXM": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "As low as <strong>$</strong><strong>{{ product.metafields.custom.as_low_as_price.value }}</strong><strong> USD</strong>",
             "show_installments": true,
             "text_style": "body"
+          }
+        },
+        "custom_liquid_JNfKjz": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<p class=\"product__text inline-richtext\">From <strong>{{ product.price_min | money }}</strong></p>"
           }
         },
         "variant_picker": {
@@ -178,6 +185,7 @@
         "fera_product_reviews_summary_NAazjF",
         "sku_HTjRGR",
         "text_Pb8kXM",
+        "custom_liquid_JNfKjz",
         "variant_picker",
         "quantity_radios_EyWCw6",
         "quantity_selector",
