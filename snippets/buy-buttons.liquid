@@ -222,12 +222,20 @@
     opacity: 0.7;
   }
 
+  .lower-price-product-cart {
+    margin-bottom: 10px;
+  }
+
   .buy-lower-price-hint {
     font-size: 12px;
     color: #888888;
     text-align: center;
-    margin: 4px 0 8px;
+    margin: 4px 0 0 !important;
+    padding: 0;
     min-height: 18px;
+    line-height: 18px;
+    display: block !important;
+    visibility: visible !important;
     transition: color 0.2s ease;
   }
 
@@ -255,25 +263,56 @@
       return document.querySelector('.product-form__submit');
     }
 
-    function updateButtonState() {
+    async function getCartQuantityForVariant(variantId) {
+      try {
+        const res = await fetch('/cart.js');
+        const cart = await res.json();
+        return cart.items.filter((i) => i.variant_id === variantId).reduce((sum, i) => sum + i.quantity, 0);
+      } catch (_) {
+        return 0;
+      }
+    }
+
+    async function updateButtonState() {
       const promoBtn = getPromoButton();
       const mainBtn = getMainButton();
       const hint = getHint();
       const input = getQuantityInput();
-
       if (!input) return;
 
       const qty = parseInt(input.value, 10);
 
-      if (qty >= 1 && qty <= 3) {
+      const variantInput = document.querySelector('.product-variant-id');
+      let cartQty = 0;
+      if (variantInput && variantInput.value) {
+        cartQty = await getCartQuantityForVariant(parseInt(variantInput.value, 10));
+      }
+
+      const cartMaxed = cartQty >= 3;
+
+      if (cartMaxed) {
+        if (promoBtn) {
+          promoBtn.setAttribute('disabled', 'true');
+          promoBtn.classList.add('buy-lower-price-btn--inactive');
+        }
+        if (mainBtn) mainBtn.removeAttribute('disabled');
+        if (hint) {
+          hint.textContent = "You've already added 3 single pieces of this style.";
+          hint.className = 'buy-lower-price-hint hint--warn';
+        }
+      } else if (qty >= 1 && qty <= 3) {
         if (promoBtn) {
           promoBtn.removeAttribute('disabled');
           promoBtn.classList.remove('buy-lower-price-btn--inactive');
         }
         if (mainBtn) mainBtn.setAttribute('disabled', 'true');
         if (hint) {
-          hint.textContent = '';
-          hint.className = 'buy-lower-price-hint';
+          const remaining = 3 - cartQty;
+          hint.textContent =
+            cartQty > 0
+              ? 'You can still add ' + remaining + ' more single piece' + (remaining > 1 ? 's' : '') + ' at this price.'
+              : 'Max 3 single pieces per style at this price.';
+          hint.className = 'buy-lower-price-hint hint--ok';
         }
       } else if (qty >= 12) {
         if (promoBtn) {
@@ -282,7 +321,7 @@
         }
         if (mainBtn) mainBtn.removeAttribute('disabled');
         if (hint) {
-          hint.textContent = 'Select a quantity of 1–3 to unlock this price';
+          hint.textContent = 'Buying in bulk? Use Add to Cart below.';
           hint.className = 'buy-lower-price-hint';
         }
       } else {
@@ -303,7 +342,6 @@
       if (!input) return;
 
       input.addEventListener('invalid', (e) => e.preventDefault());
-
       input.addEventListener('input', updateButtonState);
       input.addEventListener('change', updateButtonState);
 
@@ -340,6 +378,10 @@
       updateButtonState();
       observeQuantityInput();
       observeVariantInput();
+
+      document.addEventListener('cart:refresh', updateButtonState);
+      document.addEventListener('cart-update', updateButtonState);
+      document.addEventListener('cart:updated', updateButtonState);
     });
   })();
 </script>
