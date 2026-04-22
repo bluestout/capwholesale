@@ -298,21 +298,11 @@ if (!customElements.get('product-info')) {
           });
         }
 
-        // // set featured media as active in the media gallery
-        // this.querySelector(`media-gallery`)?.setActiveMedia?.(
-        //   `${this.dataset.section}-${variantFeaturedMediaId}`,
-        //   true
-        // );
-
-        const mediaGallery = this.querySelector('media-gallery');
-        if (mediaGallery) {
-          // Re-read the actual section prefix from the live DOM to handle ID deduplication after viewTransition
-          const firstMediaItem = mediaGallery.querySelector('[data-media-id]');
-          const sectionPrefix = firstMediaItem
-            ? firstMediaItem.dataset.mediaId.split('-').slice(0, -1).join('-')
-            : this.dataset.section;
-          mediaGallery.setActiveMedia?.(`${sectionPrefix}-${variantFeaturedMediaId}`, true);
-        }
+        // set featured media as active in the media gallery
+        this.querySelector(`media-gallery`)?.setActiveMedia?.(
+          `${this.dataset.section}-${variantFeaturedMediaId}`,
+          true
+        );
 
         // update media modal
         const modalContent = this.productModal?.querySelector(`.product-media-modal__content`);
