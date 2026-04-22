@@ -39,7 +39,7 @@ if (!customElements.get('product-info')) {
         this.quantityForm = this.querySelector('.product-form__quantity');
         if (!this.quantityForm) return;
 
-        this.setQuantityBoundries();
+        // this.setQuantityBoundries();
         if (!this.dataset.originalSection) {
           this.cartUpdateUnsubscriber = subscribe(PUB_SUB_EVENTS.cartUpdate, this.fetchQuantityRules.bind(this));
         }
@@ -240,86 +240,75 @@ if (!customElements.get('product-info')) {
       }
 
       updateMedia(html, variantFeaturedMediaId) {
-  if (!variantFeaturedMediaId) return;
+        if (!variantFeaturedMediaId) return;
 
-  const mediaGallerySource = this.querySelector('media-gallery ul[id^="Slider-Gallery"]');
-  const mediaGalleryDestination = html.querySelector('media-gallery ul[id^="Slider-Gallery"]');
+        const mediaGallerySource = this.querySelector('media-gallery ul');
+        const mediaGalleryDestination = html.querySelector(`media-gallery ul`);
 
-  const refreshSourceData = () => {
-    if (this.hasAttribute('data-zoom-on-hover')) enableZoomOnHover(2);
-    const mediaGallerySourceItems = Array.from(mediaGallerySource.querySelectorAll('li[data-media-id]'));
-    const sourceSet = new Set(mediaGallerySourceItems.map((item) => item.dataset.mediaId));
-    const sourceMap = new Map(
-      mediaGallerySourceItems.map((item, index) => [item.dataset.mediaId, { item, index }])
-    );
-    return [mediaGallerySourceItems, sourceSet, sourceMap];
-  };
+        const refreshSourceData = () => {
+          if (this.hasAttribute('data-zoom-on-hover')) enableZoomOnHover(2);
+          const mediaGallerySourceItems = Array.from(mediaGallerySource.querySelectorAll('li[data-media-id]'));
+          const sourceSet = new Set(mediaGallerySourceItems.map((item) => item.dataset.mediaId));
+          const sourceMap = new Map(
+            mediaGallerySourceItems.map((item, index) => [item.dataset.mediaId, { item, index }])
+          );
+          return [mediaGallerySourceItems, sourceSet, sourceMap];
+        };
 
-  if (mediaGallerySource && mediaGalleryDestination) {
-    let [mediaGallerySourceItems, sourceSet, sourceMap] = refreshSourceData();
-    const mediaGalleryDestinationItems = Array.from(
-      mediaGalleryDestination.querySelectorAll('li[data-media-id]')
-    );
-    const destinationSet = new Set(mediaGalleryDestinationItems.map(({ dataset }) => dataset.mediaId));
-    let shouldRefresh = false;
+        if (mediaGallerySource && mediaGalleryDestination) {
+          let [mediaGallerySourceItems, sourceSet, sourceMap] = refreshSourceData();
+          const mediaGalleryDestinationItems = Array.from(
+            mediaGalleryDestination.querySelectorAll('li[data-media-id]')
+          );
+          const destinationSet = new Set(mediaGalleryDestinationItems.map(({ dataset }) => dataset.mediaId));
+          let shouldRefresh = false;
 
-    for (let i = mediaGalleryDestinationItems.length - 1; i >= 0; i--) {
-      if (!sourceSet.has(mediaGalleryDestinationItems[i].dataset.mediaId)) {
-        mediaGallerySource.prepend(mediaGalleryDestinationItems[i]);
-        shouldRefresh = true;
-      }
-    }
+          // add items from new data not present in DOM
+          for (let i = mediaGalleryDestinationItems.length - 1; i >= 0; i--) {
+            if (!sourceSet.has(mediaGalleryDestinationItems[i].dataset.mediaId)) {
+              mediaGallerySource.prepend(mediaGalleryDestinationItems[i]);
+              shouldRefresh = true;
+            }
+          }
 
-    for (let i = 0; i < mediaGallerySourceItems.length; i++) {
-      if (!destinationSet.has(mediaGallerySourceItems[i].dataset.mediaId)) {
-        mediaGallerySourceItems[i].remove();
-        shouldRefresh = true;
-      }
-    }
+          // remove items from DOM not present in new data
+          for (let i = 0; i < mediaGallerySourceItems.length; i++) {
+            if (!destinationSet.has(mediaGallerySourceItems[i].dataset.mediaId)) {
+              mediaGallerySourceItems[i].remove();
+              shouldRefresh = true;
+            }
+          }
 
-    if (shouldRefresh) [mediaGallerySourceItems, sourceSet, sourceMap] = refreshSourceData();
+          // refresh
+          if (shouldRefresh) [mediaGallerySourceItems, sourceSet, sourceMap] = refreshSourceData();
 
-    mediaGalleryDestinationItems.forEach((destinationItem, destinationIndex) => {
-      const sourceData = sourceMap.get(destinationItem.dataset.mediaId);
-      if (sourceData && sourceData.index !== destinationIndex) {
-        mediaGallerySource.insertBefore(
-          sourceData.item,
-          mediaGallerySource.querySelector(`li:nth-of-type(${destinationIndex + 1})`)
+          // if media galleries don't match, sort to match new data order
+          mediaGalleryDestinationItems.forEach((destinationItem, destinationIndex) => {
+            const sourceData = sourceMap.get(destinationItem.dataset.mediaId);
+
+            if (sourceData && sourceData.index !== destinationIndex) {
+              mediaGallerySource.insertBefore(
+                sourceData.item,
+                mediaGallerySource.querySelector(`li:nth-of-type(${destinationIndex + 1})`)
+              );
+
+              // refresh source now that it has been modified
+              [mediaGallerySourceItems, sourceSet, sourceMap] = refreshSourceData();
+            }
+          });
+        }
+
+        // set featured media as active in the media gallery
+        this.querySelector(`media-gallery`)?.setActiveMedia?.(
+          `${this.dataset.section}-${variantFeaturedMediaId}`,
+          true
         );
-        [mediaGallerySourceItems, sourceSet, sourceMap] = refreshSourceData();
+
+        // update media modal
+        const modalContent = this.productModal?.querySelector(`.product-media-modal__content`);
+        const newModalContent = html.querySelector(`product-modal .product-media-modal__content`);
+        if (modalContent && newModalContent) modalContent.innerHTML = newModalContent.innerHTML;
       }
-    });
-  }
-
-  // Sync thumbnail list to match new variant order
-  const thumbSource = this.querySelector('media-gallery ul[id^="Slider-Thumbnails"]');
-  const thumbDestination = html.querySelector('media-gallery ul[id^="Slider-Thumbnails"]');
-  if (thumbSource && thumbDestination) {
-    thumbSource.innerHTML = thumbDestination.innerHTML;
-
-    const mediaGallery = this.querySelector('media-gallery');
-    thumbSource.querySelectorAll('[data-target]').forEach((mediaToSwitch) => {
-      mediaToSwitch.querySelector('button')?.addEventListener('click', () => {
-        mediaGallery?.setActiveMedia?.(mediaToSwitch.dataset.target, false);
-      });
-    });
-  }
-
-  // Set featured media as active — using live DOM prefix to avoid stale section ID
-  const mediaGallery = this.querySelector('media-gallery');
-  if (mediaGallery) {
-    const firstMediaItem = mediaGallery.querySelector('[data-media-id]');
-    const sectionPrefix = firstMediaItem
-      ? firstMediaItem.dataset.mediaId.split('-').slice(0, -1).join('-')
-      : this.dataset.section;
-    mediaGallery.setActiveMedia?.(`${sectionPrefix}-${variantFeaturedMediaId}`, true);
-  }
-
-  // Update media modal
-  const modalContent = this.productModal?.querySelector(`.product-media-modal__content`);
-  const newModalContent = html.querySelector(`product-modal .product-media-modal__content`);
-  if (modalContent && newModalContent) modalContent.innerHTML = newModalContent.innerHTML;
-}
 
       setQuantityBoundries() {
         const data = {
@@ -358,12 +347,12 @@ if (!customElements.get('product-info')) {
             this.updateQuantityRules(this.dataset.section, html);
           })
           .catch((e) => console.error(e))
-          .finally(() => this.querySelector('.quantity__rules-cart .loading__spinner')?.classList.add('hidden'));
+          .finally(() => this.querySelector('.quantity__rules-cart .loading__spinner').classList.add('hidden'));
       }
 
       updateQuantityRules(sectionId, html) {
         if (!this.quantityInput) return;
-        this.setQuantityBoundries();
+        // this.setQuantityBoundries();
 
         const quantityFormUpdated = html.getElementById(`Quantity-Form-${sectionId}`);
         const selectors = ['.quantity__input', '.quantity__rules', '.quantity__label'];
