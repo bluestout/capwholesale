@@ -697,11 +697,25 @@
     "es_featured_products_EMKnh4": {
       "type": "es-featured-products",
       "blocks": {
-        "product_xcmJdz": {
+        "product_KMmwPy": {
           "type": "product",
           "settings": {
-            "product": "adams-ace-unisex-sun-visor",
-            "custom_image": "shopify://shop_images/new-Adams_Ace_Unisex_Sun_Visor-AC101.png"
+            "product": "richardson-112-hat-trucker-snapback-cap-split-color",
+            "custom_image": "shopify://shop_images/new-richardson-112-hat-trucker-snapback-cap-split-color-custom-richardson-hat-6869124.png"
+          }
+        },
+        "product_m8APqL": {
+          "type": "product",
+          "settings": {
+            "product": "richardson-112-hat-trucker-snapback-cap-tri-color",
+            "custom_image": "shopify://shop_images/new-richardson-112-hat-trucker-snapback-cap-tri-color-custom-richardson-hat-2231987_5bffd827-5cdd-4e2e-bdf1-7e7799ea0f40.png"
+          }
+        },
+        "product_9UnqNX": {
+          "type": "product",
+          "settings": {
+            "product": "richardson-112-hat-trucker-snapback-cap-solid-color",
+            "custom_image": "shopify://shop_images/new-richardson-112-hat-trucker-snapback-cap-solid-custom-richardson-hat-5294175.png"
           }
         },
         "product_ePjaTd": {
@@ -709,6 +723,13 @@
           "settings": {
             "product": "pacific-aug-5-panel-seamless-roped-weekender-perfo",
             "custom_image": "shopify://shop_images/new-pacific-aug-5-panel-seamless-roped-weekender-perforated-mesh-hat-custom-pacific-aug-hat-3224711.png"
+          }
+        },
+        "product_xcmJdz": {
+          "type": "product",
+          "settings": {
+            "product": "adams-ace-unisex-sun-visor",
+            "custom_image": "shopify://shop_images/new-Adams_Ace_Unisex_Sun_Visor-AC101.png"
           }
         },
         "product_nCNgYH": {
@@ -790,8 +811,11 @@
         }
       },
       "block_order": [
-        "product_xcmJdz",
+        "product_KMmwPy",
+        "product_m8APqL",
+        "product_9UnqNX",
         "product_ePjaTd",
+        "product_xcmJdz",
         "product_nCNgYH",
         "product_Xxe8z3",
         "product_8h9JRQ",
