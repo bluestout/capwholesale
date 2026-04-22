@@ -298,6 +298,21 @@ if (!customElements.get('product-info')) {
           });
         }
 
+        // Sync thumbnail list to match new variant order
+const thumbSource = this.querySelector('media-gallery ul[id^="Slider-Thumbnails"]');
+const thumbDestination = html.querySelector('media-gallery ul[id^="Slider-Thumbnails"]');
+if (thumbSource && thumbDestination) {
+  thumbSource.innerHTML = thumbDestination.innerHTML;
+
+  // Re-attach click listeners to new thumbnail buttons
+  const mediaGallery = this.querySelector('media-gallery');
+  thumbSource.querySelectorAll('[data-target]').forEach((mediaToSwitch) => {
+    mediaToSwitch.querySelector('button')?.addEventListener('click', () => {
+      mediaGallery?.setActiveMedia?.(mediaToSwitch.dataset.target, false);
+    });
+  });
+}
+
         // set featured media as active in the media gallery
         this.querySelector(`media-gallery`)?.setActiveMedia?.(
           `${this.dataset.section}-${variantFeaturedMediaId}`,
