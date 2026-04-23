@@ -718,6 +718,13 @@
             "custom_image": "shopify://shop_images/new-richardson-112-hat-trucker-snapback-cap-solid-custom-richardson-hat-5294175.png"
           }
         },
+        "product_yMYDmx": {
+          "type": "product",
+          "settings": {
+            "product": "richardson-112-hat-trucker-snapback-cap-tri-color",
+            "custom_image": "shopify://shop_images/new-richardson-112-hat-trucker-snapback-cap-tri-color-custom-richardson-hat-2231987.png"
+          }
+        },
         "product_ePjaTd": {
           "type": "product",
           "settings": {
@@ -795,13 +802,6 @@
             "custom_image": "shopify://shop_images/new-outdoor-ultimate-low-pro-trucker-in-60-colors-adult-youth-sizes-custom-outdoor-cap-hat-5941438.png"
           }
         },
-        "product_yMYDmx": {
-          "type": "product",
-          "settings": {
-            "product": "richardson-112-hat-trucker-snapback-cap-tri-color",
-            "custom_image": "shopify://shop_images/new-richardson-112-hat-trucker-snapback-cap-tri-color-custom-richardson-hat-2231987.png"
-          }
-        },
         "product_iyC849": {
           "type": "product",
           "settings": {
@@ -814,6 +814,7 @@
         "product_KMmwPy",
         "product_m8APqL",
         "product_9UnqNX",
+        "product_yMYDmx",
         "product_ePjaTd",
         "product_xcmJdz",
         "product_nCNgYH",
@@ -825,7 +826,6 @@
         "product_HB7FVX",
         "product_nMerhh",
         "product_mKrpk3",
-        "product_yMYDmx",
         "product_iyC849"
       ],
       "name": "ES Featured Products",
