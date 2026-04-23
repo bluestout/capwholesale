@@ -13,6 +13,19 @@
     assign announcement_bar = true
   endif
 -%}
+<style>
+  chrome_annotation {
+    color: white !important;
+  }
+
+  .announcement-bar__message {
+    color: white !important;
+  }
+
+  .announcement-bar__message span:empty {
+    display: none;
+  }
+</style>
 
 {% if social_icons %}
   {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
@@ -163,19 +176,21 @@
   </div>
 </div>
 
-{% comment %} <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    console.log(window.innerWidth);
+{% comment %}
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log(window.innerWidth);
 
-    if (window.innerWidth < 768) {
-      nodeMarquee({
-        parent: '#node-marquee',
-        speed: 1,
-        minQuantity: 2,
-      });
-    }
-  });
-</script> {% endcomment %}
+      if (window.innerWidth < 768) {
+        nodeMarquee({
+          parent: '#node-marquee',
+          speed: 1,
+          minQuantity: 2,
+        });
+      }
+    });
+  </script>
+{% endcomment %}
 
 {% schema %}
 {
@@ -201,13 +216,13 @@
       "unit": "s",
       "label": "t:sections.announcement-bar.settings.change_slides_speed.label",
       "default": 5
-    },    
+    },
     {
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-4"
-    },  
+    },
     {
       "type": "checkbox",
       "id": "show_line_separator",
@@ -220,8 +235,8 @@
     },
     {
       "type": "paragraph",
-         "content": "t:sections.announcement-bar.settings.paragraph.content"
-    },             
+      "content": "t:sections.announcement-bar.settings.paragraph.content"
+    },
     {
       "type": "checkbox",
       "id": "show_social",
