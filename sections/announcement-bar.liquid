@@ -25,6 +25,10 @@
   .announcement-bar__message span:empty {
     display: none;
   }
+
+  .announcement-bar__message span[style*="white-space: pre"] {
+    display: none !important;
+  }
 </style>
 
 {% if social_icons %}
