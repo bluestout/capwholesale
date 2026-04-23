@@ -39,7 +39,7 @@ if (!customElements.get('product-info')) {
         this.quantityForm = this.querySelector('.product-form__quantity');
         if (!this.quantityForm) return;
 
-        // this.setQuantityBoundries();
+        this.setQuantityBoundries();
         if (!this.dataset.originalSection) {
           this.cartUpdateUnsubscriber = subscribe(PUB_SUB_EVENTS.cartUpdate, this.fetchQuantityRules.bind(this));
         }
@@ -347,7 +347,7 @@ if (!customElements.get('product-info')) {
             this.updateQuantityRules(this.dataset.section, html);
           })
           .catch((e) => console.error(e))
-          .finally(() => this.querySelector('.quantity__rules-cart .loading__spinner').classList.add('hidden'));
+          .finally(() => this.querySelector('.quantity__rules-cart .loading__spinner')?.classList.add('hidden'));
       }
 
       updateQuantityRules(sectionId, html) {
