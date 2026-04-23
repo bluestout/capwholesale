@@ -352,7 +352,7 @@ if (!customElements.get('product-info')) {
 
       updateQuantityRules(sectionId, html) {
         if (!this.quantityInput) return;
-        // this.setQuantityBoundries();
+        this.setQuantityBoundries();
 
         const quantityFormUpdated = html.getElementById(`Quantity-Form-${sectionId}`);
         const selectors = ['.quantity__input', '.quantity__rules', '.quantity__label'];
