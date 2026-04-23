@@ -88,6 +88,16 @@
           "disabled": true,
           "settings": {}
         },
+        "collapsible_tab_nFWarT": {
+          "type": "collapsible_tab",
+          "settings": {
+            "default_open": false,
+            "heading": "Details",
+            "icon": "details",
+            "content": "<p>{{ product.description }}</p>",
+            "page": ""
+          }
+        },
         "collapsible_tab_eM4Wkc": {
           "type": "collapsible_tab",
           "name": "Description",
@@ -96,16 +106,6 @@
             "heading": "Description",
             "icon": "description",
             "content": "{{ product.metafields.custom.detail | metafield_tag }}",
-            "page": ""
-          }
-        },
-        "collapsible_tab_nFWarT": {
-          "type": "collapsible_tab",
-          "settings": {
-            "default_open": false,
-            "heading": "Details",
-            "icon": "details",
-            "content": "<p>{{ product.description }}</p>",
             "page": ""
           }
         },
@@ -176,8 +176,8 @@
         "buy_buttons",
         "wishlist_hero_custom_product_button_Aacrr3",
         "description",
-        "collapsible_tab_eM4Wkc",
         "collapsible_tab_nFWarT",
+        "collapsible_tab_eM4Wkc",
         "popup_cKwkVJ",
         "popup_wP4nXf",
         "share",
