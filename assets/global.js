@@ -936,12 +936,14 @@ class SliderComponent extends HTMLElement {
       behavior: 'smooth'
     });
 
-    this.sliderControlLinksArray.forEach(link => {
-      link.classList.remove('slider-counter__link--active');
-      link.removeAttribute('aria-current');
-    });
-    event.currentTarget.classList.add('slider-counter__link--active');
-    event.currentTarget.setAttribute('aria-current', true);
+    if (!this.closest('[data-custom-dots]')) {
+      this.sliderControlLinksArray.forEach(link => {
+        link.classList.remove('slider-counter__link--active');
+        link.removeAttribute('aria-current');
+      });
+      event.currentTarget.classList.add('slider-counter__link--active');
+      event.currentTarget.setAttribute('aria-current', true);
+    }
   }
 
 }
