@@ -42,12 +42,6 @@
             "text_style": "body"
           }
         },
-        "custom_liquid_JNfKjz": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "{% assign product_actual_price_cents = product.selected_or_first_available_variant.price %}\n{% comment %} CUSTOMIZATION PRICE IN CENTS {% endcomment %}\n{% assign product_customization_price_cents = 0 %}\n{% assign isCustomizedProduct = false %}\n{% if product.tags contains 'CustomAll'\n  or product.tags contains 'Custom1-5'\n  or product.tags contains 'Custom4'\n  or product.tags contains 'Customw/o6'\n%}\n  {% assign product_customization_price_cents = 1041 %}\n  {% assign isCustomizedProduct = true %}\n{% endif %}\n\n{% assign product_new_price_cents = product_actual_price_cents | plus: product_customization_price_cents %}\n{% if isCustomizedProduct %}\n<p class=\"product__text inline-richtext\">From <strong>{{ product.price_min | money }}</strong></p>\n{% else %}\n<p class=\"product__text inline-richtext\">As low as <strong>{{ product.price_min | money }}</strong></p>\n{% endif %}"
-          }
-        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -185,7 +179,6 @@
         "fera_product_reviews_summary_NAazjF",
         "sku_HTjRGR",
         "text_Pb8kXM",
-        "custom_liquid_JNfKjz",
         "variant_picker",
         "quantity_radios_EyWCw6",
         "quantity_selector",
