@@ -369,6 +369,7 @@
 <script>
 (function () {
   let activeMediaId = null;
+  let clickLock = false;
 
   function syncActiveDot() {
     const controlWrapper = document.querySelector('.slideshow__control-wrapper');
@@ -412,6 +413,13 @@
         btn.appendChild(dot);
 
         btn.addEventListener('click', function () {
+          // Lock scroll sync for 1 second after click
+          clickLock = true;
+          clearTimeout(window._clickLockTimer);
+          window._clickLockTimer = setTimeout(() => {
+            clickLock = false;
+          }, 1000);
+
           activeMediaId = mediaId;
           syncActiveDot();
           gallery.setActiveMedia(mediaId, true);
@@ -429,6 +437,9 @@
     if (!sliderEl) return;
 
     sliderEl.addEventListener('scroll', () => {
+      // Don't override activeMediaId if user just clicked a dot
+      if (clickLock) return;
+
       const slides = Array.from(
         document.querySelectorAll(`#${sliderEl.id} .slider__slide:not(.hidden)`)
       );
@@ -451,7 +462,7 @@
     });
   }
 
-  // Poll for variant changes
+  // Poll for variant changes only
   let lastSlideIds = '';
   setInterval(() => {
     const sliderID = document.querySelector('.product__media-list')?.id;
