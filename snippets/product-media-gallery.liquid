@@ -373,16 +373,16 @@
 {% endif %}
 
 <style>
-  /* Kill Dawn's active dot styling completely */
-  .slider-counter__link--active.slider-counter__link--dots .dot {
-    background-color: rgba(var(--color-foreground), 0.5) !important;
-    transform: none !important;
+  .slider-counter__link--dots .dot {
+    background-color: rgba(var(--color-foreground), 0.35);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: block;
+    transition: background-color 0.2s ease;
   }
-
-  /* Our active dot control via aria-current */  
-  .slider-counter__link--dots[aria-current="true"] .dot {
-    background-color: rgb(var(--color-foreground)) !important;
-    transform: scale(1.1) !important;
+  .slider-counter__link--dots .dot.active {
+    background-color: rgb(var(--color-foreground));
   }
 </style>
 
@@ -395,14 +395,6 @@
     if (!controlWrapper || !activeMediaId) return;
     controlWrapper.querySelectorAll('.slider-counter__link--dots').forEach(btn => {
       const isActive = btn.getAttribute('data-media-id') === activeMediaId;
-      // Use aria-current to control active state
-      if (isActive) {
-        btn.setAttribute('aria-current', 'true');
-      } else {
-        btn.removeAttribute('aria-current');
-        // Also remove Dawn's class
-        btn.classList.remove('slider-counter__link--active');
-      }
       btn.querySelector('.dot').classList.toggle('active', isActive);
     });
   }
@@ -466,9 +458,6 @@
       buildDots();
     }
   }, 200);
-
-  // Continuously fight Dawn's class reset
-  setInterval(syncActiveDot, 50);
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => setTimeout(buildDots, 500));
