@@ -374,15 +374,22 @@
 
 <script>
   (function () {
-    const sliderID = document.querySelector('.product__media-list')?.id;
-    const controlWrapper = document.querySelector('.slideshow__control-wrapper');
-    const gallery = document.querySelector('media-gallery');
-    if (!sliderID || !controlWrapper || !gallery) return;
-
     function buildDots() {
+      const sliderID = document.querySelector('.product__media-list')?.id;
+      const controlWrapper = document.querySelector('.slideshow__control-wrapper');
+      const gallery = document.querySelector('media-gallery');
+      if (!sliderID || !controlWrapper || !gallery) return;
+
       const visibleSlides = Array.from(
         document.querySelectorAll(`#${sliderID} .slider__slide:not(.hidden)`)
       );
+
+      // If Dawn hasn't hidden slides yet, retry after a short delay
+      const totalSlides = document.querySelectorAll(`#${sliderID} .slider__slide`).length;
+      if (visibleSlides.length === totalSlides && totalSlides > 4) {
+        setTimeout(buildDots, 200);
+        return;
+      }
 
       controlWrapper.innerHTML = '';
 
@@ -397,37 +404,38 @@
         btn.appendChild(dot);
 
         btn.addEventListener('click', function () {
-          // Update active dot
           controlWrapper.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
           dot.classList.add('active');
-
-          // Use Dawn's native setActiveMedia to navigate to correct slide
           gallery.setActiveMedia(mediaId, true);
         });
 
         controlWrapper.appendChild(btn);
       });
+
+      // Sync active dot on slide change (swipe etc.)
+      const sliderEl = document.getElementById(sliderID);
+      if (sliderEl) {
+        const observer = new MutationObserver(() => {
+          const activeSlide = document.querySelector(`#${sliderID} .slider__slide.is-active`);
+          if (!activeSlide) return;
+          const activeId = activeSlide.dataset.mediaId;
+          controlWrapper.querySelectorAll('.slider-counter__link--dots').forEach(btn => {
+            btn.querySelector('.dot').classList.toggle('active', btn.getAttribute('data-media-id') === activeId);
+          });
+        });
+        observer.observe(sliderEl, {
+          attributes: true,
+          subtree: true,
+          attributeFilter: ['class']
+        });
+      }
     }
 
-    buildDots();
-
-    // Sync active dot when slide changes (e.g. swiping)
-    const sliderEl = document.getElementById(sliderID);
-    if (sliderEl) {
-      const observer = new MutationObserver(() => {
-        const activeSlide = document.querySelector(`#${sliderID} .slider__slide.is-active`);
-        if (!activeSlide) return;
-        const activeId = activeSlide.dataset.mediaId;
-        controlWrapper.querySelectorAll('.slider-counter__link--dots').forEach(btn => {
-          const dot = btn.querySelector('.dot');
-          dot.classList.toggle('active', btn.getAttribute('data-media-id') === activeId);
-        });
-      });
-      observer.observe(sliderEl, {
-        attributes: true,
-        subtree: true,
-        attributeFilter: ['class']
-      });
+    // Wait for DOM + Dawn JS to finish
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => setTimeout(buildDots, 300));
+    } else {
+      setTimeout(buildDots, 300);
     }
   })();
 </script>
