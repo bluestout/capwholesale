@@ -376,9 +376,19 @@
   (function () {
     let activeMediaId = null;
 
+    function removeDawnActiveClass() {
+      // Remove Dawn's active class from ALL dot buttons — we manage this ourselves
+      document.querySelectorAll('.slider-counter__link--dots').forEach(btn => {
+        btn.classList.remove('slider-counter__link--active');
+        btn.removeAttribute('aria-current');
+      });
+    }
+
     function syncActiveDot() {
       const controlWrapper = document.querySelector('.slideshow__control-wrapper');
       if (!controlWrapper || !activeMediaId) return;
+
+      removeDawnActiveClass();
 
       controlWrapper.querySelectorAll('.slider-counter__link--dots').forEach(btn => {
         const isActive = btn.getAttribute('data-media-id') === activeMediaId;
@@ -413,6 +423,7 @@
         visibleSlides.forEach((slide) => {
           const mediaId = slide.dataset.mediaId;
           const btn = document.createElement('button');
+          // Do NOT include slider-counter__link--active here
           btn.className = 'slider-counter__link slider-counter__link--dots link';
           btn.setAttribute('data-media-id', mediaId);
 
@@ -424,10 +435,11 @@
             activeMediaId = mediaId;
             syncActiveDot();
             gallery.setActiveMedia(mediaId, true);
-            // Re-sync after Dawn has time to reset classes
-            setTimeout(syncActiveDot, 100);
+            // Keep removing Dawn's class after it tries to add it back
+            setTimeout(syncActiveDot, 50);
+            setTimeout(syncActiveDot, 150);
             setTimeout(syncActiveDot, 300);
-            setTimeout(syncActiveDot, 600);
+            setTimeout(syncActiveDot, 500);
           });
 
           controlWrapper.appendChild(btn);
@@ -436,6 +448,9 @@
 
       syncActiveDot();
     }
+
+    // Keep removing Dawn's active class continuously
+    setInterval(removeDawnActiveClass, 100);
 
     function startPolling() {
       let lastSlideIds = '';
@@ -466,6 +481,7 @@
 
   })();
 </script>
+
 
 <style>
    /* Disable Dawn's own dot active styling completely */
