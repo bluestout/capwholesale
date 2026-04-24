@@ -845,23 +845,6 @@
         "padding_top": 56,
         "padding_bottom": 80
       }
-    },
-    "image_banner_MxUU9E": {
-      "type": "image-banner",
-      "name": "t:sections.image-banner.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/All_Brands_Banner.png",
-        "image_overlay_opacity": 0,
-        "image_height": "medium",
-        "image_behavior": "none",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": true,
-        "color_scheme": "",
-        "stack_images_on_mobile": true,
-        "mobile_content_alignment": "center",
-        "show_text_below": true
-      }
     }
   },
   "order": [
@@ -872,7 +855,6 @@
     "es_gallery_with_link_CGamDr",
     "es_image_with_text_kFT4Pw",
     "es_testimonial_xNiLtf",
-    "es_featured_products_EMKnh4",
-    "image_banner_MxUU9E"
+    "es_featured_products_EMKnh4"
   ]
 }
