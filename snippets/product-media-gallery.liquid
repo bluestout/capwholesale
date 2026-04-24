@@ -379,8 +379,14 @@
     function syncActiveDot() {
       const controlWrapper = document.querySelector('.slideshow__control-wrapper');
       if (!controlWrapper || !activeMediaId) return;
+
       controlWrapper.querySelectorAll('.slider-counter__link--dots').forEach(btn => {
-        btn.querySelector('.dot').classList.toggle('active', btn.getAttribute('data-media-id') === activeMediaId);
+        const isActive = btn.getAttribute('data-media-id') === activeMediaId;
+        // Toggle your own active dot class
+        btn.querySelector('.dot').classList.toggle('active', isActive);
+        // Also override Dawn's active class to prevent conflict
+        btn.classList.toggle('slider-counter__link--active', isActive);
+        btn.toggleAttribute('aria-current', isActive);
       });
     }
 
@@ -396,48 +402,50 @@
 
       if (visibleSlides.length === 0) return;
 
-      // Always reset activeMediaId to current active slide when rebuilding
       const activeSlide = visibleSlides.find(s => s.classList.contains('is-active')) || visibleSlides[0];
       activeMediaId = activeSlide.dataset.mediaId;
 
-      controlWrapper.innerHTML = '';
+      const currentDotIds = Array.from(
+        controlWrapper.querySelectorAll('.slider-counter__link--dots')
+      ).map(btn => btn.getAttribute('data-media-id'));
+      const newSlideIds = visibleSlides.map(s => s.dataset.mediaId);
+      const slidesChanged = JSON.stringify(currentDotIds) !== JSON.stringify(newSlideIds);
 
-      visibleSlides.forEach((slide) => {
-        const mediaId = slide.dataset.mediaId;
-        const btn = document.createElement('button');
-        btn.className = 'slider-counter__link slider-counter__link--dots link';
-        btn.setAttribute('data-media-id', mediaId);
+      if (slidesChanged) {
+        controlWrapper.innerHTML = '';
 
-        const dot = document.createElement('span');
-        dot.className = 'dot';
-        btn.appendChild(dot);
+        visibleSlides.forEach((slide) => {
+          const mediaId = slide.dataset.mediaId;
+          const btn = document.createElement('button');
+          btn.className = 'slider-counter__link slider-counter__link--dots link';
+          btn.setAttribute('data-media-id', mediaId);
 
-        btn.addEventListener('click', function () {
-          activeMediaId = mediaId;
-          syncActiveDot();
-          gallery.setActiveMedia(mediaId, true);
+          const dot = document.createElement('span');
+          dot.className = 'dot';
+          btn.appendChild(dot);
+
+          btn.addEventListener('click', function () {
+            activeMediaId = mediaId;
+            syncActiveDot();
+            gallery.setActiveMedia(mediaId, true);
+          });
+
+          controlWrapper.appendChild(btn);
         });
-
-        controlWrapper.appendChild(btn);
-      });
+      }
 
       syncActiveDot();
     }
 
-    // Poll for variant changes instead of MutationObserver
     function startPolling() {
       let lastSlideIds = '';
-
       setInterval(() => {
         const sliderID = document.querySelector('.product__media-list')?.id;
         if (!sliderID) return;
-
         const visibleSlides = Array.from(
           document.querySelectorAll(`#${sliderID} .slider__slide:not(.hidden)`)
         );
-
         const currentIds = visibleSlides.map(s => s.dataset.mediaId).join(',');
-
         if (currentIds !== lastSlideIds) {
           lastSlideIds = currentIds;
           buildDots();
