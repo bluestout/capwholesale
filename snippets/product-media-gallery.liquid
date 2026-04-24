@@ -128,57 +128,70 @@
     </ul>
     {% comment %} {% if hide_mobile_slider %} small-hide{% endif %} {% endcomment %}
     <div class="slider-buttons quick-add-hidden">
-      <button
-        type="button"
-        class="slider-button slider-button--prev"
-        name="previous"
-        style="display: none;"
-        aria-label="{{ 'general.slider.previous_slide' | t }}"
-      >
-        <span class="svg-wrapper">
-          {{- 'icon-caret.svg' | inline_asset_content -}}
-        </span>
-      </button>
-      <div class="slider-counter caption">
-        <div class="slideshow__control-wrapper">
-          {% assign featured_media = product.selected_or_first_available_variant.featured_media %}
+  <button
+    type="button"
+    class="slider-button slider-button--prev"
+    name="previous"
+    style="display: none;"
+    aria-label="{{ 'general.slider.previous_slide' | t }}"
+  >
+    <span class="svg-wrapper">
+      {{- 'icon-caret.svg' | inline_asset_content -}}
+    </span>
+  </button>
+  <div class="slider-counter caption">
+    <div class="slideshow__control-wrapper">
+      {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
 
-          {% if section.settings.hide_variants and variant_images contains featured_media.src %}
-            <button
-              class="slider-counter__link slider-counter__link--dots link"
-              data-media-id="{{ section.id }}-{{ featured_media.id }}"
-            >
-              <span class="dot"></span>
-            </button>
-          {% endif %}
+      {%- comment -%} Dot for the featured media (always show it) {%- endcomment -%}
+      {%- if featured_media != null -%}
+        <button
+          class="slider-counter__link slider-counter__link--dots link"
+          data-media-id="{{ section.id }}-{{ featured_media.id }}"
+        >
+          <span class="dot"></span>
+        </button>
+      {%- endif -%}
 
-          {% for media in product.media %}
-            {% unless media.id == featured_media.id %}
-              {% unless section.settings.hide_variants and variant_images contains media.src %}
-                <button
-                  class="slider-counter__link slider-counter__link--dots link"
-                  data-media-id="{{ section.id }}-{{ media.id }}"
-                >
-                  <span class="dot"></span>
-                </button>
-              {% endunless %}
-            {% endunless %}
-          {% endfor %}
-        </div>
-      </div>
+      {%- comment -%} Dots for remaining media, skipping featured and hidden variant images {%- endcomment -%}
+      {%- for media in product.media -%}
+        {%- comment -%} Skip the featured media, already rendered above {%- endcomment -%}
+        {%- if media.id == featured_media.id -%}
+          {%- continue -%}
+        {%- endif -%}
 
-      <button
-        type="button"
-        class="slider-button slider-button--next"
-        name="next"
-        style="display: none;"
-        aria-label="{{ 'general.slider.next_slide' | t }}"
-      >
-        <span class="svg-wrapper">
-          {{- 'icon-caret.svg' | inline_asset_content -}}
-        </span>
-      </button>
+        {%- comment -%} Skip variant images when hide_variants is enabled {%- endcomment -%}
+        {%- if section.settings.hide_variants and variant_images contains media.src -%}
+          {%- continue -%}
+        {%- endif -%}
+
+        {%- comment -%} Skip if we've hit the limit {%- endcomment -%}
+        {%- if limit and forloop.index > limit -%}
+          {%- continue -%}
+        {%- endif -%}
+
+        <button
+          class="slider-counter__link slider-counter__link--dots link"
+          data-media-id="{{ section.id }}-{{ media.id }}"
+        >
+          <span class="dot"></span>
+        </button>
+      {%- endfor -%}
     </div>
+  </div>
+
+  <button
+    type="button"
+    class="slider-button slider-button--next"
+    name="next"
+    style="display: none;"
+    aria-label="{{ 'general.slider.next_slide' | t }}"
+  >
+    <span class="svg-wrapper">
+      {{- 'icon-caret.svg' | inline_asset_content -}}
+    </span>
+  </button>
+</div>
   </slider-component>
   {%- if first_3d_model -%}
     <button
