@@ -376,17 +376,18 @@
   (function () {
     const sliderID = document.querySelector('.product__media-list')?.id;
     const controlWrapper = document.querySelector('.slideshow__control-wrapper');
-    const gallery = document.querySelector('media-gallery');
-    if (!sliderID || !controlWrapper || !gallery) return;
+    if (!sliderID || !controlWrapper) return;
 
     function buildDots() {
+      // Get only slides that are NOT hidden
       const visibleSlides = Array.from(
         document.querySelectorAll(`#${sliderID} .slider__slide:not(.hidden)`)
       );
 
+      // Clear existing dots
       controlWrapper.innerHTML = '';
 
-      visibleSlides.forEach((slide) => {
+      visibleSlides.forEach((slide, idx) => {
         const mediaId = slide.dataset.mediaId;
         const btn = document.createElement('button');
         btn.className = 'slider-counter__link slider-counter__link--dots link';
@@ -397,31 +398,22 @@
         btn.appendChild(dot);
 
         btn.addEventListener('click', function () {
-          // Update active dot
           controlWrapper.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
           dot.classList.add('active');
-
-          // Use Dawn's native setActiveMedia to navigate to correct slide
-          gallery.setActiveMedia(mediaId, true);
         });
 
         controlWrapper.appendChild(btn);
       });
     }
 
+    // Build dots initially
     buildDots();
 
-    // Sync active dot when slide changes (e.g. swiping)
+    // Rebuild dots when variant changes (hidden classes change)
     const sliderEl = document.getElementById(sliderID);
     if (sliderEl) {
       const observer = new MutationObserver(() => {
-        const activeSlide = document.querySelector(`#${sliderID} .slider__slide.is-active`);
-        if (!activeSlide) return;
-        const activeId = activeSlide.dataset.mediaId;
-        controlWrapper.querySelectorAll('.slider-counter__link--dots').forEach(btn => {
-          const dot = btn.querySelector('.dot');
-          dot.classList.toggle('active', btn.getAttribute('data-media-id') === activeId);
-        });
+        buildDots();
       });
       observer.observe(sliderEl, {
         attributes: true,
