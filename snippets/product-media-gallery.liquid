@@ -374,56 +374,52 @@
 
 <script>
   (function () {
-    const gallery = document.getElementById('GalleryViewer-{{ section.id }}');
-    if (!gallery) return;
+    const sliderID = document.querySelector('.product__media-list')?.id;
+    const controlWrapper = document.querySelector('.slideshow__control-wrapper');
+    if (!sliderID || !controlWrapper) return;
 
-    // Get only thumbnail items that are NOT hidden (these are the visible slides)
-    const visibleThumbs = Array.from(
-      document.querySelectorAll('#GalleryThumbnails-{{ section.id }} .thumbnail-list__item:not(.hidden)')
-    );
+    function buildDots() {
+      // Get only slides that are NOT hidden
+      const visibleSlides = Array.from(
+        document.querySelectorAll(`#${sliderID} .slider__slide:not(.hidden)`)
+      );
 
-    const controlWrapper = gallery.querySelector('.slideshow__control-wrapper');
-    if (!controlWrapper) return;
+      // Clear existing dots
+      controlWrapper.innerHTML = '';
 
-    // Clear all existing dots
-    controlWrapper.innerHTML = '';
+      visibleSlides.forEach((slide, idx) => {
+        const mediaId = slide.dataset.mediaId;
+        const btn = document.createElement('button');
+        btn.className = 'slider-counter__link slider-counter__link--dots link';
+        btn.setAttribute('data-media-id', mediaId);
 
-    // Build one dot per visible thumbnail
-    visibleThumbs.forEach((thumb, idx) => {
-      const targetId = thumb.getAttribute('data-target');
-      const btn = document.createElement('button');
-      btn.className = 'slider-counter__link slider-counter__link--dots link';
-      btn.setAttribute('data-media-id', targetId);
+        const dot = document.createElement('span');
+        dot.className = 'dot' + (slide.classList.contains('is-active') ? ' active' : '');
+        btn.appendChild(dot);
 
-      const dot = document.createElement('span');
-      dot.className = 'dot' + (idx === 0 ? ' active' : '');
-      btn.appendChild(dot);
-
-      btn.addEventListener('click', function () {
-        controlWrapper.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
-        dot.classList.add('active');
-      });
-
-      controlWrapper.appendChild(btn);
-    });
-
-    // Also keep dots in sync when slider moves
-    const sliderList = gallery.querySelector('.product__media-list');
-    if (sliderList) {
-      const observer = new MutationObserver(() => {
-        const activeSlide = sliderList.querySelector('.slider__slide.is-active');
-        if (!activeSlide) return;
-        const activeId = activeSlide.getAttribute('data-media-id');
-        controlWrapper.querySelectorAll('.slider-counter__link--dots').forEach(btn => {
-          const dot = btn.querySelector('.dot');
-          if (btn.getAttribute('data-media-id') === activeId) {
-            dot.classList.add('active');
-          } else {
-            dot.classList.remove('active');
-          }
+        btn.addEventListener('click', function () {
+          controlWrapper.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
+          dot.classList.add('active');
         });
+
+        controlWrapper.appendChild(btn);
       });
-      observer.observe(sliderList, { attributes: true, subtree: true, attributeFilter: ['class'] });
+    }
+
+    // Build dots initially
+    buildDots();
+
+    // Rebuild dots when variant changes (hidden classes change)
+    const sliderEl = document.getElementById(sliderID);
+    if (sliderEl) {
+      const observer = new MutationObserver(() => {
+        buildDots();
+      });
+      observer.observe(sliderEl, {
+        attributes: true,
+        subtree: true,
+        attributeFilter: ['class']
+      });
     }
   })();
 </script>
