@@ -372,118 +372,108 @@
   </div>
 {% endif %}
 
-<script>
-  (function () {
-    let activeMediaId = null;
-    let lastVariantSlideIds = '';
+<style>
+  /* Kill Dawn's active dot styling completely */
+  .slider-counter__link--active.slider-counter__link--dots .dot {
+    background-color: rgba(var(--color-foreground), 0.5) !important;
+    transform: none !important;
+  }
 
-    function syncActiveDot() {
-      const controlWrapper = document.querySelector('.slideshow__control-wrapper');
-      if (!controlWrapper || !activeMediaId) return;
-      controlWrapper.querySelectorAll('.slider-counter__link--dots').forEach(btn => {
-        const isActive = btn.getAttribute('data-media-id') === activeMediaId;
-        btn.querySelector('.dot').classList.toggle('active', isActive);
+  /* Our active dot control via aria-current */  
+  .slider-counter__link--dots[aria-current="true"] .dot {
+    background-color: rgb(var(--color-foreground)) !important;
+    transform: scale(1.1) !important;
+  }
+</style>
+
+<script>
+(function () {
+  let activeMediaId = null;
+
+  function syncActiveDot() {
+    const controlWrapper = document.querySelector('.slideshow__control-wrapper');
+    if (!controlWrapper || !activeMediaId) return;
+    controlWrapper.querySelectorAll('.slider-counter__link--dots').forEach(btn => {
+      const isActive = btn.getAttribute('data-media-id') === activeMediaId;
+      // Use aria-current to control active state
+      if (isActive) {
+        btn.setAttribute('aria-current', 'true');
+      } else {
+        btn.removeAttribute('aria-current');
+        // Also remove Dawn's class
+        btn.classList.remove('slider-counter__link--active');
+      }
+      btn.querySelector('.dot').classList.toggle('active', isActive);
+    });
+  }
+
+  function buildDots() {
+    const sliderID = document.querySelector('.product__media-list')?.id;
+    const controlWrapper = document.querySelector('.slideshow__control-wrapper');
+    const gallery = document.querySelector('media-gallery');
+    if (!sliderID || !controlWrapper || !gallery) return;
+
+    const visibleSlides = Array.from(
+      document.querySelectorAll(`#${sliderID} .slider__slide:not(.hidden)`)
+    );
+    if (visibleSlides.length === 0) return;
+
+    const currentDotIds = Array.from(
+      controlWrapper.querySelectorAll('.slider-counter__link--dots')
+    ).map(btn => btn.getAttribute('data-media-id'));
+    const newSlideIds = visibleSlides.map(s => s.dataset.mediaId);
+    const slidesChanged = JSON.stringify(currentDotIds) !== JSON.stringify(newSlideIds);
+
+    if (slidesChanged) {
+      const activeSlide = visibleSlides.find(s => s.classList.contains('is-active')) || visibleSlides[0];
+      activeMediaId = activeSlide.dataset.mediaId;
+
+      controlWrapper.innerHTML = '';
+      visibleSlides.forEach((slide) => {
+        const mediaId = slide.dataset.mediaId;
+        const btn = document.createElement('button');
+        btn.className = 'slider-counter__link slider-counter__link--dots link';
+        btn.setAttribute('data-media-id', mediaId);
+
+        const dot = document.createElement('span');
+        dot.className = 'dot';
+        btn.appendChild(dot);
+
+        btn.addEventListener('click', function () {
+          activeMediaId = mediaId;
+          syncActiveDot();
+          gallery.setActiveMedia(mediaId, true);
+        });
+
+        controlWrapper.appendChild(btn);
       });
     }
 
-    function buildDots(forceResetActive) {
-      const sliderID = document.querySelector('.product__media-list')?.id;
-      const controlWrapper = document.querySelector('.slideshow__control-wrapper');
-      const gallery = document.querySelector('media-gallery');
-      if (!sliderID || !controlWrapper || !gallery) return;
+    syncActiveDot();
+  }
 
-      const visibleSlides = Array.from(
-        document.querySelectorAll(`#${sliderID} .slider__slide:not(.hidden)`)
-      );
-      if (visibleSlides.length === 0) return;
-
-      const currentDotIds = Array.from(
-        controlWrapper.querySelectorAll('.slider-counter__link--dots')
-      ).map(btn => btn.getAttribute('data-media-id'));
-      const newSlideIds = visibleSlides.map(s => s.dataset.mediaId);
-      const slidesChanged = JSON.stringify(currentDotIds) !== JSON.stringify(newSlideIds);
-
-      if (slidesChanged) {
-        // Variant changed - reset activeMediaId to new active slide
-        const activeSlide = visibleSlides.find(s => s.classList.contains('is-active')) || visibleSlides[0];
-        activeMediaId = activeSlide.dataset.mediaId;
-
-        controlWrapper.innerHTML = '';
-        visibleSlides.forEach((slide) => {
-          const mediaId = slide.dataset.mediaId;
-          const btn = document.createElement('button');
-          btn.className = 'slider-counter__link slider-counter__link--dots link';
-          btn.setAttribute('data-media-id', mediaId);
-
-          const dot = document.createElement('span');
-          dot.className = 'dot';
-          btn.appendChild(dot);
-
-          btn.addEventListener('click', function () {
-            activeMediaId = mediaId;
-            syncActiveDot();
-            gallery.setActiveMedia(mediaId, true);
-          });
-
-          controlWrapper.appendChild(btn);
-        });
-      }
-
-      // Only sync, never reset activeMediaId here unless slidesChanged
-      syncActiveDot();
-    }
-
-    function startPolling() {
-      let lastSlideIds = '';
-      setInterval(() => {
-        const sliderID = document.querySelector('.product__media-list')?.id;
-        if (!sliderID) return;
-        const visibleSlides = Array.from(
-          document.querySelectorAll(`#${sliderID} .slider__slide:not(.hidden)`)
-        );
-        const currentIds = visibleSlides.map(s => s.dataset.mediaId).join(',');
-        if (currentIds !== lastSlideIds) {
-          lastSlideIds = currentIds;
-          buildDots();
-        }
-      }, 200);
-    }
-
-    // Continuously re-apply active dot in case Dawn resets it
-    setInterval(syncActiveDot, 100);
-
-    function init() {
+  // Poll for variant changes
+  let lastSlideIds = '';
+  setInterval(() => {
+    const sliderID = document.querySelector('.product__media-list')?.id;
+    if (!sliderID) return;
+    const visibleSlides = Array.from(
+      document.querySelectorAll(`#${sliderID} .slider__slide:not(.hidden)`)
+    );
+    const currentIds = visibleSlides.map(s => s.dataset.mediaId).join(',');
+    if (currentIds !== lastSlideIds) {
+      lastSlideIds = currentIds;
       buildDots();
-      startPolling();
     }
+  }, 200);
 
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', () => setTimeout(init, 500));
-    } else {
-      setTimeout(init, 500);
-    }
+  // Continuously fight Dawn's class reset
+  setInterval(syncActiveDot, 50);
 
-  })();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => setTimeout(buildDots, 500));
+  } else {
+    setTimeout(buildDots, 500);
+  }
+})();
 </script>
-
-
-
-<style>
-   /* Disable Dawn's own dot active styling completely */
-  .slider-counter__link--active.slider-counter__link--dots .dot {
-    background-color: rgba(var(--color-foreground), 0.5) !important;
-  }
-
-  /* Our active dot */
-  .slider-counter__link--dots .dot.active {
-    background-color: rgb(var(--color-foreground)) !important;
-  }
-
-  {% comment %} .dot.active {
-    background-color: #000 !important;
-  }
-
-  .dot:first-child.active {
-    background-color: #000;
-  } {% endcomment %}
-</style>
