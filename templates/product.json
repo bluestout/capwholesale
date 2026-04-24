@@ -35,7 +35,6 @@
         },
         "text_Pb8kXM": {
           "type": "text",
-          "disabled": true,
           "settings": {
             "text": "As low as <strong>$</strong><strong>{{ product.metafields.custom.as_low_as_price.value }}</strong><strong> USD</strong>",
             "show_installments": true,
