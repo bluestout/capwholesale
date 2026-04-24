@@ -380,54 +380,38 @@
     });
   }
 
-  function buildDots() {
-    const sliderID = document.querySelector('.product__media-list')?.id;
+  function rebuildDotButtons(visibleSlides) {
     const controlWrapper = document.querySelector('.slideshow__control-wrapper');
     const gallery = document.querySelector('media-gallery');
-    if (!sliderID || !controlWrapper || !gallery) return;
+    if (!controlWrapper || !gallery) return;
 
-    const visibleSlides = Array.from(
-      document.querySelectorAll(`#${sliderID} .slider__slide:not(.hidden)`)
-    );
-    if (visibleSlides.length === 0) return;
+    // Set activeMediaId to current active slide only when rebuilding
+    const activeSlide = visibleSlides.find(s => s.classList.contains('is-active')) || visibleSlides[0];
+    activeMediaId = activeSlide.dataset.mediaId;
 
-    const currentDotIds = Array.from(
-      controlWrapper.querySelectorAll('.slider-counter__link--dots')
-    ).map(btn => btn.getAttribute('data-media-id'));
-    const newSlideIds = visibleSlides.map(s => s.dataset.mediaId);
-    const slidesChanged = JSON.stringify(currentDotIds) !== JSON.stringify(newSlideIds);
+    controlWrapper.innerHTML = '';
+    visibleSlides.forEach((slide) => {
+      const mediaId = slide.dataset.mediaId;
+      const btn = document.createElement('button');
+      btn.className = 'slider-counter__link slider-counter__link--dots link';
+      btn.setAttribute('data-media-id', mediaId);
 
-    if (slidesChanged) {
-      const activeSlide = visibleSlides.find(s => s.classList.contains('is-active')) || visibleSlides[0];
-      activeMediaId = activeSlide.dataset.mediaId;
+      const dot = document.createElement('span');
+      dot.className = 'dot';
+      btn.appendChild(dot);
 
-      controlWrapper.innerHTML = '';
-      visibleSlides.forEach((slide) => {
-        const mediaId = slide.dataset.mediaId;
-        const btn = document.createElement('button');
-        btn.className = 'slider-counter__link slider-counter__link--dots link';
-        btn.setAttribute('data-media-id', mediaId);
+      btn.addEventListener('click', function () {
+        clickLock = true;
+        clearTimeout(window._clickLockTimer);
+        window._clickLockTimer = setTimeout(() => { clickLock = false; }, 1500);
 
-        const dot = document.createElement('span');
-        dot.className = 'dot';
-        btn.appendChild(dot);
-
-        btn.addEventListener('click', function () {
-          // Lock scroll sync for 1 second after click
-          clickLock = true;
-          clearTimeout(window._clickLockTimer);
-          window._clickLockTimer = setTimeout(() => {
-            clickLock = false;
-          }, 1000);
-
-          activeMediaId = mediaId;
-          syncActiveDot();
-          gallery.setActiveMedia(mediaId, true);
-        });
-
-        controlWrapper.appendChild(btn);
+        activeMediaId = mediaId;
+        syncActiveDot();
+        gallery.setActiveMedia(mediaId, true);
       });
-    }
+
+      controlWrapper.appendChild(btn);
+    });
 
     syncActiveDot();
   }
@@ -437,7 +421,6 @@
     if (!sliderEl) return;
 
     sliderEl.addEventListener('scroll', () => {
-      // Don't override activeMediaId if user just clicked a dot
       if (clickLock) return;
 
       const slides = Array.from(
@@ -462,23 +445,33 @@
     });
   }
 
-  // Poll for variant changes only
+  // Poll ONLY for variant changes — never touch activeMediaId here
   let lastSlideIds = '';
   setInterval(() => {
+    const sliderID = document.querySelector('.product__media-list')?.id;
+    if (!sliderID) return;
+
+    const visibleSlides = Array.from(
+      document.querySelectorAll(`#${sliderID} .slider__slide:not(.hidden)`)
+    );
+    const currentIds = visibleSlides.map(s => s.dataset.mediaId).join(',');
+
+    if (currentIds !== lastSlideIds) {
+      lastSlideIds = currentIds;
+      // Only rebuild buttons when variant changes — this resets activeMediaId
+      rebuildDotButtons(visibleSlides);
+    }
+    // Do NOT call syncActiveDot here — polling must never touch activeMediaId
+  }, 200);
+
+  function init() {
     const sliderID = document.querySelector('.product__media-list')?.id;
     if (!sliderID) return;
     const visibleSlides = Array.from(
       document.querySelectorAll(`#${sliderID} .slider__slide:not(.hidden)`)
     );
-    const currentIds = visibleSlides.map(s => s.dataset.mediaId).join(',');
-    if (currentIds !== lastSlideIds) {
-      lastSlideIds = currentIds;
-      buildDots();
-    }
-  }, 200);
-
-  function init() {
-    buildDots();
+    if (visibleSlides.length === 0) return;
+    rebuildDotButtons(visibleSlides);
     initScrollSync();
   }
 
