@@ -842,18 +842,8 @@ class SliderComponent extends HTMLElement {
     this.slider.addEventListener('scroll', this.update.bind(this));
     this.prevButton.addEventListener('click', this.onButtonClick.bind(this));
     this.nextButton.addEventListener('click', this.onButtonClick.bind(this));
-    this.linkToSlideHandler = this.linkToSlide.bind(this);
     this.sliderControlLinksArray = Array.from(this.querySelectorAll('.slider-counter__link'));
-    this.sliderControlLinksArray.forEach((link) => link.addEventListener('click', this.linkToSlideHandler));
-  }
-
-  /** Re-bind dot/control links after DOM replacement (e.g. variant change). */
-  refreshSliderControlLinks() {
-    if (!this.linkToSlideHandler) {
-      this.linkToSlideHandler = this.linkToSlide.bind(this);
-    }
-    this.sliderControlLinksArray = Array.from(this.querySelectorAll('.slider-counter__link'));
-    this.sliderControlLinksArray.forEach((link) => link.addEventListener('click', this.linkToSlideHandler));
+    this.sliderControlLinksArray.forEach(link => link.addEventListener('click', this.linkToSlide.bind(this)));
   }
 
   initPages() {
@@ -905,12 +895,14 @@ class SliderComponent extends HTMLElement {
 
     if (!this.sliderControlButtons.length) return;
 
-    this.sliderControlButtons.forEach(link => {
-      link.classList.remove('slider-counter__link--active');
-      link.removeAttribute('aria-current');
-    });
-    this.sliderControlButtons[this.currentPage - 1].classList.add('slider-counter__link--active');
-    this.sliderControlButtons[this.currentPage - 1].setAttribute('aria-current', true);
+    if (!this.slider.closest('slider-component')?.hasAttribute('data-custom-dots')) {
+      this.sliderControlButtons.forEach(link => {
+        link.classList.remove('slider-counter__link--active');
+        link.removeAttribute('aria-current');
+      });
+      this.sliderControlButtons[this.currentPage - 1].classList.add('slider-counter__link--active');
+      this.sliderControlButtons[this.currentPage - 1].setAttribute('aria-current', true);
+    }
   }
 
   isSlideVisible(element, offset = 0) {
@@ -930,11 +922,10 @@ class SliderComponent extends HTMLElement {
     event.preventDefault();
 
     const mediaId = event.currentTarget.getAttribute('data-media-id');
-    const slideId = `Slide-${mediaId}`;
-    const targetSlide = document.getElementById(slideId);
+    const targetSlide = this.querySelector(`#Slide-${mediaId}`);
 
-    if (!targetSlide || !this.contains(targetSlide) || !this.slider) {
-      console.warn('Slide not found:', slideId);
+    if (!targetSlide || !this.slider) {
+      console.warn("Slide not found:", `#Slide-${mediaId}`);
       return;
     }
 
@@ -945,7 +936,7 @@ class SliderComponent extends HTMLElement {
       behavior: 'smooth'
     });
 
-    this.querySelectorAll('.slider-counter__link').forEach((link) => {
+    this.sliderControlLinksArray.forEach(link => {
       link.classList.remove('slider-counter__link--active');
       link.removeAttribute('aria-current');
     });
@@ -1504,3 +1495,21 @@ class CartPerformance {
     );
   }
 }
+
+
+const slide = document.querySelectorAll('.slideshow__control-wrapper .slider-counter__link');
+slide.forEach((item) => {
+  item.addEventListener("click", function () {
+    const scroll = item.getAttribute('data-media-id');
+    const scroll_name = "Slide-" + scroll;
+    const target = document.getElementById(scroll_name);
+    const container = target ? target.parentElement : null;
+
+    if (target && container) {
+      container.scrollTo({
+        left: target.offsetLeft - container.offsetLeft,
+        behavior: 'smooth'
+      });
+    }
+  })
+})
