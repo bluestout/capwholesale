@@ -139,56 +139,51 @@
           {{- 'icon-caret.svg' | inline_asset_content -}}
         </span>
       </button>
-    <div class="slider-counter caption">
-      <div class="slideshow__control-wrapper">
-        {%- comment -%}
-          One pagination dot per visible slide in #Slider-Gallery (same skip rules as the <li> slides above).
-          Previously dots iterated all product.media when "Hide other variants' media" was off, causing dozens of dots;
-          dots also omitted the featured slide unless it was flagged as a variant image.
-        {%- endcomment -%}
-        {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
-        {%- if featured_media != null -%}
-          {%- assign dot_media_position = 1 -%}
-        {%- else -%}
-          {%- assign dot_media_position = 0 -%}
-        {%- endif -%}
-        {%- if featured_media != null -%}
-          <button
-            type="button"
-            class="slider-counter__link slider-counter__link--dots link"
-            data-media-id="{{ section.id }}-{{ featured_media.id }}"
-          >
-            <span class="dot"></span>
-          </button>
-        {%- endif -%}
-        {%- for media in product.media -%}
-          {%- liquid
-            assign skip_dot = false
-            if limit != blank and dot_media_position >= limit
-              assign skip_dot = true
-            endif
-            if dot_media_position >= 1 and section.settings.hide_variants and variant_images contains media.src
-              assign skip_dot = true
-            endif
-          -%}
-          {%- if skip_dot -%}
-            {%- continue -%}
+      <div class="slider-counter caption">
+        <div class="slideshow__control-wrapper">
+          {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
+          {%- if featured_media != null -%}
+            {%- assign dot_media_position = 1 -%}
+          {%- else -%}
+            {%- assign dot_media_position = 0 -%}
           {%- endif -%}
-          {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
+          {%- if featured_media != null -%}
             <button
               type="button"
               class="slider-counter__link slider-counter__link--dots link"
-              data-media-id="{{ section.id }}-{{ media.id }}"
+              data-media-id="{{ section.id }}-{{ featured_media.id }}"
             >
               <span class="dot"></span>
             </button>
+          {%- endif -%}
+          {%- for media in product.media -%}
             {%- liquid
-              assign dot_media_position = dot_media_position | default: 0 | plus: 1
+              assign skip_dot = false
+              if limit != blank and dot_media_position >= limit
+                assign skip_dot = true
+              endif
+              if dot_media_position >= 1 and section.settings.hide_variants and variant_images contains media.src
+                assign skip_dot = true
+              endif
             -%}
-          {%- endunless -%}
-        {%- endfor -%}
+            {%- if skip_dot -%}
+              {%- continue -%}
+            {%- endif -%}
+            {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
+              <button
+                type="button"
+                class="slider-counter__link slider-counter__link--dots link"
+                data-media-id="{{ section.id }}-{{ media.id }}"
+              >
+                <span class="dot"></span>
+              </button>
+              {%- liquid
+                assign dot_media_position = dot_media_position | default: 0 | plus: 1
+              -%}
+            {%- endunless -%}
+          {%- endfor -%}
+        </div>
       </div>
-    </div>
 
       <button
         type="button"
@@ -257,7 +252,7 @@
           calc((100vw - 8rem) / 3)
         {%- endcapture -%}
 
-        {%- assign color_title = product.selected_or_first_available_variant.title | split: " / " | first | downcase -%}
+        {%- assign color_title = product.selected_or_first_available_variant.title | split: ' / ' | first | downcase -%}
 
         {%- if featured_media != null -%}
           {%- liquid
@@ -394,4 +389,3 @@
 {% if section.settings.enable_sticky_info %}
   </div>
 {% endif %}
-
