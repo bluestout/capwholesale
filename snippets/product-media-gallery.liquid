@@ -360,138 +360,126 @@
   .slider-counter__link--dots .dot.active {
     background-color: rgb(var(--color-foreground)) !important;
   }
-  /* Neutralize Dawn's active class */
+
   .slider-counter__link--active.slider-counter__link--dots .dot {
     background-color: rgba(var(--color-foreground), 0.35) !important;
   }
 </style>
 
 <script>
-(function () {
-  let activeMediaId = null;
-  let clickLock = false;
-  let lastSlideIds = '';
+  (function () {
+    let activeMediaId = null;
+    let clickLock = false;
+    let lastSlideIds = '';
 
-  function syncActiveDot() {
-    const controlWrapper = document.querySelector('.slideshow__control-wrapper');
-    if (!controlWrapper || !activeMediaId) return;
-    controlWrapper.querySelectorAll('.slider-counter__link--dots').forEach(btn => {
-      const isActive = btn.getAttribute('data-media-id') === activeMediaId;
-      btn.querySelector('.dot').classList.toggle('active', isActive);
-    });
-  }
+    function syncActiveDot() {
+      const controlWrapper = document.querySelector('.slideshow__control-wrapper');
+      if (!controlWrapper || !activeMediaId) return;
+      controlWrapper.querySelectorAll('.slider-counter__link--dots').forEach((btn) => {
+        const isActive = btn.getAttribute('data-media-id') === activeMediaId;
+        btn.querySelector('.dot').classList.toggle('active', isActive);
+      });
+    }
 
-  function rebuildDotButtons(visibleSlides) {
-    const controlWrapper = document.querySelector('.slideshow__control-wrapper');
-    const gallery = document.querySelector('media-gallery');
-    if (!controlWrapper || !gallery) return;
+    function rebuildDotButtons(visibleSlides) {
+      const controlWrapper = document.querySelector('.slideshow__control-wrapper');
+      const gallery = document.querySelector('media-gallery');
+      if (!controlWrapper || !gallery) return;
 
-    const activeSlide = visibleSlides.find(s => s.classList.contains('is-active')) || visibleSlides[0];
-    activeMediaId = activeSlide.dataset.mediaId;
+      const activeSlide = visibleSlides.find((s) => s.classList.contains('is-active')) || visibleSlides[0];
+      activeMediaId = activeSlide.dataset.mediaId;
 
-    controlWrapper.innerHTML = '';
-    visibleSlides.forEach((slide) => {
-      const mediaId = slide.dataset.mediaId;
-      const btn = document.createElement('button');
-      btn.className = 'slider-counter__link slider-counter__link--dots link';
-      btn.setAttribute('data-media-id', mediaId);
+      controlWrapper.innerHTML = '';
+      visibleSlides.forEach((slide) => {
+        const mediaId = slide.dataset.mediaId;
+        const btn = document.createElement('button');
+        btn.className = 'slider-counter__link slider-counter__link--dots link';
+        btn.setAttribute('data-media-id', mediaId);
 
-      const dot = document.createElement('span');
-      dot.className = 'dot';
-      btn.appendChild(dot);
+        const dot = document.createElement('span');
+        dot.className = 'dot';
+        btn.appendChild(dot);
 
-      btn.addEventListener('click', function () {
-        // Lock BOTH scroll and polling for 2 seconds
-        clickLock = true;
-        clearTimeout(window._clickLockTimer);
-        window._clickLockTimer = setTimeout(() => {
-          clickLock = false;
-          // After lock expires, update lastSlideIds to current state
-          // so polling doesn't trigger a false rebuild
-          const sliderID = document.querySelector('.product__media-list')?.id;
-          if (sliderID) {
-            const currentSlides = Array.from(
-              document.querySelectorAll(`#${sliderID} .slider__slide:not(.hidden)`)
-            );
-            lastSlideIds = currentSlides.map(s => s.dataset.mediaId).join(',');
-          }
-        }, 2000);
+        btn.addEventListener('click', function () {
+          clickLock = true;
+          clearTimeout(window._clickLockTimer);
+          window._clickLockTimer = setTimeout(() => {
+            clickLock = false;
 
-        activeMediaId = mediaId;
-        syncActiveDot();
-        gallery.setActiveMedia(mediaId, true);
+            const sliderID = document.querySelector('.product__media-list')?.id;
+            if (sliderID) {
+              const currentSlides = Array.from(document.querySelectorAll(`#${sliderID} .slider__slide:not(.hidden)`));
+              lastSlideIds = currentSlides.map((s) => s.dataset.mediaId).join(',');
+            }
+          }, 2000);
+
+          activeMediaId = mediaId;
+          syncActiveDot();
+          gallery.setActiveMedia(mediaId, true);
+        });
+
+        controlWrapper.appendChild(btn);
       });
 
-      controlWrapper.appendChild(btn);
-    });
+      syncActiveDot();
+    }
 
-    syncActiveDot();
-  }
+    function initScrollSync() {
+      const sliderEl = document.querySelector('.product__media-list');
+      if (!sliderEl) return;
 
-  function initScrollSync() {
-    const sliderEl = document.querySelector('.product__media-list');
-    if (!sliderEl) return;
+      sliderEl.addEventListener('scroll', () => {
+        if (clickLock) return;
 
-    sliderEl.addEventListener('scroll', () => {
-      if (clickLock) return;
+        const slides = Array.from(document.querySelectorAll(`#${sliderEl.id} .slider__slide:not(.hidden)`));
+        if (!slides.length) return;
 
-      const slides = Array.from(
-        document.querySelectorAll(`#${sliderEl.id} .slider__slide:not(.hidden)`)
-      );
-      if (!slides.length) return;
+        let closestSlide = slides[0];
+        let minDist = Infinity;
+        slides.forEach((slide) => {
+          const dist = Math.abs(slide.offsetLeft - sliderEl.scrollLeft);
+          if (dist < minDist) {
+            minDist = dist;
+            closestSlide = slide;
+          }
+        });
 
-      let closestSlide = slides[0];
-      let minDist = Infinity;
-      slides.forEach(slide => {
-        const dist = Math.abs(slide.offsetLeft - sliderEl.scrollLeft);
-        if (dist < minDist) {
-          minDist = dist;
-          closestSlide = slide;
+        if (closestSlide.dataset.mediaId !== activeMediaId) {
+          activeMediaId = closestSlide.dataset.mediaId;
+          syncActiveDot();
         }
       });
-
-      if (closestSlide.dataset.mediaId !== activeMediaId) {
-        activeMediaId = closestSlide.dataset.mediaId;
-        syncActiveDot();
-      }
-    });
-  }
-
-  // Poll ONLY for variant changes
-  setInterval(() => {
-    // Skip polling entirely during click lock
-    if (clickLock) return;
-
-    const sliderID = document.querySelector('.product__media-list')?.id;
-    if (!sliderID) return;
-
-    const visibleSlides = Array.from(
-      document.querySelectorAll(`#${sliderID} .slider__slide:not(.hidden)`)
-    );
-    const currentIds = visibleSlides.map(s => s.dataset.mediaId).join(',');
-
-    if (currentIds !== lastSlideIds) {
-      lastSlideIds = currentIds;
-      rebuildDotButtons(visibleSlides);
     }
-  }, 200);
 
-  function init() {
-    const sliderID = document.querySelector('.product__media-list')?.id;
-    if (!sliderID) return;
-    const visibleSlides = Array.from(
-      document.querySelectorAll(`#${sliderID} .slider__slide:not(.hidden)`)
-    );
-    if (visibleSlides.length === 0) return;
-    lastSlideIds = visibleSlides.map(s => s.dataset.mediaId).join(',');
-    rebuildDotButtons(visibleSlides);
-    initScrollSync();
-  }
+    setInterval(() => {
+      if (clickLock) return;
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => setTimeout(init, 500));
-  } else {
-    setTimeout(init, 500);
-  }
-})();
+      const sliderID = document.querySelector('.product__media-list')?.id;
+      if (!sliderID) return;
+
+      const visibleSlides = Array.from(document.querySelectorAll(`#${sliderID} .slider__slide:not(.hidden)`));
+      const currentIds = visibleSlides.map((s) => s.dataset.mediaId).join(',');
+
+      if (currentIds !== lastSlideIds) {
+        lastSlideIds = currentIds;
+        rebuildDotButtons(visibleSlides);
+      }
+    }, 200);
+
+    function init() {
+      const sliderID = document.querySelector('.product__media-list')?.id;
+      if (!sliderID) return;
+      const visibleSlides = Array.from(document.querySelectorAll(`#${sliderID} .slider__slide:not(.hidden)`));
+      if (visibleSlides.length === 0) return;
+      lastSlideIds = visibleSlides.map((s) => s.dataset.mediaId).join(',');
+      rebuildDotButtons(visibleSlides);
+      initScrollSync();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => setTimeout(init, 500));
+    } else {
+      setTimeout(init, 500);
+    }
+  })();
 </script>
