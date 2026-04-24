@@ -375,6 +375,21 @@
 <script>
   (function () {
     let observer = null;
+    let isBuilding = false;
+
+    function syncActiveDot() {
+      const sliderID = document.querySelector('.product__media-list')?.id;
+      const controlWrapper = document.querySelector('.slideshow__control-wrapper');
+      if (!sliderID || !controlWrapper) return;
+
+      const activeSlide = document.querySelector(`#${sliderID} .slider__slide.is-active`);
+      if (!activeSlide) return;
+      const activeId = activeSlide.dataset.mediaId;
+
+      controlWrapper.querySelectorAll('.slider-counter__link--dots').forEach(btn => {
+        btn.querySelector('.dot').classList.toggle('active', btn.getAttribute('data-media-id') === activeId);
+      });
+    }
 
     function buildDots() {
       const sliderID = document.querySelector('.product__media-list')?.id;
@@ -386,26 +401,41 @@
         document.querySelectorAll(`#${sliderID} .slider__slide:not(.hidden)`)
       );
 
-      controlWrapper.innerHTML = '';
+      // Check if visible slides changed vs current dots
+      const currentDotIds = Array.from(
+        controlWrapper.querySelectorAll('.slider-counter__link--dots')
+      ).map(btn => btn.getAttribute('data-media-id'));
 
-      visibleSlides.forEach((slide) => {
-        const mediaId = slide.dataset.mediaId;
-        const btn = document.createElement('button');
-        btn.className = 'slider-counter__link slider-counter__link--dots link';
-        btn.setAttribute('data-media-id', mediaId);
+      const newSlideIds = visibleSlides.map(s => s.dataset.mediaId);
 
-        const dot = document.createElement('span');
-        dot.className = 'dot' + (slide.classList.contains('is-active') ? ' active' : '');
-        btn.appendChild(dot);
+      // Only rebuild DOM if the visible slides actually changed (variant switch)
+      const slidesChanged = JSON.stringify(currentDotIds) !== JSON.stringify(newSlideIds);
 
-        btn.addEventListener('click', function () {
-          controlWrapper.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
-          dot.classList.add('active');
-          gallery.setActiveMedia(mediaId, true);
+      if (slidesChanged) {
+        controlWrapper.innerHTML = '';
+
+        visibleSlides.forEach((slide) => {
+          const mediaId = slide.dataset.mediaId;
+          const btn = document.createElement('button');
+          btn.className = 'slider-counter__link slider-counter__link--dots link';
+          btn.setAttribute('data-media-id', mediaId);
+
+          const dot = document.createElement('span');
+          dot.className = 'dot';
+          btn.appendChild(dot);
+
+          btn.addEventListener('click', function () {
+            controlWrapper.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
+            dot.classList.add('active');
+            gallery.setActiveMedia(mediaId, true);
+          });
+
+          controlWrapper.appendChild(btn);
         });
+      }
 
-        controlWrapper.appendChild(btn);
-      });
+      // Always sync the active dot after build
+      syncActiveDot();
     }
 
     function initObserver() {
@@ -414,17 +444,16 @@
       const sliderEl = document.getElementById(sliderID);
       if (!sliderEl) return;
 
-      // Disconnect previous observer if exists
       if (observer) observer.disconnect();
 
       observer = new MutationObserver((mutations) => {
-        // Check if any class changes happened (hidden added/removed = variant change)
         const classChanged = mutations.some(m => m.attributeName === 'class');
         if (!classChanged) return;
 
-        // Debounce: wait for all class changes to settle
         clearTimeout(window._dotRebuildTimer);
-        window._dotRebuildTimer = setTimeout(buildDots, 50);
+        window._dotRebuildTimer = setTimeout(() => {
+          buildDots();
+        }, 50);
       });
 
       observer.observe(sliderEl, {
@@ -439,17 +468,13 @@
       initObserver();
     }
 
-    // Run on page load
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', () => setTimeout(init, 300));
     } else {
       setTimeout(init, 300);
     }
 
-    // Re-run when Shopify variant changes (Dawn fires this event)
     document.addEventListener('variant:changed', () => setTimeout(buildDots, 100));
-
-    // Also listen to Dawn's internal section events
     document.addEventListener('shopify:section:load', () => setTimeout(init, 300));
 
   })();
