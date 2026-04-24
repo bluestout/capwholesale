@@ -842,8 +842,18 @@ class SliderComponent extends HTMLElement {
     this.slider.addEventListener('scroll', this.update.bind(this));
     this.prevButton.addEventListener('click', this.onButtonClick.bind(this));
     this.nextButton.addEventListener('click', this.onButtonClick.bind(this));
+    this.linkToSlideHandler = this.linkToSlide.bind(this);
     this.sliderControlLinksArray = Array.from(this.querySelectorAll('.slider-counter__link'));
-    this.sliderControlLinksArray.forEach(link => link.addEventListener('click', this.linkToSlide.bind(this)));
+    this.sliderControlLinksArray.forEach((link) => link.addEventListener('click', this.linkToSlideHandler));
+  }
+
+  /** Re-bind dot/control links after DOM replacement (e.g. variant change). */
+  refreshSliderControlLinks() {
+    if (!this.linkToSlideHandler) {
+      this.linkToSlideHandler = this.linkToSlide.bind(this);
+    }
+    this.sliderControlLinksArray = Array.from(this.querySelectorAll('.slider-counter__link'));
+    this.sliderControlLinksArray.forEach((link) => link.addEventListener('click', this.linkToSlideHandler));
   }
 
   initPages() {
@@ -920,10 +930,11 @@ class SliderComponent extends HTMLElement {
     event.preventDefault();
 
     const mediaId = event.currentTarget.getAttribute('data-media-id');
-    const targetSlide = this.querySelector(`#Slide-${mediaId}`);
+    const slideId = `Slide-${mediaId}`;
+    const targetSlide = document.getElementById(slideId);
 
-    if (!targetSlide || !this.slider) {
-      console.warn("Slide not found:", `#Slide-${mediaId}`);
+    if (!targetSlide || !this.contains(targetSlide) || !this.slider) {
+      console.warn('Slide not found:', slideId);
       return;
     }
 
@@ -934,7 +945,7 @@ class SliderComponent extends HTMLElement {
       behavior: 'smooth'
     });
 
-    this.sliderControlLinksArray.forEach(link => {
+    this.querySelectorAll('.slider-counter__link').forEach((link) => {
       link.classList.remove('slider-counter__link--active');
       link.removeAttribute('aria-current');
     });
@@ -1493,21 +1504,3 @@ class CartPerformance {
     );
   }
 }
-
-
-const slide = document.querySelectorAll('.slideshow__control-wrapper .slider-counter__link');
-slide.forEach((item) => {
-  item.addEventListener("click", function () {
-    const scroll = item.getAttribute('data-media-id');
-    const scroll_name = "Slide-" + scroll;
-    const target = document.getElementById(scroll_name);
-    const container = target ? target.parentElement : null;
-
-    if (target && container) {
-      container.scrollTo({
-        left: target.offsetLeft - container.offsetLeft,
-        behavior: 'smooth'
-      });
-    }
-  })
-})
