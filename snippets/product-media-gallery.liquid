@@ -370,6 +370,7 @@
 (function () {
   let activeMediaId = null;
   let clickLock = false;
+  let lastSlideIds = '';
 
   function syncActiveDot() {
     const controlWrapper = document.querySelector('.slideshow__control-wrapper');
@@ -385,7 +386,6 @@
     const gallery = document.querySelector('media-gallery');
     if (!controlWrapper || !gallery) return;
 
-    // Set activeMediaId to current active slide only when rebuilding
     const activeSlide = visibleSlides.find(s => s.classList.contains('is-active')) || visibleSlides[0];
     activeMediaId = activeSlide.dataset.mediaId;
 
@@ -401,9 +401,21 @@
       btn.appendChild(dot);
 
       btn.addEventListener('click', function () {
+        // Lock BOTH scroll and polling for 2 seconds
         clickLock = true;
         clearTimeout(window._clickLockTimer);
-        window._clickLockTimer = setTimeout(() => { clickLock = false; }, 1500);
+        window._clickLockTimer = setTimeout(() => {
+          clickLock = false;
+          // After lock expires, update lastSlideIds to current state
+          // so polling doesn't trigger a false rebuild
+          const sliderID = document.querySelector('.product__media-list')?.id;
+          if (sliderID) {
+            const currentSlides = Array.from(
+              document.querySelectorAll(`#${sliderID} .slider__slide:not(.hidden)`)
+            );
+            lastSlideIds = currentSlides.map(s => s.dataset.mediaId).join(',');
+          }
+        }, 2000);
 
         activeMediaId = mediaId;
         syncActiveDot();
@@ -445,9 +457,11 @@
     });
   }
 
-  // Poll ONLY for variant changes — never touch activeMediaId here
-  let lastSlideIds = '';
+  // Poll ONLY for variant changes
   setInterval(() => {
+    // Skip polling entirely during click lock
+    if (clickLock) return;
+
     const sliderID = document.querySelector('.product__media-list')?.id;
     if (!sliderID) return;
 
@@ -458,10 +472,8 @@
 
     if (currentIds !== lastSlideIds) {
       lastSlideIds = currentIds;
-      // Only rebuild buttons when variant changes — this resets activeMediaId
       rebuildDotButtons(visibleSlides);
     }
-    // Do NOT call syncActiveDot here — polling must never touch activeMediaId
   }, 200);
 
   function init() {
@@ -471,6 +483,7 @@
       document.querySelectorAll(`#${sliderID} .slider__slide:not(.hidden)`)
     );
     if (visibleSlides.length === 0) return;
+    lastSlideIds = visibleSlides.map(s => s.dataset.mediaId).join(',');
     rebuildDotButtons(visibleSlides);
     initScrollSync();
   }
