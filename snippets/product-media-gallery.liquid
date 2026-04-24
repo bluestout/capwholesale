@@ -468,6 +468,22 @@
 </script>
 
 <style>
+  /* Override Dawn's dot active state - use stronger specificity */
+  .slideshow__control-wrapper .slider-counter__link--dots .dot {
+    background-color: rgb(204, 204, 204);
+    transition: background-color 0.2s ease;
+  }
+
+  /* Your active dot - beats Dawn's slider-counter__link--active */
+  .slideshow__control-wrapper .slider-counter__link--dots .dot.active {
+    background-color: #000 !important;
+  }
+
+  /* Force Dawn's active class to NOT color the dot unless it also has .active */
+  .slideshow__control-wrapper .slider-counter__link--active .dot:not(.active) {
+    background-color: rgb(204, 204, 204) !important;
+  }
+  
   .dot.active {
     background-color: #000 !important;
   }
