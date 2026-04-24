@@ -298,17 +298,6 @@ if (!customElements.get('product-info')) {
           });
         }
 
-        // Keep pagination dots in sync with slides (updateMedia only replaces the <ul>, not controls).
-        const galleryViewer = document.getElementById(`GalleryViewer-${this.dataset.section}`);
-        const galleryViewerFromFetch = html.getElementById(`GalleryViewer-${this.sectionId}`);
-        const destDots = galleryViewer?.querySelector('.slideshow__control-wrapper');
-        const srcDots = galleryViewerFromFetch?.querySelector('.slideshow__control-wrapper');
-        if (destDots && srcDots) {
-          destDots.innerHTML = srcDots.innerHTML;
-          galleryViewer?.refreshSliderControlLinks?.();
-          galleryViewer?.resetPages?.();
-        }
-
         // set featured media as active in the media gallery
         this.querySelector(`media-gallery`)?.setActiveMedia?.(
           `${this.dataset.section}-${variantFeaturedMediaId}`,
