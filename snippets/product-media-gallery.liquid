@@ -374,6 +374,8 @@
 
 <script>
   (function () {
+    let observer = null;
+
     function buildDots() {
       const sliderID = document.querySelector('.product__media-list')?.id;
       const controlWrapper = document.querySelector('.slideshow__control-wrapper');
@@ -383,13 +385,6 @@
       const visibleSlides = Array.from(
         document.querySelectorAll(`#${sliderID} .slider__slide:not(.hidden)`)
       );
-
-      // If Dawn hasn't hidden slides yet, retry after a short delay
-      const totalSlides = document.querySelectorAll(`#${sliderID} .slider__slide`).length;
-      if (visibleSlides.length === totalSlides && totalSlides > 4) {
-        setTimeout(buildDots, 200);
-        return;
-      }
 
       controlWrapper.innerHTML = '';
 
@@ -411,32 +406,52 @@
 
         controlWrapper.appendChild(btn);
       });
+    }
 
-      // Sync active dot on slide change (swipe etc.)
+    function initObserver() {
+      const sliderID = document.querySelector('.product__media-list')?.id;
+      if (!sliderID) return;
       const sliderEl = document.getElementById(sliderID);
-      if (sliderEl) {
-        const observer = new MutationObserver(() => {
-          const activeSlide = document.querySelector(`#${sliderID} .slider__slide.is-active`);
-          if (!activeSlide) return;
-          const activeId = activeSlide.dataset.mediaId;
-          controlWrapper.querySelectorAll('.slider-counter__link--dots').forEach(btn => {
-            btn.querySelector('.dot').classList.toggle('active', btn.getAttribute('data-media-id') === activeId);
-          });
-        });
-        observer.observe(sliderEl, {
-          attributes: true,
-          subtree: true,
-          attributeFilter: ['class']
-        });
-      }
+      if (!sliderEl) return;
+
+      // Disconnect previous observer if exists
+      if (observer) observer.disconnect();
+
+      observer = new MutationObserver((mutations) => {
+        // Check if any class changes happened (hidden added/removed = variant change)
+        const classChanged = mutations.some(m => m.attributeName === 'class');
+        if (!classChanged) return;
+
+        // Debounce: wait for all class changes to settle
+        clearTimeout(window._dotRebuildTimer);
+        window._dotRebuildTimer = setTimeout(buildDots, 50);
+      });
+
+      observer.observe(sliderEl, {
+        attributes: true,
+        subtree: true,
+        attributeFilter: ['class']
+      });
     }
 
-    // Wait for DOM + Dawn JS to finish
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', () => setTimeout(buildDots, 300));
-    } else {
-      setTimeout(buildDots, 300);
+    function init() {
+      buildDots();
+      initObserver();
     }
+
+    // Run on page load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => setTimeout(init, 300));
+    } else {
+      setTimeout(init, 300);
+    }
+
+    // Re-run when Shopify variant changes (Dawn fires this event)
+    document.addEventListener('variant:changed', () => setTimeout(buildDots, 100));
+
+    // Also listen to Dawn's internal section events
+    document.addEventListener('shopify:section:load', () => setTimeout(init, 300));
+
   })();
 </script>
 
