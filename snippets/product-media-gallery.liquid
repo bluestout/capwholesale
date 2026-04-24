@@ -375,19 +375,14 @@
 <script>
   (function () {
     let observer = null;
-    let isBuilding = false;
+    let activeMediaId = null;
 
     function syncActiveDot() {
-      const sliderID = document.querySelector('.product__media-list')?.id;
       const controlWrapper = document.querySelector('.slideshow__control-wrapper');
-      if (!sliderID || !controlWrapper) return;
-
-      const activeSlide = document.querySelector(`#${sliderID} .slider__slide.is-active`);
-      if (!activeSlide) return;
-      const activeId = activeSlide.dataset.mediaId;
+      if (!controlWrapper || !activeMediaId) return;
 
       controlWrapper.querySelectorAll('.slider-counter__link--dots').forEach(btn => {
-        btn.querySelector('.dot').classList.toggle('active', btn.getAttribute('data-media-id') === activeId);
+        btn.querySelector('.dot').classList.toggle('active', btn.getAttribute('data-media-id') === activeMediaId);
       });
     }
 
@@ -401,17 +396,24 @@
         document.querySelectorAll(`#${sliderID} .slider__slide:not(.hidden)`)
       );
 
-      // Check if visible slides changed vs current dots
+      // Set initial activeMediaId from is-active slide if not set
+      if (!activeMediaId) {
+        const activeSlide = visibleSlides.find(s => s.classList.contains('is-active'));
+        activeMediaId = activeSlide?.dataset.mediaId || visibleSlides[0]?.dataset.mediaId;
+      }
+
       const currentDotIds = Array.from(
         controlWrapper.querySelectorAll('.slider-counter__link--dots')
       ).map(btn => btn.getAttribute('data-media-id'));
 
       const newSlideIds = visibleSlides.map(s => s.dataset.mediaId);
-
-      // Only rebuild DOM if the visible slides actually changed (variant switch)
       const slidesChanged = JSON.stringify(currentDotIds) !== JSON.stringify(newSlideIds);
 
       if (slidesChanged) {
+        // Variant changed - reset activeMediaId to new first visible slide
+        const activeSlide = visibleSlides.find(s => s.classList.contains('is-active'));
+        activeMediaId = activeSlide?.dataset.mediaId || visibleSlides[0]?.dataset.mediaId;
+
         controlWrapper.innerHTML = '';
 
         visibleSlides.forEach((slide) => {
@@ -425,8 +427,9 @@
           btn.appendChild(dot);
 
           btn.addEventListener('click', function () {
-            controlWrapper.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
-            dot.classList.add('active');
+            // Update activeMediaId immediately on click
+            activeMediaId = mediaId;
+            syncActiveDot();
             gallery.setActiveMedia(mediaId, true);
           });
 
@@ -434,7 +437,6 @@
         });
       }
 
-      // Always sync the active dot after build
       syncActiveDot();
     }
 
@@ -449,11 +451,8 @@
       observer = new MutationObserver((mutations) => {
         const classChanged = mutations.some(m => m.attributeName === 'class');
         if (!classChanged) return;
-
         clearTimeout(window._dotRebuildTimer);
-        window._dotRebuildTimer = setTimeout(() => {
-          buildDots();
-        }, 50);
+        window._dotRebuildTimer = setTimeout(buildDots, 50);
       });
 
       observer.observe(sliderEl, {
@@ -474,7 +473,10 @@
       setTimeout(init, 300);
     }
 
-    document.addEventListener('variant:changed', () => setTimeout(buildDots, 100));
+    document.addEventListener('variant:changed', () => {
+      activeMediaId = null; // Reset so it picks up new variant's active slide
+      setTimeout(buildDots, 100);
+    });
     document.addEventListener('shopify:section:load', () => setTimeout(init, 300));
 
   })();
