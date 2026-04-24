@@ -375,28 +375,18 @@
 <script>
   (function () {
     let activeMediaId = null;
-
-    function removeDawnActiveClass() {
-      // Remove Dawn's active class from ALL dot buttons — we manage this ourselves
-      document.querySelectorAll('.slider-counter__link--dots').forEach(btn => {
-        btn.classList.remove('slider-counter__link--active');
-        btn.removeAttribute('aria-current');
-      });
-    }
+    let lastVariantSlideIds = '';
 
     function syncActiveDot() {
       const controlWrapper = document.querySelector('.slideshow__control-wrapper');
       if (!controlWrapper || !activeMediaId) return;
-
-      removeDawnActiveClass();
-
       controlWrapper.querySelectorAll('.slider-counter__link--dots').forEach(btn => {
         const isActive = btn.getAttribute('data-media-id') === activeMediaId;
         btn.querySelector('.dot').classList.toggle('active', isActive);
       });
     }
 
-    function buildDots() {
+    function buildDots(forceResetActive) {
       const sliderID = document.querySelector('.product__media-list')?.id;
       const controlWrapper = document.querySelector('.slideshow__control-wrapper');
       const gallery = document.querySelector('media-gallery');
@@ -405,11 +395,7 @@
       const visibleSlides = Array.from(
         document.querySelectorAll(`#${sliderID} .slider__slide:not(.hidden)`)
       );
-
       if (visibleSlides.length === 0) return;
-
-      const activeSlide = visibleSlides.find(s => s.classList.contains('is-active')) || visibleSlides[0];
-      activeMediaId = activeSlide.dataset.mediaId;
 
       const currentDotIds = Array.from(
         controlWrapper.querySelectorAll('.slider-counter__link--dots')
@@ -418,12 +404,14 @@
       const slidesChanged = JSON.stringify(currentDotIds) !== JSON.stringify(newSlideIds);
 
       if (slidesChanged) {
-        controlWrapper.innerHTML = '';
+        // Variant changed - reset activeMediaId to new active slide
+        const activeSlide = visibleSlides.find(s => s.classList.contains('is-active')) || visibleSlides[0];
+        activeMediaId = activeSlide.dataset.mediaId;
 
+        controlWrapper.innerHTML = '';
         visibleSlides.forEach((slide) => {
           const mediaId = slide.dataset.mediaId;
           const btn = document.createElement('button');
-          // Do NOT include slider-counter__link--active here
           btn.className = 'slider-counter__link slider-counter__link--dots link';
           btn.setAttribute('data-media-id', mediaId);
 
@@ -435,22 +423,15 @@
             activeMediaId = mediaId;
             syncActiveDot();
             gallery.setActiveMedia(mediaId, true);
-            // Keep removing Dawn's class after it tries to add it back
-            setTimeout(syncActiveDot, 50);
-            setTimeout(syncActiveDot, 150);
-            setTimeout(syncActiveDot, 300);
-            setTimeout(syncActiveDot, 500);
           });
 
           controlWrapper.appendChild(btn);
         });
       }
 
+      // Only sync, never reset activeMediaId here unless slidesChanged
       syncActiveDot();
     }
-
-    // Keep removing Dawn's active class continuously
-    setInterval(removeDawnActiveClass, 100);
 
     function startPolling() {
       let lastSlideIds = '';
@@ -468,6 +449,9 @@
       }, 200);
     }
 
+    // Continuously re-apply active dot in case Dawn resets it
+    setInterval(syncActiveDot, 100);
+
     function init() {
       buildDots();
       startPolling();
@@ -481,6 +465,7 @@
 
   })();
 </script>
+
 
 
 <style>
