@@ -382,11 +382,7 @@
 
       controlWrapper.querySelectorAll('.slider-counter__link--dots').forEach(btn => {
         const isActive = btn.getAttribute('data-media-id') === activeMediaId;
-        // Toggle your own active dot class
         btn.querySelector('.dot').classList.toggle('active', isActive);
-        // Also override Dawn's active class to prevent conflict
-        btn.classList.toggle('slider-counter__link--active', isActive);
-        btn.toggleAttribute('aria-current', isActive);
       });
     }
 
@@ -428,6 +424,10 @@
             activeMediaId = mediaId;
             syncActiveDot();
             gallery.setActiveMedia(mediaId, true);
+            // Re-sync after Dawn has time to reset classes
+            setTimeout(syncActiveDot, 100);
+            setTimeout(syncActiveDot, 300);
+            setTimeout(syncActiveDot, 600);
           });
 
           controlWrapper.appendChild(btn);
