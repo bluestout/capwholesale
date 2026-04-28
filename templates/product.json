@@ -33,13 +33,9 @@
             "text_style": "body"
           }
         },
-        "text_Pb8kXM": {
-          "type": "text",
-          "settings": {
-            "text": "As low as <strong>$</strong><strong>{{ product.metafields.custom.as_low_as_price.value }}</strong><strong> USD</strong>",
-            "show_installments": true,
-            "text_style": "body"
-          }
+        "es-price": {
+          "type": "es-price",
+          "settings": {}
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -177,7 +173,7 @@
         "title",
         "fera_product_reviews_summary_NAazjF",
         "sku_HTjRGR",
-        "text_Pb8kXM",
+        "es-price",
         "variant_picker",
         "quantity_radios_EyWCw6",
         "quantity_selector",

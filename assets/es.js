@@ -124,10 +124,18 @@ document.addEventListener('QB_GRID_READY', function(evt){
   const moneyTemplateTable = form.querySelector('#bold_qb_grid');
     if (moneyTemplateTable) {
       const existingQtySelectors = document.querySelector('.es-quantity-radios .es-quantity-radios__body');
-      if(existingQtySelectors) { 
+      if(existingQtySelectors) {
         existingQtySelectors.parentElement.removeChild(existingQtySelectors);
       }
       setESQuantityRadios(moneyTemplateTable);
+    }
+
+    const body = document.querySelector('.es-quantity-radios .es-quantity-radios__body');
+    const realPrice = document.querySelector('.es-price-from:not(.es-price-from--zero)');
+    const zeroPrice = document.querySelector('.es-price-from--zero');
+    if (body && body.childNodes.length > 0) {
+      if (realPrice) realPrice.style.display = '';
+      if (zeroPrice) zeroPrice.style.display = 'none';
     }
 })
 

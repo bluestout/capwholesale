@@ -26,7 +26,6 @@
             "subheading": "",
             "heading": "Cap Size Charts & Definitions",
             "heading_tag": "h2",
-            "border_bottom": false,
             "heading_size": "h1"
           }
         }
@@ -36,6 +35,7 @@
       ],
       "name": "ES Image Banner",
       "settings": {
+        "banner_link": "",
         "show_space": false,
         "image": "shopify://shop_images/CAP_Size_Chart_Desktop.jpg",
         "image_mobile": "shopify://shop_images/CAP_Size_Chart_Mobile.png",
@@ -56,8 +56,7 @@
         "opacity_direct_on_mobile": "vertical",
         "opacity_height_on_mobile": "large",
         "image_height_on_mobile": "adapt",
-        "show_text_below": false,
-        "banner_link": ""
+        "show_text_below": false
       }
     },
     "es_tab_buttons_pGgW6r": {

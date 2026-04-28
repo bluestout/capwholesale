@@ -26,7 +26,6 @@
             "subheading": "",
             "heading": "Shop Richardson Hats",
             "heading_tag": "h2",
-            "border_bottom": true,
             "heading_size": "hxl"
           }
         }
@@ -40,6 +39,7 @@
         "@media (max-width: 768px) {.banner__media img {object-fit: contain; } .banner::after {height: 100%; border-bottom-right-radius: 0px; }}"
       ],
       "settings": {
+        "banner_link": "",
         "show_space": false,
         "image": "shopify://shop_images/Richardson_Banner_For_Caps_2880_X_388_with_camo_cap-Photoroom.png",
         "image_mobile": "shopify://shop_images/Richardson_Banner_For_Caps_2880_X_388_with_camo_cap-Photoroom.png",
@@ -60,8 +60,7 @@
         "opacity_direct_on_mobile": "vertical",
         "opacity_height_on_mobile": "small",
         "image_height_on_mobile": "adapt",
-        "show_text_below": false,
-        "banner_link": ""
+        "show_text_below": false
       }
     },
     "es_gallery_with_link_aP9Len": {
