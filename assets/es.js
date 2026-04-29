@@ -130,12 +130,12 @@ document.addEventListener('QB_GRID_READY', function(evt){
       setESQuantityRadios(moneyTemplateTable);
     }
 
-    // const checkedInput = document.querySelector('.es-quantity-radios input[name="ESQuantityRadios"]:checked');
-    // const checkedPrice = checkedInput?.closest('label')?.querySelector('.es-quantity-radios__price');
-    // const priceFrom = document.querySelector('.es-price-from');
-    // if (checkedPrice && priceFrom) {
-    //   priceFrom.innerHTML = 'From <strong>' + checkedPrice.textContent.trim() + '</strong>';
-    // }
+    const checkedInput = document.querySelector('.es-quantity-radios input[name="ESQuantityRadios"]:checked');
+    const checkedPrice = checkedInput?.closest('label')?.querySelector('.es-quantity-radios__price');
+    const priceFrom = document.querySelector('.es-price-from');
+    if (checkedPrice && priceFrom) {
+      priceFrom.innerHTML = 'From <strong>' + checkedPrice.textContent.trim() + '</strong>';
+    }
 })
 
 observer.observe(document.body, { childList: true, subtree: true });
