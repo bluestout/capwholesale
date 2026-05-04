@@ -240,7 +240,7 @@ class QuantityInput extends HTMLElement {
         // Set initial quantity to first value in list if current value is not in the list
         const currentValue = parseInt(this.input.value);
         if (!this.quantityList.includes(currentValue)) {
-            // this.input.value = this.getClosestValidQuantity(currentValue);
+            this.input.value = this.getClosestValidQuantity(currentValue);
         }
     }
 
