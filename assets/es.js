@@ -120,7 +120,6 @@ const observer = new MutationObserver((mutations, obs) => {
 });
 
 document.addEventListener('QB_GRID_READY', function(evt){
-  console.log ("🪓Test🪓", evt);
   const form = evt.detail.form;
   const moneyTemplateTable = form.querySelector('#bold_qb_grid');
     if (moneyTemplateTable) {
