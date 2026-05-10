@@ -51,15 +51,28 @@
     const qbData = {};
     const qbGrids = {};
 
+    const baseRulePrice = qbLevels.length > 0 ? qbLevels[0].price : null;
+
     for (let v = 0; v < product.variants.length; v++) {
       const variant = product.variants[v];
 
       for (let q = 0; q < qbLevels.length; q++) {
         const qbRule = qbLevels[q];
         let price = variant.price;
-        if (qbRule.saved) { price = Math.round(Math.max(price - qbRule.saved, 0)); }
-        else if (qbRule.percent) { price = Math.round(price - (price * (qbRule.percent / 100))); }
-        else if (qbRule.price) { price = qbRule.price; }
+
+        if (qbRule.saved) {
+          price = Math.round(Math.max(price - qbRule.saved, 0));
+        } else if (qbRule.percent) {
+          price = Math.round(price - (price * (qbRule.percent / 100)));
+        } else if (qbRule.price) {
+          if (baseRulePrice && baseRulePrice > 0) {
+            const discountPct = (baseRulePrice - qbRule.price) / baseRulePrice;
+            price = Math.round(variant.price * (1 - discountPct));
+          } else {
+            price = qbRule.price;
+          }
+        }
+
         qbData[variant.id] = qbData[variant.id] || [];
         qbData[variant.id].push({ qty: qbRule.qty, price: price });
       }
@@ -165,22 +178,29 @@
 </script>
 
 <style>
-  table.shappify_qb_grid { width: auto; }
-  div.bold_qb_grid { width: 100%; }
-  table.shappify_qb_grid { width: 100%; font-size: 12px; }
+  table.shappify_qb_grid {
+    width: auto;
+  }
+  div.bold_qb_grid {
+    width: 100%;
+  }
+  table.shappify_qb_grid {
+    width: 100%;
+    font-size: 12px;
+  }
   table.shappify_qb_grid thead,
   table.shappify_qb_grid thead tr,
   table.shappify_qb_grid thead th,
   table.shappify_qb_grid thead td {
-    background: #D6D6D6;
+    background: #d6d6d6;
     color: #000000;
     font-weight: bold;
   }
   table.shappify_qb_grid tbody tr:nth-child(odd) {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
   }
   table.shappify_qb_grid tbody tr:nth-child(even) {
-    background-color: #EFEFEF;
+    background-color: #efefef;
   }
   table.shappify_qb_grid tbody {
     color: #000000;
@@ -190,7 +210,7 @@
   table.shappify_qb_grid td {
     text-align: left;
     padding: 5px;
-    border: 1px solid #CCCCCC;
+    border: 1px solid #cccccc;
     border-collapse: collapse;
   }
   table.shappify_qb_grid {
