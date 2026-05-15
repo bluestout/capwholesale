@@ -250,7 +250,7 @@
       },
       "14894130144892270760": {
         "type": "shopify://apps/bold-custom-pricing-wholesale/blocks/v3_cart-prices/27ce59c5-d805-4118-89c7-4a7fe286ddce",
-        "disabled": true,
+        "disabled": false,
         "settings": {
           "cart_item_list_locator": "table.cart-items",
           "cart_total_value_locator": ".totals__total-value",
@@ -265,7 +265,7 @@
       },
       "10842145328576398252": {
         "type": "shopify://apps/bold-custom-pricing-wholesale/blocks/v3_bold_pr/27ce59c5-d805-4118-89c7-4a7fe286ddce",
-        "disabled": true,
+        "disabled": false,
         "settings": {
           "enable_compare_at": false,
           "skip_pr_js_load": true
@@ -273,7 +273,7 @@
       },
       "13741738273725063537": {
         "type": "shopify://apps/bold-custom-pricing-wholesale/blocks/v3_price/27ce59c5-d805-4118-89c7-4a7fe286ddce",
-        "disabled": true,
+        "disabled": false,
         "settings": {
           "product-price-locator": "price-item price-item--regular",
           "collection-item-locator": ".card-wrapper",
@@ -290,7 +290,7 @@
       },
       "6040731631751496524": {
         "type": "shopify://apps/bold-custom-pricing-wholesale/blocks/v3_qb_grid/27ce59c5-d805-4118-89c7-4a7fe286ddce",
-        "disabled": true,
+        "disabled": false,
         "settings": {
           "inject-grid-in": "form[action='/cart/add']",
           "check-variant-change-interval-v3": 1000,
