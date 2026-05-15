@@ -276,6 +276,34 @@
           "grid_border_color": "#cccccc",
           "grid_additional_css": "#bold_qb_grid {}"
         }
+      },
+      "3985899678795285077": {
+        "type": "shopify://apps/bold-custom-pricing-wholesale/blocks/v3/27ce59c5-d805-4118-89c7-4a7fe286ddce",
+        "disabled": false,
+        "settings": {
+          "enable_compare_at": false,
+          "skip_pr_js_load": false,
+          "enable_product_drawer": false,
+          "enable_product_options_integration": false,
+          "locators_json": "{\"cart_total_value_locator\":\".totals__total-value\",\"cart_item_list_locator\":\"table.cart-items\",\"cart_item_locator\":\".cart-item\",\"cart_line_item_price_locator\":\".price.price--end\",\"cart_item_price_locator\":\".product-option\",\"cart_checkout_button_id\":\"[name='checkout']\",\"product_price_locator\":\".price-item.price-item--regular\",\"collection_item_locator\":\".card-wrapper\",\"collection_item_price_locator\":\".price-item.price-item--regular\",\"drawer_locator\":\"quick-add-modal.quick-add-modal[open]>.quick-add-modal__content.global-settings-popup, div.featured-product\",\"drawer_price_locator\":\"span.price-item.price-item--regular\",\"search_result_item_locator\":\"li.predictive-search__list-item, div.card-wrapper\",\"search_result_price_locator\":\"span.price-item.price-item--regular\",\"other_product_element_locator\":\".card-wrapper\",\"other_product_price_locator\":\".price-item.price-item--regular\",\"inject_grid_in\":\"form[action='/cart/add']\"}",
+          "check_change_interval": 1000,
+          "delay_cart_price_update": 500,
+          "delay_after_page_load_v3": 200,
+          "delay_after_content_change_v3": 500,
+          "delay_in_each_network_call": 40,
+          "dump_all_collections": false,
+          "listen_product_fetch": "/products/",
+          "listen_search": "/search",
+          "grid_font_size": 12,
+          "grid_head_font_color": "#000",
+          "grid_head_bg_color": "#D6D6D6",
+          "grid_bg_color_even_row": "#EFEFEF",
+          "grid_bg_color_odd_row": "#FFF",
+          "grid_body_font_color": "#000",
+          "grid_border_size": 1,
+          "grid_border_color": "#ccc",
+          "grid_additional_css": "#bold_qb_grid {}"
+        }
       }
     },
     "color_schemes": {
