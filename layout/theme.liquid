@@ -334,7 +334,11 @@
     {% if template.suffix == 'richardson' %}
       {% render 'richardson-template-over' %}
     {% else %}
-      <script src="{{ 'pr.local.js' | asset_url }}" defer type="text/javascript"></script> 
+      
+      {% comment %} Remove Import Price  {% endcomment %}
+      {% comment %} <script src="{{ 'pr.local.js' | asset_url }}" defer type="text/javascript"></script>  {% endcomment %}
+      {% comment %} Remove Import Price {% endcomment %}
+
       {% render 'bold-custom-qb-grid' %}  
     {% endif %}
 
