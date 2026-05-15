@@ -23,6 +23,8 @@
           const ruleset = rules.rulesets[rs];
           for (let r = 0; r < ruleset.rules.length; r++) {
             const rule = ruleset.rules[r];
+            const conditions = ruleset.conditions;
+            if (conditions?.length) { console.log('CONDITIONALS', conditions); }
             if (rule.type != 'DISPLAY') { continue; }
             for (let a = 0; a < rule.actions.length; a++) {
               const action = rule.actions[a];
@@ -32,24 +34,24 @@
           }
         }
 
-        // Dedupe by qty (legacy + new rulesets often emit the same qty multiple times)
         qbLevels = qbLevels
           .sort((a, b) => a.qty - b.qty)
           .filter((lvl, index, allLevels) => {
             const prevLvl = allLevels[index - 1];
             if (!prevLvl) { return true; }
-            return prevLvl.qty != lvl.qty;
+            return prevLvl.qty != lvl.qty && (prevLvl.saved != lvl.saved || prevLvl.percent != lvl.percent || prevLvl.price != lvl.price);
           });
 
         buildQBGrids(mainProduct, qbLevels);
         updateFormsWithQBGrids();
-        startGuardian();
       });
   }
 
   function buildQBGrids(product, qbLevels) {
     const qbData = {};
     const qbGrids = {};
+
+    const baseRulePrice = qbLevels.length > 0 ? qbLevels[0].price : null;
 
     for (let v = 0; v < product.variants.length; v++) {
       const variant = product.variants[v];
@@ -59,12 +61,16 @@
         let price = variant.price;
 
         if (qbRule.saved) {
-          price = Math.max(price - qbRule.saved, 0);
+          price = Math.round(Math.max(price - qbRule.saved, 0));
         } else if (qbRule.percent) {
           price = Math.round(price - (price * (qbRule.percent / 100)));
-        } else if (qbRule.price != null) {
-          // Use Bold's explicit fixed price directly. No baseRulePrice ratio math.
-          price = qbRule.price;
+        } else if (qbRule.price) {
+          if (baseRulePrice && baseRulePrice > 0) {
+            const discountPct = (baseRulePrice - qbRule.price) / baseRulePrice;
+            price = Math.round(variant.price * (1 - discountPct));
+          } else {
+            price = qbRule.price;
+          }
         }
 
         qbData[variant.id] = qbData[variant.id] || [];
@@ -77,8 +83,7 @@
         gridHTML += `<tr><td>${rowData.qty}</td><td>${(rowData.price * 0.01).toLocaleString(undefined, { style: 'currency', currency: {{ shop.currency | json }} })}</td></tr>`;
       }
 
-      // data-source marker lets the guardian detect when a legacy script has overwritten our table
-      qbGrids[variant.id] = `<table class="shappify_qb_grid" data-source="qb-grid-snippet">
+      qbGrids[variant.id] = `<table class="shappify_qb_grid">
         <thead><tr><th>Qty</th><th>Price</th></tr></thead>
         <tbody>
           <tr><td>1</td><td>${(variant.price * 0.01).toLocaleString(undefined, { style: 'currency', currency: {{ shop.currency | json }} })}</td></tr>
@@ -103,16 +108,9 @@
     const variantData = window.BOLDCUSTOM.product?.variants?.find(v => String(v.id) === String(variantId));
     const qbData = window.BOLDCUSTOM.qbData?.[variantId];
 
-    let bestRow = null;
-    if (qbData) {
-      for (let i = 0; i < qbData.length; i++) {
-        if (qbData[i].qty <= qty) {
-          bestRow = qbData[i];
-        } else {
-          break;
-        }
-      }
-    }
+    const bestRow = qbData?.find((row, index, arr) => {
+      return !arr[index + 1] || (row.qty <= qty && !(arr[index + 1].qty <= qty));
+    });
 
     const bestPrice = bestRow?.price ?? variantData?.price ?? 0;
 
@@ -126,98 +124,23 @@
     recalcTotalPrice(evt.target);
   }
 
-  // Rebuild the .es-quantity-radios__body using the rows from our correct table.
-  // We control the radio render ourselves instead of relying on es.js's
-  // QB_GRID_READY listener (which can fire before legacy scripts overwrite the table).
-  function rebuildRadios(gridEl) {
-    const radiosContainer = document.querySelector('.es-quantity-radios');
-    if (!radiosContainer) return;
-
-    const table = gridEl.querySelector('table[data-source="qb-grid-snippet"]');
-    if (!table) return;
-
-    const oldBody = radiosContainer.querySelector('.es-quantity-radios__body');
-    if (oldBody) oldBody.parentElement.removeChild(oldBody);
-
-    const body = document.createElement('div');
-    body.className = 'es-quantity-radios__body';
-
-    const trs = table.querySelectorAll('tbody tr');
-    trs.forEach((tr, index) => {
-      const cells = tr.querySelectorAll('td');
-      const qty = cells[0]?.textContent.trim();
-      const price = cells[1]?.textContent.trim();
-      if (!qty) return;
-
-      const label = document.createElement('label');
-      const input = document.createElement('input');
-      const customInput = document.createElement('span');
-      const spanQty = document.createElement('span');
-      const spanPrice = document.createElement('span');
-
-      spanQty.className = 'es-quantity-radios__pty';
-      spanPrice.className = 'es-quantity-radios__price';
-      customInput.className = 'es-quantity-radios__custom-input';
-
-      input.type = 'radio';
-      input.name = 'ESQuantityRadios';
-      input.value = qty;
-      label.setAttribute('data-quantity', qty);
-
-      if (index === 1) {
-        input.setAttribute('checked', 'checked');
-      }
-
-      spanQty.textContent = qty + '+';
-      spanPrice.textContent = price;
-
-      label.appendChild(input);
-      label.appendChild(customInput);
-      label.appendChild(spanQty);
-      label.appendChild(spanPrice);
-      body.appendChild(label);
-
-      input.addEventListener('change', function () {
-        const qtyInput = document.querySelector('.product .product-form__quantity .quantity__input');
-        if (qtyInput) {
-          qtyInput.value = this.value;
-          qtyInput.form?.dispatchEvent(new CustomEvent('qty_change', { bubbles: true }));
-        }
-      });
-    });
-
-    radiosContainer.appendChild(body);
-  }
-
-  function renderInto(form) {
-    let gridEl = form.querySelector('.bold_qb_grid_custom');
-    if (!gridEl) {
-      gridEl = document.createElement('div');
-      gridEl.className = 'bold_qb_grid_custom';
-      gridEl.id = 'bold_qb_grid';
-      form.prepend(gridEl);
-    }
-
-    const correctHTML = window.BOLDCUSTOM?.qbGrids?.[form.id?.value] || '';
-    if (gridEl.innerHTML !== correctHTML && correctHTML) {
-      gridEl.innerHTML = correctHTML;
-    }
-
-    rebuildRadios(gridEl);
-  }
-
   function updateFormsWithQBGrids() {
     const mainProduct = window.BOLDCUSTOM.product;
     if (!mainProduct) { return; }
 
     for (let f = 0; f < document.forms.length; f++) {
       const form = document.forms[f];
+
       if (!(form.action.includes('cart/add'))) { continue; }
 
-      renderInto(form);
+      let gridEl = form.querySelector('.bold_qb_grid_custom');
 
-      if (!form._qbBound) {
-        form._qbBound = true;
+      if (!gridEl) {
+        gridEl = document.createElement('div');
+        gridEl.className = 'bold_qb_grid_custom';
+        gridEl.id = 'bold_qb_grid';
+        form.prepend(gridEl);
+
         form.addEventListener('change', function (evt) {
           const isVariantChange = evt.target && (
             evt.target.name === 'id' ||
@@ -235,54 +158,20 @@
             });
           }
         });
-
-        form.addEventListener('qty_change', updateTotalPriceEl);
       }
+
+      form.removeEventListener('qty_change', updateTotalPriceEl);
+      form.addEventListener('qty_change', updateTotalPriceEl);
+
+      gridEl.innerHTML = window.BOLDCUSTOM?.qbGrids?.[form.id?.value] || '';
 
       recalcTotalPrice(form);
+
+      form.dispatchEvent(new CustomEvent('QB_GRID_READY', {
+        detail: { product: mainProduct, form: form },
+        bubbles: true
+      }));
     }
-  }
-
-  // Guardian: the legacy CSP scripts (cspqb.js, customer_pricing.php, etc.) run
-  // asynchronously after page load and overwrite the table inside #bold_qb_grid
-  // with their own (wrong, 9-tier) version. We can't disable those scripts because
-  // they're also responsible for backend cart/checkout pricing for B2B/wholesale
-  // customers. So instead we WATCH our container for foreign writes and immediately
-  // restore the correct table + radios.
-  let guardianStarted = false;
-  function startGuardian() {
-    if (guardianStarted) return;
-    guardianStarted = true;
-
-    const checkAndRestore = () => {
-      const grids = document.querySelectorAll('#bold_qb_grid, .bold_qb_grid_custom');
-      let needsRestore = false;
-      grids.forEach(grid => {
-        const table = grid.querySelector('table');
-        if (!table) {
-          needsRestore = true;
-          return;
-        }
-        if (table.getAttribute('data-source') !== 'qb-grid-snippet') {
-          needsRestore = true;
-        }
-      });
-      if (needsRestore) {
-        updateFormsWithQBGrids();
-      }
-    };
-
-    const observer = new MutationObserver(() => checkAndRestore());
-    observer.observe(document.body, { childList: true, subtree: true });
-
-    // Backup timer loop: covers cases where MutationObserver doesn't fire (e.g. when
-    // legacy script uses Element.innerHTML which fires only a parent-level mutation).
-    let ticks = 0;
-    const interval = setInterval(() => {
-      ticks++;
-      checkAndRestore();
-      if (ticks > 20) clearInterval(interval); // 20 × 500ms = 10s coverage
-    }, 500);
   }
 
   window.addEventListener('load', getQBData);
