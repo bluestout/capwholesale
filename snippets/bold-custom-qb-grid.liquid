@@ -12,7 +12,10 @@
   // Loop guards
   let _restoring = false;
   let _restoreCount = 0;
-  const MAX_RESTORES = 30;
+  const MAX_RESTORES = 60;
+
+  // Tracks the last-rendered variant id per form so we can detect actual changes
+  const _lastRenderedVariantId = new WeakMap();
 
   function getQBData() {
     const mainProduct = window.BOLDCUSTOM.product;
@@ -21,22 +24,9 @@
     fetch(`https://api.boldcommerce.com/go_pre/pricerules/stjzta-ux.myshopify.com/rulesets?products=${mainProduct.id}&customer_tags=${window.BOLDCUSTOM.customerTags?.join(',') || ''}`)
       .then(function (resp) { return resp.json(); })
       .then(function (rules) {
-        // === GROUP RULESETS BY TIER LADDER SIGNATURE ===
-        //
-        // Bold's API returns multiple rulesets for one product. Different variants on a single
-        // product can have DIFFERENT tier ladders (e.g. plain colors at one price, patterned
-        // colors at another). The API does not tell us cleanly which ruleset belongs to which
-        // variant.
-        //
-        // Strategy:
-        // 1. For each ruleset, extract its full qty-break ladder
-        // 2. Group rulesets that share the same ladder signature
-        // 3. For each variant, pick the ladder whose qty-12 price matches the variant's
-        //    own price. (We've aligned base price = qty-12 price via Matrixify.)
-        // 4. Outlier ladders (appearing in only 1 ruleset out of many) are excluded — these
-        //    are typically "poisoned" multi-product rulesets contaminating the response.
-
-        const ladders = {}; // signature -> { qbLevels, count, qty12Price }
+        // Group rulesets by their tier-ladder signature (handles per-variant pricing
+        // where the same product has multiple ladders, e.g. plain vs patterned colors).
+        const ladders = {};
 
         for (let rs = 0; rs < (rules.rulesets || []).length; rs++) {
           const ruleset = rules.rulesets[rs];
@@ -73,15 +63,10 @@
           ladders[signature].count++;
         }
 
-        // Identify trustworthy ladders: those backed by more than 1 ruleset, OR the only
-        // ladder available when very few rulesets came back.
         const ladderArr = Object.values(ladders);
         const totalRulesets = (rules.rulesets || []).length;
         const supportThreshold = totalRulesets > 4 ? 2 : 1;
         const trustedLadders = ladderArr.filter(function (l) { return l.count >= supportThreshold; });
-
-        // If filtering threw everything away (e.g. a product where each variant truly has
-        // a unique ladder backed by just 1 ruleset), fall back to keeping all of them.
         const finalLadders = trustedLadders.length > 0 ? trustedLadders : ladderArr;
 
         window.BOLDCUSTOM.ladders = finalLadders;
@@ -89,24 +74,20 @@
         buildQBGrids(mainProduct, finalLadders);
         renderAll();
         startGuardian();
+        startVariantWatcher();
       })
       .catch(function (err) { console.error('[qb-grid] fetch failed:', err); });
   }
 
-  // For a given variant, pick the right tier ladder.
-  // Match by qty-12 price == variant.price (since we've aligned base = qty12).
-  // Fall back to closest match if no exact match.
   function pickLadderForVariant(variant, ladders) {
     if (!ladders || ladders.length === 0) return null;
     if (ladders.length === 1) return ladders[0];
 
-    // Exact match on qty-12 price
     const exact = ladders.find(function (l) {
       return l.qty12Price != null && Math.abs(l.qty12Price - variant.price) < 0.5;
     });
     if (exact) return exact;
 
-    // Otherwise pick the ladder whose qty-12 price is closest to (but not greater than) variant.price
     let best = null;
     let bestDiff = Infinity;
     ladders.forEach(function (l) {
@@ -151,7 +132,7 @@
         gridHTML += `<tr><td>${rowData.qty}</td><td>${(rowData.price * 0.01).toLocaleString(undefined, { style: 'currency', currency: {{ shop.currency | json }} })}</td></tr>`;
       }
 
-      qbGrids[variant.id] = `<table class="shappify_qb_grid" data-source="qb-grid-snippet">
+      qbGrids[variant.id] = `<table class="shappify_qb_grid" data-source="qb-grid-snippet" data-variant="${variant.id}">
         <thead><tr><th>Qty</th><th>Price</th></tr></thead>
         <tbody>
           <tr><td>1</td><td>${(variant.price * 0.01).toLocaleString(undefined, { style: 'currency', currency: {{ shop.currency | json }} })}</td></tr>
@@ -259,11 +240,19 @@
       form.prepend(gridEl);
     }
 
-    const correctHTML = window.BOLDCUSTOM?.qbGrids?.[form.id?.value] || '';
-    if (correctHTML && gridEl.innerHTML !== correctHTML) {
+    const variantId = form.id?.value;
+    const correctHTML = window.BOLDCUSTOM?.qbGrids?.[variantId] || '';
+
+    // Check if the table in the DOM matches the current variant. If not, replace.
+    const currentTable = gridEl.querySelector('table[data-source="qb-grid-snippet"]');
+    const currentTableVariant = currentTable?.getAttribute('data-variant');
+    const needsTableSwap = !currentTable || currentTableVariant !== String(variantId);
+
+    if (correctHTML && needsTableSwap) {
       gridEl.innerHTML = correctHTML;
     }
     rebuildRadios(gridEl);
+    _lastRenderedVariantId.set(form, variantId);
   }
 
   function renderAll() {
@@ -281,17 +270,6 @@
 
         if (!form._qbBound) {
           form._qbBound = true;
-          form.addEventListener('change', function (evt) {
-            const isVariantChange = evt.target && (
-              evt.target.name === 'id' ||
-              evt.target.closest?.('[name="id"]') ||
-              (!evt.target.name?.includes('quantity') && !evt.target.name?.includes('qty'))
-            );
-            renderAll();
-            if (isVariantChange) {
-              requestAnimationFrame(() => requestAnimationFrame(() => recalcTotalPrice(form)));
-            }
-          });
           form.addEventListener('qty_change', function (e) { recalcTotalPrice(e.target); });
         }
         recalcTotalPrice(form);
@@ -334,6 +312,34 @@
       }
       if (ticks > 20 || _restoreCount > MAX_RESTORES) clearInterval(interval);
     }, 500);
+  }
+
+  // Watches the hidden #id input on each cart/add form for variant changes.
+  // The theme updates that input via its own variant-selection JS, often AFTER the click's
+  // change event has fired — so we can't rely on listening to the click. Polling the value
+  // every 200ms catches the update reliably regardless of how the theme triggers it.
+  let variantWatcherStarted = false;
+  function startVariantWatcher() {
+    if (variantWatcherStarted) return;
+    variantWatcherStarted = true;
+
+    setInterval(function () {
+      if (_restoring) return;
+      for (let f = 0; f < document.forms.length; f++) {
+        const form = document.forms[f];
+        if (!(form.action.includes('cart/add'))) continue;
+        const currentVariantId = form.id?.value;
+        if (!currentVariantId) continue;
+        const lastSeen = _lastRenderedVariantId.get(form);
+        if (lastSeen !== currentVariantId) {
+          // Variant changed — re-render this form
+          renderAll();
+          // Allow more restores when variant actually changed (this is legitimate work)
+          _restoreCount = Math.max(0, _restoreCount - 5);
+          break; // renderAll iterates all forms, no need to loop further here
+        }
+      }
+    }, 200);
   }
 
   window.addEventListener('load', getQBData);
