@@ -9,11 +9,10 @@
   window.BOLDCUSTOM.product = {{ product | json }};
   window.BOLDCUSTOM.cartvariants = {{ cart.items | map: 'variant' | map: 'id' | json }}
 
-  // Guard flag prevents the MutationObserver / interval from reacting to OUR OWN writes.
-  // Without this we'd loop infinitely: restore → mutation event → restore → mutation event …
+  // Re-entry / loop guards
   let _restoring = false;
   let _restoreCount = 0;
-  const MAX_RESTORES = 30; // hard safety cap so the page can never freeze
+  const MAX_RESTORES = 30;
 
   function getQBData() {
     const mainProduct = window.BOLDCUSTOM.product;
@@ -22,29 +21,88 @@
     fetch(`https://api.boldcommerce.com/go_pre/pricerules/stjzta-ux.myshopify.com/rulesets?products=${mainProduct.id}&customer_tags=${window.BOLDCUSTOM.customerTags?.join(',') || ''}`)
       .then(function (resp) { return resp.json(); })
       .then(function (rules) {
-        let qbLevels = [];
+        // === CONSENSUS VOTING ALGORITHM ===
+        //
+        // Bold's API may return rulesets that don't all belong to this product. Specifically,
+        // store-wide / multi-product rulesets can contain prices for OTHER products that
+        // happen to share the ruleset's product list. Trusting "first wins" or merging blindly
+        // makes such contaminated rulesets corrupt the displayed prices.
+        //
+        // Strategy: count how many rulesets agree on each (qty, price). The (qty, price)
+        // combination supported by the most rulesets wins for that qty. A qty that appears
+        // in only one ruleset out of many is treated as an outlier and excluded.
 
-        for (let rs = 0; rs < rules.rulesets.length; rs++) {
+        const totalRulesets = rules.rulesets?.length || 0;
+
+        // Per-qty tally of which prices appear how often: { qty: { price: count } }
+        const tally = {};
+        // How many rulesets contained each qty value at all
+        const qtyAppearances = {};
+
+        for (let rs = 0; rs < totalRulesets; rs++) {
           const ruleset = rules.rulesets[rs];
-          for (let r = 0; r < ruleset.rules.length; r++) {
+          // Collect this ruleset's qty breaks; only count each qty once per ruleset
+          const seenQtysInRuleset = new Set();
+          for (let r = 0; r < (ruleset.rules || []).length; r++) {
             const rule = ruleset.rules[r];
-            if (rule.type != 'DISPLAY') { continue; }
-            for (let a = 0; a < rule.actions.length; a++) {
+            if (rule.type !== 'DISPLAY') continue;
+            for (let a = 0; a < (rule.actions || []).length; a++) {
               const action = rule.actions[a];
-              if (action.type != 'DISPLAY_QTY_BREAK') { continue; }
-              qbLevels.push(action);
+              if (action.type !== 'DISPLAY_QTY_BREAK') continue;
+
+              const qty = action.qty;
+              // Build the "price signature" — handles fixed price / saved / percent uniformly
+              const sig = JSON.stringify({
+                price: action.price != null ? action.price : null,
+                saved: action.saved != null ? action.saved : null,
+                percent: action.percent != null ? action.percent : null
+              });
+
+              if (!tally[qty]) tally[qty] = {};
+              tally[qty][sig] = (tally[qty][sig] || 0) + 1;
+              if (!seenQtysInRuleset.has(qty)) {
+                seenQtysInRuleset.add(qty);
+                qtyAppearances[qty] = (qtyAppearances[qty] || 0) + 1;
+              }
             }
           }
         }
 
-        // Dedupe by qty (multiple rulesets often emit the same qty)
-        qbLevels = qbLevels
-          .sort((a, b) => a.qty - b.qty)
-          .filter((lvl, index, allLevels) => {
-            const prevLvl = allLevels[index - 1];
-            if (!prevLvl) { return true; }
-            return prevLvl.qty != lvl.qty;
+        // Determine the minimum-support threshold for a qty to count as legitimate.
+        // If we got 17 rulesets, a qty that's only in 1 of them is an outlier.
+        // If we got 1 ruleset, then 1 is the only support possible — keep it.
+        const supportThreshold = totalRulesets > 2
+          ? Math.ceil(totalRulesets / 2)  // qty must appear in at least half of rulesets
+          : 1;
+
+        // Build winning qbLevels: for each qty meeting the threshold, the most-voted price wins.
+        let qbLevels = [];
+        Object.keys(qtyAppearances).forEach(function (qtyStr) {
+          const qty = parseInt(qtyStr, 10);
+          if (qtyAppearances[qty] < supportThreshold) return; // outlier qty — skip
+
+          // Find the price signature with the most votes for this qty
+          const sigs = tally[qty];
+          let bestSig = null;
+          let bestVotes = -1;
+          Object.keys(sigs).forEach(function (sig) {
+            if (sigs[sig] > bestVotes) {
+              bestVotes = sigs[sig];
+              bestSig = sig;
+            }
           });
+          if (!bestSig) return;
+
+          const winning = JSON.parse(bestSig);
+          qbLevels.push({
+            qty: qty,
+            price: winning.price,
+            saved: winning.saved,
+            percent: winning.percent
+          });
+        });
+
+        qbLevels.sort(function (a, b) { return a.qty - b.qty; });
 
         buildQBGrids(mainProduct, qbLevels);
         renderAll();
@@ -128,7 +186,6 @@
 
     const existingBody = radiosContainer.querySelector('.es-quantity-radios__body');
 
-    // Build new body in a detached fragment
     const body = document.createElement('div');
     body.className = 'es-quantity-radios__body';
 
@@ -174,8 +231,7 @@
       });
     });
 
-    // Cheap signature check: only swap the DOM if the new body actually differs from what's there.
-    // This is the key loop-prevention check — if we'd write the same thing again, do nothing.
+    // No-op if the rendered radios already match — prevents loop
     const newSig = body.textContent;
     const oldSig = existingBody ? existingBody.textContent : '';
     if (newSig === oldSig) return;
@@ -197,13 +253,12 @@
     if (correctHTML && gridEl.innerHTML !== correctHTML) {
       gridEl.innerHTML = correctHTML;
     }
-
     rebuildRadios(gridEl);
   }
 
   function renderAll() {
-    if (_restoring) return; // re-entry guard
-    if (_restoreCount > MAX_RESTORES) return; // hard cap
+    if (_restoring) return;
+    if (_restoreCount > MAX_RESTORES) return;
     _restoring = true;
     try {
       const mainProduct = window.BOLDCUSTOM.product;
@@ -229,27 +284,20 @@
           });
           form.addEventListener('qty_change', function (e) { recalcTotalPrice(e.target); });
         }
-
         recalcTotalPrice(form);
       }
     } finally {
-      // Release the guard on next tick so any MutationObserver fires from our own writes
-      // happen while _restoring is still true and get ignored.
       setTimeout(function () { _restoring = false; }, 0);
     }
   }
 
-  // Returns true if the current DOM state differs from what we want to display.
-  // If it matches, we do nothing — this is what prevents the loop.
   function needsRestore() {
     const grids = document.querySelectorAll('#bold_qb_grid, .bold_qb_grid_custom');
     if (grids.length === 0) return true;
     let ok = true;
     grids.forEach(function (grid) {
       const table = grid.querySelector('table');
-      if (!table || table.getAttribute('data-source') !== 'qb-grid-snippet') {
-        ok = false;
-      }
+      if (!table || table.getAttribute('data-source') !== 'qb-grid-snippet') ok = false;
     });
     return !ok;
   }
@@ -260,16 +308,13 @@
     guardianStarted = true;
 
     const observer = new MutationObserver(function () {
-      if (_restoring) return;        // ignore our own writes
-      if (!needsRestore()) return;   // already correct → do nothing
+      if (_restoring) return;
+      if (!needsRestore()) return;
       _restoreCount++;
       renderAll();
     });
-
     observer.observe(document.body, { childList: true, subtree: true });
 
-    // Backup poller for cases where the legacy script's innerHTML replacement doesn't
-    // fire a useful mutation event. Caps at 20 ticks (10 seconds total).
     let ticks = 0;
     const interval = setInterval(function () {
       ticks++;
