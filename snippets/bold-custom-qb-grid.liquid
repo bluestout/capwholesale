@@ -9,7 +9,7 @@
   window.BOLDCUSTOM.product = {{ product | json }};
   window.BOLDCUSTOM.cartvariants = {{ cart.items | map: 'variant' | map: 'id' | json }}
 
-  // Re-entry / loop guards
+  // Loop guards
   let _restoring = false;
   let _restoreCount = 0;
   const MAX_RESTORES = 30;
@@ -21,107 +21,118 @@
     fetch(`https://api.boldcommerce.com/go_pre/pricerules/stjzta-ux.myshopify.com/rulesets?products=${mainProduct.id}&customer_tags=${window.BOLDCUSTOM.customerTags?.join(',') || ''}`)
       .then(function (resp) { return resp.json(); })
       .then(function (rules) {
-        // === CONSENSUS VOTING ALGORITHM ===
+        // === GROUP RULESETS BY TIER LADDER SIGNATURE ===
         //
-        // Bold's API may return rulesets that don't all belong to this product. Specifically,
-        // store-wide / multi-product rulesets can contain prices for OTHER products that
-        // happen to share the ruleset's product list. Trusting "first wins" or merging blindly
-        // makes such contaminated rulesets corrupt the displayed prices.
+        // Bold's API returns multiple rulesets for one product. Different variants on a single
+        // product can have DIFFERENT tier ladders (e.g. plain colors at one price, patterned
+        // colors at another). The API does not tell us cleanly which ruleset belongs to which
+        // variant.
         //
-        // Strategy: count how many rulesets agree on each (qty, price). The (qty, price)
-        // combination supported by the most rulesets wins for that qty. A qty that appears
-        // in only one ruleset out of many is treated as an outlier and excluded.
+        // Strategy:
+        // 1. For each ruleset, extract its full qty-break ladder
+        // 2. Group rulesets that share the same ladder signature
+        // 3. For each variant, pick the ladder whose qty-12 price matches the variant's
+        //    own price. (We've aligned base price = qty-12 price via Matrixify.)
+        // 4. Outlier ladders (appearing in only 1 ruleset out of many) are excluded — these
+        //    are typically "poisoned" multi-product rulesets contaminating the response.
 
-        const totalRulesets = rules.rulesets?.length || 0;
+        const ladders = {}; // signature -> { qbLevels, count, qty12Price }
 
-        // Per-qty tally of which prices appear how often: { qty: { price: count } }
-        const tally = {};
-        // How many rulesets contained each qty value at all
-        const qtyAppearances = {};
-
-        for (let rs = 0; rs < totalRulesets; rs++) {
+        for (let rs = 0; rs < (rules.rulesets || []).length; rs++) {
           const ruleset = rules.rulesets[rs];
-          // Collect this ruleset's qty breaks; only count each qty once per ruleset
-          const seenQtysInRuleset = new Set();
+          const breaks = [];
           for (let r = 0; r < (ruleset.rules || []).length; r++) {
             const rule = ruleset.rules[r];
             if (rule.type !== 'DISPLAY') continue;
             for (let a = 0; a < (rule.actions || []).length; a++) {
               const action = rule.actions[a];
               if (action.type !== 'DISPLAY_QTY_BREAK') continue;
-
-              const qty = action.qty;
-              // Build the "price signature" — handles fixed price / saved / percent uniformly
-              const sig = JSON.stringify({
+              breaks.push({
+                qty: action.qty,
                 price: action.price != null ? action.price : null,
                 saved: action.saved != null ? action.saved : null,
                 percent: action.percent != null ? action.percent : null
               });
-
-              if (!tally[qty]) tally[qty] = {};
-              tally[qty][sig] = (tally[qty][sig] || 0) + 1;
-              if (!seenQtysInRuleset.has(qty)) {
-                seenQtysInRuleset.add(qty);
-                qtyAppearances[qty] = (qtyAppearances[qty] || 0) + 1;
-              }
             }
           }
+          if (breaks.length === 0) continue;
+
+          breaks.sort(function (a, b) { return a.qty - b.qty; });
+          const signature = breaks.map(function (b) {
+            return b.qty + ':' + (b.price != null ? b.price : '') + ':' + (b.saved != null ? b.saved : '') + ':' + (b.percent != null ? b.percent : '');
+          }).join('|');
+
+          if (!ladders[signature]) {
+            const q12 = breaks.find(function (b) { return b.qty === 12; });
+            ladders[signature] = {
+              qbLevels: breaks,
+              count: 0,
+              qty12Price: q12 ? q12.price : null
+            };
+          }
+          ladders[signature].count++;
         }
 
-        // Determine the minimum-support threshold for a qty to count as legitimate.
-        // If we got 17 rulesets, a qty that's only in 1 of them is an outlier.
-        // If we got 1 ruleset, then 1 is the only support possible — keep it.
-        const supportThreshold = totalRulesets > 2
-          ? Math.ceil(totalRulesets / 2)  // qty must appear in at least half of rulesets
-          : 1;
+        // Identify trustworthy ladders: those backed by more than 1 ruleset, OR the only
+        // ladder available when very few rulesets came back.
+        const ladderArr = Object.values(ladders);
+        const totalRulesets = (rules.rulesets || []).length;
+        const supportThreshold = totalRulesets > 4 ? 2 : 1;
+        const trustedLadders = ladderArr.filter(function (l) { return l.count >= supportThreshold; });
 
-        // Build winning qbLevels: for each qty meeting the threshold, the most-voted price wins.
-        let qbLevels = [];
-        Object.keys(qtyAppearances).forEach(function (qtyStr) {
-          const qty = parseInt(qtyStr, 10);
-          if (qtyAppearances[qty] < supportThreshold) return; // outlier qty — skip
+        // If filtering threw everything away (e.g. a product where each variant truly has
+        // a unique ladder backed by just 1 ruleset), fall back to keeping all of them.
+        const finalLadders = trustedLadders.length > 0 ? trustedLadders : ladderArr;
 
-          // Find the price signature with the most votes for this qty
-          const sigs = tally[qty];
-          let bestSig = null;
-          let bestVotes = -1;
-          Object.keys(sigs).forEach(function (sig) {
-            if (sigs[sig] > bestVotes) {
-              bestVotes = sigs[sig];
-              bestSig = sig;
-            }
-          });
-          if (!bestSig) return;
+        window.BOLDCUSTOM.ladders = finalLadders;
 
-          const winning = JSON.parse(bestSig);
-          qbLevels.push({
-            qty: qty,
-            price: winning.price,
-            saved: winning.saved,
-            percent: winning.percent
-          });
-        });
-
-        qbLevels.sort(function (a, b) { return a.qty - b.qty; });
-
-        buildQBGrids(mainProduct, qbLevels);
+        buildQBGrids(mainProduct, finalLadders);
         renderAll();
         startGuardian();
       })
       .catch(function (err) { console.error('[qb-grid] fetch failed:', err); });
   }
 
-  function buildQBGrids(product, qbLevels) {
+  // For a given variant, pick the right tier ladder.
+  // Match by qty-12 price == variant.price (since we've aligned base = qty12).
+  // Fall back to closest match if no exact match.
+  function pickLadderForVariant(variant, ladders) {
+    if (!ladders || ladders.length === 0) return null;
+    if (ladders.length === 1) return ladders[0];
+
+    // Exact match on qty-12 price
+    const exact = ladders.find(function (l) {
+      return l.qty12Price != null && Math.abs(l.qty12Price - variant.price) < 0.5;
+    });
+    if (exact) return exact;
+
+    // Otherwise pick the ladder whose qty-12 price is closest to (but not greater than) variant.price
+    let best = null;
+    let bestDiff = Infinity;
+    ladders.forEach(function (l) {
+      if (l.qty12Price == null) return;
+      const diff = Math.abs(l.qty12Price - variant.price);
+      if (diff < bestDiff) {
+        bestDiff = diff;
+        best = l;
+      }
+    });
+    return best || ladders[0];
+  }
+
+  function buildQBGrids(product, ladders) {
     const qbData = {};
     const qbGrids = {};
 
     for (let v = 0; v < product.variants.length; v++) {
       const variant = product.variants[v];
+      const ladder = pickLadderForVariant(variant, ladders);
+      if (!ladder) { continue; }
 
-      for (let q = 0; q < qbLevels.length; q++) {
-        const qbRule = qbLevels[q];
+      const variantBreaks = [];
+      for (let q = 0; q < ladder.qbLevels.length; q++) {
+        const qbRule = ladder.qbLevels[q];
         let price = variant.price;
-
         if (qbRule.saved) {
           price = Math.max(price - qbRule.saved, 0);
         } else if (qbRule.percent) {
@@ -129,14 +140,14 @@
         } else if (qbRule.price != null) {
           price = qbRule.price;
         }
-
-        qbData[variant.id] = qbData[variant.id] || [];
-        qbData[variant.id].push({ qty: qbRule.qty, price: price });
+        variantBreaks.push({ qty: qbRule.qty, price: price });
       }
 
+      qbData[variant.id] = variantBreaks;
+
       let gridHTML = '';
-      for (let d = 0; d < qbData[variant.id].length; d++) {
-        const rowData = qbData[variant.id][d];
+      for (let d = 0; d < variantBreaks.length; d++) {
+        const rowData = variantBreaks[d];
         gridHTML += `<tr><td>${rowData.qty}</td><td>${(rowData.price * 0.01).toLocaleString(undefined, { style: 'currency', currency: {{ shop.currency | json }} })}</td></tr>`;
       }
 
@@ -231,7 +242,6 @@
       });
     });
 
-    // No-op if the rendered radios already match — prevents loop
     const newSig = body.textContent;
     const oldSig = existingBody ? existingBody.textContent : '';
     if (newSig === oldSig) return;
