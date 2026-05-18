@@ -83,18 +83,35 @@
     if (!ladders || ladders.length === 0) return null;
     if (ladders.length === 1) return ladders[0];
 
-    const exact = ladders.find(function (l) {
+    // Collect all ladders whose qty-12 price matches the variant's price.
+    // When several match, prefer the one with the most supporting rulesets — this
+    // beats poisoned multi-product rulesets that happen to share the variant's qty-12
+    // price but contain wrong values for other qtys. The legit ladder always has more
+    // support because Bold creates one ruleset per variant for product-specific rules,
+    // while poisoned multi-product rulesets typically appear only 1–2 times.
+    const exactMatches = ladders.filter(function (l) {
       return l.qty12Price != null && Math.abs(l.qty12Price - variant.price) < 0.5;
     });
-    if (exact) return exact;
 
+    if (exactMatches.length > 0) {
+      // Sort by support count, descending. Tiebreaker: more tiers in ladder (richer data).
+      exactMatches.sort(function (a, b) {
+        if (b.count !== a.count) return b.count - a.count;
+        return b.qbLevels.length - a.qbLevels.length;
+      });
+      return exactMatches[0];
+    }
+
+    // No exact match — fall back to closest qty-12 price, preferring higher support.
     let best = null;
     let bestDiff = Infinity;
+    let bestCount = -1;
     ladders.forEach(function (l) {
       if (l.qty12Price == null) return;
       const diff = Math.abs(l.qty12Price - variant.price);
-      if (diff < bestDiff) {
+      if (diff < bestDiff || (diff === bestDiff && l.count > bestCount)) {
         bestDiff = diff;
+        bestCount = l.count;
         best = l;
       }
     });
