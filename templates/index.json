@@ -450,7 +450,7 @@
           "settings": {
             "button_label": "Shop Top Brands",
             "button_link": "shopify://collections/shop-by-hat-style",
-            "button_style_secondary": false,
+            "button_style_secondary": true,
             "open_new_tab": false
           }
         }
