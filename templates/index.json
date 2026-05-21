@@ -448,7 +448,7 @@
         "button_7zEDVg": {
           "type": "button",
           "settings": {
-            "button_label": "Shop Now",
+            "button_label": "Shop Top Brands",
             "button_link": "shopify://collections/shop-by-hat-style",
             "button_style_secondary": false,
             "open_new_tab": false
