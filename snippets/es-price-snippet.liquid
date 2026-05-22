@@ -1,8 +1,4 @@
 {%- liquid
-  if product.price_min and product.price_min > 0
-    assign es_from_price = product.price_min | money
-  else
-    assign es_from_price = product.selected_or_first_available_variant.price | money
-  endif
+  assign es_from_price = product.selected_or_first_available_variant.price | money
 -%}
 <p class="product__text inline-richtext es-price-from">From <strong>{{ es_from_price }}</strong></p>
