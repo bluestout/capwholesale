@@ -1,8 +1,5 @@
 {%- liquid
-  assign as_low_as = product.metafields.custom.as_low_as_price
-  if as_low_as != blank
-    assign es_from_price = '$' | append: as_low_as
-  elsif product.price_min and product.price_min > 0
+  if product.price_min and product.price_min > 0
     assign es_from_price = product.price_min | money
   else
     assign es_from_price = product.selected_or_first_available_variant.price | money
