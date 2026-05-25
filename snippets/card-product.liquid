@@ -254,7 +254,7 @@
               data-raters="{{ card_product.metafields.loox.num_reviews }}"
             ></div>
             {% comment %} {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %} {% endcomment %}
-            {% render 'es-price', product: card_product %}
+            {% render 'es-price-snippet', product: card_product %}
             {%- if card_product.quantity_price_breaks_configured? -%}
               {% if card_product.variants_count == 1 and quick_add == 'bulk' %}
                 {% liquid
