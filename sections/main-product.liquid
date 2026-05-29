@@ -173,6 +173,10 @@
                     {%- endform -%}
                   </div>
                 {%- endif %}
+
+              {%- when 'es-price' -%}
+                {%- render 'es-price-snippet' -%}
+              
               {%- when 'title' -%}
                 <div class="product__title" {{ block.shopify_attributes }}>
                   <h1>{{ product.title | escape }}</h1>
@@ -398,6 +402,8 @@
                         id="Quantity-{{ section.id }}"
                         data-cart-quantity="{{ cart_qty }}"
                         data-min="{{ product.metafields.custom.qty_cw.value | minus: 0 | round: 0 }}"
+                        {% unless product.tags contains 'sample-packs' %}
+                        {% endunless %}
                         min="{{ product.metafields.custom.qty_cw.value | minus: 0 | round: 0 }}"
                         {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
                           data-max="{{ product.selected_or_first_available_variant.quantity_rule.max | round: 0 }}"
@@ -996,6 +1002,11 @@
     {
       "type": "title",
       "name": "t:sections.main-product.blocks.title.name",
+      "limit": 1
+    },
+    {
+      "type": "es-price",
+      "name": "Grid Price",
       "limit": 1
     },
     {
