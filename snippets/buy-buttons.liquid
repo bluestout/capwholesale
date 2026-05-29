@@ -37,22 +37,22 @@
       endfor
     -%}
     {% unless product.tags contains 'sample-packs' %}
+      {%- if block.settings.buy_btn_text != blank and blocked_single_product -%}
+        <div class="lower-price-product-cart">
+          <button
+            id="ProductSubmitButton-{{ section_id }}"
+            type="button"
+            name="add"
+            class="buy-lower-price-btn {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %} buy-lower-price-btn--inactive"
+            aria-label="Buy a single piece at promotional price"
+          >
+            {%- assign promo_price = product.selected_or_first_available_variant.price | money_with_currency %}
+            {{ block.settings.buy_btn_text | replace: '__PRICE__', promo_price }}
+          </button>
+          <p class="buy-lower-price-hint" aria-live="polite">Select a quantity of 1–3 to unlock this price</p>
+        </div>
+      {%- endif -%}
     {% endunless %}
-    {%- if block.settings.buy_btn_text != blank and blocked_single_product -%}
-      <div class="lower-price-product-cart">
-        <button
-          id="ProductSubmitButton-{{ section_id }}"
-          type="button"
-          name="add"
-          class="buy-lower-price-btn {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %} buy-lower-price-btn--inactive"
-          aria-label="Buy a single piece at promotional price"
-        >
-          {%- assign promo_price = product.selected_or_first_available_variant.price | money_with_currency %}
-          {{ block.settings.buy_btn_text | replace: '__PRICE__', promo_price }}
-        </button>
-        <p class="buy-lower-price-hint" aria-live="polite">Select a quantity of 1–3 to unlock this price</p>
-      </div>
-    {%- endif -%}
 
     <product-form
       class="product-form"
