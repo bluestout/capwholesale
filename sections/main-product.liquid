@@ -417,11 +417,11 @@
                         step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
 
                         {% if product.tags contains 'sample-packs' %}
-                          min="1"
+                          value="1"
                         {% else %}
                           value="{{ product.metafields.custom.qty_cw.value | minus: 0 | round: 0 }}"
                         {% endif %}
-                        
+
                         form="{{ product_form_id }}"
                         required
                       >
