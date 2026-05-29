@@ -401,7 +401,12 @@
                         name="quantity"
                         id="Quantity-{{ section.id }}"
                         data-cart-quantity="{{ cart_qty }}"
-                        data-min="{{ product.metafields.custom.qty_cw.value | minus: 0 | round: 0 }}"
+
+                        {% if product.tags contains 'sample-packs' %}
+                          data-min="1"
+                        {% else %}
+                          data-min="{{ product.metafields.custom.qty_cw.value | minus: 0 | round: 0 }}"
+                        {% endif %}
                         
                         {% if product.tags contains 'sample-packs' %}
                           min="1"
