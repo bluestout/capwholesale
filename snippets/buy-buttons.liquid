@@ -36,10 +36,9 @@
         endif
       endfor
     -%}
-
-    {% comment %} {%- if block.settings.buy_btn_text != blank and blocked_single_product -%} {% endcomment %}
-    {%- if block.settings.buy_btn_text != blank and blocked_single_product and product.tags contains 'sample-packs' == false -%}
-
+    {% unless product.tags contains 'sample-packs' %}
+    {% endunless %}
+    {%- if block.settings.buy_btn_text != blank and blocked_single_product -%}
       <div class="lower-price-product-cart">
         <button
           id="ProductSubmitButton-{{ section_id }}"
