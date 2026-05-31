@@ -233,9 +233,38 @@ class QuantityInput extends HTMLElement {
 
     quantityUpdateUnsubscriber = undefined;
 
+    // Sample packs are sold as a single unit starting at qty 1 — they must NOT
+    // be forced into multiples of 12. Detected via the data-sample-pack flag
+    // set in main-product.liquid, or a rendered min of 1 as a fallback.
+    get isSamplePack() {
+        return this.dataset.samplePack === 'true' || parseInt(this.input.min) === 1;
+    }
+
+    // Lowest quantity allowed (1 for sample packs, 12 otherwise).
+    get minValue() {
+        if (this.isSamplePack) {
+            const min = parseInt(this.input.min);
+            return min > 0 ? min : 1;
+        }
+        return 12;
+    }
+
+    // Amount the +/- buttons step by (the input's own step for sample packs,
+    // a dozen otherwise).
+    get stepSize() {
+        if (this.isSamplePack) {
+            const step = parseInt(this.input.step);
+            return step > 0 ? step : 1;
+        }
+        return 12;
+    }
+
     connectedCallback() {
         this.validateQtyRules();
         this.quantityUpdateUnsubscriber = subscribe(PUB_SUB_EVENTS.quantityUpdate, this.validateQtyRules.bind(this));
+
+        // Sample packs: keep the value Liquid rendered (1), don't snap to 12.
+        if (this.isSamplePack) return;
 
         // Set initial quantity to first value in list if current value is not in the list
         const currentValue = parseInt(this.input.value);
@@ -244,11 +273,28 @@ class QuantityInput extends HTMLElement {
         }
     }
 
+    // Snap an arbitrary number down to the nearest value in the active list.
+    getClosestValidQuantity(value) {
+        if (isNaN(value) || value <= this.quantityList[0]) return this.quantityList[0];
+        let closest = this.quantityList[0];
+        for (const q of this.quantityList) {
+            if (q <= value) closest = q;
+            else break;
+        }
+        return closest;
+    }
+
     /**
      * Switches between quantity lists based on customization method
      * @param {string} customizationMethod - The customization method
      */
     setQuantityListForMethod(customizationMethod) {
+        // Sample packs don't use dozen tiers — leave their value alone.
+        if (this.isSamplePack) {
+            this.validateQtyRules();
+            return;
+        }
+
         if (customizationMethod === 'Patches') {
             this.quantityList = this.patchesQuantityList;
         } else if (customizationMethod === 'Screen Print') {
@@ -281,7 +327,20 @@ class QuantityInput extends HTMLElement {
     validateQuantityInput(event) {
         const inputValue = parseInt(event.target.value);
 
-        // Check if value is a multiple of 12 and at least 12
+        // Sample packs: only require a whole number at or above the floor (1).
+        if (this.isSamplePack) {
+            if (isNaN(inputValue) || inputValue < this.minValue) {
+                event.target.setCustomValidity(`Please enter a quantity of ${this.minValue} or more.`);
+                event.target.reportValidity();
+                this.disableAddToCartButtons(true);
+                return false;
+            }
+            event.target.setCustomValidity('');
+            this.disableAddToCartButtons(false);
+            return true;
+        }
+
+        // Normal products: must be a multiple of 12 and at least 12.
         if (inputValue < 12 || inputValue % 12 !== 0) {
             const message = window.quickOrderListStrings.multiples_error || 'Please enter a multiple of 12, like 12, 24, 36, 48 …';
 
@@ -339,16 +398,15 @@ class QuantityInput extends HTMLElement {
     onButtonClick(event) {
         event.preventDefault();
         const previousValue = this.input.value;
-        const currentValue = parseInt(this.input.value);
+        const currentValue = parseInt(this.input.value) || this.minValue;
+        const step = this.stepSize;
 
         if (event.target.name === 'plus') {
-            // Increment by 12 to maintain multiples of 12
-            const newValue = currentValue + 12;
-            this.input.value = newValue;
+            // Step up by stepSize (1 for sample packs, 12 otherwise).
+            this.input.value = currentValue + step;
         } else {
-            // Decrement by 12 to maintain multiples of 12, but don't go below 12
-            const newValue = Math.max(12, currentValue - 12);
-            this.input.value = newValue;
+            // Step down by stepSize, but never below the floor.
+            this.input.value = Math.max(this.minValue, currentValue - step);
         }
         this.input?.form?.dispatchEvent(new CustomEvent('qty_change', { bubbles: true }));
 
@@ -361,9 +419,9 @@ class QuantityInput extends HTMLElement {
         const buttonMinus = this.querySelector(".quantity__button[name='minus']");
         const buttonPlus = this.querySelector(".quantity__button[name='plus']");
 
-        // Disable minus button if at minimum (12)
+        // Disable minus button at the floor (12 normally, 1 for sample packs).
         if (buttonMinus) {
-            buttonMinus.classList.toggle('disabled', value <= 12);
+            buttonMinus.classList.toggle('disabled', value <= this.minValue);
         }
 
         // Plus button is generally always enabled unless there's a max limit

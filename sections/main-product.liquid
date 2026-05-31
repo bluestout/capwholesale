@@ -386,6 +386,7 @@
                       class="quantity ui-quantity"
                       data-url="{{ product.url }}"
                       data-section="{{ section.id }}"
+                      data-sample-pack="{% if product.tags contains 'sample-packs' %}true{% else %}false{% endif %}"
                     >
                       <button class="quantity__button" name="minus" type="button">
                         <span class="visually-hidden">
