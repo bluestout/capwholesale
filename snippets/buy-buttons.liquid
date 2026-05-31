@@ -251,6 +251,12 @@
 
 <script>
   (function () {
+    {%- if product.tags contains 'sample-packs' -%}
+      // Sample packs are sold as single units starting at qty 1, so the
+      // "single piece (1–3)" promo logic — which disables Add to Cart for
+      // quantities 1–3 — must not run on these products.
+      return;
+    {%- endif -%}
     function getQuantityInput() {
       return document.querySelector('.product .quantity input[name="quantity"]');
     }
