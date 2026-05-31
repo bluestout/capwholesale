@@ -4,8 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const priceElement = document.querySelector('.ui-price-regular .price-item--regular');
     const subPriceElement = document.querySelector('.sub-total-price-value');
 
-    input.min = 12;
-    input.value = 12;
+    {%- unless product.tags contains 'sample-packs' -%}
+      if (input) {
+        input.min = 12;
+        input.value = 12;
+      }
+    {%- endunless -%}
     
     if (!input || !priceElement || !subPriceElement) {
         console.error('Required elements not found');
