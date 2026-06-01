@@ -237,7 +237,9 @@ class QuantityInput extends HTMLElement {
     // be forced into multiples of 12. Detected via the data-sample-pack flag
     // set in main-product.liquid, or a rendered min of 1 as a fallback.
     get isSamplePack() {
-        return this.dataset.samplePack === 'true' || parseInt(this.input.min) === 1;
+        // Strictly driven by the `sample-packs` tag, surfaced as data-sample-pack
+        // on the <quantity-input> element by the Liquid templates.
+        return this.dataset.samplePack === 'true';
     }
 
     // Lowest quantity allowed (1 for sample packs, 12 otherwise).
