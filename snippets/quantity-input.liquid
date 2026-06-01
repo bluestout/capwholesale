@@ -10,7 +10,7 @@
   {% render 'quantity-input' variant: variant %}
 {% endcomment %}
 
-<quantity-input class="quantity cart-quantity">
+<quantity-input class="quantity cart-quantity" data-sample-pack="{% if variant.product.tags contains 'sample-packs' %}true{% else %}false{% endif %}">
   <button class="quantity__button" name="minus" type="button" data-target="decrement-{{ variant.id }}">
     <span class="visually-hidden">
       {{- 'products.product.quantity.decrease' | t: product: variant.title | escape -}}
@@ -25,12 +25,21 @@
     {% # theme-check-disable %}
     value="{{ cart | item_count_for_variant: variant.id }}"
     data-cart-quantity="{{ cart | item_count_for_variant: variant.id }}"
-    min="{{ min }}"
-    data-min="{{ variant.quantity_rule.min }}"
+    {% if variant.product.tags contains 'sample-packs' %}
+      min="1"
+      data-min="1"
+    {% else %}
+      min="{{ min }}"
+      data-min="{{ variant.quantity_rule.min }}"
+    {% endif %}
     {% if variant.quantity_rule.max != null %}
       max="{{ variant.quantity_rule.max }}"
     {% endif %}
-    step="12" {% comment %} {{ variant.quantity_rule.increment }} {% endcomment %}
+    {% if variant.product.tags contains 'sample-packs' %}
+      step="1"
+    {% else %}
+      step="12" {% comment %} {{ variant.quantity_rule.increment }} {% endcomment %}
+    {% endif %}
     {% # theme-check-enable %}
     aria-label="{{ 'products.product.quantity.input_label' | t: product: variant.title | escape }}"
     id="Quantity-{{ variant.id }}"
