@@ -1,8 +1,6 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     const input = document.querySelector('.product-form__quantity .quantity__input');
-    const priceElement = document.querySelector('.ui-price-regular .price-item--regular');
-    const subPriceElement = document.querySelector('.sub-total-price-value');
 
     {%- unless product.tags contains 'sample-packs' -%}
       if (input) {
@@ -10,30 +8,33 @@ document.addEventListener('DOMContentLoaded', () => {
         input.value = 12;
       }
     {%- endunless -%}
-    
-    if (!input || !priceElement || !subPriceElement) {
-        console.error('Required elements not found');
-        return;
-    }
-    
-    const priceText = priceElement.innerText;
-    const price = parseFloat(priceText.replace(/[^0-9.]/g, ''));
-    
+
     const updateTotalPrice = () => {
-        const quantity = parseInt(input.value) || 0;
-        const total = quantity * price;
-        
-        subPriceElement.innerText = "$" + total.toFixed(2) + " USD";
+        const qtyInput = document.querySelector('.product-form__quantity .quantity__input');
+        const priceEl = document.querySelector('.ui-price-regular .price-item--regular');
+        const totalEl = document.querySelector('.sub-total-price-value');
+        if (!qtyInput || !priceEl || !totalEl) return;
+
+        const price = parseFloat(priceEl.innerText.replace(/[^0-9.]/g, '')) || 0;
+        const quantity = parseInt(qtyInput.value) || 0;
+
+        totalEl.innerText = "$" + (quantity * price).toFixed(2) + " USD";
     };
-    
+
     updateTotalPrice();
-    
-    input.addEventListener('input', updateTotalPrice);
-    input.addEventListener('change', updateTotalPrice);
-    
-    const form = input.closest('form');
-    if (form) {
-        form.addEventListener('qty_change', updateTotalPrice);
+
+    if (input) {
+        input.addEventListener('input', updateTotalPrice);
+        input.addEventListener('change', updateTotalPrice);
+
+        const form = input.closest('form');
+        if (form) {
+            form.addEventListener('qty_change', updateTotalPrice);
+        }
+    }
+
+    if (typeof subscribe === 'function' && typeof PUB_SUB_EVENTS !== 'undefined' && PUB_SUB_EVENTS.quantityUpdate) {
+        subscribe(PUB_SUB_EVENTS.quantityUpdate, updateTotalPrice);
     }
 });
 </script>
