@@ -65,8 +65,15 @@ class CartItems extends HTMLElement {
     const index = event.target.dataset.index;
     let message = '';
 
-    // Check if value is a multiple of 12 and at least 12
-    if (inputValue < 12 || inputValue % 12 !== 0) {
+    // Sample packs are sold as single units, not by the dozen. Detect them and
+    // skip the multiples-of-12 rule; they're validated by the min/max/step checks below.
+    const isSamplePack =
+      event.target.closest('quantity-input')?.dataset.samplePack === 'true' ||
+      parseInt(event.target.dataset.min) === 1 ||
+      parseInt(event.target.step) === 1;
+
+    // Check if value is a multiple of 12 and at least 12 (dozen products only)
+    if (!isSamplePack && (inputValue < 12 || inputValue % 12 !== 0)) {
       message = window.quickOrderListStrings.multiples_error || 'Please enter a multiple of 12, like 12, 24, 36, 48 …';
       
       this.setValidity(event, index, message);
