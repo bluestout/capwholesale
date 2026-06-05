@@ -33,8 +33,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    if (typeof subscribe === 'function' && typeof PUB_SUB_EVENTS !== 'undefined' && PUB_SUB_EVENTS.quantityUpdate) {
-        subscribe(PUB_SUB_EVENTS.quantityUpdate, updateTotalPrice);
+    if (typeof subscribe === 'function' && typeof PUB_SUB_EVENTS !== 'undefined') {
+        // Programmatic quantity resets (setQuantityBoundries) publish quantityUpdate.
+        if (PUB_SUB_EVENTS.quantityUpdate) {
+            subscribe(PUB_SUB_EVENTS.quantityUpdate, updateTotalPrice);
+        }
+        // Selecting a different option re-renders the price (and the total element)
+        // and publishes variantChange afterwards — recompute with the new price then.
+        if (PUB_SUB_EVENTS.variantChange) {
+            subscribe(PUB_SUB_EVENTS.variantChange, updateTotalPrice);
+        }
     }
 });
 </script>
