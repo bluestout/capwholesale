@@ -175,11 +175,11 @@
                     style="--animation-order: {{ forloop.index }};"
                   {% endif %}
                   data-product-custom-price="{{ product.variants.first.price }}"
-                  {% if product.metafields.custom.custom_sorting_price != blank %}
+                  {% comment %} {% if product.metafields.custom.custom_sorting_price != blank %}
                     data-product-custom-price="{{ product.metafields.custom.custom_sorting_price.value }}"
                   {% else %}
                     data-product-custom-price="{{ product.metafields.custom.as_low_as_price.value }}"
-                  {% endif %}
+                  {% endif %} {% endcomment %}
                 >
                   {% render 'card-product',
                     card_product: product,
