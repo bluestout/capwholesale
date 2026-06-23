@@ -9,29 +9,20 @@ function getFocusableElements(container) {
 class SectionId {
     static #separator = '__';
 
-    // for a qualified section id (e.g. 'template--22224696705326__main'), return just the section id (e.g. 'template--22224696705326')
     static parseId(qualifiedSectionId) {
         return qualifiedSectionId.split(SectionId.#separator)[0];
     }
 
-    // for a qualified section id (e.g. 'template--22224696705326__main'), return just the section name (e.g. 'main')
     static parseSectionName(qualifiedSectionId) {
         return qualifiedSectionId.split(SectionId.#separator)[1];
     }
 
-    // for a section id (e.g. 'template--22224696705326') and a section name (e.g. 'recommended-products'), return a qualified section id (e.g. 'template--22224696705326__recommended-products')
     static getIdForSection(sectionId, sectionName) {
         return `${sectionId}${SectionId.#separator}${sectionName}`;
     }
 }
 
 class HTMLUpdateUtility {
-    /**
-     * Used to swap an HTML node with a new node.
-     * The new node is inserted as a previous sibling to the old node, the old node is hidden, and then the old node is removed.
-     *
-     * The function currently uses a double buffer approach, but this should be replaced by a view transition once it is more widely supported https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API
-     */
     static viewTransition(oldNode, newContent, preProcessCallbacks = [], postProcessCallbacks = []) {
         preProcessCallbacks?.forEach((callback) => callback(newContent));
 
@@ -39,7 +30,6 @@ class HTMLUpdateUtility {
         HTMLUpdateUtility.setInnerHTML(newNodeWrapper, newContent.outerHTML);
         const newNode = newNodeWrapper.firstChild;
 
-        // dedupe IDs
         const uniqueKey = Date.now();
         oldNode.querySelectorAll('[id], [form]').forEach((element) => {
             element.id && (element.id = `${element.id}-${uniqueKey}`);
@@ -54,7 +44,6 @@ class HTMLUpdateUtility {
         setTimeout(() => oldNode.remove(), 500);
     }
 
-    // Sets inner HTML and reinjects the script tags to allow execution. By default, scripts are disabled when using element.innerHTML.
     static setInnerHTML(element, html) {
         element.innerHTML = html;
         element.querySelectorAll('script').forEach((oldScriptTag) => {
@@ -104,14 +93,12 @@ function trapFocus(container, elementToFocus = container) {
     };
 
     trapFocusHandlers.keydown = function (event) {
-        if (event.code.toUpperCase() !== 'TAB') return; // If not TAB key
-        // On the last focusable element and tab forward, focus the first element.
+        if (event.code.toUpperCase() !== 'TAB') return;
         if (event.target === last && !event.shiftKey) {
             event.preventDefault();
             first.focus();
         }
 
-        //  On the first focusable element and tab backward, focus the last element.
         if ((event.target === container || event.target === first) && event.shiftKey) {
             event.preventDefault();
             last.focus();
@@ -132,7 +119,6 @@ function trapFocus(container, elementToFocus = container) {
     }
 }
 
-// Here run the querySelector to figure out if the browser supports :focus-visible or not and run code based on it.
 try {
     document.querySelector(':focus-visible');
 } catch (e) {
@@ -224,26 +210,18 @@ class QuantityInput extends HTMLElement {
             button.addEventListener('click', this.onButtonClick.bind(this))
         );
 
-        // Predefined quantity lists for different customization methods
         this.defaultQuantityList = [12, 24, 48, 72, 96, 144, 288, 576, 1008, 1500];
         this.patchesQuantityList = [24, 48, 96, 144, 288, 576, 1008, 1500];
         this.screenPrintQuantityList = [24, 48, 96, 144, 288, 576, 1008];
-        this.quantityList = this.defaultQuantityList; // Default to regular list
+        this.quantityList = this.defaultQuantityList;
     }
 
     quantityUpdateUnsubscriber = undefined;
 
-    // Sample packs are sold as a single unit starting at qty 1 — they must NOT
-    // be forced into multiples of 12. Detected via the data-sample-pack flag
-    // set in main-product.liquid, or a rendered min of 1 as a fallback.
     get isSamplePack() {
-        // Relaxed (non-dozen) quantity rules — min 1, step 1, no dozen snap.
-        // Applies to sample packs (data-sample-pack) and to single-piece promo
-        // cart lines (data-single-piece), both surfaced by the Liquid templates.
         return this.dataset.samplePack === 'true' || this.dataset.singlePiece === 'true';
     }
 
-    // Lowest quantity allowed (1 for sample packs, 12 otherwise).
     get minValue() {
         if (this.isSamplePack) {
             const min = parseInt(this.input.min);
@@ -252,8 +230,6 @@ class QuantityInput extends HTMLElement {
         return 12;
     }
 
-    // Amount the +/- buttons step by (the input's own step for sample packs,
-    // a dozen otherwise).
     get stepSize() {
         if (this.isSamplePack) {
             const step = parseInt(this.input.step);
@@ -266,24 +242,16 @@ class QuantityInput extends HTMLElement {
         this.validateQtyRules();
         this.quantityUpdateUnsubscriber = subscribe(PUB_SUB_EVENTS.quantityUpdate, this.validateQtyRules.bind(this));
 
-        // Sample packs: keep the value Liquid rendered (1), don't snap to 12.
         if (this.isSamplePack) return;
 
-        // Cart line items must always show their real cart quantity. The
-        // dozen-tier snap below is only meant for the product page selector,
-        // never for a line already in the cart (which may legitimately hold a
-        // single-piece quantity of 1-3). Detected via the `cart-quantity`
-        // class the cart templates put on the <quantity-input>.
         if (this.classList.contains('cart-quantity')) return;
 
-        // Set initial quantity to first value in list if current value is not in the list
         const currentValue = parseInt(this.input.value);
         if (!this.quantityList.includes(currentValue)) {
             this.input.value = this.getClosestValidQuantity(currentValue);
         }
     }
 
-    // Snap an arbitrary number down to the nearest value in the active list.
     getClosestValidQuantity(value) {
         if (isNaN(value) || value <= this.quantityList[0]) return this.quantityList[0];
         let closest = this.quantityList[0];
@@ -294,12 +262,7 @@ class QuantityInput extends HTMLElement {
         return closest;
     }
 
-    /**
-     * Switches between quantity lists based on customization method
-     * @param {string} customizationMethod - The customization method
-     */
     setQuantityListForMethod(customizationMethod) {
-        // Sample packs don't use dozen tiers — leave their value alone.
         if (this.isSamplePack) {
             this.validateQtyRules();
             return;
@@ -313,7 +276,6 @@ class QuantityInput extends HTMLElement {
             this.quantityList = this.defaultQuantityList;
         }
 
-        // Update current value to match new list if needed
         const currentValue = parseInt(this.input.value);
         if (!this.quantityList.includes(currentValue)) {
             this.input.value = this.quantityList[0];
@@ -337,7 +299,6 @@ class QuantityInput extends HTMLElement {
     validateQuantityInput(event) {
         const inputValue = parseInt(event.target.value);
 
-        // Sample packs: only require a whole number at or above the floor (1).
         if (this.isSamplePack) {
             if (isNaN(inputValue) || inputValue < this.minValue) {
                 event.target.setCustomValidity(`Please enter a quantity of ${this.minValue} or more.`);
@@ -350,15 +311,12 @@ class QuantityInput extends HTMLElement {
             return true;
         }
 
-        // Normal products: must be a multiple of 12 and at least 12.
         if (inputValue < 12 || inputValue % 12 !== 0) {
             const message = window.quickOrderListStrings.multiples_error || 'Please enter a multiple of 12, like 12, 24, 36, 48 …';
 
-            // Set custom validity message
             event.target.setCustomValidity(message);
             event.target.reportValidity();
 
-            // Disable add to cart buttons
             this.disableAddToCartButtons(true);
 
             return false;
@@ -370,7 +328,6 @@ class QuantityInput extends HTMLElement {
     }
 
     disableAddToCartButtons(disable) {
-        // Find add to cart buttons in the product form
         const productForm = this.closest('product-form') || this.closest('form[action*="/cart/add"]') || document.querySelector('.product-form');
 
         if (productForm) {
@@ -389,9 +346,7 @@ class QuantityInput extends HTMLElement {
     }
 
 
-    // Get the pricing tier for a given quantity
     getPricingTier(quantity) {
-        // Find the highest tier that the quantity qualifies for
         let applicableTier = this.quantityList[0];
 
         for (let i = 0; i < this.quantityList.length; i++) {
@@ -412,10 +367,8 @@ class QuantityInput extends HTMLElement {
         const step = this.stepSize;
 
         if (event.target.name === 'plus') {
-            // Step up by stepSize (1 for sample packs, 12 otherwise).
             this.input.value = currentValue + step;
         } else {
-            // Step down by stepSize, but never below the floor.
             this.input.value = Math.max(this.minValue, currentValue - step);
         }
         this.input?.form?.dispatchEvent(new CustomEvent('qty_change', { bubbles: true }));
@@ -429,12 +382,10 @@ class QuantityInput extends HTMLElement {
         const buttonMinus = this.querySelector(".quantity__button[name='minus']");
         const buttonPlus = this.querySelector(".quantity__button[name='plus']");
 
-        // Disable minus button at the floor (12 normally, 1 for sample packs).
         if (buttonMinus) {
             buttonMinus.classList.toggle('disabled', value <= this.minValue);
         }
 
-        // Plus button is generally always enabled unless there's a max limit
         if (buttonPlus) {
             const maxValue = parseInt(this.input.max);
             buttonPlus.classList.toggle('disabled', maxValue && value >= maxValue);
