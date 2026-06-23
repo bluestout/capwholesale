@@ -72,30 +72,38 @@ class CartItems extends HTMLElement {
     const index = event.target.dataset.index;
     let message = '';
 
-    // Strictly driven by the `sample-packs` tag (data-sample-pack on the
-    // <quantity-input> wrapper) and by single-piece promo lines
-    // (data-single-piece). Both use relaxed quantity rules; everything else
-    // keeps the dozen rule.
+    // Quantity rules by line type:
+    //  - sample pack (data-sample-pack): any whole number from 1 up.
+    //  - single-eligible (data-single-eligible): 1-3 OR a dozen multiple
+    //    (12, 24, 36 …). 4-11 and non-dozen amounts above 3 are invalid.
+    //  - everything else (dozen-only, incl. blocked vendors): multiples of 12.
     const wrapper = event.target.closest('quantity-input');
     const isSamplePack = wrapper?.dataset.samplePack === 'true';
-    const isSinglePiece = wrapper?.dataset.singlePiece === 'true';
-    const isRelaxedQuantity = isSamplePack || isSinglePiece;
+    const isSingleEligible = wrapper?.dataset.singleEligible === 'true';
 
-    // Check if value is a multiple of 12 and at least 12 (dozen products only)
-    if (!isRelaxedQuantity && (inputValue < 12 || inputValue % 12 !== 0)) {
+    if (isSingleEligible) {
+      const valid =
+        (inputValue >= 1 && inputValue <= 3) || (inputValue >= 12 && inputValue % 12 === 0);
+      if (!valid) {
+        message = 'Enter 1–3 for single pieces, or a dozen amount (12, 24, 36 …).';
+        this.setValidity(event, index, message);
+        this.disableCheckoutButtons(true);
+        return;
+      }
+    } else if (!isSamplePack && (inputValue < 12 || inputValue % 12 !== 0)) {
       message = window.quickOrderListStrings.multiples_error || 'Please enter a multiple of 12, like 12, 24, 36, 48 …';
-      
+
       this.setValidity(event, index, message);
       this.disableCheckoutButtons(true);
-      
+
       return;
     }
 
     if (inputValue < event.target.dataset.min) {
       message = window.quickOrderListStrings.min_error.replace('[min]', event.target.dataset.min);
-    } else if (inputValue > parseInt(event.target.max)) {
+    } else if (event.target.max && inputValue > parseInt(event.target.max)) {
       message = window.quickOrderListStrings.max_error.replace('[max]', event.target.max);
-    } else if (inputValue % parseInt(event.target.step) !== 0) {
+    } else if (event.target.step && inputValue % parseInt(event.target.step) !== 0) {
       message = window.quickOrderListStrings.step_error.replace('[step]', event.target.step);
     }
 
