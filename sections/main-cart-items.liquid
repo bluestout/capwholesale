@@ -177,7 +177,6 @@
                   <tr class="cart-item" id="CartItem-{{ item.index | plus: 1 }}">
                     <td class="cart-item__media">
                       {% if item.image %}
-                        {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
                         <a href="{{ item.url }}" class="cart-item__link" aria-hidden="true" tabindex="-1"> </a>
                         <div class="cart-item__image-container gradient global-media-settings">
                           <img
@@ -359,7 +358,18 @@
                                 {{- 'icon-info.svg' | inline_asset_content -}}
                               </button>
                             {%- endif -%}
-                            <quantity-input class="quantity cart-quantity" data-sample-pack="{% if item.product.tags contains 'sample-packs' %}true{% else %}false{% endif %}">
+                            {%- liquid
+                              assign is_single_piece = false
+                              if item.properties['_single_piece']
+                                assign is_single_piece = true
+                              endif
+                              unless item.product.tags contains 'sample-packs'
+                                if item.quantity < 12
+                                  assign is_single_piece = true
+                                endif
+                              endunless
+                            -%}
+                            <quantity-input class="quantity cart-quantity" data-sample-pack="{% if item.product.tags contains 'sample-packs' or is_single_piece %}true{% else %}false{% endif %}" data-single-piece="{% if is_single_piece %}true{% else %}false{% endif %}">
                               <button class="quantity__button" name="minus" type="button">
                                 <span class="visually-hidden">
                                   {{- 'products.product.quantity.decrease' | t: product: item.product.title | escape -}}
@@ -374,24 +384,29 @@
                                 type="number"
                                 name="updates[]"
                                 value="{{ item.quantity }}"
-                                {% # theme-check-disable %}
                                 data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}"
                                 {% if item.product.tags contains 'sample-packs' %}
+                                  min="1"
+                                  data-min="1"
+                                {% elsif is_single_piece %}
                                   min="1"
                                   data-min="1"
                                 {% else %}
                                   min="{{ item.product.metafields.custom.qty_cw.value | minus: 0 }}"
                                   data-min="{{ item.product.metafields.custom.qty_cw.value | minus: 0 }}"
                                 {% endif %}
-                                {% if item.variant.quantity_rule.max != null %}
+                                {% if is_single_piece %}
+                                  max="3"
+                                {% elsif item.variant.quantity_rule.max != null %}
                                   max="{{ item.variant.quantity_rule.max }}"
                                 {% endif %}
                                 {% if item.product.tags contains 'sample-packs' %}
                                   step="1"
+                                {% elsif is_single_piece %}
+                                  step="1"
                                 {% else %}
                                   step="12"
                                 {% endif %}
-                                {% # theme-check-enable %}
                                 aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
                                 id="Quantity-{{ item.index | plus: 1 }}"
                                 data-index="{{ item.index | plus: 1 }}"
