@@ -66,12 +66,16 @@ class CartItems extends HTMLElement {
     let message = '';
 
     // Strictly driven by the `sample-packs` tag (data-sample-pack on the
-    // <quantity-input> wrapper). Non-tagged products keep the dozen rule.
-    const isSamplePack =
-      event.target.closest('quantity-input')?.dataset.samplePack === 'true';
+    // <quantity-input> wrapper) and by single-piece promo lines
+    // (data-single-piece). Both use relaxed quantity rules; everything else
+    // keeps the dozen rule.
+    const wrapper = event.target.closest('quantity-input');
+    const isSamplePack = wrapper?.dataset.samplePack === 'true';
+    const isSinglePiece = wrapper?.dataset.singlePiece === 'true';
+    const isRelaxedQuantity = isSamplePack || isSinglePiece;
 
     // Check if value is a multiple of 12 and at least 12 (dozen products only)
-    if (!isSamplePack && (inputValue < 12 || inputValue % 12 !== 0)) {
+    if (!isRelaxedQuantity && (inputValue < 12 || inputValue % 12 !== 0)) {
       message = window.quickOrderListStrings.multiples_error || 'Please enter a multiple of 12, like 12, 24, 36, 48 …';
       
       this.setValidity(event, index, message);
