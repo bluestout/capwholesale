@@ -48,7 +48,14 @@ class CartItems extends HTMLElement {
   }
 
   resetQuantityInput(id) {
-    const input = this.querySelector(`#Quantity-${id}`);
+    // The cart page uses `Quantity-{id}` while the cart drawer uses
+    // `Drawer-quantity-{id}`. Look up both so reverting an invalid typed
+    // value (e.g. 4-11, or a non-dozen quantity) works in the drawer too —
+    // previously this threw on the drawer because the input wasn't found,
+    // which left the invalid value in the box and checkout enabled.
+    const input =
+      this.querySelector(`#Quantity-${id}`) || this.querySelector(`#Drawer-quantity-${id}`);
+    if (!input) return;
     input.value = input.getAttribute('value');
     this.isEnterPressed = false;
   }
