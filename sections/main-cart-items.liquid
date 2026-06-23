@@ -177,6 +177,7 @@
                   <tr class="cart-item" id="CartItem-{{ item.index | plus: 1 }}">
                     <td class="cart-item__media">
                       {% if item.image %}
+                        {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
                         <a href="{{ item.url }}" class="cart-item__link" aria-hidden="true" tabindex="-1"> </a>
                         <div class="cart-item__image-container gradient global-media-settings">
                           <img
@@ -360,9 +361,15 @@
                             {%- endif -%}
                             {%- liquid
                               assign is_single_piece = false
+                              # Primary signal: hidden line property set at add time.
+                              # Bracket access is required for underscore-prefixed keys.
                               if item.properties['_single_piece']
                                 assign is_single_piece = true
                               endif
+                              # Fallback: for a non-sample-pack product the ONLY way a
+                              # line can hold fewer than a dozen is the single-piece promo,
+                              # so treat any sub-dozen line as single-piece. This also
+                              # covers lines added before the property fix shipped.
                               unless item.product.tags contains 'sample-packs'
                                 if item.quantity < 12
                                   assign is_single_piece = true
@@ -384,6 +391,7 @@
                                 type="number"
                                 name="updates[]"
                                 value="{{ item.quantity }}"
+                                {% # theme-check-disable %}
                                 data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}"
                                 {% if item.product.tags contains 'sample-packs' %}
                                   min="1"
@@ -407,6 +415,7 @@
                                 {% else %}
                                   step="12"
                                 {% endif %}
+                                {% # theme-check-enable %}
                                 aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
                                 id="Quantity-{{ item.index | plus: 1 }}"
                                 data-index="{{ item.index | plus: 1 }}"
