@@ -237,9 +237,10 @@ class QuantityInput extends HTMLElement {
     // be forced into multiples of 12. Detected via the data-sample-pack flag
     // set in main-product.liquid, or a rendered min of 1 as a fallback.
     get isSamplePack() {
-        // Strictly driven by the `sample-packs` tag, surfaced as data-sample-pack
-        // on the <quantity-input> element by the Liquid templates.
-        return this.dataset.samplePack === 'true';
+        // Relaxed (non-dozen) quantity rules — min 1, step 1, no dozen snap.
+        // Applies to sample packs (data-sample-pack) and to single-piece promo
+        // cart lines (data-single-piece), both surfaced by the Liquid templates.
+        return this.dataset.samplePack === 'true' || this.dataset.singlePiece === 'true';
     }
 
     // Lowest quantity allowed (1 for sample packs, 12 otherwise).
@@ -267,6 +268,13 @@ class QuantityInput extends HTMLElement {
 
         // Sample packs: keep the value Liquid rendered (1), don't snap to 12.
         if (this.isSamplePack) return;
+
+        // Cart line items must always show their real cart quantity. The
+        // dozen-tier snap below is only meant for the product page selector,
+        // never for a line already in the cart (which may legitimately hold a
+        // single-piece quantity of 1-3). Detected via the `cart-quantity`
+        // class the cart templates put on the <quantity-input>.
+        if (this.classList.contains('cart-quantity')) return;
 
         // Set initial quantity to first value in list if current value is not in the list
         const currentValue = parseInt(this.input.value);
