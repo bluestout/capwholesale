@@ -18,7 +18,6 @@ class CartItems extends HTMLElement {
     this.lineItemStatusElement =
       document.getElementById('shopping-cart-line-item-status') || document.getElementById('CartDrawer-LineItemStatus');
 
-    // Predefined quantity lists for different customization methods
     this.defaultQuantityList = [12, 24, 48, 72, 96, 144, 288, 576, 1008, 1500];
     this.patchesQuantityList = [24, 48, 96, 144, 288, 576, 1008, 1500];
     this.screenPrintQuantityList = [24, 48, 96, 144, 288, 576, 1008];
@@ -65,12 +64,9 @@ class CartItems extends HTMLElement {
     const index = event.target.dataset.index;
     let message = '';
 
-    // Strictly driven by the `sample-packs` tag (data-sample-pack on the
-    // <quantity-input> wrapper). Non-tagged products keep the dozen rule.
     const isSamplePack =
       event.target.closest('quantity-input')?.dataset.samplePack === 'true';
 
-    // Check if value is a multiple of 12 and at least 12 (dozen products only)
     if (!isSamplePack && (inputValue < 12 || inputValue % 12 !== 0)) {
       message = window.quickOrderListStrings.multiples_error || 'Please enter a multiple of 12, like 12, 24, 36, 48 …';
       
@@ -106,7 +102,6 @@ class CartItems extends HTMLElement {
   }
 
   disableCheckoutButtons(disable) {
-    // Find checkout buttons in cart
     const checkoutButtons = document.querySelectorAll('.cart__checkout-button, .cart-drawer__checkout-button, [name="add"], button[type="submit"]:not(.quantity__button)');
     
     checkoutButtons.forEach(button => {
@@ -136,17 +131,13 @@ class CartItems extends HTMLElement {
   }
 
   getQuantityListForItem(input) {
-    // You can enhance this logic to determine the correct list based on product type
-    // For now, return default list
     return this.defaultQuantityList;
   }
 
 
-  // Get the pricing tier for a given quantity
   getPricingTier(quantity) {
     const quantityList = this.getQuantityListForItem();
     
-    // Find the highest tier that the quantity qualifies for
     let applicableTier = quantityList[0];
     
     for (let i = 0; i < quantityList.length; i++) {
@@ -296,7 +287,6 @@ class CartItems extends HTMLElement {
       .catch(() => {
         this.querySelectorAll('.loading__spinner').forEach((overlay) => overlay.classList.add('hidden'));
         const errors = document.getElementById('cart-errors') || document.getElementById('CartDrawer-CartErrors');
-        // errors.textContent = window.cartStrings.error;
       })
       .finally(() => {
         this.disableLoading(line);
