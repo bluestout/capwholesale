@@ -472,10 +472,6 @@ function fetchConfig(type = 'json') {
     };
 }
 
-/*
- * Shopify Common JS
- *
- */
 if (typeof window.Shopify == 'undefined') {
     window.Shopify = {};
 }
@@ -874,11 +870,9 @@ class DeferredMedia extends HTMLElement {
             const deferredElement = this.appendChild(content.querySelector('video, model-viewer, iframe'));
             if (focus) deferredElement.focus();
             if (deferredElement.nodeName == 'VIDEO' && deferredElement.getAttribute('autoplay')) {
-                // force autoplay for safari
                 deferredElement.play();
             }
 
-            // Workaround for safari iframe bug
             const formerStyle = deferredElement.getAttribute('style');
             deferredElement.setAttribute('style', 'display: block;');
             window.setTimeout(() => {
@@ -1030,7 +1024,6 @@ class SlideshowComponent extends SliderComponent {
         if (this.sliderItemsToShow.length > 0) this.currentPage = 1;
 
         this.announcementBarSlider = this.querySelector('.announcement-bar-slider');
-        // Value below should match --duration-announcement-bar CSS value
         this.announcerBarAnimationDelay = this.announcementBarSlider ? 250 : 0;
 
         this.sliderControlLinksArray = Array.from(this.sliderControlWrapper.querySelectorAll('.slider-counter__link'));
@@ -1463,7 +1456,6 @@ class BulkAdd extends HTMLElement {
         const inputValue = parseInt(event.target.value);
         const index = event.target.dataset.index;
 
-        // Check if value is a multiple of 12 and at least 12
         if (inputValue < 12 || inputValue % 12 !== 0) {
             const message = window.quickOrderListStrings.multiples_error || 'Please enter a multiple of 12, like 12, 24, 36, 48 …';
 
@@ -1493,7 +1485,6 @@ class BulkAdd extends HTMLElement {
 
 
     disableBulkAddButtons(disable) {
-        // Find bulk add buttons
         const bulkAddButtons = this.querySelectorAll('button[type="submit"], .bulk-add-button, .quick-add-button');
 
         bulkAddButtons.forEach(button => {
