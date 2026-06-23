@@ -6,7 +6,14 @@ if (!customElements.get('product-form')) {
         super();
 
         const anotherButton = document.querySelector(".buy-lower-price-btn");
-        if (anotherButton) anotherButton.addEventListener("click", this.onSubmitHandler.bind(this));
+        if (anotherButton)
+          anotherButton.addEventListener(
+            "click",
+            (evt) => {
+              this.isSinglePieceSubmit = true;
+              this.onSubmitHandler(evt);
+            }
+          );
         this.form = this.querySelector('form');
         const variantInput = this.form?.querySelector('[name="id"]');
         if (variantInput) variantInput.disabled = false;
@@ -35,6 +42,18 @@ if (!customElements.get('product-form')) {
         delete config.headers['Content-Type'];
 
         const formData = new FormData(this.form);
+
+        if (this.isSinglePieceSubmit) {
+          let singleQty = 1;
+          const qtyInput = document.querySelector('.product .quantity input[name="quantity"]');
+          if (qtyInput) {
+            const typed = parseInt(qtyInput.value, 10);
+            if (!isNaN(typed) && typed >= 1 && typed <= 3) singleQty = typed;
+          }
+          formData.set('quantity', singleQty);
+          formData.append('properties[_single_piece]', 'Yes');
+        }
+
         if (this.cart) {
           formData.append(
             'sections',
@@ -104,6 +123,7 @@ if (!customElements.get('product-form')) {
             console.error(e);
           })
           .finally(() => {
+            this.isSinglePieceSubmit = false;
             this.submitButton.classList.remove('loading');
             if (this.cart && this.cart.classList.contains('is-empty')) this.cart.classList.remove('is-empty');
             if (!this.error) this.submitButton.removeAttribute('aria-disabled');
