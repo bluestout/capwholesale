@@ -10,6 +10,8 @@ if (!customElements.get('product-form')) {
           anotherButton.addEventListener(
             "click",
             (evt) => {
+              // Flag this submit as the single-piece (1-3) promo path so the
+              // handler overrides the dozen quantity. Reset in finally().
               this.isSinglePieceSubmit = true;
               this.onSubmitHandler(evt);
             }
@@ -43,6 +45,13 @@ if (!customElements.get('product-form')) {
 
         const formData = new FormData(this.form);
 
+        // --- Single-piece promo fix -------------------------------------
+        // The "Buy a Single Piece" button submits this same product form,
+        // whose quantity field is the dozen selector (min 12, snaps to 12).
+        // That caused 12 units to be added instead of the 1-3 the shopper
+        // chose. When the promo button is the trigger, force the quantity to
+        // the shopper's single-piece selection: use the visible quantity if
+        // it is a valid 1-3, otherwise fall back to 1 (one single piece).
         if (this.isSinglePieceSubmit) {
           let singleQty = 1;
           const qtyInput = document.querySelector('.product .quantity input[name="quantity"]');
@@ -51,8 +60,13 @@ if (!customElements.get('product-form')) {
             if (!isNaN(typed) && typed >= 1 && typed <= 3) singleQty = typed;
           }
           formData.set('quantity', singleQty);
+          // Tag the line so the cart drawer / cart page can apply relaxed
+          // (non-dozen) quantity rules to it, and so it stays a separate line
+          // from any dozen-priced line of the same variant. The leading "_"
+          // keeps it hidden from the cart/checkout property display.
           formData.append('properties[_single_piece]', 'Yes');
         }
+        // ----------------------------------------------------------------
 
         if (this.cart) {
           formData.append(
