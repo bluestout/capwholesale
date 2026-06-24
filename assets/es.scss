@@ -4819,6 +4819,10 @@ cart-items {
       padding-bottom: 45.139%;
       min-height: 375px;
 
+      @media (max-width: 425px) {
+        min-height: 300px;
+      }
+
       img {
         position: absolute;
         object-fit: cover;
