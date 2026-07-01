@@ -701,74 +701,6 @@
         "padding_bottom": 80
       }
     },
-    "es_image_with_text_QiEqMH": {
-      "type": "es-image-with-text",
-      "blocks": {
-        "heading_ptCCnT": {
-          "type": "heading",
-          "settings": {
-            "heading": "<p>CapWholesalers:</p>",
-            "heading_size": "h1"
-          }
-        },
-        "caption_cNwrkM": {
-          "type": "caption",
-          "settings": {
-            "caption": "Wholesale Hats From Top Brands",
-            "text_style": "subtitle",
-            "text_size": "medium"
-          }
-        },
-        "separator_wtfPNN": {
-          "type": "separator",
-          "settings": {
-            "color": "#990000"
-          }
-        },
-        "text_XxeLzC": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Since 1991, Capwholesalers has supplied hats in bulk from leading brands like Richardson, Flexfit, Otto, Decky and Pacific Headwear. From trucker mesh and dad hats to fitted and performance styles, we make it easy to find quality caps for resale, events, staff, and promotions.</p>",
-            "text_style": "body"
-          }
-        },
-        "button_7zEDVg": {
-          "type": "button",
-          "settings": {
-            "button_label": "Shop Top Brands",
-            "button_link": "shopify://collections/shop-by-hat-style",
-            "button_style_secondary": true,
-            "open_new_tab": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_ptCCnT",
-        "caption_cNwrkM",
-        "separator_wtfPNN",
-        "text_XxeLzC",
-        "button_7zEDVg"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/1100x800_mid_down__E2_80_93_4.jpg",
-        "white_bar_on_image": true,
-        "height": "adapt",
-        "hide_media_on_mobile": false,
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "image_behavior": "none",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "center",
-        "section_color_scheme": "",
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 16
-      }
-    },
     "es_testimonial_xNiLtf": {
       "type": "es-testimonial",
       "blocks": {
@@ -845,6 +777,74 @@
         "padding_top": 26,
         "padding_bottom": 40
       }
+    },
+    "es_image_with_text_QiEqMH": {
+      "type": "es-image-with-text",
+      "blocks": {
+        "heading_ptCCnT": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>CapWholesalers:</p>",
+            "heading_size": "h1"
+          }
+        },
+        "caption_cNwrkM": {
+          "type": "caption",
+          "settings": {
+            "caption": "Wholesale Hats From Top Brands",
+            "text_style": "subtitle",
+            "text_size": "medium"
+          }
+        },
+        "separator_wtfPNN": {
+          "type": "separator",
+          "settings": {
+            "color": "#990000"
+          }
+        },
+        "text_XxeLzC": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Since 1991, Capwholesalers has supplied hats in bulk from leading brands like Richardson, Flexfit, Otto, Decky and Pacific Headwear. From trucker mesh and dad hats to fitted and performance styles, we make it easy to find quality caps for resale, events, staff, and promotions.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_7zEDVg": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Top Brands",
+            "button_link": "shopify://collections/shop-by-hat-style",
+            "button_style_secondary": true,
+            "open_new_tab": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_ptCCnT",
+        "caption_cNwrkM",
+        "separator_wtfPNN",
+        "text_XxeLzC",
+        "button_7zEDVg"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/1100x800_mid_down__E2_80_93_4.jpg",
+        "white_bar_on_image": true,
+        "height": "adapt",
+        "hide_media_on_mobile": false,
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "center",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 16
+      }
     }
   },
   "order": [
@@ -854,7 +854,7 @@
     "es_gallery_with_link_CGamDr",
     "es_image_with_text_kFT4Pw",
     "es_featured_products_EMKnh4",
-    "es_image_with_text_QiEqMH",
-    "es_testimonial_xNiLtf"
+    "es_testimonial_xNiLtf",
+    "es_image_with_text_QiEqMH"
   ]
 }
