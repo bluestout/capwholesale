@@ -414,6 +414,74 @@
         "padding_bottom": 32
       }
     },
+    "es_gallery_with_link_CGamDr": {
+      "type": "es-gallery-with-link",
+      "blocks": {
+        "item_qXenJt": {
+          "type": "item",
+          "settings": {
+            "item_width": 6,
+            "image": "shopify://shop_images/Richardson_model_looking_down.jpg",
+            "title": "Richardson Hats",
+            "url": "shopify://collections/richardson-hats",
+            "title_2": "Hat Style 2",
+            "url_2": ""
+          }
+        },
+        "item_7rAx4D": {
+          "type": "item",
+          "settings": {
+            "item_width": 4,
+            "image": "shopify://shop_images/bg.jpg",
+            "title": "Flexfit",
+            "url": "shopify://collections/whoelsale-flexfit",
+            "image_2": "shopify://shop_images/1160__C3_97_590_Otto.jpg",
+            "title_2": "Otto Caps",
+            "url_2": "shopify://products/12-inch-safety-color-beanie-w-reflective-threads"
+          }
+        },
+        "item_ayUTCT": {
+          "type": "item",
+          "settings": {
+            "item_width": 4,
+            "image": "shopify://shop_images/Decky_Charcoal_Model.jpg",
+            "title": "Decky Hats",
+            "url": "shopify://collections/wholesale-decky-hats",
+            "image_2": "shopify://shop_images/1160__C3_97_590_Yupoong.jpg",
+            "title_2": "YP Classics",
+            "url_2": "shopify://products/5-panel-mid-profile-structured-cotton-poly-blend-cap"
+          }
+        },
+        "item_t9qBbg": {
+          "type": "item",
+          "settings": {
+            "item_width": 6,
+            "image": "shopify://shop_images/Outdoor_Cap_new_1.jpg",
+            "title": "Outdoor Cap",
+            "url": "shopify://collections/outdoor-caps",
+            "title_2": "Hat Style 2",
+            "url_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_qXenJt",
+        "item_7rAx4D",
+        "item_ayUTCT",
+        "item_t9qBbg"
+      ],
+      "settings": {
+        "scrollable": false,
+        "title": "<strong>Shop by Top Brands</strong>",
+        "hide_title_on_mobile": true,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 30,
+        "item_count_row": 2,
+        "show_gradient": true
+      }
+    },
     "es_image_with_text_QiEqMH": {
       "type": "es-image-with-text",
       "blocks": {
@@ -480,74 +548,6 @@
         "padding_bottom": 36,
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 16
-      }
-    },
-    "es_gallery_with_link_CGamDr": {
-      "type": "es-gallery-with-link",
-      "blocks": {
-        "item_qXenJt": {
-          "type": "item",
-          "settings": {
-            "item_width": 6,
-            "image": "shopify://shop_images/Richardson_model_looking_down.jpg",
-            "title": "Richardson Hats",
-            "url": "shopify://collections/richardson-hats",
-            "title_2": "Hat Style 2",
-            "url_2": ""
-          }
-        },
-        "item_7rAx4D": {
-          "type": "item",
-          "settings": {
-            "item_width": 4,
-            "image": "shopify://shop_images/bg.jpg",
-            "title": "Flexfit",
-            "url": "shopify://collections/whoelsale-flexfit",
-            "image_2": "shopify://shop_images/1160__C3_97_590_Otto.jpg",
-            "title_2": "Otto Caps",
-            "url_2": "shopify://products/12-inch-safety-color-beanie-w-reflective-threads"
-          }
-        },
-        "item_ayUTCT": {
-          "type": "item",
-          "settings": {
-            "item_width": 4,
-            "image": "shopify://shop_images/Decky_Charcoal_Model.jpg",
-            "title": "Decky Hats",
-            "url": "shopify://collections/wholesale-decky-hats",
-            "image_2": "shopify://shop_images/1160__C3_97_590_Yupoong.jpg",
-            "title_2": "YP Classics",
-            "url_2": "shopify://products/5-panel-mid-profile-structured-cotton-poly-blend-cap"
-          }
-        },
-        "item_t9qBbg": {
-          "type": "item",
-          "settings": {
-            "item_width": 6,
-            "image": "shopify://shop_images/Outdoor_Cap_new_1.jpg",
-            "title": "Outdoor Cap",
-            "url": "shopify://collections/outdoor-caps",
-            "title_2": "Hat Style 2",
-            "url_2": ""
-          }
-        }
-      },
-      "block_order": [
-        "item_qXenJt",
-        "item_7rAx4D",
-        "item_ayUTCT",
-        "item_t9qBbg"
-      ],
-      "settings": {
-        "scrollable": false,
-        "title": "Shop by Top Brands",
-        "hide_title_on_mobile": true,
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 30,
-        "item_count_row": 2,
-        "show_gradient": true
       }
     },
     "es_image_with_text_kFT4Pw": {
@@ -851,8 +851,8 @@
     "es_image_banner_Qc9Nmz",
     "ui_slideshow_wLyQMQ",
     "es_featured_blocks_zzkdqw",
-    "es_image_with_text_QiEqMH",
     "es_gallery_with_link_CGamDr",
+    "es_image_with_text_QiEqMH",
     "es_image_with_text_kFT4Pw",
     "es_testimonial_xNiLtf",
     "es_featured_products_EMKnh4"
