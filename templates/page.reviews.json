@@ -75,7 +75,8 @@
         "fera_all_reviews_zbydHk"
       ],
       "custom_css": [
-        ".fera-reviews-writeReviewLink .fera-btn-text {font-size: 20px;}"
+        ".fera-reviews-writeReviewLink .fera-btn-text {font-size: 20px;}",
+        ".fera-review-helpful-text,[data-fera-review-helpful-text] {color: #6d6d6d !important;}"
       ],
       "settings": {
         "include_margins": true
