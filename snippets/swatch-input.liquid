@@ -30,6 +30,7 @@
   id="{{ id | strip }}"
   name="{{ name | strip }}"
   value="{{ value }}"
+  aria-label="{{ value | strip }}"
   form="{{ product_form_id }}"
   class="swatch-input__input{% if visually_disabled %} visually-disabled{% endif %}"
   {% if checked %}
