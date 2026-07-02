@@ -27,8 +27,8 @@
 
 <input
   type="{{ type | default: 'radio' }}"
-  id="{{ id }}"
-  name="{{ name }}"
+  id="{{ id | strip }}"
+  name="{{ name | strip }}"
   value="{{ value }}"
   form="{{ product_form_id }}"
   class="swatch-input__input{% if visually_disabled %} visually-disabled{% endif %}"
@@ -43,7 +43,7 @@
   {% endif %}
 >
 <label
-  for="{{ id }}"
+  for="{{ id | strip }}"
   {% comment %} title="{{ value }}" {% endcomment %}
   class="swatch-input__label{% if shape == 'square' %} swatch-input__label--square{% endif %}"
 >
