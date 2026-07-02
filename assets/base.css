@@ -3635,3 +3635,8 @@ details-disclosure > details {
   font-weight: 600;
   display: block;
 }
+
+.tp-content .tp-body,
+.tp-body {
+  color: #59637d !important;
+}
