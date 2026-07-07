@@ -9,6 +9,18 @@
   window.BOLDCUSTOM.product = {{ product | json }};
   window.BOLDCUSTOM.cartvariants = {{ cart.items | map: 'variant' | map: 'id' | json }}
 
+  // Quantity of each variant already in the cart. Bold prices a cart line on its
+  // COMBINED quantity, so the PDP total must pick the tier from (page qty + cart qty).
+  // Seeded server-side at render, refreshed from /cart.js on every cart update.
+  window.BOLDCUSTOM.cartQtyByVariant = ([
+    {%- for item in cart.items -%}
+      { id: "{{ item.variant.id }}", qty: {{ item.quantity }} }{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  ]).reduce(function (map, line) {
+    map[line.id] = (map[line.id] || 0) + line.qty;
+    return map;
+  }, {});
+
   // Loop guards
   let _restoring = false;
   let _restoreCount = 0;
@@ -162,6 +174,16 @@
     window.BOLDCUSTOM.qbGrids = qbGrids;
   }
 
+  function syncCheckedRadio(tierQty) {
+    const radios = document.querySelectorAll('.es-quantity-radios input[name="ESQuantityRadios"]');
+    if (!radios.length) { return; }
+    radios.forEach(function (radio) {
+      // Set the property directly (no change event) so this never feeds back
+      // into the radio's own qty-setting listener.
+      radio.checked = parseInt(radio.value) === tierQty;
+    });
+  }
+
   function recalcTotalPrice(form) {
     if (!form) { return; }
     const variantId = form.id?.value;
@@ -172,10 +194,30 @@
     const variantData = window.BOLDCUSTOM.product?.variants?.find(v => String(v.id) === String(variantId));
     const qbData = window.BOLDCUSTOM.qbData?.[variantId];
 
+    // Single-piece zone (1-3 units on non-sample-pack products): these units go
+    // through the promo path at the variant's base price, never a bulk tier.
+    const wrapper = document.querySelector('.product-form__quantity quantity-input');
+    const isSamplePack = wrapper?.dataset.samplePack === 'true';
+    if (!isSamplePack && qty >= 1 && qty <= 3) {
+      const basePrice = variantData?.price ?? 0;
+      totalEl.innerText = (basePrice * qty * 0.01).toLocaleString(undefined, {
+        style: 'currency',
+        currency: {{ shop.currency | json }}
+      });
+      // No bulk tier applies in the single-piece zone; clear the tier radios.
+      syncCheckedRadio(0);
+      return;
+    }
+
+    // Bold applies the qty-break tier to the WHOLE cart line, so units already in
+    // the cart for this variant count toward the tier the shopper will actually pay.
+    const cartQty = window.BOLDCUSTOM.cartQtyByVariant?.[String(variantId)] || 0;
+    const effectiveQty = qty + cartQty;
+
     let bestRow = null;
     if (qbData) {
       for (let i = 0; i < qbData.length; i++) {
-        if (qbData[i].qty <= qty) bestRow = qbData[i];
+        if (qbData[i].qty <= effectiveQty) bestRow = qbData[i];
         else break;
       }
     }
@@ -184,7 +226,47 @@
       style: 'currency',
       currency: {{ shop.currency | json }}
     });
+
+    // Keep the checked radio consistent with the tier price used in the total.
+    syncCheckedRadio(bestRow ? bestRow.qty : 1);
   }
+
+  // Let other theme scripts (richardson-template-over.liquid) delegate to this
+  // cart-aware calculation instead of running their own naive qty x price math.
+  window.BOLDCUSTOM.qbRecalcTotal = function () {
+    for (let f = 0; f < document.forms.length; f++) {
+      const form = document.forms[f];
+      if (!(form.action.includes('cart/add'))) continue;
+      recalcTotalPrice(form);
+    }
+  };
+
+  // Refresh cart quantities whenever the cart changes (add to cart, drawer qty
+  // edits, removals), then recompute the PDP total with the new effective tier.
+  let _cartRefreshTimer = null;
+  function refreshCartQuantities() {
+    if (_cartRefreshTimer) clearTimeout(_cartRefreshTimer);
+    _cartRefreshTimer = setTimeout(function () {
+      fetch('/cart.js')
+        .then(function (resp) { return resp.json(); })
+        .then(function (cart) {
+          const map = {};
+          (cart.items || []).forEach(function (line) {
+            map[String(line.variant_id)] = (map[String(line.variant_id)] || 0) + line.quantity;
+          });
+          window.BOLDCUSTOM.cartQtyByVariant = map;
+          window.BOLDCUSTOM.qbRecalcTotal();
+        })
+        .catch(function () { /* keep last known quantities */ });
+    }, 150);
+  }
+
+  window.addEventListener('load', function () {
+    // pubsub.js is loaded deferred; register the cart listener once it exists.
+    if (typeof subscribe === 'function' && typeof PUB_SUB_EVENTS !== 'undefined' && PUB_SUB_EVENTS.cartUpdate) {
+      subscribe(PUB_SUB_EVENTS.cartUpdate, refreshCartQuantities);
+    }
+  });
 
   function rebuildRadios(gridEl) {
     const radiosContainer = document.querySelector('.es-quantity-radios');
