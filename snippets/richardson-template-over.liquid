@@ -10,10 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     {%- endunless -%}
 
     const updateTotalPrice = () => {
-        // When Bold qty-break data is loaded, the qb-grid script owns the total:
-        // it picks the tier from (page qty + qty already in cart), matching what
-        // Bold actually charges on the cart line. Running the naive qty x price
-        // math here would overwrite that with the wrong number.
         if (window.BOLDCUSTOM && window.BOLDCUSTOM.qbData && typeof window.BOLDCUSTOM.qbRecalcTotal === 'function') {
             window.BOLDCUSTOM.qbRecalcTotal();
             return;
@@ -43,12 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (typeof subscribe === 'function' && typeof PUB_SUB_EVENTS !== 'undefined') {
-        // Programmatic quantity resets (setQuantityBoundries) publish quantityUpdate.
         if (PUB_SUB_EVENTS.quantityUpdate) {
             subscribe(PUB_SUB_EVENTS.quantityUpdate, updateTotalPrice);
         }
-        // Selecting a different option re-renders the price (and the total element)
-        // and publishes variantChange afterwards — recompute with the new price then.
         if (PUB_SUB_EVENTS.variantChange) {
             subscribe(PUB_SUB_EVENTS.variantChange, updateTotalPrice);
         }

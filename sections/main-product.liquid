@@ -1,4 +1,3 @@
-{% comment %} START - DYNAMIC STYLES FOR CUSTOMIZER APP {% endcomment %}
 {%- style -%}
   {%- if product.options.size == 1 -%}
     .cl-po--option[data-option="Customize Your Hat"] .cl-po--label::before{
@@ -41,7 +40,6 @@
     }
   }
 {%- endstyle -%}
-{% comment %} END - DYNAMIC STYLES FOR CUSTOMIZER APP {% endcomment %}
 
 <product-info
   id="MainProduct-{{ section.id }}"
@@ -420,14 +418,6 @@
                           max="{{ product.selected_or_first_available_variant.quantity_rule.max | round: 0 }}"
                         {% endif %}
 
-                        {% comment %}
-                          Dozen products must step by 12. The Shopify quantity-rule increment
-                          is 1 (the dozen rule lives in the qty_cw metafield, not quantity rules),
-                          and product-info.js setQuantityBoundries() uses this step to relax the
-                          minimum once the cart already holds >= data-min units — with step 1 it
-                          reset the quantity to 1 after a second add-to-cart. Same fix as the
-                          hardcoded step="12" in snippets/quantity-input.liquid.
-                        {% endcomment %}
                         {% if product.tags contains 'sample-packs' %}
                           step="1"
                         {% else %}
