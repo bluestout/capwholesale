@@ -5,15 +5,11 @@
   window.BOLD.pre.config = window.BOLD.pre.config || {};
 
   window.BOLDCUSTOM.rules = window.BOLDCUSTOM.rules || {};
-  // Deployment marker - bump when this file changes so QA can verify the live version.
   console.info('[qb-grid] build 2026-07-07-5');
   window.BOLDCUSTOM.customerTags = {{ customer.tags | default: [] | json }};
   window.BOLDCUSTOM.product = {{ product | json }};
   window.BOLDCUSTOM.cartvariants = {{ cart.items | map: 'variant' | map: 'id' | json }}
 
-  // Quantity of each variant already in the cart. Bold prices a cart line on its
-  // COMBINED quantity, so the PDP total must pick the tier from (page qty + cart qty).
-  // Seeded server-side at render, refreshed from /cart.js on every cart update.
   window.BOLDCUSTOM.cartQtyByVariant = ([
     {%- for item in cart.items -%}
       { id: "{{ item.variant.id }}", qty: {{ item.quantity }} }{% unless forloop.last %},{% endunless %}
@@ -23,12 +19,10 @@
     return map;
   }, {});
 
-  // Loop guards
   let _restoring = false;
   let _restoreCount = 0;
   const MAX_RESTORES = 60;
 
-  // Tracks the last-rendered variant id per form so we can detect actual changes
   const _lastRenderedVariantId = new WeakMap();
 
   function getQBData() {
@@ -38,8 +32,6 @@
     fetch(`https://api.boldcommerce.com/go_pre/pricerules/stjzta-ux.myshopify.com/rulesets?products=${mainProduct.id}&customer_tags=${window.BOLDCUSTOM.customerTags?.join(',') || ''}`)
       .then(function (resp) { return resp.json(); })
       .then(function (rules) {
-        // Group rulesets by their tier-ladder signature (handles per-variant pricing
-        // where the same product has multiple ladders, e.g. plain vs patterned colors).
         const ladders = {};
 
         for (let rs = 0; rs < (rules.rulesets || []).length; rs++) {
@@ -97,18 +89,11 @@
     if (!ladders || ladders.length === 0) return null;
     if (ladders.length === 1) return ladders[0];
 
-    // Collect all ladders whose qty-12 price matches the variant's price.
-    // When several match, prefer the one with the most supporting rulesets — this
-    // beats poisoned multi-product rulesets that happen to share the variant's qty-12
-    // price but contain wrong values for other qtys. The legit ladder always has more
-    // support because Bold creates one ruleset per variant for product-specific rules,
-    // while poisoned multi-product rulesets typically appear only 1–2 times.
     const exactMatches = ladders.filter(function (l) {
       return l.qty12Price != null && Math.abs(l.qty12Price - variant.price) < 0.5;
     });
 
     if (exactMatches.length > 0) {
-      // Sort by support count, descending. Tiebreaker: more tiers in ladder (richer data).
       exactMatches.sort(function (a, b) {
         if (b.count !== a.count) return b.count - a.count;
         return b.qbLevels.length - a.qbLevels.length;
@@ -116,7 +101,6 @@
       return exactMatches[0];
     }
 
-    // No exact match — fall back to closest qty-12 price, preferring higher support.
     let best = null;
     let bestDiff = Infinity;
     let bestCount = -1;
@@ -179,17 +163,11 @@
   function syncCheckedRadio(tierQty) {
     window.BOLDCUSTOM._nominalTierQty = tierQty;
 
-    // Theme-built radios (rebuildRadios below).
     const themeRadios = document.querySelectorAll('.es-quantity-radios input[name="ESQuantityRadios"]');
     themeRadios.forEach(function (radio) {
-      // Set the property directly (no change event) so this never feeds back
-      // into the radio's own qty-setting listener.
       radio.checked = parseInt(radio.value) === tierQty;
     });
 
-    // Bold LPO's own qty-break widget, when it is the one rendered on the page.
-    // Bold checks the radio for ITS notion of the current tier (cart-aware), which
-    // pins e.g. 144+ while the input reads 12 — override it to follow the input.
     const boldRadios = document.querySelectorAll('.cl-po--radio-item input[name="_Buy more and save!"]');
     boldRadios.forEach(function (radio) {
       const row = radio.closest('.cl-po--radio-item') || radio.parentElement;
@@ -199,12 +177,7 @@
     });
   }
 
-  // Bold re-checks its own radio on its render cycles, and both Bold and the
-  // theme sometimes set the quantity input programmatically (no input/change
-  // event). Watch for both kinds of silent drift and re-assert (same defensive
-  // pattern as the grid guardian / variant watcher below).
   setInterval(function () {
-    // 1) Quantity changed without an event -> recompute total, radio and note.
     const input = document.querySelector('.product-form__quantity .quantity__input');
     if (input && input.value !== window.BOLDCUSTOM._lastSeenQty) {
       window.BOLDCUSTOM._lastSeenQty = input.value;
@@ -212,7 +185,6 @@
       return;
     }
 
-    // 2) Checked radio drifted away from the input-driven tier -> re-assert.
     const want = window.BOLDCUSTOM._nominalTierQty;
     if (want == null) return;
     const checked = document.querySelector(
@@ -239,8 +211,6 @@
     const variantData = window.BOLDCUSTOM.product?.variants?.find(v => String(v.id) === String(variantId));
     const qbData = window.BOLDCUSTOM.qbData?.[variantId];
 
-    // Single-piece zone (1-3 units on non-sample-pack products): these units go
-    // through the promo path at the variant's base price, never a bulk tier.
     const wrapper = document.querySelector('.product-form__quantity quantity-input');
     const isSamplePack = wrapper?.dataset.samplePack === 'true';
     if (!isSamplePack && qty >= 1 && qty <= 3) {
@@ -249,22 +219,13 @@
         style: 'currency',
         currency: {{ shop.currency | json }}
       });
-      // No bulk tier applies in the single-piece zone; clear the tier radios.
       syncCheckedRadio(0);
       return;
     }
 
-    // Bold applies the qty-break tier to the WHOLE cart line, so units already in
-    // the cart for this variant count toward the tier the shopper will actually pay.
     const cartQty = window.BOLDCUSTOM.cartQtyByVariant?.[String(variantId)] || 0;
     const effectiveQty = qty + cartQty;
 
-    // Two tiers matter here:
-    //  - nominalRow: the tier for the page quantity alone. The checked radio must
-    //    ALWAYS reflect this, because the radios set the quantity — a radio that
-    //    disagrees with the input reads as broken.
-    //  - appliedRow: the tier for (page qty + cart qty) — the price Bold will
-    //    actually charge on the merged cart line. The Total uses this.
     let nominalRow = null;
     let appliedRow = null;
     if (qbData) {
@@ -280,14 +241,10 @@
       currency: {{ shop.currency | json }}
     });
 
-    // The checked radio follows the quantity input, never the cart.
     syncCheckedRadio(nominalRow ? nominalRow.qty : 0);
 
   }
 
-
-  // Let other theme scripts (richardson-template-over.liquid) delegate to this
-  // cart-aware calculation instead of running their own naive qty x price math.
   window.BOLDCUSTOM.qbRecalcTotal = function () {
     for (let f = 0; f < document.forms.length; f++) {
       const form = document.forms[f];
@@ -296,8 +253,6 @@
     }
   };
 
-  // Refresh cart quantities whenever the cart changes (add to cart, drawer qty
-  // edits, removals), then recompute the PDP total with the new effective tier.
   let _cartRefreshTimer = null;
   function refreshCartQuantities() {
     if (_cartRefreshTimer) clearTimeout(_cartRefreshTimer);
@@ -312,12 +267,11 @@
           window.BOLDCUSTOM.cartQtyByVariant = map;
           window.BOLDCUSTOM.qbRecalcTotal();
         })
-        .catch(function () { /* keep last known quantities */ });
+        .catch(function () {  });
     }, 150);
   }
 
   window.addEventListener('load', function () {
-    // pubsub.js is loaded deferred; register the cart listener once it exists.
     if (typeof subscribe === 'function' && typeof PUB_SUB_EVENTS !== 'undefined' && PUB_SUB_EVENTS.cartUpdate) {
       subscribe(PUB_SUB_EVENTS.cartUpdate, refreshCartQuantities);
     }
@@ -397,7 +351,6 @@
     const variantId = form.id?.value;
     const correctHTML = window.BOLDCUSTOM?.qbGrids?.[variantId] || '';
 
-    // Check if the table in the DOM matches the current variant. If not, replace.
     const currentTable = gridEl.querySelector('table[data-source="qb-grid-snippet"]');
     const currentTableVariant = currentTable?.getAttribute('data-variant');
     const needsTableSwap = !currentTable || currentTableVariant !== String(variantId);
@@ -468,10 +421,6 @@
     }, 500);
   }
 
-  // Watches the hidden #id input on each cart/add form for variant changes.
-  // The theme updates that input via its own variant-selection JS, often AFTER the click's
-  // change event has fired — so we can't rely on listening to the click. Polling the value
-  // every 200ms catches the update reliably regardless of how the theme triggers it.
   let variantWatcherStarted = false;
   function startVariantWatcher() {
     if (variantWatcherStarted) return;
@@ -486,11 +435,9 @@
         if (!currentVariantId) continue;
         const lastSeen = _lastRenderedVariantId.get(form);
         if (lastSeen !== currentVariantId) {
-          // Variant changed — re-render this form
           renderAll();
-          // Allow more restores when variant actually changed (this is legitimate work)
           _restoreCount = Math.max(0, _restoreCount - 5);
-          break; // renderAll iterates all forms, no need to loop further here
+          break;
         }
       }
     }, 200);
