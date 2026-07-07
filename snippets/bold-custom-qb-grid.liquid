@@ -5,6 +5,8 @@
   window.BOLD.pre.config = window.BOLD.pre.config || {};
 
   window.BOLDCUSTOM.rules = window.BOLDCUSTOM.rules || {};
+  // Deployment marker - bump when this file changes so QA can verify the live version.
+  console.info('[qb-grid] build 2026-07-07-4');
   window.BOLDCUSTOM.customerTags = {{ customer.tags | default: [] | json }};
   window.BOLDCUSTOM.product = {{ product | json }};
   window.BOLDCUSTOM.cartvariants = {{ cart.items | map: 'variant' | map: 'id' | json }}
@@ -175,14 +177,56 @@
   }
 
   function syncCheckedRadio(tierQty) {
-    const radios = document.querySelectorAll('.es-quantity-radios input[name="ESQuantityRadios"]');
-    if (!radios.length) { return; }
-    radios.forEach(function (radio) {
+    window.BOLDCUSTOM._nominalTierQty = tierQty;
+
+    // Theme-built radios (rebuildRadios below).
+    const themeRadios = document.querySelectorAll('.es-quantity-radios input[name="ESQuantityRadios"]');
+    themeRadios.forEach(function (radio) {
       // Set the property directly (no change event) so this never feeds back
       // into the radio's own qty-setting listener.
       radio.checked = parseInt(radio.value) === tierQty;
     });
+
+    // Bold LPO's own qty-break widget, when it is the one rendered on the page.
+    // Bold checks the radio for ITS notion of the current tier (cart-aware), which
+    // pins e.g. 144+ while the input reads 12 — override it to follow the input.
+    const boldRadios = document.querySelectorAll('.cl-po--radio-item input[name="_Buy more and save!"]');
+    boldRadios.forEach(function (radio) {
+      const row = radio.closest('.cl-po--radio-item') || radio.parentElement;
+      const match = (row && row.textContent ? row.textContent : '').match(/(\d+)\s*\+/);
+      const rowQty = match ? parseInt(match[1]) : parseInt(radio.value);
+      radio.checked = rowQty === tierQty;
+    });
   }
+
+  // Bold re-checks its own radio on its render cycles, and both Bold and the
+  // theme sometimes set the quantity input programmatically (no input/change
+  // event). Watch for both kinds of silent drift and re-assert (same defensive
+  // pattern as the grid guardian / variant watcher below).
+  setInterval(function () {
+    // 1) Quantity changed without an event -> recompute total, radio and note.
+    const input = document.querySelector('.product-form__quantity .quantity__input');
+    if (input && input.value !== window.BOLDCUSTOM._lastSeenQty) {
+      window.BOLDCUSTOM._lastSeenQty = input.value;
+      if (typeof window.BOLDCUSTOM.qbRecalcTotal === 'function') window.BOLDCUSTOM.qbRecalcTotal();
+      return;
+    }
+
+    // 2) Checked radio drifted away from the input-driven tier -> re-assert.
+    const want = window.BOLDCUSTOM._nominalTierQty;
+    if (want == null) return;
+    const checked = document.querySelector(
+      '.es-quantity-radios input[name="ESQuantityRadios"]:checked, .cl-po--radio-item input[name="_Buy more and save!"]:checked'
+    );
+    if (!checked) {
+      if (want !== 0) syncCheckedRadio(want);
+      return;
+    }
+    const row = checked.closest('.cl-po--radio-item, label') || checked.parentElement;
+    const match = (row && row.textContent ? row.textContent : '').match(/(\d+)\s*\+/);
+    const checkedQty = match ? parseInt(match[1]) : parseInt(checked.value);
+    if (checkedQty !== want) syncCheckedRadio(want);
+  }, 600);
 
   function recalcTotalPrice(form) {
     if (!form) { return; }
@@ -190,6 +234,7 @@
     const qty = parseInt(form.quantity?.value);
     const totalEl = document.querySelector('.sub-total-price-value');
     if (!variantId || !qty || !totalEl) { return; }
+    window.BOLDCUSTOM._lastSeenQty = form.quantity?.value;
 
     const variantData = window.BOLDCUSTOM.product?.variants?.find(v => String(v.id) === String(variantId));
     const qbData = window.BOLDCUSTOM.qbData?.[variantId];
@@ -206,6 +251,7 @@
       });
       // No bulk tier applies in the single-piece zone; clear the tier radios.
       syncCheckedRadio(0);
+      updateCartTierNote('');
       return;
     }
 
@@ -214,21 +260,58 @@
     const cartQty = window.BOLDCUSTOM.cartQtyByVariant?.[String(variantId)] || 0;
     const effectiveQty = qty + cartQty;
 
-    let bestRow = null;
+    // Two tiers matter here:
+    //  - nominalRow: the tier for the page quantity alone. The checked radio must
+    //    ALWAYS reflect this, because the radios set the quantity — a radio that
+    //    disagrees with the input reads as broken.
+    //  - appliedRow: the tier for (page qty + cart qty) — the price Bold will
+    //    actually charge on the merged cart line. The Total uses this.
+    let nominalRow = null;
+    let appliedRow = null;
     if (qbData) {
       for (let i = 0; i < qbData.length; i++) {
-        if (qbData[i].qty <= effectiveQty) bestRow = qbData[i];
-        else break;
+        if (qbData[i].qty <= qty) nominalRow = qbData[i];
+        if (qbData[i].qty <= effectiveQty) appliedRow = qbData[i];
+        if (qbData[i].qty > effectiveQty) break;
       }
     }
-    const bestPrice = bestRow?.price ?? variantData?.price ?? 0;
-    totalEl.innerText = (bestPrice * qty * 0.01).toLocaleString(undefined, {
+    const appliedPrice = appliedRow?.price ?? variantData?.price ?? 0;
+    totalEl.innerText = (appliedPrice * qty * 0.01).toLocaleString(undefined, {
       style: 'currency',
       currency: {{ shop.currency | json }}
     });
 
-    // Keep the checked radio consistent with the tier price used in the total.
-    syncCheckedRadio(bestRow ? bestRow.qty : 1);
+    // The checked radio follows the quantity input, never the cart.
+    syncCheckedRadio(nominalRow ? nominalRow.qty : 0);
+
+    // When units already in the cart unlock a better tier than the selected
+    // quantity alone, explain the total instead of leaving a silent mismatch
+    // between the checked radio's row price and the Total.
+    updateCartTierNote(
+      appliedRow && nominalRow && appliedRow.qty > nominalRow.qty
+        ? cartQty + ' already in cart \u2014 these ' + qty + ' get the ' + appliedRow.qty + '+ price (' +
+          (appliedPrice * 0.01).toLocaleString(undefined, { style: 'currency', currency: {{ shop.currency | json }} }) + ' each)'
+        : ''
+    );
+  }
+
+  function updateCartTierNote(text) {
+    const totalEl = document.querySelector('.sub-total-price-value');
+    if (!totalEl) return;
+    let note = document.querySelector('.qb-cart-tier-note');
+    if (!text) {
+      if (note) note.style.display = 'none';
+      return;
+    }
+    if (!note) {
+      note = document.createElement('div');
+      note.className = 'qb-cart-tier-note';
+      note.style.cssText = 'font-size:1.2rem;color:#2a7a2a;margin-top:0.4rem;text-align:right;';
+      const container = totalEl.closest('.sub-total-price') || totalEl.parentElement;
+      container.appendChild(note);
+    }
+    note.textContent = text;
+    note.style.display = '';
   }
 
   // Let other theme scripts (richardson-template-over.liquid) delegate to this
