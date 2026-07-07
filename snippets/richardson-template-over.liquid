@@ -1,48 +1,442 @@
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const input = document.querySelector('.product-form__quantity .quantity__input');
+  window.BOLD = window.BOLD || {};
+  window.BOLDCUSTOM = window.BOLDCUSTOM || {};
+  window.BOLD.pre = window.BOLD.pre || {};
+  window.BOLD.pre.config = window.BOLD.pre.config || {};
 
-    {%- unless product.tags contains 'sample-packs' -%}
-      if (input) {
-        input.min = 12;
-        input.value = 12;
+  window.BOLDCUSTOM.rules = window.BOLDCUSTOM.rules || {};
+  window.BOLDCUSTOM.customerTags = {{ customer.tags | default: [] | json }};
+  window.BOLDCUSTOM.product = {{ product | json }};
+  window.BOLDCUSTOM.cartvariants = {{ cart.items | map: 'variant' | map: 'id' | json }}
+
+  window.BOLDCUSTOM.cartQtyByVariant = ([
+    {%- for item in cart.items -%}
+      { id: "{{ item.variant.id }}", qty: {{ item.quantity }} }{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  ]).reduce(function (map, line) {
+    map[line.id] = (map[line.id] || 0) + line.qty;
+    return map;
+  }, {});
+
+  // Loop guards
+  let _restoring = false;
+  let _restoreCount = 0;
+  const MAX_RESTORES = 60;
+
+  // Tracks the last-rendered variant id per form so we can detect actual changes
+  const _lastRenderedVariantId = new WeakMap();
+
+  function getQBData() {
+    const mainProduct = window.BOLDCUSTOM.product;
+    if (!mainProduct) { return; }
+
+    fetch(`https://api.boldcommerce.com/go_pre/pricerules/stjzta-ux.myshopify.com/rulesets?products=${mainProduct.id}&customer_tags=${window.BOLDCUSTOM.customerTags?.join(',') || ''}`)
+      .then(function (resp) { return resp.json(); })
+      .then(function (rules) {
+        const ladders = {};
+
+        for (let rs = 0; rs < (rules.rulesets || []).length; rs++) {
+          const ruleset = rules.rulesets[rs];
+          const breaks = [];
+          for (let r = 0; r < (ruleset.rules || []).length; r++) {
+            const rule = ruleset.rules[r];
+            if (rule.type !== 'DISPLAY') continue;
+            for (let a = 0; a < (rule.actions || []).length; a++) {
+              const action = rule.actions[a];
+              if (action.type !== 'DISPLAY_QTY_BREAK') continue;
+              breaks.push({
+                qty: action.qty,
+                price: action.price != null ? action.price : null,
+                saved: action.saved != null ? action.saved : null,
+                percent: action.percent != null ? action.percent : null
+              });
+            }
+          }
+          if (breaks.length === 0) continue;
+
+          breaks.sort(function (a, b) { return a.qty - b.qty; });
+          const signature = breaks.map(function (b) {
+            return b.qty + ':' + (b.price != null ? b.price : '') + ':' + (b.saved != null ? b.saved : '') + ':' + (b.percent != null ? b.percent : '');
+          }).join('|');
+
+          if (!ladders[signature]) {
+            const q12 = breaks.find(function (b) { return b.qty === 12; });
+            ladders[signature] = {
+              qbLevels: breaks,
+              count: 0,
+              qty12Price: q12 ? q12.price : null
+            };
+          }
+          ladders[signature].count++;
+        }
+
+        const ladderArr = Object.values(ladders);
+        const totalRulesets = (rules.rulesets || []).length;
+        const supportThreshold = totalRulesets > 4 ? 2 : 1;
+        const trustedLadders = ladderArr.filter(function (l) { return l.count >= supportThreshold; });
+        const finalLadders = trustedLadders.length > 0 ? trustedLadders : ladderArr;
+
+        window.BOLDCUSTOM.ladders = finalLadders;
+
+        buildQBGrids(mainProduct, finalLadders);
+        renderAll();
+        startGuardian();
+        startVariantWatcher();
+      })
+      .catch(function (err) { console.error('[qb-grid] fetch failed:', err); });
+  }
+
+  function pickLadderForVariant(variant, ladders) {
+    if (!ladders || ladders.length === 0) return null;
+    if (ladders.length === 1) return ladders[0];
+
+    const exactMatches = ladders.filter(function (l) {
+      return l.qty12Price != null && Math.abs(l.qty12Price - variant.price) < 0.5;
+    });
+
+    if (exactMatches.length > 0) {
+      exactMatches.sort(function (a, b) {
+        if (b.count !== a.count) return b.count - a.count;
+        return b.qbLevels.length - a.qbLevels.length;
+      });
+      return exactMatches[0];
+    }
+
+    let best = null;
+    let bestDiff = Infinity;
+    let bestCount = -1;
+    ladders.forEach(function (l) {
+      if (l.qty12Price == null) return;
+      const diff = Math.abs(l.qty12Price - variant.price);
+      if (diff < bestDiff || (diff === bestDiff && l.count > bestCount)) {
+        bestDiff = diff;
+        bestCount = l.count;
+        best = l;
       }
-    {%- endunless -%}
+    });
+    return best || ladders[0];
+  }
 
-    const updateTotalPrice = () => {
-        const qtyInput = document.querySelector('.product-form__quantity .quantity__input');
-        const priceEl = document.querySelector('.ui-price-regular .price-item--regular');
-        const totalEl = document.querySelector('.sub-total-price-value');
-        if (!qtyInput || !priceEl || !totalEl) return;
+  function buildQBGrids(product, ladders) {
+    const qbData = {};
+    const qbGrids = {};
 
-        const price = parseFloat(priceEl.innerText.replace(/[^0-9.]/g, '')) || 0;
-        const quantity = parseInt(qtyInput.value) || 0;
+    for (let v = 0; v < product.variants.length; v++) {
+      const variant = product.variants[v];
+      const ladder = pickLadderForVariant(variant, ladders);
+      if (!ladder) { continue; }
 
-        totalEl.innerText = "$" + (quantity * price).toFixed(2) + " USD";
-    };
-
-    updateTotalPrice();
-
-    if (input) {
-        input.addEventListener('input', updateTotalPrice);
-        input.addEventListener('change', updateTotalPrice);
-
-        const form = input.closest('form');
-        if (form) {
-            form.addEventListener('qty_change', updateTotalPrice);
+      const variantBreaks = [];
+      for (let q = 0; q < ladder.qbLevels.length; q++) {
+        const qbRule = ladder.qbLevels[q];
+        let price = variant.price;
+        if (qbRule.saved) {
+          price = Math.max(price - qbRule.saved, 0);
+        } else if (qbRule.percent) {
+          price = Math.round(price - (price * (qbRule.percent / 100)));
+        } else if (qbRule.price != null) {
+          price = qbRule.price;
         }
+        variantBreaks.push({ qty: qbRule.qty, price: price });
+      }
+
+      qbData[variant.id] = variantBreaks;
+
+      let gridHTML = '';
+      for (let d = 0; d < variantBreaks.length; d++) {
+        const rowData = variantBreaks[d];
+        gridHTML += `<tr><td>${rowData.qty}</td><td>${(rowData.price * 0.01).toLocaleString(undefined, { style: 'currency', currency: {{ shop.currency | json }} })}</td></tr>`;
+      }
+
+      qbGrids[variant.id] = `<table class="shappify_qb_grid" data-source="qb-grid-snippet" data-variant="${variant.id}">
+        <thead><tr><th>Qty</th><th>Price</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>${(variant.price * 0.01).toLocaleString(undefined, { style: 'currency', currency: {{ shop.currency | json }} })}</td></tr>
+          ${gridHTML}
+        </tbody>
+      </table>`;
     }
 
-    if (typeof subscribe === 'function' && typeof PUB_SUB_EVENTS !== 'undefined') {
-        // Programmatic quantity resets (setQuantityBoundries) publish quantityUpdate.
-        if (PUB_SUB_EVENTS.quantityUpdate) {
-            subscribe(PUB_SUB_EVENTS.quantityUpdate, updateTotalPrice);
-        }
-        // Selecting a different option re-renders the price (and the total element)
-        // and publishes variantChange afterwards — recompute with the new price then.
-        if (PUB_SUB_EVENTS.variantChange) {
-            subscribe(PUB_SUB_EVENTS.variantChange, updateTotalPrice);
-        }
+    window.BOLDCUSTOM.qbData = qbData;
+    window.BOLDCUSTOM.qbGrids = qbGrids;
+  }
+
+  function syncCheckedRadio(tierQty) {
+    const radios = document.querySelectorAll('.es-quantity-radios input[name="ESQuantityRadios"]');
+    if (!radios.length) { return; }
+    radios.forEach(function (radio) {
+      radio.checked = parseInt(radio.value) === tierQty;
+    });
+  }
+
+  function recalcTotalPrice(form) {
+    if (!form) { return; }
+    const variantId = form.id?.value;
+    const qty = parseInt(form.quantity?.value);
+    const totalEl = document.querySelector('.sub-total-price-value');
+    if (!variantId || !qty || !totalEl) { return; }
+
+    const variantData = window.BOLDCUSTOM.product?.variants?.find(v => String(v.id) === String(variantId));
+    const qbData = window.BOLDCUSTOM.qbData?.[variantId];
+
+    const cartQty = window.BOLDCUSTOM.cartQtyByVariant?.[String(variantId)] || 0;
+    const effectiveQty = qty + cartQty;
+
+    let bestRow = null;
+    if (qbData) {
+      for (let i = 0; i < qbData.length; i++) {
+        if (qbData[i].qty <= effectiveQty) bestRow = qbData[i];
+        else break;
+      }
     }
-});
+    const bestPrice = bestRow?.price ?? variantData?.price ?? 0;
+    totalEl.innerText = (bestPrice * qty * 0.01).toLocaleString(undefined, {
+      style: 'currency',
+      currency: {{ shop.currency | json }}
+    });
+
+    syncCheckedRadio(bestRow ? bestRow.qty : 1);
+  }
+
+  window.BOLDCUSTOM.qbRecalcTotal = function () {
+    for (let f = 0; f < document.forms.length; f++) {
+      const form = document.forms[f];
+      if (!(form.action.includes('cart/add'))) continue;
+      recalcTotalPrice(form);
+    }
+  };
+
+  let _cartRefreshTimer = null;
+  function refreshCartQuantities() {
+    if (_cartRefreshTimer) clearTimeout(_cartRefreshTimer);
+    _cartRefreshTimer = setTimeout(function () {
+      fetch('/cart.js')
+        .then(function (resp) { return resp.json(); })
+        .then(function (cart) {
+          const map = {};
+          (cart.items || []).forEach(function (line) {
+            map[String(line.variant_id)] = (map[String(line.variant_id)] || 0) + line.quantity;
+          });
+          window.BOLDCUSTOM.cartQtyByVariant = map;
+          window.BOLDCUSTOM.qbRecalcTotal();
+        })
+        .catch(function () { /* keep last known quantities */ });
+    }, 150);
+  }
+
+  window.addEventListener('load', function () {
+    if (typeof subscribe === 'function' && typeof PUB_SUB_EVENTS !== 'undefined' && PUB_SUB_EVENTS.cartUpdate) {
+      subscribe(PUB_SUB_EVENTS.cartUpdate, refreshCartQuantities);
+    }
+  });
+
+  function rebuildRadios(gridEl) {
+    const radiosContainer = document.querySelector('.es-quantity-radios');
+    if (!radiosContainer) return;
+
+    const table = gridEl.querySelector('table[data-source="qb-grid-snippet"]');
+    if (!table) return;
+
+    const existingBody = radiosContainer.querySelector('.es-quantity-radios__body');
+
+    const body = document.createElement('div');
+    body.className = 'es-quantity-radios__body';
+
+    const trs = table.querySelectorAll('tbody tr');
+    trs.forEach((tr, index) => {
+      const cells = tr.querySelectorAll('td');
+      const qty = cells[0]?.textContent.trim();
+      const price = cells[1]?.textContent.trim();
+      if (!qty) return;
+
+      const label = document.createElement('label');
+      const input = document.createElement('input');
+      const customInput = document.createElement('span');
+      const spanQty = document.createElement('span');
+      const spanPrice = document.createElement('span');
+
+      spanQty.className = 'es-quantity-radios__pty';
+      spanPrice.className = 'es-quantity-radios__price';
+      customInput.className = 'es-quantity-radios__custom-input';
+
+      input.type = 'radio';
+      input.name = 'ESQuantityRadios';
+      input.value = qty;
+      label.setAttribute('data-quantity', qty);
+
+      if (index === 1) input.setAttribute('checked', 'checked');
+
+      spanQty.textContent = qty + '+';
+      spanPrice.textContent = price;
+
+      label.appendChild(input);
+      label.appendChild(customInput);
+      label.appendChild(spanQty);
+      label.appendChild(spanPrice);
+      body.appendChild(label);
+
+      input.addEventListener('change', function () {
+        const qtyInput = document.querySelector('.product .product-form__quantity .quantity__input');
+        if (qtyInput) {
+          qtyInput.value = this.value;
+          qtyInput.form?.dispatchEvent(new CustomEvent('qty_change', { bubbles: true }));
+        }
+      });
+    });
+
+    const newSig = body.textContent;
+    const oldSig = existingBody ? existingBody.textContent : '';
+    if (newSig === oldSig) return;
+
+    if (existingBody) existingBody.parentElement.removeChild(existingBody);
+    radiosContainer.appendChild(body);
+  }
+
+  function renderInto(form) {
+    let gridEl = form.querySelector('.bold_qb_grid_custom');
+    if (!gridEl) {
+      gridEl = document.createElement('div');
+      gridEl.className = 'bold_qb_grid_custom';
+      gridEl.id = 'bold_qb_grid';
+      form.prepend(gridEl);
+    }
+
+    const variantId = form.id?.value;
+    const correctHTML = window.BOLDCUSTOM?.qbGrids?.[variantId] || '';
+
+    const currentTable = gridEl.querySelector('table[data-source="qb-grid-snippet"]');
+    const currentTableVariant = currentTable?.getAttribute('data-variant');
+    const needsTableSwap = !currentTable || currentTableVariant !== String(variantId);
+
+    if (correctHTML && needsTableSwap) {
+      gridEl.innerHTML = correctHTML;
+    }
+    rebuildRadios(gridEl);
+    _lastRenderedVariantId.set(form, variantId);
+  }
+
+  function renderAll() {
+    if (_restoring) return;
+    if (_restoreCount > MAX_RESTORES) return;
+    _restoring = true;
+    try {
+      const mainProduct = window.BOLDCUSTOM.product;
+      if (!mainProduct) return;
+      for (let f = 0; f < document.forms.length; f++) {
+        const form = document.forms[f];
+        if (!(form.action.includes('cart/add'))) continue;
+
+        renderInto(form);
+
+        if (!form._qbBound) {
+          form._qbBound = true;
+          form.addEventListener('qty_change', function (e) { recalcTotalPrice(e.target); });
+        }
+        recalcTotalPrice(form);
+      }
+    } finally {
+      setTimeout(function () { _restoring = false; }, 0);
+    }
+  }
+
+  function needsRestore() {
+    const grids = document.querySelectorAll('#bold_qb_grid, .bold_qb_grid_custom');
+    if (grids.length === 0) return true;
+    let ok = true;
+    grids.forEach(function (grid) {
+      const table = grid.querySelector('table');
+      if (!table || table.getAttribute('data-source') !== 'qb-grid-snippet') ok = false;
+    });
+    return !ok;
+  }
+
+  let guardianStarted = false;
+  function startGuardian() {
+    if (guardianStarted) return;
+    guardianStarted = true;
+
+    const observer = new MutationObserver(function () {
+      if (_restoring) return;
+      if (!needsRestore()) return;
+      _restoreCount++;
+      renderAll();
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    let ticks = 0;
+    const interval = setInterval(function () {
+      ticks++;
+      if (!_restoring && needsRestore()) {
+        _restoreCount++;
+        renderAll();
+      }
+      if (ticks > 20 || _restoreCount > MAX_RESTORES) clearInterval(interval);
+    }, 500);
+  }
+
+  let variantWatcherStarted = false;
+  function startVariantWatcher() {
+    if (variantWatcherStarted) return;
+    variantWatcherStarted = true;
+
+    setInterval(function () {
+      if (_restoring) return;
+      for (let f = 0; f < document.forms.length; f++) {
+        const form = document.forms[f];
+        if (!(form.action.includes('cart/add'))) continue;
+        const currentVariantId = form.id?.value;
+        if (!currentVariantId) continue;
+        const lastSeen = _lastRenderedVariantId.get(form);
+        if (lastSeen !== currentVariantId) {
+          renderAll();
+          _restoreCount = Math.max(0, _restoreCount - 5);
+          break;
+        }
+      }
+    }, 200);
+  }
+
+  window.addEventListener('load', getQBData);
 </script>
+
+<style>
+  table.shappify_qb_grid {
+    width: auto;
+  }
+  div.bold_qb_grid {
+    width: 100%;
+  }
+  table.shappify_qb_grid {
+    width: 100%;
+    font-size: 12px;
+  }
+  table.shappify_qb_grid thead,
+  table.shappify_qb_grid thead tr,
+  table.shappify_qb_grid thead th,
+  table.shappify_qb_grid thead td {
+    background: #d6d6d6;
+    color: #000000;
+    font-weight: bold;
+  }
+  table.shappify_qb_grid tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+  }
+  table.shappify_qb_grid tbody tr:nth-child(even) {
+    background-color: #efefef;
+  }
+  table.shappify_qb_grid tbody {
+    color: #000000;
+  }
+  table.shappify_qb_grid,
+  table.shappify_qb_grid th,
+  table.shappify_qb_grid td {
+    text-align: left;
+    padding: 5px;
+    border: 1px solid #cccccc;
+    border-collapse: collapse;
+  }
+  table.shappify_qb_grid {
+    margin: 0px;
+    margin-bottom: 1.5rem;
+  }
+</style>

@@ -9,6 +9,15 @@
   window.BOLDCUSTOM.product = {{ product | json }};
   window.BOLDCUSTOM.cartvariants = {{ cart.items | map: 'variant' | map: 'id' | json }}
 
+  window.BOLDCUSTOM.cartQtyByVariant = ([
+    {%- for item in cart.items -%}
+      { id: "{{ item.variant.id }}", qty: {{ item.quantity }} }{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  ]).reduce(function (map, line) {
+    map[line.id] = (map[line.id] || 0) + line.qty;
+    return map;
+  }, {});
+
   // Loop guards
   let _restoring = false;
   let _restoreCount = 0;
@@ -24,8 +33,6 @@
     fetch(`https://api.boldcommerce.com/go_pre/pricerules/stjzta-ux.myshopify.com/rulesets?products=${mainProduct.id}&customer_tags=${window.BOLDCUSTOM.customerTags?.join(',') || ''}`)
       .then(function (resp) { return resp.json(); })
       .then(function (rules) {
-        // Group rulesets by their tier-ladder signature (handles per-variant pricing
-        // where the same product has multiple ladders, e.g. plain vs patterned colors).
         const ladders = {};
 
         for (let rs = 0; rs < (rules.rulesets || []).length; rs++) {
@@ -83,18 +90,11 @@
     if (!ladders || ladders.length === 0) return null;
     if (ladders.length === 1) return ladders[0];
 
-    // Collect all ladders whose qty-12 price matches the variant's price.
-    // When several match, prefer the one with the most supporting rulesets — this
-    // beats poisoned multi-product rulesets that happen to share the variant's qty-12
-    // price but contain wrong values for other qtys. The legit ladder always has more
-    // support because Bold creates one ruleset per variant for product-specific rules,
-    // while poisoned multi-product rulesets typically appear only 1–2 times.
     const exactMatches = ladders.filter(function (l) {
       return l.qty12Price != null && Math.abs(l.qty12Price - variant.price) < 0.5;
     });
 
     if (exactMatches.length > 0) {
-      // Sort by support count, descending. Tiebreaker: more tiers in ladder (richer data).
       exactMatches.sort(function (a, b) {
         if (b.count !== a.count) return b.count - a.count;
         return b.qbLevels.length - a.qbLevels.length;
@@ -102,7 +102,6 @@
       return exactMatches[0];
     }
 
-    // No exact match — fall back to closest qty-12 price, preferring higher support.
     let best = null;
     let bestDiff = Infinity;
     let bestCount = -1;
@@ -162,6 +161,14 @@
     window.BOLDCUSTOM.qbGrids = qbGrids;
   }
 
+  function syncCheckedRadio(tierQty) {
+    const radios = document.querySelectorAll('.es-quantity-radios input[name="ESQuantityRadios"]');
+    if (!radios.length) { return; }
+    radios.forEach(function (radio) {
+      radio.checked = parseInt(radio.value) === tierQty;
+    });
+  }
+
   function recalcTotalPrice(form) {
     if (!form) { return; }
     const variantId = form.id?.value;
@@ -172,10 +179,13 @@
     const variantData = window.BOLDCUSTOM.product?.variants?.find(v => String(v.id) === String(variantId));
     const qbData = window.BOLDCUSTOM.qbData?.[variantId];
 
+    const cartQty = window.BOLDCUSTOM.cartQtyByVariant?.[String(variantId)] || 0;
+    const effectiveQty = qty + cartQty;
+
     let bestRow = null;
     if (qbData) {
       for (let i = 0; i < qbData.length; i++) {
-        if (qbData[i].qty <= qty) bestRow = qbData[i];
+        if (qbData[i].qty <= effectiveQty) bestRow = qbData[i];
         else break;
       }
     }
@@ -184,7 +194,41 @@
       style: 'currency',
       currency: {{ shop.currency | json }}
     });
+
+    syncCheckedRadio(bestRow ? bestRow.qty : 1);
   }
+
+  window.BOLDCUSTOM.qbRecalcTotal = function () {
+    for (let f = 0; f < document.forms.length; f++) {
+      const form = document.forms[f];
+      if (!(form.action.includes('cart/add'))) continue;
+      recalcTotalPrice(form);
+    }
+  };
+
+  let _cartRefreshTimer = null;
+  function refreshCartQuantities() {
+    if (_cartRefreshTimer) clearTimeout(_cartRefreshTimer);
+    _cartRefreshTimer = setTimeout(function () {
+      fetch('/cart.js')
+        .then(function (resp) { return resp.json(); })
+        .then(function (cart) {
+          const map = {};
+          (cart.items || []).forEach(function (line) {
+            map[String(line.variant_id)] = (map[String(line.variant_id)] || 0) + line.quantity;
+          });
+          window.BOLDCUSTOM.cartQtyByVariant = map;
+          window.BOLDCUSTOM.qbRecalcTotal();
+        })
+        .catch(function () { /* keep last known quantities */ });
+    }, 150);
+  }
+
+  window.addEventListener('load', function () {
+    if (typeof subscribe === 'function' && typeof PUB_SUB_EVENTS !== 'undefined' && PUB_SUB_EVENTS.cartUpdate) {
+      subscribe(PUB_SUB_EVENTS.cartUpdate, refreshCartQuantities);
+    }
+  });
 
   function rebuildRadios(gridEl) {
     const radiosContainer = document.querySelector('.es-quantity-radios');
@@ -260,7 +304,6 @@
     const variantId = form.id?.value;
     const correctHTML = window.BOLDCUSTOM?.qbGrids?.[variantId] || '';
 
-    // Check if the table in the DOM matches the current variant. If not, replace.
     const currentTable = gridEl.querySelector('table[data-source="qb-grid-snippet"]');
     const currentTableVariant = currentTable?.getAttribute('data-variant');
     const needsTableSwap = !currentTable || currentTableVariant !== String(variantId);
@@ -331,10 +374,6 @@
     }, 500);
   }
 
-  // Watches the hidden #id input on each cart/add form for variant changes.
-  // The theme updates that input via its own variant-selection JS, often AFTER the click's
-  // change event has fired — so we can't rely on listening to the click. Polling the value
-  // every 200ms catches the update reliably regardless of how the theme triggers it.
   let variantWatcherStarted = false;
   function startVariantWatcher() {
     if (variantWatcherStarted) return;
@@ -349,11 +388,9 @@
         if (!currentVariantId) continue;
         const lastSeen = _lastRenderedVariantId.get(form);
         if (lastSeen !== currentVariantId) {
-          // Variant changed — re-render this form
           renderAll();
-          // Allow more restores when variant actually changed (this is legitimate work)
           _restoreCount = Math.max(0, _restoreCount - 5);
-          break; // renderAll iterates all forms, no need to loop further here
+          break;
         }
       }
     }, 200);
@@ -363,8 +400,12 @@
 </script>
 
 <style>
-  table.shappify_qb_grid { width: auto; }
-  div.bold_qb_grid { width: 100%; }
+  table.shappify_qb_grid {
+    width: auto;
+  }
+  div.bold_qb_grid {
+    width: 100%;
+  }
   table.shappify_qb_grid {
     width: 100%;
     font-size: 12px;
@@ -377,9 +418,15 @@
     color: #000000;
     font-weight: bold;
   }
-  table.shappify_qb_grid tbody tr:nth-child(odd) { background-color: #ffffff; }
-  table.shappify_qb_grid tbody tr:nth-child(even) { background-color: #efefef; }
-  table.shappify_qb_grid tbody { color: #000000; }
+  table.shappify_qb_grid tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+  }
+  table.shappify_qb_grid tbody tr:nth-child(even) {
+    background-color: #efefef;
+  }
+  table.shappify_qb_grid tbody {
+    color: #000000;
+  }
   table.shappify_qb_grid,
   table.shappify_qb_grid th,
   table.shappify_qb_grid td {
