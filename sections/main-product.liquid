@@ -420,7 +420,19 @@
                           max="{{ product.selected_or_first_available_variant.quantity_rule.max | round: 0 }}"
                         {% endif %}
 
-                        step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
+                        {% comment %}
+                          Dozen products must step by 12. The Shopify quantity-rule increment
+                          is 1 (the dozen rule lives in the qty_cw metafield, not quantity rules),
+                          and product-info.js setQuantityBoundries() uses this step to relax the
+                          minimum once the cart already holds >= data-min units — with step 1 it
+                          reset the quantity to 1 after a second add-to-cart. Same fix as the
+                          hardcoded step="12" in snippets/quantity-input.liquid.
+                        {% endcomment %}
+                        {% if product.tags contains 'sample-packs' %}
+                          step="1"
+                        {% else %}
+                          step="12" {% comment %} {{ product.selected_or_first_available_variant.quantity_rule.increment }} {% endcomment %}
+                        {% endif %}
 
                         {% if product.tags contains 'sample-packs' %}
                           value="1"

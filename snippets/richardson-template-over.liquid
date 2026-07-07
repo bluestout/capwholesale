@@ -10,6 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
     {%- endunless -%}
 
     const updateTotalPrice = () => {
+        // When Bold qty-break data is loaded, the qb-grid script owns the total:
+        // it picks the tier from (page qty + qty already in cart), matching what
+        // Bold actually charges on the cart line. Running the naive qty x price
+        // math here would overwrite that with the wrong number.
+        if (window.BOLDCUSTOM && window.BOLDCUSTOM.qbData && typeof window.BOLDCUSTOM.qbRecalcTotal === 'function') {
+            window.BOLDCUSTOM.qbRecalcTotal();
+            return;
+        }
+
         const qtyInput = document.querySelector('.product-form__quantity .quantity__input');
         const priceEl = document.querySelector('.ui-price-regular .price-item--regular');
         const totalEl = document.querySelector('.sub-total-price-value');
