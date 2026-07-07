@@ -6,7 +6,7 @@
 
   window.BOLDCUSTOM.rules = window.BOLDCUSTOM.rules || {};
   // Deployment marker - bump when this file changes so QA can verify the live version.
-  console.info('[qb-grid] build 2026-07-07-4');
+  console.info('[qb-grid] build 2026-07-07-5');
   window.BOLDCUSTOM.customerTags = {{ customer.tags | default: [] | json }};
   window.BOLDCUSTOM.product = {{ product | json }};
   window.BOLDCUSTOM.cartvariants = {{ cart.items | map: 'variant' | map: 'id' | json }}
@@ -251,7 +251,6 @@
       });
       // No bulk tier applies in the single-piece zone; clear the tier radios.
       syncCheckedRadio(0);
-      updateCartTierNote('');
       return;
     }
 
@@ -284,35 +283,8 @@
     // The checked radio follows the quantity input, never the cart.
     syncCheckedRadio(nominalRow ? nominalRow.qty : 0);
 
-    // When units already in the cart unlock a better tier than the selected
-    // quantity alone, explain the total instead of leaving a silent mismatch
-    // between the checked radio's row price and the Total.
-    updateCartTierNote(
-      appliedRow && nominalRow && appliedRow.qty > nominalRow.qty
-        ? cartQty + ' already in cart \u2014 these ' + qty + ' get the ' + appliedRow.qty + '+ price (' +
-          (appliedPrice * 0.01).toLocaleString(undefined, { style: 'currency', currency: {{ shop.currency | json }} }) + ' each)'
-        : ''
-    );
   }
 
-  function updateCartTierNote(text) {
-    const totalEl = document.querySelector('.sub-total-price-value');
-    if (!totalEl) return;
-    let note = document.querySelector('.qb-cart-tier-note');
-    if (!text) {
-      if (note) note.style.display = 'none';
-      return;
-    }
-    if (!note) {
-      note = document.createElement('div');
-      note.className = 'qb-cart-tier-note';
-      note.style.cssText = 'font-size:1.2rem;color:#2a7a2a;margin-top:0.4rem;text-align:right;';
-      const container = totalEl.closest('.sub-total-price') || totalEl.parentElement;
-      container.appendChild(note);
-    }
-    note.textContent = text;
-    note.style.display = '';
-  }
 
   // Let other theme scripts (richardson-template-over.liquid) delegate to this
   // cart-aware calculation instead of running their own naive qty x price math.
