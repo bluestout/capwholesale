@@ -87,10 +87,10 @@
           "type": "slide_item",
           "settings": {
             "image": "shopify://shop_images/2880__C3_97_1300_px_Hatco_Website_Banners.jpg",
-            "sm_image": "shopify://shop_images/750x750px_promoting_Customized_Wear_1.jpg",
+            "sm_image": "shopify://shop_images/Need_Patches_or_Embroidery_no_text.png",
             "heading": "Need Patches or Embroidery?",
-            "description": "",
-            "button_text": "Visit Customizedwear.com",
+            "description": "<p>Visit CustomizedWear.com</p>",
+            "button_text": "SHOP NOW",
             "button_link": "https://www.customizedwear.com/",
             "ui_height": true,
             "banner_link": "https://www.customizedwear.com/"
