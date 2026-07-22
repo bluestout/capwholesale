@@ -5,7 +5,7 @@
   window.BOLD.pre.config = window.BOLD.pre.config || {};
 
   window.BOLDCUSTOM.rules = window.BOLDCUSTOM.rules || {};
-  console.info('[qb-grid] build 2026-07-07-5');
+  console.info('[qb-grid] build 2026-07-22-perf1');
   window.BOLDCUSTOM.customerTags = {{ customer.tags | default: [] | json }};
   window.BOLDCUSTOM.product = {{ product | json }};
   window.BOLDCUSTOM.cartvariants = {{ cart.items | map: 'variant' | map: 'id' | json }}
@@ -24,6 +24,10 @@
   const MAX_RESTORES = 60;
 
   const _lastRenderedVariantId = new WeakMap();
+
+  function getObserverTarget() {
+    return document.querySelector('product-info') || document.body;
+  }
 
   function getQBData() {
     const mainProduct = window.BOLDCUSTOM.product;
@@ -80,7 +84,7 @@
         buildQBGrids(mainProduct, finalLadders);
         renderAll();
         startGuardian();
-        startVariantWatcher();
+        bindEventDrivenUpdates();
       })
       .catch(function (err) { console.error('[qb-grid] fetch failed:', err); });
   }
@@ -177,28 +181,34 @@
     });
   }
 
-  setInterval(function () {
-    const input = document.querySelector('.product-form__quantity .quantity__input');
-    if (input && input.value !== window.BOLDCUSTOM._lastSeenQty) {
-      window.BOLDCUSTOM._lastSeenQty = input.value;
-      if (typeof window.BOLDCUSTOM.qbRecalcTotal === 'function') window.BOLDCUSTOM.qbRecalcTotal();
-      return;
-    }
+  function bindQuantityInputListener(input) {
+    if (!input || input._qbBound) return;
+    input._qbBound = true;
+    ['input', 'change'].forEach(function (evt) {
+      input.addEventListener(evt, function () {
+        if (typeof window.BOLDCUSTOM.qbRecalcTotal === 'function') window.BOLDCUSTOM.qbRecalcTotal();
+      });
+    });
+  }
 
-    const want = window.BOLDCUSTOM._nominalTierQty;
-    if (want == null) return;
-    const checked = document.querySelector(
-      '.es-quantity-radios input[name="ESQuantityRadios"]:checked, .cl-po--radio-item input[name="_Buy more and save!"]:checked'
-    );
-    if (!checked) {
-      if (want !== 0) syncCheckedRadio(want);
-      return;
+  function bindVariantChangeListener(form) {
+    const idInput = form.querySelector('input[name="id"]');
+    if (!idInput || idInput._qbVariantBound) return;
+    idInput._qbVariantBound = true;
+    idInput.addEventListener('change', function () {
+      renderAll();
+    });
+  }
+
+  function bindEventDrivenUpdates() {
+    for (let f = 0; f < document.forms.length; f++) {
+      const form = document.forms[f];
+      if (!(form.action.includes('cart/add'))) continue;
+      bindVariantChangeListener(form);
+      const qtyInput = form.querySelector('.quantity__input');
+      bindQuantityInputListener(qtyInput);
     }
-    const row = checked.closest('.cl-po--radio-item, label') || checked.parentElement;
-    const match = (row && row.textContent ? row.textContent : '').match(/(\d+)\s*\+/);
-    const checkedQty = match ? parseInt(match[1]) : parseInt(checked.value);
-    if (checkedQty !== want) syncCheckedRadio(want);
-  }, 600);
+  }
 
   function recalcTotalPrice(form) {
     if (!form) { return; }
@@ -290,6 +300,7 @@
     body.className = 'es-quantity-radios__body';
 
     const trs = table.querySelectorAll('tbody tr');
+    let defaultTierQty = 0;
     trs.forEach((tr, index) => {
       const cells = tr.querySelectorAll('td');
       const qty = cells[0]?.textContent.trim();
@@ -311,7 +322,10 @@
       input.value = qty;
       label.setAttribute('data-quantity', qty);
 
-      if (index === 1) input.setAttribute('checked', 'checked');
+      if (index === 1) {
+        input.setAttribute('checked', 'checked');
+        defaultTierQty = parseInt(qty);
+      }
 
       spanQty.textContent = qty + '+';
       spanPrice.textContent = price;
@@ -337,6 +351,12 @@
 
     if (existingBody) existingBody.parentElement.removeChild(existingBody);
     radiosContainer.appendChild(body);
+
+    const qtyInput = document.querySelector('.product .product-form__quantity .quantity__input');
+    if (qtyInput && window.BOLDCUSTOM._nominalTierQty == null && defaultTierQty) {
+      qtyInput.value = defaultTierQty;
+      qtyInput.form?.dispatchEvent(new CustomEvent('qty_change', { bubbles: true }));
+    }
   }
 
   function renderInto(form) {
@@ -358,7 +378,12 @@
     if (correctHTML && needsTableSwap) {
       gridEl.innerHTML = correctHTML;
     }
-    rebuildRadios(gridEl);
+
+    const lastVariant = _lastRenderedVariantId.get(form);
+    if (needsTableSwap || lastVariant == null) {
+      rebuildRadios(gridEl);
+    }
+
     _lastRenderedVariantId.set(form, variantId);
   }
 
@@ -381,6 +406,7 @@
         }
         recalcTotalPrice(form);
       }
+      bindEventDrivenUpdates();
     } finally {
       setTimeout(function () { _restoring = false; }, 0);
     }
@@ -408,7 +434,7 @@
       _restoreCount++;
       renderAll();
     });
-    observer.observe(document.body, { childList: true, subtree: true });
+    observer.observe(getObserverTarget(), { childList: true, subtree: true });
 
     let ticks = 0;
     const interval = setInterval(function () {
@@ -421,34 +447,16 @@
     }, 500);
   }
 
-  let variantWatcherStarted = false;
-  function startVariantWatcher() {
-    if (variantWatcherStarted) return;
-    variantWatcherStarted = true;
-
-    setInterval(function () {
-      if (_restoring) return;
-      for (let f = 0; f < document.forms.length; f++) {
-        const form = document.forms[f];
-        if (!(form.action.includes('cart/add'))) continue;
-        const currentVariantId = form.id?.value;
-        if (!currentVariantId) continue;
-        const lastSeen = _lastRenderedVariantId.get(form);
-        if (lastSeen !== currentVariantId) {
-          renderAll();
-          _restoreCount = Math.max(0, _restoreCount - 5);
-          break;
-        }
-      }
-    }, 200);
-  }
-
   window.addEventListener('load', getQBData);
 </script>
 
 <style>
-  table.shappify_qb_grid { width: auto; }
-  div.bold_qb_grid { width: 100%; }
+  table.shappify_qb_grid {
+    width: auto;
+  }
+  div.bold_qb_grid {
+    width: 100%;
+  }
   table.shappify_qb_grid {
     width: 100%;
     font-size: 12px;
@@ -461,9 +469,15 @@
     color: #000000;
     font-weight: bold;
   }
-  table.shappify_qb_grid tbody tr:nth-child(odd) { background-color: #ffffff; }
-  table.shappify_qb_grid tbody tr:nth-child(even) { background-color: #efefef; }
-  table.shappify_qb_grid tbody { color: #000000; }
+  table.shappify_qb_grid tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+  }
+  table.shappify_qb_grid tbody tr:nth-child(even) {
+    background-color: #efefef;
+  }
+  table.shappify_qb_grid tbody {
+    color: #000000;
+  }
   table.shappify_qb_grid,
   table.shappify_qb_grid th,
   table.shappify_qb_grid td {
