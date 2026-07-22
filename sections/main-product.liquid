@@ -332,7 +332,7 @@
                   </details>
                 </div>
               {%- when 'quantity_radios' -%}
-                <div class="es-quantity-radios">
+                <div class="es-quantity-radios" style="display: none;">
                   <div class="es-quantity-radios__header">
                     {% if product.has_only_default_variant == false %}
                       <span style="color: #900;">Step {{ variant_picker_count | plus: 1 }}:</span> {{ heading | default: "Buy more and save!" }}
