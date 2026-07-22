@@ -370,12 +370,23 @@
 
     const variantId = form.id?.value;
     const correctHTML = window.BOLDCUSTOM?.qbGrids?.[variantId] || '';
+    const radiosContainer = document.querySelector('.es-quantity-radios');
+
+    if (!correctHTML) {
+      // No QTY price tiers for this variant - keep/hide Step 3 and clear any stale grid.
+      if (radiosContainer) radiosContainer.style.display = 'none';
+      gridEl.innerHTML = '';
+      _lastRenderedVariantId.set(form, variantId);
+      return;
+    }
+
+    if (radiosContainer) radiosContainer.style.display = '';
 
     const currentTable = gridEl.querySelector('table[data-source="qb-grid-snippet"]');
     const currentTableVariant = currentTable?.getAttribute('data-variant');
     const needsTableSwap = !currentTable || currentTableVariant !== String(variantId);
 
-    if (correctHTML && needsTableSwap) {
+    if (needsTableSwap) {
       gridEl.innerHTML = correctHTML;
     }
 
