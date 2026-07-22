@@ -23,18 +23,15 @@
 {%- for value in option.values -%}
   {%- liquid
     assign swatch_focal_point = null
-    assign variant_image = ''
     assign option_title = option.name | downcase
     assign option_index = option.position | minus: 1
 
-    for variant in product.variants
-      if variant.options[option_index] == value
-        if variant.featured_image
-          assign variant_image = variant.featured_image | image_url: width: 300
-        endif
-        break
-      endif
-    endfor
+    assign option_key = 'option' | append: option.position
+    assign matching_variant = product.variants | where: option_key, value | first
+    assign variant_image = ''
+    if matching_variant.featured_image
+      assign variant_image = matching_variant.featured_image | image_url: width: 300
+    endif
 
     if value.swatch.image
       assign image_url = value.swatch.image | image_url: width: 50
