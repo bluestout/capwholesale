@@ -53,14 +53,6 @@
   {% endif %}
 >
   {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
-  <style>
-    /* Inlined to prevent a flash of duplicate variant thumbnails while
-       section-main-product.css is still loading. Keep in sync with the
-       .thumbnail-list_item--variant rule in section-main-product.css. */
-    .thumbnail-list_item--variant:not(:first-child) {
-      display: none;
-    }
-  </style>
   {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
   {{ 'component-price.css' | asset_url | stylesheet_tag }}
   {{ 'component-slider.css' | asset_url | stylesheet_tag }}
