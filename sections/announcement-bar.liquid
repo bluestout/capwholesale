@@ -1,4 +1,6 @@
-{{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
+{%- if section.blocks.size > 1 -%}
+  {{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 
 {%- liquid
