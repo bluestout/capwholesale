@@ -104,8 +104,8 @@
               {% if product.selected_or_first_available_variant.featured_media == nil and forloop.index == 1 %} is-active{% endif %}
               {% if media.media_type != 'image' %} product__media-item--full{% endif %}
               {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}
-               {% if product.metafields.custom.selected_variant == true or product.metafields.custom.selected_variant == null %} hidden{% endif %}
-               "
+              {% if product.metafields.custom.selected_variant == true or product.metafields.custom.selected_variant == null %} hidden{% endif %}
+              "
             data-media-id="{{ section.id }}-{{ media.id }}"
           >
             {%- liquid
