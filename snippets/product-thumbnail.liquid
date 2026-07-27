@@ -28,6 +28,8 @@
 {%- liquid
   unless lazy_load == false
     assign lazy = 'lazy'
+  else
+    assign fetch_priority = 'high'
   endunless
 
   assign desktop_columns = 1
