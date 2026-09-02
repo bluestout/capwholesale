@@ -11,6 +11,16 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "custom_liquid_jY6Rz9": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<div class=\"page-width\">\n  <h2>Wholesale Hats in Bulk</h2>\n\n  <p>CapWholesalers makes it easy to shop blank hats in bulk with a low 12-hat minimum per style. Browse popular trucker mesh hats, Richardson 112 caps, Flexfit and stretch-fit styles, snapbacks, performance hats, relaxed dad caps, golf and rope hats, camo caps, beanies and more.</p>\n\n  <p>We carry leading headwear brands including Richardson, OTTO, YP Classics by Yupoong, Flexfit, Outdoor Cap, Pacific Headwear, Mega Cap, Decky, Atlantis, Imperial, Legacy and Zapped Headwear.</p>\n\n  <p>Whether you are buying hats for a business, team, retailer, school, event, work crew or resale program, compare styles by fit, profile, material, closure and color to find the right cap for your needs.</p>\n\n  <p>With a low <strong>12-hat minimum per style</strong> and additional quantity pricing available on many products, you can order the quantities you need without committing to extremely large case packs.</p>\n</div>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
     "footer": {
       "type": "footer",
       "blocks": {
@@ -56,7 +66,7 @@
         "brand_information_V94PiB"
       ],
       "custom_css": [
-        "@media ()"
+        "@media();"
       ],
       "settings": {
         "color_scheme": "scheme-3",
@@ -75,6 +85,7 @@
     }
   },
   "order": [
+    "custom_liquid_jY6Rz9",
     "footer"
   ]
 }
