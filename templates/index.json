@@ -704,6 +704,15 @@
     "es_testimonial_xNiLtf": {
       "type": "es-testimonial",
       "blocks": {
+        "review_UGQ4Hj": {
+          "type": "review",
+          "settings": {
+            "title": "Hats look great!",
+            "text": "<p>Great service! Hats look great and hold stitch excellent! We got the Otto brand foam hats. Thanks, and may God bless you and keep you!</p>",
+            "created_at": "Thu, July 23, 2026",
+            "name": "James"
+          }
+        },
         "review_U9bJM9": {
           "type": "review",
           "settings": {
@@ -855,6 +864,7 @@
         }
       },
       "block_order": [
+        "review_UGQ4Hj",
         "review_U9bJM9",
         "review_cWwfEJ",
         "review_cQXErw",
