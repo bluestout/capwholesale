@@ -704,6 +704,15 @@
     "es_testimonial_xNiLtf": {
       "type": "es-testimonial",
       "blocks": {
+        "review_KqHAC7": {
+          "type": "review",
+          "settings": {
+            "title": "Excellent Selection",
+            "text": "<p>Excellent selection and a fantastic price. I have been a customer for years and will continue to be.</p>",
+            "created_at": "Tues, Aug 11, 2026",
+            "name": "Justin"
+          }
+        },
         "review_iFTjkd": {
           "type": "review",
           "settings": {
@@ -873,6 +882,7 @@
         }
       },
       "block_order": [
+        "review_KqHAC7",
         "review_iFTjkd",
         "review_UGQ4Hj",
         "review_U9bJM9",
