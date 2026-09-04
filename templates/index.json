@@ -704,6 +704,15 @@
     "es_testimonial_xNiLtf": {
       "type": "es-testimonial",
       "blocks": {
+        "review_U9bJM9": {
+          "type": "review",
+          "settings": {
+            "title": "Great price for camo hats",
+            "text": "<p>The camo hats we needed or an upcoming predator hunt with a decent price. Communication was great, shipping was fast and order was correct when received . What more could you ask for? Thanks!</p>",
+            "created_at": "Sat, June 20, 2026",
+            "name": "Brian"
+          }
+        },
         "review_cWwfEJ": {
           "type": "review",
           "settings": {
@@ -846,6 +855,7 @@
         }
       },
       "block_order": [
+        "review_U9bJM9",
         "review_cWwfEJ",
         "review_cQXErw",
         "review_tmUAWm",
