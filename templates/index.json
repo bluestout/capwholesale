@@ -704,6 +704,15 @@
     "es_testimonial_xNiLtf": {
       "type": "es-testimonial",
       "blocks": {
+        "review_iFTjkd": {
+          "type": "review",
+          "settings": {
+            "title": "Very Impressed!",
+            "text": "<p>Ordered a case of hats to be embroidered for our Fire Dept. Great quality, pricing  and punctual delivery.</p>",
+            "created_at": "Wed, July 22, 2026",
+            "name": "Alan"
+          }
+        },
         "review_UGQ4Hj": {
           "type": "review",
           "settings": {
@@ -864,6 +873,7 @@
         }
       },
       "block_order": [
+        "review_iFTjkd",
         "review_UGQ4Hj",
         "review_U9bJM9",
         "review_cWwfEJ",
