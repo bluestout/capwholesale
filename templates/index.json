@@ -704,6 +704,15 @@
     "es_testimonial_xNiLtf": {
       "type": "es-testimonial",
       "blocks": {
+        "review_9gU6xK": {
+          "type": "review",
+          "settings": {
+            "title": "Amazing and fast service!",
+            "text": "<p>Hatco is quick to process order and ship hats out. We have placed 3 orders from them total so far and will continue to. The hats are of good quality and we have had no issues.</p>",
+            "created_at": "Wed, Mar 25, 2026",
+            "name": "Michael"
+          }
+        },
         "review_cDKqWr": {
           "type": "review",
           "settings": {
@@ -792,6 +801,7 @@
         }
       },
       "block_order": [
+        "review_9gU6xK",
         "review_cDKqWr",
         "review_KyX7Vj",
         "review_NRchmU",
