@@ -704,6 +704,15 @@
     "es_testimonial_xNiLtf": {
       "type": "es-testimonial",
       "blocks": {
+        "review_KyX7Vj": {
+          "type": "review",
+          "settings": {
+            "title": "Great prices and customer service",
+            "text": "<p>Prices are great and they respond very quickly with any questions you might have, emailing or calling.</p>",
+            "created_at": "Thu, Apr 02, 2026",
+            "name": "Chad"
+          }
+        },
         "review_NRchmU": {
           "type": "review",
           "settings": {
@@ -720,16 +729,6 @@
             "text": "<p>It was an easy shopping experience.  The variety was great to choose from.</p>",
             "created_at": "Wed, August  05, 2026",
             "name": "Fatima"
-          }
-        },
-        "review_xxMRxP": {
-          "type": "review",
-          "settings": {
-            "title": "Amazing Hats!",
-            "image": "shopify://shop_images/Stars.svg",
-            "text": "<p>We designed some hats to give away to patients and promote the business.  The patients have loved them!  Thanks to Lisette in customer service who has made the process easy! Great Company and excellent service!</p>",
-            "created_at": "Tue, Sep 01 2020",
-            "name": "Julie"
           }
         },
         "review_LNLbd3": {
@@ -784,9 +783,9 @@
         }
       },
       "block_order": [
+        "review_KyX7Vj",
         "review_NRchmU",
         "review_AHdMYq",
-        "review_xxMRxP",
         "review_LNLbd3",
         "review_h8GNw6",
         "review_kf7iPz",
