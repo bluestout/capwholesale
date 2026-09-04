@@ -704,6 +704,15 @@
     "es_testimonial_xNiLtf": {
       "type": "es-testimonial",
       "blocks": {
+        "review_cWwfEJ": {
+          "type": "review",
+          "settings": {
+            "title": "I love my hats fast shipping",
+            "text": "<p>Everything was and went so awesome. I received my products yesterday, and didn't think it would be so soon. I will and have been recommending Hatco International to everyone.</p>",
+            "created_at": "Thu, Mar 13, 2025",
+            "name": "Charlie"
+          }
+        },
         "review_cQXErw": {
           "type": "review",
           "settings": {
@@ -828,6 +837,7 @@
         }
       },
       "block_order": [
+        "review_cWwfEJ",
         "review_cQXErw",
         "review_tmUAWm",
         "review_ayDYLL",
