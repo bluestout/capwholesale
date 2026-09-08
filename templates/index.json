@@ -704,15 +704,6 @@
     "es_testimonial_xNiLtf": {
       "type": "es-testimonial",
       "blocks": {
-        "review_qDNYb3": {
-          "type": "review",
-          "settings": {
-            "title": "Fantastic turnaround!",
-            "text": "<p>Fantastic turnaround time even with a glitch in distribution. Customer service communicated well thank you.</p>",
-            "created_at": "Sep 29, 2023",
-            "name": "Katie Crook"
-          }
-        },
         "review_KqHAC7": {
           "type": "review",
           "settings": {
@@ -850,6 +841,15 @@
             "name": "empowermentoutfitters@gmail.com"
           }
         },
+        "review_qDNYb3": {
+          "type": "review",
+          "settings": {
+            "title": "Fantastic turnaround!",
+            "text": "<p>Fantastic turnaround time even with a glitch in distribution. Customer service communicated well thank you.</p>",
+            "created_at": "Sep 29, 2023",
+            "name": "Katie Crook"
+          }
+        },
         "review_kf7iPz": {
           "type": "review",
           "settings": {
@@ -882,7 +882,6 @@
         }
       },
       "block_order": [
-        "review_qDNYb3",
         "review_KqHAC7",
         "review_iFTjkd",
         "review_UGQ4Hj",
@@ -898,6 +897,7 @@
         "review_AHdMYq",
         "review_LNLbd3",
         "review_h8GNw6",
+        "review_qDNYb3",
         "review_kf7iPz",
         "review_mBWtJC",
         "review_LGegcN"
