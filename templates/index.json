@@ -821,15 +821,6 @@
             "name": "Fatima"
           }
         },
-        "review_7Cr9dx": {
-          "type": "review",
-          "settings": {
-            "title": "Amazing Hats!",
-            "text": "<p>We designed some hats to give away to patients and promote the business.  The patients have loved them!  Thanks to Lisette in customer service who has made the process easy! Great Company and excellent service!</p>",
-            "created_at": "Sep 01 2020",
-            "name": "Julie"
-          }
-        },
         "review_LNLbd3": {
           "type": "review",
           "settings": {
@@ -856,7 +847,7 @@
             "title": "Amazing Hats!",
             "image": "shopify://shop_images/Stars.svg",
             "text": "<p>We designed some hats to give away to patients and promote the business.  The patients have loved them!  Thanks to Lisette in customer service who has made the process easy! Great Company and excellent service!</p>",
-            "created_at": "Tue, Sep 01 2020",
+            "created_at": "Sep 01 2020",
             "name": "Julie"
           }
         },
@@ -895,7 +886,6 @@
         "review_KyX7Vj",
         "review_NRchmU",
         "review_AHdMYq",
-        "review_7Cr9dx",
         "review_LNLbd3",
         "review_h8GNw6",
         "review_kf7iPz",
