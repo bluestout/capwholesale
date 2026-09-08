@@ -841,6 +841,15 @@
             "name": "empowerment outfitters"
           }
         },
+        "review_Tc6cew": {
+          "type": "review",
+          "settings": {
+            "title": "Inexpensive in bulk!",
+            "text": "<p>I used this company to buy hats to make iron-on trucker hats for my husband’s birthday. The customer service was great, the shipping was very fast, and the hats are perfect - inexpensive but good quality.</p>",
+            "created_at": "Oct 9, 2023",
+            "name": "Rachel Deal"
+          }
+        },
         "review_qDNYb3": {
           "type": "review",
           "settings": {
@@ -897,6 +906,7 @@
         "review_AHdMYq",
         "review_LNLbd3",
         "review_h8GNw6",
+        "review_Tc6cew",
         "review_qDNYb3",
         "review_kf7iPz",
         "review_mBWtJC",
