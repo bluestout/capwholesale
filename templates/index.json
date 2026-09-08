@@ -704,15 +704,6 @@
     "es_testimonial_xNiLtf": {
       "type": "es-testimonial",
       "blocks": {
-        "review_BVGeBi": {
-          "type": "review",
-          "settings": {
-            "title": "High Quality Hats",
-            "text": "<p>Customer Service was fantastic, offering rapid and clear responses to questions inquiries that made the experience seamless.  Thank you!</p>",
-            "created_at": "Sep 26, 2023",
-            "name": "Boyd Harris"
-          }
-        },
         "review_KqHAC7": {
           "type": "review",
           "settings": {
@@ -850,6 +841,15 @@
             "name": "empowerment outfitters"
           }
         },
+        "review_BVGeBi": {
+          "type": "review",
+          "settings": {
+            "title": "High Quality Hats",
+            "text": "<p>Customer Service was fantastic, offering rapid and clear responses to questions inquiries that made the experience seamless.  Thank you!</p>",
+            "created_at": "Sep 26, 2023",
+            "name": "Boyd Harris"
+          }
+        },
         "review_Tc6cew": {
           "type": "review",
           "settings": {
@@ -909,7 +909,6 @@
         }
       },
       "block_order": [
-        "review_BVGeBi",
         "review_KqHAC7",
         "review_iFTjkd",
         "review_UGQ4Hj",
@@ -925,6 +924,7 @@
         "review_AHdMYq",
         "review_LNLbd3",
         "review_h8GNw6",
+        "review_BVGeBi",
         "review_Tc6cew",
         "review_qDNYb3",
         "review_3UHfBq",
