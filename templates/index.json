@@ -704,6 +704,15 @@
     "es_testimonial_xNiLtf": {
       "type": "es-testimonial",
       "blocks": {
+        "review_3UHfBq": {
+          "type": "review",
+          "settings": {
+            "title": "Very good prices",
+            "text": "<p><br/>Best hat I have come across, material is really comfortable and very reasonable prices.<br/><br/></p>",
+            "created_at": "Oct 5, 2023",
+            "name": "Alexis Kauffman"
+          }
+        },
         "review_KqHAC7": {
           "type": "review",
           "settings": {
@@ -891,6 +900,7 @@
         }
       },
       "block_order": [
+        "review_3UHfBq",
         "review_KqHAC7",
         "review_iFTjkd",
         "review_UGQ4Hj",
