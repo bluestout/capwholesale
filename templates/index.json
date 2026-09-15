@@ -708,6 +708,7 @@
           "type": "review",
           "settings": {
             "title": "Excellent Selection",
+            "image": "shopify://shop_images/Stars.svg",
             "text": "<p>Excellent selection and a fantastic price. I have been a customer for years and will continue to be.</p>",
             "created_at": "Aug 11, 2026",
             "name": "Justin"
@@ -717,6 +718,7 @@
           "type": "review",
           "settings": {
             "title": "Very Impressed!",
+            "image": "shopify://shop_images/Stars.svg",
             "text": "<p>Ordered a case of hats to be embroidered for our Fire Dept. Great quality, pricing  and punctual delivery.</p>",
             "created_at": "July 22, 2026",
             "name": "Alan"
@@ -726,6 +728,7 @@
           "type": "review",
           "settings": {
             "title": "Hats look great!",
+            "image": "shopify://shop_images/Stars.svg",
             "text": "<p>Great service! Hats look great and hold stitch excellent! We got the Otto brand foam hats. Thanks, and may God bless you and keep you!</p>",
             "created_at": "July 23, 2026",
             "name": "James"
@@ -735,6 +738,7 @@
           "type": "review",
           "settings": {
             "title": "Great price for camo hats",
+            "image": "shopify://shop_images/Stars.svg",
             "text": "<p>The camo hats we needed or an upcoming predator hunt with a decent price. Communication was great, shipping was fast and order was correct when received . What more could you ask for? Thanks!</p>",
             "created_at": "June 20, 2026",
             "name": "Brian"
@@ -744,6 +748,7 @@
           "type": "review",
           "settings": {
             "title": "I love my hats fast shipping",
+            "image": "shopify://shop_images/Stars.svg",
             "text": "<p>Everything was and went so awesome. I received my products yesterday, and didn't think it would be so soon. I will and have been recommending Hatco International to everyone.</p>",
             "created_at": "Mar 13, 2025",
             "name": "Charlie"
@@ -753,6 +758,7 @@
           "type": "review",
           "settings": {
             "title": "Great selections",
+            "image": "shopify://shop_images/Stars.svg",
             "text": "<p>Great selections, pricing affordable.<br/>Pretty fast shipping. <br/>This company has been my go to on premium hats for awhile now.</p>",
             "created_at": "Mar 14, 2026",
             "name": "Tracey"
@@ -762,6 +768,7 @@
           "type": "review",
           "settings": {
             "title": "Great Customer Service",
+            "image": "shopify://shop_images/Stars.svg",
             "text": "<p>Always quick, and Robin is awesome to work with.</p>",
             "created_at": "Mar 21, 2026",
             "name": "Austin"
@@ -771,6 +778,7 @@
           "type": "review",
           "settings": {
             "title": "Amazing and fast service!",
+            "image": "shopify://shop_images/Stars.svg",
             "text": "<p>Hatco is quick to process order and ship hats out. We have placed 3 orders from them total so far and will continue to. The hats are of good quality and we have had no issues.</p>",
             "created_at": "Mar 25, 2026",
             "name": "Michael"
@@ -780,6 +788,7 @@
           "type": "review",
           "settings": {
             "title": "Love my hats!",
+            "image": "shopify://shop_images/Stars.svg",
             "text": "<p>Excellent experience ! Quick and thorough. Hats are all I expected! Will order again!</p>",
             "created_at": "Mar 22, 2026",
             "name": "Lorne"
@@ -789,6 +798,7 @@
           "type": "review",
           "settings": {
             "title": "Satisfied!",
+            "image": "shopify://shop_images/Stars.svg",
             "text": "<p>Great company with great staff!  Couldn’t be more satisfied!</p>",
             "created_at": "Mar 26, 2026",
             "name": "Chauncey"
@@ -798,6 +808,7 @@
           "type": "review",
           "settings": {
             "title": "Great prices and customer service",
+            "image": "shopify://shop_images/Stars.svg",
             "text": "<p>Prices are great and they respond very quickly with any questions you might have, emailing or calling.</p>",
             "created_at": "Apr 02, 2026",
             "name": "Chad"
@@ -807,15 +818,27 @@
           "type": "review",
           "settings": {
             "title": "Fast Shipping!",
+            "image": "shopify://shop_images/Stars.svg",
             "text": "<p>Ordering was easy. Products arrived in a timely manner. Communication was great!!</p>",
             "created_at": "July 15, 2026",
             "name": "Angela"
+          }
+        },
+        "review_qMxVKJ": {
+          "type": "review",
+          "settings": {
+            "title": "Amazing Hats!",
+            "image": "shopify://shop_images/Stars.svg",
+            "text": "<p>We designed some hats to give away to patients and promote the business.  The patients have loved them!  Thanks to Lisette in customer service who has made the process easy! Great Company and excellent service!</p>",
+            "created_at": "Tue, Sep 01 2020",
+            "name": "Julie"
           }
         },
         "review_AHdMYq": {
           "type": "review",
           "settings": {
             "title": "Easy Shopping Experience",
+            "image": "shopify://shop_images/Stars.svg",
             "text": "<p>It was an easy shopping experience.  The variety was great to choose from.</p>",
             "created_at": "August  05, 2026",
             "name": "Fatima"
@@ -845,6 +868,7 @@
           "type": "review",
           "settings": {
             "title": "High Quality Hats",
+            "image": "shopify://shop_images/Stars.svg",
             "text": "<p>Customer Service was fantastic, offering rapid and clear responses to questions inquiries that made the experience seamless.  Thank you!</p>",
             "created_at": "Sep 26, 2023",
             "name": "Boyd Harris"
@@ -854,6 +878,7 @@
           "type": "review",
           "settings": {
             "title": "Inexpensive in bulk!",
+            "image": "shopify://shop_images/Stars.svg",
             "text": "<p>I used this company to buy hats to make iron-on trucker hats for my husband’s birthday. The customer service was great, the shipping was very fast, and the hats are perfect - inexpensive but good quality.</p>",
             "created_at": "Oct 9, 2023",
             "name": "Rachel Deal"
@@ -863,6 +888,7 @@
           "type": "review",
           "settings": {
             "title": "Fantastic turnaround!",
+            "image": "shopify://shop_images/Stars.svg",
             "text": "<p>Fantastic turnaround time even with a glitch in distribution. Customer service communicated well thank you.</p>",
             "created_at": "Sep 29, 2023",
             "name": "Katie Crook"
@@ -872,6 +898,7 @@
           "type": "review",
           "settings": {
             "title": "Very good prices",
+            "image": "shopify://shop_images/Stars.svg",
             "text": "<p><br/>Best hat I have come across, material is really comfortable and very reasonable prices.<br/><br/></p>",
             "created_at": "Oct 5, 2023",
             "name": "Alexis Kauffman"
@@ -921,6 +948,7 @@
         "review_cDKqWr",
         "review_KyX7Vj",
         "review_NRchmU",
+        "review_qMxVKJ",
         "review_AHdMYq",
         "review_LNLbd3",
         "review_h8GNw6",
