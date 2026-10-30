@@ -6,7 +6,7 @@
   {% comment %} window.BOLD.pre.config.USE_DEBOUNCE_FOR_RULE_ACTIONS = true; {% endcomment %}
 
   window.BOLDCUSTOM.rules = window.BOLDCUSTOM.rules || {};
-  window.BOLDCUSTOM.customerTags = {{ customer.tags | default: [] | json }};
+  window.BOLDCUSTOM.customerTags = {{ customer.tags | default: nil | json }};
   window.BOLDCUSTOM.product = {{ product | json }};
   window.BOLDCUSTOM.cartvariants = {{ cart.items | map: 'variant' | map: 'id' | json }}
 
@@ -197,4 +197,13 @@
     margin: 0px;
     margin-bottom: 1.5rem;
   }
-</style>
+</style>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{{ customer.tags | default: [] | json }}"
+  to: "{{ customer.tags | default: nil | json }}"
+  position: 380..421
+{%- endcomment -%}
