@@ -6,7 +6,7 @@
 
   window.BOLDCUSTOM.rules = window.BOLDCUSTOM.rules || {};
   console.info('[qb-grid] build 2026-07-07-5');
-  window.BOLDCUSTOM.customerTags = {{ customer.tags | default: [] | json }};
+  window.BOLDCUSTOM.customerTags = {{ customer.tags | default: nil | json }};
   window.BOLDCUSTOM.product = {{ product | json }};
   window.BOLDCUSTOM.cartvariants = {{ cart.items | map: 'variant' | map: 'id' | json }}
 
@@ -502,3 +502,13 @@
     margin-bottom: 1.5rem;
   }
 </style>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{{ customer.tags | default: [] | json }}"
+  to: "{{ customer.tags | default: nil | json }}"
+  position: 334..375
+{% endcomment %}
